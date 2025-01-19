@@ -344,7 +344,7 @@ public class DialogueManager : MonoBehaviour, IService
     private bool isSkipping = false;
     private bool canSkip = false;
 
-    private bool isInDialogue
+    public bool isInDialogue
     {
         get { return dialogueUI.activeInHierarchy; }
     }

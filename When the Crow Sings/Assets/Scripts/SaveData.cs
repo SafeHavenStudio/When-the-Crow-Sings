@@ -55,6 +55,7 @@ public class SaveData
         { "JazmyneTaskOn",false },
         { "PapersUp",false },
         { "PapersDown",false },
+        { "QTEOn", false},
         { "JazmyneBaseCompleted",false },
         { "JazmyneExhausted",false },
 
@@ -111,6 +112,7 @@ public class SaveData
         { "KeyInformation2",false },
         { "KeyInformation3",false },
 
+        { "IntroContextSeen", false},
     };
 
     public Dictionary<string, int> intFlags = new Dictionary<string, int>()

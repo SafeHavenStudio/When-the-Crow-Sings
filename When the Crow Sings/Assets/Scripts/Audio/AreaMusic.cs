@@ -14,8 +14,8 @@ public class AreaMusic : MonoBehaviour
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference Ambience { get; private set; }
 
-    private EventInstance areaMusicInstance;
-    private EventInstance ambienceInstance;
+    [HideInInspector] public EventInstance areaMusicInstance;
+    [HideInInspector] public EventInstance ambienceInstance;
 
     private void Start()
     {
@@ -33,6 +33,11 @@ public class AreaMusic : MonoBehaviour
 
         PlayMusic();
         PlayAmbience();
+    }
+
+    public void SetParameter(string parameterName, float parameterValue)
+    {
+        ambienceInstance.setParameterByName(parameterName, parameterValue);
     }
 
     private void PlayMusic()

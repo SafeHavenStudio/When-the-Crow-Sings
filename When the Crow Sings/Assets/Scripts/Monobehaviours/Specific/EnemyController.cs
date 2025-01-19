@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : StateMachineComponent
+public class EnemyController : StateMachineComponent,IService
 {
     public List<EnemyWaypointsHolder> enemyWaypointsHolders;
     public float patrolSpeed = 4.5f;
@@ -24,11 +24,10 @@ public class EnemyController : StateMachineComponent
     public float timeToBeStunned = 2.0f;
     public float lookAtHeight = 2.5f;
 
-    bool lastTime = false;
     RaycastHit hit;
 
     [HideInInspector]
-    public static bool canSeePlayer = false;
+    public bool canSeePlayer = false;
 
     public EnemySightCone enemySightCone;
     public Transform raycastStart;
@@ -45,10 +44,14 @@ public class EnemyController : StateMachineComponent
             return canSeePlayer && enemySightCone.playerInSightCone;
         }
     }
+    public bool IsChasingPlayer = false;
+    
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        RegisterSelfAsService();
         
 
         stateMachine = new StateMachine(this);
@@ -121,6 +124,7 @@ public class EnemyController : StateMachineComponent
     private void OnDestroy()
     {
         canSeePlayer = false;
+        ServiceLocator.Unregister<EnemyController>();
     }
 
     private void FixedUpdate()
@@ -157,7 +161,6 @@ public class EnemyController : StateMachineComponent
 
             if (hit.transform.CompareTag("Player"))
             {
-                Debug.Log("I can theoretically see you.");
                 canSeePlayer = true;
             }
             else
@@ -205,6 +208,11 @@ public class EnemyController : StateMachineComponent
                 currentWaypointHolder = (EnemyWaypointsHolder)args.objectArgs[1];
             }
         }
+    }
+
+    public void RegisterSelfAsService()
+    {
+        ServiceLocator.Register(this);
     }
 
     //private void FixedUpdate()

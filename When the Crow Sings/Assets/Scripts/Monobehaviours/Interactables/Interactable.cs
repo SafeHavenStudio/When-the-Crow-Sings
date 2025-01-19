@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour
         {
             virtualCamera.Priority = 100;
         }
-
+        // Would have been better to just use some polymorphism, ah well at least it's clear enough.
         if (GetComponent<DialogueInteractable>())
         {
             GetComponent<DialogueInteractable>().EmitStartDialogueSignal();
@@ -24,6 +24,10 @@ public class Interactable : MonoBehaviour
         else if (GetComponent<QTEInteractable>())
         {
             GetComponent<QTEInteractable>().EmitStartQteSignal();
+        }
+        else if (GetComponent<CameraInteractable>())
+        {
+            GetComponent<CameraInteractable>().EmitCameraInteractionSignal();
         }
         else if (GetComponent<ImagePopupInteractable>())
         {
@@ -41,7 +45,12 @@ public class Interactable : MonoBehaviour
 
     public void OnDialogueFinished(SignalArguments args)
     {
-        if ( virtualCamera != null )
+        EndInteraction();
+    }
+
+    void EndInteraction()
+    {
+        if (virtualCamera != null)
         {
             virtualCamera.Priority = 10;
         }

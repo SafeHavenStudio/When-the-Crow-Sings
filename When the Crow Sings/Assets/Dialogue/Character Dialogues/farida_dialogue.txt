@@ -33,31 +33,19 @@ if ifBeauAndFrancisco == true:
 		Chance_Scared: . . . Uh, he said that you might be able to tell me about the old system you guys had.
 		=> farida_francisco
 	- Beau sent me.
-		Chance: <color=#813408>Beau</color> sent me.
-		Farida_Annoyed: Okay. And?
-		Chance_Scared: . . . Someone banged on my window. <color=#813408>Beau</color> said you might know about security here. 
-		Farida_Stunned: What? . . .
-		Farida_Exhausted: Look. I am aware there are a few. . . <color=#a11bbe>disturbances</color> around the compound, but everything is under control. You don't need to worry about it.
-		=> farida_sec_int_cont 
+		=> farida_beau
 if FranciscoBaseCompleted == true:
-	- Francisco sent me.
-		Chance: <color=#813408>Francisco</color> sent me.
-		Farida_Annoyed: Okay. And?
-		Chance_Scared: . . . Uh, he said that you might be able to tell me about the old system you guys had.
-		=> farida_francisco
+	=> farida_francisco
 if BeauBaseCompleted == true:		
-	- Beau sent me.
-		Chance: <color=#813408>Beau</color> sent me.
-		Farida_Annoyed: Okay. And?
-		Chance_Scared: . . . Someone banged on my window. <color=#813408>Beau</color> said you might know about security here. 
-		Farida_Stunned: What? . . .
-		Farida_Exhausted: Look. I am aware there are a few. . . <color=#a11bbe>disturbances</color> around the compound, but everything is under control. You don't need to worry about it.
-		=> farida_sec_int_cont 
+	=> farida_beau
 else:
-	Farida: How the fuck did you get in here? What the fuck??
+	Farida: You have broken the laws of this game and shall be banished to the sixth dimension. 
 	=> END
 
 ~ farida_francisco
+Chance: <color=#813408>Francisco</color> sent me.
+Farida_Annoyed: Okay. And?
+Chance_Scared: . . . Uh, he said that you might be able to tell me about the old system you guys had.
 - Curious.
 	Chance: I was curious about it.
 - Back home.
@@ -71,6 +59,14 @@ if day == 2:
 Farida_Annoyed: Well they're not! 
 Farida: Weird, I mean. Okay?
 => farida_sec_int_cont 
+
+~ farida_beau
+	Chance: <color=#813408>Beau</color> sent me.
+	Farida_Annoyed: Okay. And?
+	Chance_Scared: . . . Someone banged on my window. <color=#813408>Beau</color> said you might know about security here. 
+	Farida_Stunned: What? . . .
+	Farida_Exhausted: Look. I am aware there are a few. . . <color=#a11bbe>disturbances</color> around the compound, but everything is under control. You don't need to worry about it.
+	=> farida_sec_int_cont 
 
 ~ farida_sec_int_cont 
 set FaridaTaskOffered = true;

@@ -48,7 +48,12 @@ public class PlayerController : StateMachineComponent, IService
 
     public CharacterController characterController;
 
+    public GameObject trajectoryLine;
+
     public GameSignal pauseSignalTEMP;
+    public GameSignal mapSignalTEMP;
+    public GameSignal historySignalTEMP;
+    public GameSignal codexSignalTEMP;
 
     public void ApplyGravity(float deltaTime)
     {
@@ -95,21 +100,40 @@ public class PlayerController : StateMachineComponent, IService
 
     public void ThrowBirdseed()
     {
-        var direction = throwTarget.transform.position - transform.position;
+        var direction = throwTarget.transform.position - throwPosition.transform.position;
+        direction.y = 4;
         BirdseedController.Create(pfBirdseedProjectile, throwPosition, direction);
     }
     private void OnEnable()
     {
         InputManager.playerInputActions.Player.Pause.performed += OnPause;
+        InputManager.playerInputActions.Player.OpenMap.performed += OnMap;
+        InputManager.playerInputActions.Player.OpenHistory.performed += OnHistory;
+        InputManager.playerInputActions.Player.OpenPeopleThatSoundsSOWrong.performed += OnCodex;
     }
     private void OnDisable()
     {
         InputManager.playerInputActions.Player.Pause.performed -= OnPause;
+        InputManager.playerInputActions.Player.OpenMap.performed -= OnMap;
+        InputManager.playerInputActions.Player.OpenHistory.performed -= OnHistory;
+        InputManager.playerInputActions.Player.OpenPeopleThatSoundsSOWrong.performed -= OnCodex;
     }
 
     private void OnPause(InputAction.CallbackContext context)
     {
         pauseSignalTEMP.Emit();
+    }
+    private void OnMap(InputAction.CallbackContext context)
+    {
+        mapSignalTEMP.Emit();
+    }
+    private void OnHistory(InputAction.CallbackContext context)
+    {
+        historySignalTEMP.Emit();
+    }
+    private void OnCodex(InputAction.CallbackContext context)
+    {
+        codexSignalTEMP.Emit();
     }
 
     public void OnDialogueStarted(SignalArguments signalArgs)
@@ -123,7 +147,10 @@ public class PlayerController : StateMachineComponent, IService
 
     public void OnFullyLoadFinished(SignalArguments args)
     {
-        stateMachine.Enter("PlayerMovementState");
+        if (!ServiceLocator.Get<DialogueManager>().isInDialogue)
+        {
+            stateMachine.Enter("PlayerMovementState");
+        }
     }
 
     public void OnAnimationFinished(SignalArguments args)

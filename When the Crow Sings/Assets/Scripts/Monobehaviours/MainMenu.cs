@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public MainMenuDebugLoadHolder mainMenuDebugLoadHolder;
 
     public SceneReference mainScene;
+    public SceneReference cutsceneScene;
 
     public Button sceneLoadButtonPrefab;
     public GridLayoutGroup sceneLoadButtonsHolder;
@@ -50,13 +51,13 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuDebugLoadHolder.resourceToLoad = levelDataResource;
         SceneManager.LoadScene(mainScene.Name);
-        //updateMusic();
+        updateMusic();
     }
 
     public void OnNewGameButtonPressed()
     {
         StartCoroutine(NewGame());
-        //updateMusic();
+        updateMusic();
     }
 
     public void OnContinueButtonPressed()
@@ -69,7 +70,7 @@ public class MainMenu : MonoBehaviour
         int levelDataIndex = SaveDataAccess.saveData.intFlags["levelDataIndex"];
         mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[levelDataIndex];
         SceneManager.LoadScene(mainScene.Name);
-        //updateMusic();
+        updateMusic();
     }
 
     IEnumerator NewGame()
@@ -77,7 +78,8 @@ public class MainMenu : MonoBehaviour
         yield return StartCoroutine(SaveDataAccess.EraseDataFromDisk());
         SaveDataAccess.ResetSaveData();
         mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
-        SceneManager.LoadScene(mainScene.Name);
+        //SceneManager.LoadScene(mainScene.Name);
+        SceneManager.LoadScene(cutsceneScene.Name);
     }
 
     public void quitGame()

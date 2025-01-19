@@ -12,8 +12,11 @@ public class StirringQTE : QuickTimeEvent
     private int currentStep = 0;
     private bool correctKey;
     private bool countingDown;
+    [HideInInspector] public bool complete = false;
     public int score = 0;
     public float timer = 8;
+    private bool firstTime = true;
+    [HideInInspector] public bool failed = false;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -25,9 +28,9 @@ public class StirringQTE : QuickTimeEvent
     public Image sKey;
     public Image dKey;
 
-    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D }; // Keyboard sequence
-    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left }; // Joystick sequence
-    private float inputThreshold = 0.8f; // Threshold for recognizing a joystick direction
+    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D }; 
+    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left }; 
+    private float inputThreshold = 0.8f; //Threshold for recognizing a joystick direction
 
     public QTEInteractable qteInteractable;
     public Slider slider;
@@ -38,6 +41,10 @@ public class StirringQTE : QuickTimeEvent
     {
         qteInteractable = FindObjectOfType<QTEInteractable>();
         slider = GetComponentInChildren<Slider>();
+        if (complete == true)
+        {
+            Debug.Log("Complete is true");
+        }
 
         if (!countingDown)
         {
@@ -54,9 +61,8 @@ public class StirringQTE : QuickTimeEvent
         }
 
         // Check for QTE completion
-        if (score >= slider.maxValue)
+        if(score >= slider.maxValue && firstTime)
         {
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
             SucceedQTE();
         }
 
@@ -66,12 +72,36 @@ public class StirringQTE : QuickTimeEvent
             timer -= Time.deltaTime;
             UpdateTimer(timer);
         }
-        else if (timer <= 0)
+        else if (timer <= 0 && firstTime)
         {
             Debug.Log("Time is up, QTE Failed");
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.QteFailed, this.transform.position);
+            //AudioManager.instance.PlayOneShot(FMODEvents.instance.QteFailed, this.transform.position);
+            failed = true;
             FailQTE();
         }
+    }
+
+    private IEnumerator waitBeforeCompletion()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
+        firstTime = false;
+        yield return new WaitForSeconds(1f);
+        SignalArguments args = new SignalArguments();
+        args.boolArgs.Add(true);
+        globalFinishedQteSignal.Emit(args);
+        Debug.Log("QTE COMPLETE");
+        firstTime = true;
+    }
+
+    private IEnumerator waitBeforeFail()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.QteFailed, this.transform.position);
+        firstTime = false;
+        yield return new WaitForSeconds(1f);
+        SignalArguments args = new SignalArguments();
+        args.boolArgs.Add(false);
+        globalFinishedQteSignal.Emit(args);
+        firstTime = true;
     }
 
     private void UpdateTimer(float currentTime)
@@ -107,6 +137,7 @@ public class StirringQTE : QuickTimeEvent
             sKey.enabled = false;
             dKey.enabled = false;*/
 
+            //AudioManager.instance.PlayOneShot(FMODEvents.instance.AngelBlip);  whenever stir sound is made put here
             wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
             aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, 1);
             sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
@@ -155,6 +186,7 @@ public class StirringQTE : QuickTimeEvent
         }
         else if (currentStep == 1)
         {
+            //AudioManager.instance.PlayOneShot(FMODEvents.instance.Stir);  whenever stir sound is made put here
             upJoystick.enabled = false;
             rightJoystick.enabled = true;
             downJoystick.enabled = false;
@@ -217,7 +249,7 @@ public class StirringQTE : QuickTimeEvent
         //if(correctKey) 
             //displayBox.GetComponent<Image>().color = Color.green;
 
-        yield return new WaitForSeconds(0.04f); // Time between transitions (less = faster)
+        yield return new WaitForSeconds(0.03f); //Time between transitions (less = faster)
 
         //displayBox.GetComponent<Image>().color = Color.white;
 
@@ -225,7 +257,7 @@ public class StirringQTE : QuickTimeEvent
         {
             currentStep = (currentStep + 1) % keySequence.Length;
             score++;
-            timer = 7; // Reset timer
+            timer = 7; //Reset timer
         }
         else
         {
@@ -233,21 +265,18 @@ public class StirringQTE : QuickTimeEvent
         }
 
         correctKey = false;
-        countingDown = false; // Ready for next input
+        countingDown = false; //Ready for next input
     }
 
     public override void SucceedQTE()
     {
-        SignalArguments args = new SignalArguments();
-        args.boolArgs.Add(true);
-        globalFinishedQteSignal.Emit(args);
+        complete = true;
+        StartCoroutine(waitBeforeCompletion());
     }
 
     public override void FailQTE()
     {
-        SignalArguments args = new SignalArguments();
-        args.boolArgs.Add(false);
-        globalFinishedQteSignal.Emit(args);
+        StartCoroutine(waitBeforeFail());
     }
 
     public override void StartQTE()

@@ -22,11 +22,11 @@ public class EnemyChaseState : EnemyState
     {
         s.navMeshAgent.speed = s.pursuitSpeed;
         s.enemyAnimator.SetBool("animChase", true);
-        Debug.Log("Pursue!");
+        s.IsChasingPlayer = true;
     }
     public override void StateExited()
     {
         s.enemyAnimator.SetBool("animChase", false);
-        Debug.Log("Not pursuing anymore.");
+        s.IsChasingPlayer = false;
     }
 }

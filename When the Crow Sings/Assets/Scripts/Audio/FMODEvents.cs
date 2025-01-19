@@ -17,6 +17,12 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Dialogue Sounds")]
     [field: SerializeField] public EventReference Blip { get; private set; }
+    [field: SerializeField] public EventReference ChanceBlip { get; private set; }
+    [field: SerializeField] public EventReference AngelBlip { get; private set; }
+    [field: SerializeField] public EventReference BeauBlip { get; private set; }
+    [field: SerializeField] public EventReference CalebBlip { get; private set; }
+    [field: SerializeField] public EventReference FaridaBlip { get; private set; }
+    [field: SerializeField] public EventReference JazmyneBlip { get; private set; }
     [field: SerializeField] public EventReference BigShock { get; private set; }
     [field: SerializeField] public EventReference LesserShock { get; private set; }
 

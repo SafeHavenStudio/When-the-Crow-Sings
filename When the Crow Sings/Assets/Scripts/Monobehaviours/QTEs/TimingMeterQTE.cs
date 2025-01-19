@@ -10,6 +10,7 @@ public class TimingMeterQTE : QuickTimeEvent
     public float speed = 2f;
     public float targetMin; //Range for successful hit
     public float targetMax;
+    public Image background;
     //public float targetValue;
     public Animator timingMeterAnimator;
 
@@ -27,6 +28,7 @@ public class TimingMeterQTE : QuickTimeEvent
 
     private bool movingRight = true; //Meter movement direction
     public bool meterActive = false;
+    private bool isFinished = false;
 
     private void Start()
     {
@@ -67,12 +69,13 @@ public class TimingMeterQTE : QuickTimeEvent
         Debug.Log("Started!");
         //timingMeterAnimator.SetBool("isOpen", true);
         meterActive = true;
+        isFinished = false;
         SetTargetRangeMarkers();
 
         InputManager.playerInputActions.UI.QTEAccept.performed += OnQTEInput;
     }
 
-    //Moves the handle up and down
+    //Moves the handle left and right
     private void MoveMeter()
     {
         if (movingRight)
@@ -106,19 +109,27 @@ public class TimingMeterQTE : QuickTimeEvent
         if (sliderMeter.value >= targetMin && sliderMeter.value <= targetMax)
         {
             winCount++;
+            StartCoroutine(waitForSuccess());
             Debug.Log(winCount + "/" + winCounter);
             if (winCount >= winCounter)
             {
                 Debug.Log("Successful QTE");
                 //RandomizeMeter();
+                if(!isFinished)
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
-                SucceedQTE();
+
+                isFinished = true;
+                speed = 0;
+                background.color = Color.green;
+                StartCoroutine(waitForSuccess());
+                //SucceedQTE();
             }
             else if (winCounter > winCount)
             {
                 Debug.Log("Else ifed");
                 RandomizeMeter();
                 SetTargetRangeMarkers();
+                if(!isFinished)
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
             }
         }
@@ -127,15 +138,17 @@ public class TimingMeterQTE : QuickTimeEvent
             Debug.Log("Failed QTE");
             //SetTargetRangeMarkers();
             //RandomizeMeter();
+            if(!isFinished)
             AudioManager.instance.PlayOneShot(FMODEvents.instance.QteFailed, this.transform.position);
-            FailQTE();
+            isFinished = true;
+            speed = 0;
+            StartCoroutine(waitForFailure());
+            //FailQTE();
         }
     }
 
     public override void SucceedQTE()
     {
-        //timingMeterAnimator.SetBool("isOpen", false);
-        //meterActive = false;
         SignalArguments args = new SignalArguments();
         InputManager.playerInputActions.UI.QTEAccept.performed -= OnQTEInput;
 
@@ -149,6 +162,26 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
+    }
+
+    private IEnumerator waitForSuccess()
+    {
+        background.color = Color.green;
+
+        yield return new WaitForSeconds(1f);
+
+        if (winCount >= winCounter)
+        SucceedQTE();
+        else
+        background.color = Color.white;
+    }
+
+    private IEnumerator waitForFailure()
+    {
+        background.color = Color.red;
+        yield return new WaitForSeconds(1f);
+
+        FailQTE();
     }
 
     public void RandomizeMeter()
@@ -169,19 +202,19 @@ public class TimingMeterQTE : QuickTimeEvent
     //Set the target markers based off target range
     public void SetTargetRangeMarkers()
     {
-        // Get the width of the slider.
+        //Get the width of the slider.
         float sliderWidth = sliderMeter.GetComponent<RectTransform>().rect.width;
 
-        // Calculate the X positions of the markers based on the target range (0 to 1 range).
+        //Calculate the X positions of the markers based on the target range (0 to 1 range).
         float minXPos = sliderWidth * targetMin;
         float maxXPos = sliderWidth * targetMax;
 
-        // Set the positions of the target markers relative to the Fill Area.
+        //Set the positions of the target markers relative to the fill area.
         targetMinMarker.anchoredPosition = new Vector2(minXPos, targetMinMarker.anchoredPosition.y);
         targetMaxMarker.anchoredPosition = new Vector2(maxXPos, targetMaxMarker.anchoredPosition.y);
 
-        // Set the size and position of the highlight area
-        float highlightWidth = maxXPos - minXPos;  // Width of the highlighted area
+        //Set the size and position of the highlight area
+        float highlightWidth = maxXPos - minXPos;  //Width of the highlighted area
         targetRangeHighlight.sizeDelta = new Vector2(highlightWidth, targetRangeHighlight.sizeDelta.y); // Adjust width
         targetRangeHighlight.anchoredPosition = new Vector2(minXPos + 0.5f, targetRangeHighlight.anchoredPosition.y); // Adjust position
         //Debug.Log(targetRangeHighlight.sizeDelta + targetRangeHighlight.anchoredPosition);

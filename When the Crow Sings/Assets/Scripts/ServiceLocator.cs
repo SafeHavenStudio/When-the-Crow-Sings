@@ -14,9 +14,19 @@ public sealed class ServiceLocator
         _services[typeof(T)] = service;
     }
 
+    public static void Unregister<T>() where T : IService
+    {
+        _services.Remove(typeof(T));
+    }
+
     // Gets the service of type <T>.
     public static T Get<T>()
     {
         return (T)_services[typeof(T)];
+    }
+
+    public static bool CheckIfServiceExists<T>() where T: IService
+    {
+        return _services.ContainsKey(typeof(T));
     }
 }
