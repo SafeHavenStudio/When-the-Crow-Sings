@@ -24,9 +24,13 @@ public class CrowRaycast : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit,maxDistance, layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, layerMask))
         {
             hitPoint = hit.point;
+        }
+        else
+        {
+            hitPoint = transform.position + (transform.forward * maxDistance);
         }
     }
 }
