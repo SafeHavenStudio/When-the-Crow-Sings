@@ -25,35 +25,21 @@ public class RaycastSpherical : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLineList(DistributePointsAcrossSphere().ToArray());
+
+        List<Vector3> drawablePoints = new List<Vector3>();
+        for (int i = 0; i < spherePoints.Count; i++) { 
+        drawablePoints.Add(transform.position);
+        drawablePoints.Add(transform.TransformDirection(spherePoints[i]));
+        }
+
+        Gizmos.DrawLineList(drawablePoints.ToArray());
         //Gizmos.DrawLine(Vector3.zero, FindUnobstructedDirection(transform.forward));
 
         Gizmos.color = Color.red;
         Gizmos.DrawLineList(collisionPoints.ToArray());
     }
 
-    List<Vector3> DistributePointsAcrossSphere()
-    {
-        List<Vector3> points = new List<Vector3>();
-        const float GoldenRatio = 1.61803f;
-        float pow = .5f; // Same as the square root.
-        for (int i = 0; i < pointCount; i++)
-        {
-            float t = i / (pointCount - 1f);
-            float inclination = Mathf.Acos(1 - 2 * t);
-            float azimuth = 2 * Mathf.PI * GoldenRatio * i;
-
-            float angle = 2 * Mathf.PI * GoldenRatio * i;
-
-            float x = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
-            float y = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
-            float z = Mathf.Cos(inclination);
-
-            points.Add(new Vector3(x, y, z) + transform.position);// *sphereRadius);
-        }
-
-        return points;
-    }
+    
 
     Vector3 FindUnobstructedDirection(Vector3 targetDirection)
     {
@@ -76,7 +62,7 @@ public class RaycastSpherical : MonoBehaviour
                     furthestUnobstructedDistance = hit.distance;
 
                     //collisionPoints.Add(new Vector3(direction.x,direction.y + .1f, direction.z)); // Because every other entry needs to be 0 for the line drawing to work
-                    collisionPoints.Add(direction);
+                    collisionPoints.Add(spherePoints[i]);
                     collisionPoints.Add(hit.point);
                 }
             }
@@ -89,5 +75,29 @@ public class RaycastSpherical : MonoBehaviour
 
         //Debug.Log("Best direction: " + bestDirection.ToString());
         return bestDirection;
+    }
+
+
+    List<Vector3> DistributePointsAcrossSphere()
+    {
+        List<Vector3> points = new List<Vector3>();
+        const float GoldenRatio = 1.61803f;
+        float pow = .5f; // Same as the square root.
+        for (int i = 0; i < pointCount; i++)
+        {
+            float t = i / (pointCount - 1f);
+            float inclination = Mathf.Acos(1 - 2 * t);
+            float azimuth = 2 * Mathf.PI * GoldenRatio * i;
+
+            float angle = 2 * Mathf.PI * GoldenRatio * i;
+
+            float x = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
+            float y = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            float z = Mathf.Cos(inclination);
+
+            points.Add(new Vector3(x, y, z) + transform.position);// *sphereRadius);
+        }
+
+        return points;
     }
 }
