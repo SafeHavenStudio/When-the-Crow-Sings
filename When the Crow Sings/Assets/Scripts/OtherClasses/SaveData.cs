@@ -267,6 +267,11 @@ public class SaveData
         {"numberOfTasksCompleted",0 },
         {"TBD_OnLoadSpawnPoint_OrSomething",0 },
 
+        {"FaridaTaskWhen", 0},
+        {"QuinnTaskWhen", 0},
+        {"FranciscoTaskWhen", 0},
+
+
         {"penguin_cult",623 },
         {"benchcounter",0 },
         {"PhilTalk", 0},
