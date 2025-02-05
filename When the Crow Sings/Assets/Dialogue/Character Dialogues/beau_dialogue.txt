@@ -165,7 +165,126 @@ else:
 => END
 
 ~ beau_beyond_base
-Beau: Oh shit, a rat.
-Beau: A rat.
-Beau: Oh shit.
+if BeauBB == 0:
+	=> B0
+if BeauBB == 1:
+	=> B1
+if BeauBB == 2:
+	=> B2
+else:
+	All done!
+	=> END
+
+~ BBEnd 
+set BeauBB += 1;
 => END
+
+~ B0
+Beau_Smile: Hello again lil bud. 
+Chance_Annoyed: I'm not little, you're just a literal moose.
+Beau_Teasing: Eh you might be right there.
+Beau: What brings you back to my lovely mound of dirt?
+- Cold storage
+	Chance_Thinking: What exactly is the <color=#5b5b1f>cold storage</color>? It's not like a fridge, right?
+	Beau: Kind of, it uses the power of geothermal gradients or something.
+	Chance: What?
+	Beau_Awkward: I don't really know the science part of it. You put things underground, they stay cool.
+	Chance_Thinking: Is it really underground if it's um... Above ground?
+	Beau: It goes down a little bit when you get inside, there's stairs to go further underground. It's still cooler at the top, but it gets cooler when you go down.
+	Chance: Oooh. So did you build the dirt mound or did you dig a hole in a hill
+	Beau_Excited: We scraped up a bunch of dirt and shaped it into what you see now. Kind of like an igloo.
+	Chance_Thinking: What is an igloo?
+	Beau: It's this thing that people make out of ice and snow to sleep in on the tundra. It's like a big ball and you hollow out the middle.
+	Chance: And you've made one of those?
+	Beau_Smile: Nah, I learned about it in books my parents used to have. I don't think there's enough snow around anymore for that, even where they were from. It just kinda looks like one, I guess.
+	Beau: When I was building it, I pretended I was making one and it passed the time easier.
+	Chance_Sad: Oh.
+- Why are you standing guard
+	Chance: Is there a reason you stand out here all day? Do you guys have a like.. thief problem?
+	Beau_Teasing: No, are you planning on stealing something?
+	Beau_Smile: I'm not on guard or anything, I just sit and monitor a thermometer to make sure that everything is nice and cool. Also gotta watch the humidity.
+	Chance_Thinking: That makes more sense. You have to watch it all day?
+	Beau: I mean I don't <b>have</b> to. But I don't really have a lot else to do around here, and I like being out of the lodging. Rooms are kinda small.
+	Chance: What do you do if something's wrong on the thermometer?
+	Beau_Worried: Talk to <color=#813408>Farida</color> to get permission to turn on the cooler we have down there.
+	Chance_Thinking: Uh, does she not like you?
+	Beau_Awkward: Well I don't know if I'd say that. She hates using excess power because of the usage at night, so she wants me to only turn it on if absolutely necessary.
+	Chance_Annoyed: That must be kind of annoying to deal with. You can't just turn it on yourself?
+	Beau: The system is controlled through that big thing of buttons in her office. 
+	Beau_Teasing: I'm not even sure which button she presses to turn it on.
+	Beau: It's alright though, it only really happens during the summer or when I have to do the long hauls of swapping old food with new food. Doors stay open for too long and we gotta blast the cooling a little, that one really gets on her nerves.
+	<i>She must be really serious about energy usage.</i>
+=> BBEnd
+
+~ B1
+Beau_Smile: 'Sup bud?
+- The way you dress
+	Chance_Thinking: Is there a reason you're wearing a coat and gloves and stuff? There's no way the <color=#5b5b1f>cold storage</color> is <b>that</b> cold.
+	Beau_Teasing: What, you don't think I'm making a fashion statement?
+	Chance_Annoyed: I hope not.
+	Beau_Smile: You've got some fangs for a human! Nah, I just grew up somewhere that was a little colder. Getting new clothes made when you're my size can be a little tough, so I just use what I've got.
+	Beau: And it just reminds me of being home.
+	Chance_Sad: Oh, right.
+	Beau: Why do you dress <b>that</b> way?
+	Chance_Annoyed: What's that supposed to mean?
+	Beau_Teasing: You asked first, bud.
+	Chance_Annoyed: They said I needed some sleeves after I got to N.A.S., because it'll get colder here than where I'm from. They tried to make me wear pants.
+	Chance_Annoyed: <size=75%>I'd rather die than lose my cargo shorts.</size>
+	Beau_Smile: So you have some stuff that reminds you of home, eh? I'm guessing your hat is from there. What is that on the front?
+	Chance: It's an animal that used to be in the water where I'm from, it's called a stingray.
+	Beau_Excited: That sounds killer, did they shoot laser beams or something?
+	Chance_Smile: No, they have these sharp spiny tails that are venomous, so we had to avoid them when going out in the water.
+	Beau_Smile: That sounds sick.
+	Chance_Excited: Yeah they were pretty cool.
+	Chance_Smile: The hat is just one that I found buried one day in the sand. I think it's like, super old.
+	Beau_Smile: What a beauty.
+- Your antlers
+	Chance: Why are your antlers lopsided?
+	Beau_Awkward: Wow, take a guy out to dinner first!
+	Chance_Thinking: Huh?
+	Beau: It's just a saying. You know, when you ask someone personal questions without knowing them that well.
+	Chance_Annoyed: I mean they're on your head, it's not like I went into your room or something.
+	Beau_Teasing: Eh, that's fair.
+	Beau: The last time my antlers shed, one of them popped off way earlier than the other. When they started to grow back, one was bigger. Next time I shed, they should grow back normal. 
+	Beau_Teasing: Or not, guess we'll see.
+	Chance_Thinking: Shed? Your antlers? Popped off??
+	Beau_Smile: No antler fellas where you're from, eh? 
+	Beau: Us with antlers shed them every once in a while. I think it was more often when we didn't walk and talk like you guys. My last shed was like... three years ago.
+	Chance: What happens when you shed?
+	Beau_Excited: Well my head gets real itchy, and I scratch at it and pull off all the fuzz on the outside. It's super gross, bud. Like blood and velvet and stuff. The first time someone walked in on me as a kid who didn't know about it, they thought I had killed someone with 'em.
+	Chance_Scared: Seriously? That sounds terrible! Does it hurt?
+	Beau_Smile: Nah, it's actually super nice once they finally come off. The itching stops. It's more the growing back that hurts, but nothing terrible.
+	Chance_Scared: I'm so glad I don't have antlers.
+=> BBEnd
+
+~ B2
+Beau: Hello again. You must be bored to be hanging around here, eh?
+Chance: You could say that, yeah.
+- Your parents
+	Chance: So, are your parents here?
+	Beau: Nah, not anymore.
+	Chance_Thinking: Not anymore?
+	Beau_Awkward: Well, my mom passed a long while before I ever moved here. My dad came with me, but he was on his way out too. 
+	Beau: He's buried out in the forest area, by the river. I figured it was the closest we could get to the ocean.
+	Chance_Thinking: The ocean?
+	Beau_Smile: Yeah, it's tradition where he was from to put your dead out to see. I went for second best, buried him by the water and made him a little rock alter, the way my mom would've wanted.
+	Chance: They had different traditions?
+	Beau_Smile: You betcha. They both came from different groups up north as they migrated down here, and I guess it was real different up there.
+	Beau: What about where you're from? Any special rituals or traditions.
+	Chance_Sad: Um, no. I guess the ocean, too.
+	Beau: Guess some things are the same even if you come from worlds apart, eh?
+- Where you're from
+	Chance: Where are you from, exactly?
+	Beau_Excited: That's a good question! My parents were kind of nomadic so we moved around a lot, always moving more south as the water creeped in from all directions up north. 
+	Beau: I'd probably just say "north".
+	Chance_Thinking: Does everyone where you're from talk the way you do?
+	Beau_Smile: How's that?
+	Chance_Annoyed: You know, that accent or whatever. And the bud's and the eh's and stuff.
+	Beau_Teasing: Well what about your accent? Did everyone where you're from talk like you?
+	Chance_Sigh: Well yeah kinda. 
+	Beau_Smile: Yeah, we all kinda talked the same. Though some people in our group used to speak some other language, sounded like they were clearing their throats while they talked.
+	Chance: People spoke a different language where I'm from too. Not everyone though, so I didn't really learn it. 
+	Beau: What's that, eh?
+	Chance: Spanish.
+	Beau_Smile: Ohh, so maybe you'll be able to understand some of the stuff <color=#813408>Francisco</color> mutters under his breath during my checkups!
+=> BBEnd

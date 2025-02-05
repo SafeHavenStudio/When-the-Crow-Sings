@@ -23,25 +23,25 @@ if timeOfDay == 0:
 	Angel_Smile: Good morning, are you settling in alright?
 if timeOfDay == 1:
 	Angel_Smile: Good afternoon, are you settling in alright?
-Chance_Sad: Uh..
-Angel_Worried: Oh. Well.
+Chance_Thinking: Uh.. Not sure I'd say that.
+Angel_Worried: Oh! Well..
 - Past curfew?
 	=> angel_past_curfew
 - My window.
 	=> angel_window
 
 ~ angel_past_curfew
-Chance_Sad: Are there normally people out at night? Past curfew?
+Chance_Annoyed: Are there normally people out at night? Past curfew? Maybe, harassing new people?
 => angel_first_int_cont
 
 ~ angel_window
-Chance_Angry: Someone came banging on my window in the middle of the night.
+Chance_Sigh: Someone came banging on my window in the middle of the night while I was putting my things away. Scared the hell out of me.
 => angel_first_int_cont
 
 ~ angel_first_int_cont
 set AngelTaskOffered = true;
 Angel_Stare: . . .
-Angel_Smile: Well, I wouldn't know anything about that! 
+Angel_Smile: Well, I wouldn't know anything about that! Everything is great around here, if you ask me.
 Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of things, and I could always use an extra hand!
 - Sure.
 	set MFAngelTag = false;
@@ -50,10 +50,10 @@ Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of
 	emit 1;
 	set AngelTaskAccepted = true;
 	set AngelTaskOn = true;
-	Chance: . . . Yeah, sure.
+	Chance_Sigh: . . . Yeah, sure.
 	Angel_Smile: Thanks! I just need you to stir our forever soup!
 	Angel: It has to be stirred a couple times a day, and if you do it, I can take care of some other things.
-	Angel_Stare: It's been here since before I got here. Probably older than some of my siblings...
+	Angel_Stare: It's been here since before I got here. Probably older than some siblings...
 	=> END
 - Maybe later.
 	Chance: Um, maybe later.
@@ -72,7 +72,7 @@ Angel: Did you have time to lend me a hand?
 	Chance_Smile: Yeah, sure.
 	Angel_Smile: Thanks! I just need you to stir our forever soup!
 	Angel: It has to be stirred a couple times a day, and if you do it, I can take care of some other things.
-	Angel_Stare: It's been here since before I got here. Probably older than some of my siblings...
+	Angel_Stare: It's been here since before I got here. Probably older than my siblings...
 	=> END
 - Maybe later.
 	=> END
@@ -85,7 +85,7 @@ Angel_Worried: Uh, are you okay? Did you forget what I asked you to do?
 	Angel_Stare: I just need you to stir the soup for me, please.
 	=> END
 - No...
-	Chance_Angry: No?! Of course not.
+	Chance_Sigh: No?! Of course not.
 	Angel_Worried: Um, okay..
 	=> END
 
@@ -106,7 +106,7 @@ Angel_Smile: Thanks so much! Gave me time to prep.
 Angel_Thinking: . . .
 Angel_Worried: Um.. If you're worried about, whatever, maybe you could talk to <color=#813408>Miss Jazmyne</color> at the <color=#5b5b1f>rec center</color>?
 Angel: She's up at all hours taking care of the little ones, and she's got some older kids stay out late.
-Angel_Smile: <color=#813408>Theo</color> does love a good prank! Maybe he was out?
+Angel_Smile: <color=#813408>Theo</color> does love a good prank! Maybe he was harassing you!
 Angel_Thinking: There's also <color=#813408>Quinn</color>! They're always up taking care of the night blooms in the <color=#5b5b1f>greenhouse</color>, so if someone was wandering around, they'd know.
 Chance: Thanks, I appreciate it.
 Angel_Smile: No problem! Don't be a stranger!
@@ -132,6 +132,195 @@ else:
 => END
 
 ~ angel_beyond_base
-Angel: I ain't got nothin to say. There's nothing here! Get screwed, loser.
+if AngelBB == 0:
+	=> A0
+if AngelBB == 1:
+	=> A1
+if AngelBB == 2:
+	=> A2
+if AngelBB == 3:
+	=> A3
+else:
+	all done!
+	=> END
+
+~ BBend
+set AngelBB += 1;
 => END
-	
+
+~ A0
+Angel_Smile: Oh! Hello, you're back. I wasn't sure you'd come talk to me again.
+Chance_Thinking: Why not?
+Angel_Stare: . . . . .
+Angel_Smile: Anyway! Did you want to talk about something?
+- About the soup
+	Chance: You said the soup is older than your siblings?
+	Angel_Smile: Well maybe! I'm not sure.
+	Angel_Thinking: We always had something like this where I'm from, a soup that never ends.
+	Angel: It's a good way to stretch resources and make sure you've always got something to eat.
+	Angel_Smile: When we came here, this one was already going. They said it had been going since before place was established.
+	if EnergyKnown == true:
+		Chance_Thinking: Even though the power went out for a while?
+	else:
+		Chance_Thinking: Wonder how they managed that.
+	Angel_Smile: They said that whenever the power went out or the weather got rough they would put the lid on and bury it with charcoal that they'd keep hot to keep it up to temperature.
+	Angel_Smile: Isn't that cool!?!
+	Chance_Smile: Yeah that's pretty neat. 
+- About the prepping
+	Chance: What exactly were you prepping while I was stirring the soup?
+	Angel: Oh just more vegetables to go in.
+	Angel_Smile: <color=#813408>Beau</color> pulled out the veggies from the <color=#5b5b1f>Cold Storage</color> that were getting too old, and if I can't think of a dish to put them in I just add them to the soup. 
+	Angel_Worried: I also chopped some mushrooms that <color=#813408>Yule</color> brought and... I don't know how to cook mushrooms by themselves..
+	Angel_Stare: It kind of has its own weird flavor now so I can't even taste anything different when I add stuff...
+	Angel_Smile: <color=#813408>Francisco</color> said it's still good for nutrition though!
+	Chance_Thinking: You just put random vegetables into it? And everyone eats it?
+	Angel_Smile: Well, yeah! Can't be picky out here!
+	Angel_Thinking: What did you do where you're from?
+	Chance_Sad: Er, well..
+	Chance: I lived on an island before, and we ate lots of fish. Fish doesn't really store well, so we just made a variety of stuff. 
+	Chance_Smile: It got boring sometimes, but in the summer there were these limes that we could use on our food and they really added a lot to it.
+	Angel_Thinking: Limes! What are those like?
+	Chance_Smile: They're really sour, and kind of refreshing. It's kind of like a lemon, have you had those?
+	Angel_Smile: Yes! <color=#813408>Quinn</color> grows lemons in the spring, I've never thought to try them with fish!
+	Chance_Excited: Well maybe when they come into season I can show you how we used to make them.
+	Angel_Smile: I'd love that!
+=> BBend
+
+~ A1
+Angel_Smile: Hello again!
+- Interest in cooking
+	Chance_Thinking: So, how exactly did you get into cooking?
+	Angel_Thinking: That's a good question... 
+	Angel: Well, I'm the oldest one of my siblings, and I think I just wanted to help my mom when she had my siblings.
+	Chance_Thinking: Are you the only one your age?
+	Angel: Yep!
+	Chance_Thinking: I thought rabbits came in like... a lot.
+	Angel_Stare:....
+	Angel_Thinking: I don't think that's true with EVO rabbits. There were other rabbits where we came from, and they also had one or two kids. 
+	Chance: Huh.
+	Angel: Do you have any siblings?
+	Chance_Sad: Uh. Yeah. I mean, I used to. 
+	Angel_Worried: Oh, I'm sorry.
+	Chance_Sad: It's... fine.
+	Angel_Worried: Um.. Anyway, when I was younger and <color=#813408>Angelo</color> and <color=#813408>Angelica</color> came along, I wanted to help her out.
+	Angel: So I followed around our compound chef and would help out! Then I'd bring home food for my mom and she'd be able to eat at home instead of waiting in line.
+	Angel_Smile: The look on her face made it so worth it! Even though working with knives and stuff is hard with my hands, and sometimes I'd burn my hands on the pans.
+	Angel: So when our compound fell apart we were sent here, and they were all eating gruel. Well, I offered to be the chef!
+	Angel_Smile: So here I am!
+	Chance_Thinking: And you like it?
+	Angel_Smile: Yes! I can't imagine doing anything else, really.
+	Chance_Smile: That's nice. I hope whatever I end up doing around here will be the same way.
+	Angel_Smile: I hope so too!
+- Types of ingredients
+	Chance_Thinking: So are the ingredients that you have here similar to where you were from before?
+	Angel_Thinking: Um, yes and no.
+	Angel: Some stuff from where I came from doesn't grow here, but some <color=#813408>Quinn</color> has managed to grow in the greenhouse.
+	Chance: So you brought some with you? 
+	Angel_Smile: Yep! A type of cabbage that didn't grow around here, some leeks, a different color of onion, carrots.
+	Chance_Smile: Carrots?
+	Angel_Stare: Yes.
+	Chance_Excited: That's pretty funny.
+	Angel_Stare: It's funny?
+	Chance: Well you know. Because of the thing about rabbits and carrots.
+	Angel_Stare: They're a great source of fiber.
+	Chance: Right... Sorry.
+=> BBend
+
+~ A2
+Angel_Smile: Hey!
+- Your siblings
+	Chance: You've mentioned your siblings, why aren't they outside?
+	Angel: Oh, they're too little to be running around unsupervised, so <color=#813408>Miss Jazmyne</color> watches them inside.
+	Chance_Thinking: Oh, are they much younger than you?
+	Angel_Smile: Yep! They're still little kids. They barely come up to my chest, including ears.
+	Chance_Smile: Including ears..
+	Chance: They're the same age?
+	Angel: Uhuh, they're twins. They were born before we came here, before our old compound dissolved.
+	Chance_Sad: Oh, right. What happened?
+	Angel_Thinking: Well, it just kind of happened. It was a lot hotter there, water was harder to come by, some of the predator EVOs went through ERS...
+	Angel_Worried: Not everyone made it out. <color=#813408>Theo's</color> parents, some whole families..
+	if TheodoreTaskOffered == true:
+		Chance_Thinking: Is that where he got that scar on his eye?
+		Angel_Worried: Um.. Yeah.
+	else:
+		Chance_Sad:...
+	Angel: We were really lucky to all make it.
+	Chance_Sad: Yeah, you were.
+	Angel_Worried: You weren't?
+	Chance_Sad: The only reason I'm here is because our compound fell apart too. My parents, my friends, my siblings... It's hard to get off an island quickly.
+	Angel_Worried: Right..
+	Chance_Thinking: Don't worry about it. I'm glad you all got here safely.
+	Angel_Smile: I'm glad you got here safely too.
+	Chance_Smile: Thanks. Me too.
+- Your parents
+	Chance: Do your parents live here with you too?
+	Angel: Uhuh.
+	Chance_Thinking: I don't see them around, do they do something indoors or?
+	Angel: Ehh, no not exactly. I mean.. Yes! 
+	Angel_Worried: My dad is sick. When he was younger, there were lots of dust storms around where we were from, and he had to work outside a lot. I guess he breathed a lot of it in, and it kind of caught up with him.
+	Chance_Thinking: Oh, I get it. And your mom takes care of him?
+	Angel: Mhm. We're lucky that <color=#813408>Miss Jazmyne</color> came too, I don't know how she'd manage if she had to watch the little ones too.
+	Chance_Thinking: You and <color=#813408>Jazmyne</color> are from the same place?
+	Angel_Stare: Yep. Us, <color=#813408>Jazmyne</color>, and <color=#813408>Theo</color> all came from the same compound. It's a few days bus drive to the..... West?
+	Angel_Thinking: Never Eat Soggy Waffles.. Sun sets in the west...
+	<i> What are waffles? </i>
+	Angel_Smile: Yeah, the west.
+	Chance_Smile: Right. Well, nice you could all stay together.
+	Angel_Smile: I think so!
+	Angel_Worried: Not sure <color=#813408>Theo</color> does though. He hasn't really talked to me since we started living here.
+	Chance: Well he came alone, right? So his family-?
+	Angel_Worried: Yeah.
+	Chance_Thinking: So maybe you guys just remind him of before, and that makes him sad.
+	Angel_Stare: Maybe..
+=> BBend
+
+~ A3
+Angel_Smile: Hello!
+
+if JazmyneBaseCompleted == true:
+	- Movie nights
+		Chance:<color=#813408>Jazmyne</color> mentioned that you guys do movie nights sometimes?
+		Angel_Smile: Yep! I love movie nights, they're my favorite. <color=#813408>Quinn</color> grows this corn that we let dry for a while, and then we put this in this machine and it like, blows them up!
+		Chance_Thinking: Blows them up?
+		Angel_Smile: Yes, and it makes this crazy sound!
+		Angel_Stare: It kinda hurts my ears sometimes.
+		Chance_Thinking: And that has to do with movies how?
+		Angel_Smile: Oh right! We make a bunch, and then we all sit on the floor in the <color=#5b5b1f>rec center</color> and they turn a projector on and we watch it on the wall.
+		Chance: That sounds pretty cool, I guess. What kind of movies do you have?
+		Angel_Thinking: Um, some adventure fantasy stuff, some with crazy technology stuff, all kinds. You know, before EVOs came around they actually made movies about talking animals?
+		Chance_Thinking: Really?
+		Angel_Smile: Yes! Sometimes they were just feral animals that talked like dogs or cats on all fours. And other times, they walked on two legs like us!
+		Chance_Smile: That's crazy.
+		Angel_Smile: It's so cool! My favorite is these movies about um... I think they're hedgehogs? But they're all funny colored so I don't know.
+		Angel_Stare: Maybe they have radiation or something..
+	- Hobbies
+		Chance: Do you have any hobbies?
+		Chance_Smile: Besides cooking, I mean.
+		Angel_Smile: Oh! Yes!
+		Angel_Thinking: I like watching movies, playing with my siblings, helping <color=#813408>Quinn</color> in the garden, organizing stuff in the <color=#5b5b1f>Cold Storage</color>, talking with my parents, talking to <color=#813408>Jazmyne</color>, talking to <color=#813408>Caleb</color>, talking to <color=#813408>Beau</color>-
+		Chance: Seems like you like talking.
+		Angel_Stare: Uhuh.
+		Chance_Smile: I can tell.
+else:
+	- Things to do around here
+		Chance: Is there anything to do around here?
+		Angel: Like just to do?
+		Chance_Sad: Well I'm not going to be assigned a job for a minute, the C.A.N. kind of encouraged me to relax. 
+		<i>As much as I can, with that big thing roaming around at night.. Might still be a good idea if I manage to get it to go away.</i>
+		Angel_Thinking: Oh! Right. Well, we have movie nights on Wednesdays, there's a play set... You might be a bit too big for that.
+		<i>No shit.</i>
+		Angel_Stare: There's not a whole lot of like, fun stuff to do unless you're a little kid.
+		Chance_Annoyed: Great.
+		Angel_Thinking: If you like reading we have some books you might not have read, but other than that you might be out of luck.
+		Angel_Smile: You can always come help me cook!
+		Chance:. . .
+		Chance_Smile: Yeah, maybe.
+	- Hobbies
+		Chance: Do you have any hobbies?
+		Chance_Smile: Besides cooking, I mean.
+		Angel_Smile: Oh! Yes!
+		Angel_Thinking: I like watching movies, playing with my siblings, helping <color=#813408>Quinn</color> in the garden, organizing stuff in the <color=#5b5b1f>Cold Storage</color>, talking with my parents, talking to <color=#813408>Jazmyne</color>, talking to <color=#813408>Caleb</color>, talking to <color=#813408>Beau</color>-
+		Chance: Seems like you like talking.
+		Angel_Stare: Uhuh.
+		Chance_Smile: I can tell.
+=> BBend

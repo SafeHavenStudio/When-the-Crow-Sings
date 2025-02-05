@@ -366,10 +366,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638739214007996365
+  lastModified: 638741908109915830
   FileSizes:
   - Name: Desktop
-    Value: 371904
+    Value: 383456
   Exists: 1
 --- !u!114 &-6014020339122549108
 MonoBehaviour:
@@ -386,10 +386,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638737797771228006
+  lastModified: 638741900203778496
   FileSizes:
   - Name: Desktop
-    Value: 3718
+    Value: 3708
   Exists: 1
 --- !u!114 &-5949586715602016859
 MonoBehaviour:
@@ -496,6 +496,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-5039251091104275042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EnemyFootstep
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EnemyFootstep
+  Guid:
+    Data1: 1374627964
+    Data2: 1166730097
+    Data3: 289628576
+    Data4: -461491789
+  Banks:
+  - {fileID: -6031272985124646646}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1131
 --- !u!114 &-4916962344165348927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +883,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638737797771205233
+  lastModified: 638741900203753408
   FileSizes:
   - Name: Desktop
     Value: 1632
@@ -925,7 +952,6 @@ MonoBehaviour:
   - {fileID: 1101328795386978633}
   - {fileID: 5302618480422168558}
   - {fileID: 5233090305899620577}
-  - {fileID: 6110340249391293709}
   - {fileID: -2090559159338937253}
   - {fileID: 3192102372283736414}
   - {fileID: -1001557159754733530}
@@ -935,12 +961,13 @@ MonoBehaviour:
   - {fileID: 533332602697289522}
   - {fileID: -7148723426677106179}
   - {fileID: 9084344300407330223}
+  - {fileID: -5039251091104275042}
   EditorParameters: []
   MasterBanks:
   - {fileID: -26728882161318293}
   StringsBanks:
   - {fileID: -6014020339122549108}
-  cacheTime: 638739215996214208
+  cacheTime: 638741909974539195
   cacheVersion: 131622
 --- !u!114 &178758601418518700
 MonoBehaviour:
@@ -1254,7 +1281,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638737499913755127
+  lastModified: 638741909974539195
   FileSizes:
   - Name: Desktop
     Value: 12721376
@@ -1421,33 +1448,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 198922
---- !u!114 &6110340249391293709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/footstepTemp
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/footstepTemp
-  Guid:
-    Data1: -1838611869
-    Data2: 1158942724
-    Data3: -1902442081
-    Data4: 90830768
-  Banks:
-  - {fileID: -6031272985124646646}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &6340597670003991568
 MonoBehaviour:
   m_ObjectHideFlags: 0

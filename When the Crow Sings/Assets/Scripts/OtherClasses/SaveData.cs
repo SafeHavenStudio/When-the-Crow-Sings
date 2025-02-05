@@ -115,8 +115,11 @@ public class SaveData
         { "ifFaridaAndCaleb",false },
         { "ifCalebAndAngel",false },
 
+        // Story tidbits that can affect dialogue
         { "SeenBrokenGauges",false },
         { "SeenDoor",false },
+        { "EnergyKnown",false },
+
 
         //Door/loadzone relevant flags
 
@@ -270,6 +273,18 @@ public class SaveData
         {"theodoor", 0},
 
         {"levelDataIndex", 1},
+
+         //Beyond base flags for excess conversation
+        { "AngelBB",0 },
+        { "BeauBB",0 },
+        { "CalebBB",0 },
+        { "JazmyneBB",0 },
+        { "QuinnBB",0 },
+        { "FranciscoBB",0 },
+        { "FaridaBB",0 },
+        { "TheodoreBB",0 },
+        { "PhilomenaBB",0 },
+        { "YuleBB",0 },
     };
 
     public Dictionary<string, string> stringFlags = new Dictionary<string, string>()

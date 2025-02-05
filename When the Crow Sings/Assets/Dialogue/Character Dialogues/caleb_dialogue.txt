@@ -25,7 +25,7 @@ if timeOfDay == 2:
 	Caleb: Oh, good afternoon. You must be the new resident <color=#813408>Farida</color> was talking about.
 Chance: Yep, that's me.
 Caleb_Smile: Nice to meet you, I'm <color=#813408>Caleb</color>. What's your name again?
-Chance: Chance.
+Chance: <color=#813408>Chance</color>.
 Caleb: That's a fine name. Guess I could take a-
 Caleb_Wink: <b>Chance</b> on you, huh?
 - Funny.
@@ -42,9 +42,9 @@ Caleb: Well, I'm just a little busy working on the panels here, but I can talk.
 Chance_Smile: Where I lived before ran off solar too, and some hydropower.
 Caleb_Smile: Oh, hydro! This place used to run off <color=#a11bbe>something else</color> too, but at some point that stopped working. Shipped me and the panels in, and now it's all we've got.
 Caleb: It's not the most efficient, and <color=#813408>Farida</color> will be sure to let you know all about it.
- . . . ?
-Chance: Something else?
-There's no big water sources out here. No wind turbines..
+ <i>. . . ?</i>
+Chance_Thinking: Something else?
+<i>There's no big water sources out here. No wind turbines..</i>
 Caleb: Hm?
 Chance: You said that this place used to run off something other than solar panels?
 Caleb: Oooh yeah. I don't know a whole lot about it but..
@@ -53,12 +53,12 @@ Caleb_Thinking: If you're curious about it, maybe I could spend some time thinki
 	Chance: Uh, sure?
 	=> caleb_first_cont_2
 - Really?
-	Chance_Angry: Really? You can't just tell me?
+	Chance_Annoyed: Really? You can't just tell me?
 	Caleb_Wink: What's the fun in that?
 	Chance: . . . Fine.
 	=> caleb_first_cont_2
 - Not a Chance.
-	Chance_Angry: Not a chance.
+	Chance_Sigh: Not a chance.
 	Caleb_Smile: HAH!
 	Caleb: Well you come back if you want me to slide some knowledge your way, kid.
 	=> END
@@ -78,10 +78,10 @@ Caleb_Smile: If you could go and grab some back for me, I'd be mighty grateful.
 ~ caleb_no_task
 Caleb_Smile: Decide to take a <i>chance</i> on helping me out?
 - I guess.
-	Chance: I guess so.
+	Chance_Annoyed: I guess so.
 	=> caleb_first_cont_2
 - Ugh.
-	Chance_Angry: Ugh.
+	Chance_Sigh: Ugh.
 	=> END
 
 ~ caleb_task_unfin
@@ -100,6 +100,7 @@ Caleb_Thinking: I don't see any wire on you. Why're you back?
 set CalebBaseCompleted = true;
 set ClinicDoorUnlocked = true;
 set RecCenterDoorUnlocked = true;
+Caleb_Smile: You survived the crows!
 Caleb_Smile: Alrighty, kid, I yield. You did good. Wires don't look like they're in too bad of shape either.
 Caleb_Thinking: If you want to know more about <color=#a11bbe>the old energy source</color>, for whatever reason, you would probably want to talk with <color=#813408>Farida</color>.
 Caleb_Annoyed: But I don't think you should have me sending you.. Not that we don't get along! It's just..
@@ -108,7 +109,7 @@ if FaridaTaskOffered == true:
 		Chance: I've already spoken with <color=#813408>Farida</color>.
 		Caleb: Oh yeah? And was she a bucket of kittens and rainbows?
 		Chance_Sad: I don't know if I'd say that...
-		Caleb: Yeah. Well, it might not hurt to talk to who 'em about it anyway, or maybe...
+		Caleb: Yeah. Well, it might not hurt to talk to 'em about it anyway, or maybe...
 		=> caleb_task_fin_cont
 - . . .
 	Caleb: Well, anyway if you wanted to talk to her..
@@ -132,7 +133,7 @@ if JazmyneTaskAccepted == false:
 	set MFJazmyneTag = true;
 Caleb_Thinking: She probably wouldn't know herself, but I know she has some kid ruffling her fur. Sneaking out past curfew, hopping fences, you know the type. 
 Caleb: Rebels are always learning something, right?
-Chance_Angry: That's not really information.
+Chance_Annoyed: That's not really information.
 Caleb_Wink: Well you know what they say. It's not what you know, it's who you know.
 Chance_Angry: That's stupid. There's only like a dozen people here. Surely you all know each other.
 Caleb_Wink: Heh.
@@ -156,5 +157,154 @@ else:
 => END
 
 ~ caleb_beyond_base
-Caleb_Annoyed: I have run outta dialogue, begone.
+if CalebBB == 0:
+	=> C0
+if CalebBB == 1:
+	=> C1
+if CalebBB == 2:
+	=> C2
+if CalebBB == 3:
+	=> C3
+else:
+	No more! All gone!
+	=> END
+
+~ BBEnd
+set CalebBB += 1;
 => END
+
+~ C0
+Caleb: Oh! You came back to talk to me!
+Caleb_Smile: A little surprised, seemed like you were gettin' tired of me back there.
+Chance_Annoyed: Nobody said I'm not.
+Caleb_Smile: Right. So what brings you back?
+Chance: I was still curious about the solar panels.
+Caleb: Yeah? What about 'em?
+- Amount of power
+	Chance_Thinking: How much energy do you guys actually get from these? There's lots of trees around and it's really hilly. Isn't that a bad thing?
+	Caleb_Thinking: Well, you're not far off. I'm not sure the exact numbers, you'd have to ask <color=#813408>Farida</color> about the specifics.
+	Caleb_Smile: But they work well enough I'd say. Don't have any issues with power at night or when the nights get longer in the winter.
+	Caleb_Annoyed: Despite what <color=#813408>Farida</color> might harp on about, our energy usage seems to be just fine to me.
+	Chance_Thinking: Back home the power would sometimes skip out during the winter because of a lack of sunlight. Weird it isn't an issue here.
+	Caleb: Ooo, those musta been cold winters.
+	Chance: Not really, I lived on an island. It was very tropical.
+	Caleb_Smile: Boy, are you in for a treat.
+	Chance_Thinking: What does that mean?
+	Caleb_Wink: Ever seen the thermometer go below zero?
+	Chance_Scared: That's possible?!
+	Caleb_Smile: This is gonna be a fun season comin' up. You are gonna love it.
+- Ones on the roofs
+	Chance_Thinking: I haven't seen a ladder around, how do you get to the ones on the roofs?
+	Caleb: Oh we have a ladder. I just have to haul it out every time to use it.
+	Chance: Why not just leave it outside?
+	Caleb_Annoyed: Because <b>someone</b> kept taking the ladder and using it to get over the fences into the closed areas. And <color=#813408>Farida</color> makes me keep it locked away now.
+	Chance_Annoyed: Oh.
+	<i>Man it would be nice if they just left it outside still.. Would make looking around a lot easier.</i>
+	Caleb: I guess it isn't the biggest deal, ones up there don't seem to have as many issues or require repairs.
+	Caleb_Annoyed: Trust me, <color=#813408>Farida</color> doesn't let me hear the end of it when they go out.
+	Chance_Thinking: Why do the ones down here need more repair than the ones on the roofs? 
+	Caleb: Oh plenty o' things, more foot traffic, some little critters, bugs. The kids running around and playing sports mostly.
+	Caleb_Smile: I don't mind it though, as long as my <color=#813408>Calli</color> is having a good time, I'll spend all day fixing these things.
+	Caleb_Annoyed: <size=75%>Well maybe not all day, it does a number on my back but you get me.</size>
+=> BBEnd
+
+~ C1
+Caleb_Smile: Hello again. Looks like you and are gettin' real buddy buddy.
+Chance_Annoyed: Uhuh.
+- Other than solar panels
+	Chance: Do you do work on things other than the solar panels?
+	Caleb: Sure, I do just about anything electrical around here. I can also do a good bit of work on mechanical things, I fix up the mower when it needs it.
+	Caleb: Sometimes that bird kid brings me things he finds outside and I fix 'em for him.
+	Chance_Thinking: Outside? Like, outside this main fence?
+	Caleb_Smile: Yep, that trouble kid I mentioned earlier. He doesn't bring me many electronics really, but sometimes he finds a broken puzzle or a flashlight or something and I get it workin' for him.
+	Chance_Annoyed: Isn't it against the rules to go outside of the fencing?
+	Caleb: Sure is.
+	Chance: And you just don't say anything about it?
+	Caleb_Thinking: Well I'm of the belief that what don't kill ya builds character!
+	Caleb_Smile: Besides, I love knowing someone is breaking Farida's rules.
+- Line of work
+	Chance_Thinking: How exactly did you get into electrical work? Did they have like, electric school or something where you're from?
+	Caleb_Smile: Ehh, something like that, yeah!
+	Caleb: The compound I'm from originally is based around the idea of providing workers with knowledge to the other compounds. There are a few like that, much bigger than this little place.
+	Caleb_Thinking: Well as you get older they sort of do little tests and assessments and all that, and then encourage you down a career path they think you'll like. I got placed into the electrician line when I was sixteen, and the rest is history.
+	Chance: And you liked it?
+	Caleb: Well I didn't know much else, and I like workin' with my hands. It was nice to give back to my community, and know that one day I'd bring that somewhere else and spread the knowledge.
+	Caleb_Smile: And one day <color=#813408>Calli</color> will pick it up too, and maybe she'll move or pass it on to her own kids!
+	Chance_Thinking: What if she doesn't want to be an electrician?
+	Caleb_Thinking: I'm not sure, I haven't thought too much about it. She'll pick something up here, she loves <color=#813408>Francisco</color> so maybe it'll be biology or something.
+	Caleb_Smile: As long as she's happy, I don't mind a bit.
+	Caleb: But giving back to your community is important! It's what keeps all this workin', keeps us all alive.
+	Caleb_Thinking: What are you going to do 'round here anyway? 
+	Caleb_Wink: I'd guess it isn't "designated nail technician", based on your hands.
+	Chance_Sigh: I don't know.
+	Chance_Annoyed: I haven't been placed yet, <color=#813408>Farida</color> will assign me in a few weeks or something based off the report C.A.N. sent. 
+	Caleb_Smile: Well let's hope it isn't the head of the fashion police!
+	Chance_Sigh: Yeah, cause you'd get arrested first.
+	Caleb_Smile: Hah!
+=> BBEnd
+
+~ C2
+Caleb_Smile: Hello again, rascal!
+Chance_Annoyed: It's Chance.
+Caleb: Chance, Fate, Destiny, whatever you'd like to call it.
+- Your daughter
+	Chance: So, why isn't your daughter out here with you?
+	Caleb_Thinking: Well that's a good question.
+	Caleb: Or it would be, if she wasn't 5.
+	Chance: Oh.
+	Caleb_Smile: She spends her time with those little rabbit twins and <color=#813408>Jazmyne</color> while I'm working.
+	Chance_Thinking: Uh, does she not have someone else to take care of her? Like, your.. partner?
+	Caleb_Annoyed: No, she doesn't.
+	Chance: I'm sorry, I didn't mean to ask something touchy.
+	Caleb_Annoyed: It ain't your fault kid. The work program on the compound I come from applies to everyone, and when you get sent out that doesn't necessarily mean your partner gets sent with you.
+	Caleb_Annoyed: When I was chosen to become the electrician here, my wife's role was already accounted for by someone named <color=#813408>Philomena</color>. And then, when she couldn't do the job anymore, they sent <color=#813408>Farida</color> instead.
+	Chance_Thinking: Is that why you two don't get along?
+	Caleb_Annoyed: Let's not talk about this anymore, kid.
+- Your family
+	Chance: Does your whole family live here?
+	Caleb: Nope, just me, <color=#813408>Calliope</color>, and <color=#813408>Francisco</color>.
+	if FranciscoTaskOffered == true:
+		Chance_Thinking: Is that why Francisco calls you uncle?
+	else:
+		Chance_Thinking: Is that why you recommended me to him?
+	Caleb_Smile: You could say that yeah.
+	Chance: You don't look related.
+	Caleb_Annoyed: What's that supposed to mean?
+	Chance_Thinking: Uh-
+	Caleb_Smile: I'm just messing with you kid! No, he's not my biological nephew. I was friends with his parents back on our home compound.
+	Chance_Annoyed: Uh huh.
+	Caleb: We just got lucky when we got sent to the same compound. <color=#813408>Calliope</color> is elated to have her cousin <color=#813408>Francisco</color> here.
+	Chance_Smile: It must've made it easier to transition into living here, having a familiar face.
+	Caleb_Smile: It sure did.
+	Caleb_Annoyed: As much as it could with leaving her mother behind, anyway.
+	Chance_Thinking: Um.. Has she settled in fine aside from that?
+	Caleb: Oh sure, she's the smartest little lady there could be! She can take any problem by the horns and flip it on its head.
+	Caleb_Smile: She'll be running this whole place one day, mark my words.
+	Chance: I'll be sure to follow her political career.
+=> BBend
+
+~ C3
+Caleb_Smile: Back again! Either I have some wealth of knowledge, or you have nothing better to do.
+Chance_Annoyed: I'm sure you can figure out which one.
+- Where you're from
+	Chance: What was it like on the compound you were from before?
+	Caleb_Smile: Oh it was great! Everyone knew everyone, lots of people. I'm from an island that used to be a large city, so there's lots of big buildings that we repurposed.
+	Chance_Smile: I'm from an island too, but no big city. How did you guys grow food?
+	Caleb: Well we relied a lot on the ocean for fish, and as opposed to traditional farming most of our food was grown in underground labs. Think lots and lots of mushrooms.
+	Chance_Thinking: Moving here must've been a big change.
+	Caleb_Thinking: Yeah, you could say that. The people sure are different, but that doesn't really say anything about them.
+	Caleb: Most of the people on this compound now didn't come from compounds like mine, so there's a lot to learn about the different places and walks of life out there. 
+	Caleb_Thinking: It was hard at first. To move from an area so focused on a singular goal of training and learning, to somewhere that is a lot more focused on just living.
+	Caleb: It's a lot more relaxed, but also sometimes I get that itch for a little bit more routine..
+	Chance: Did you get a choice about moving?
+	Caleb: Nah, not how things work up there. We are raised to be the rejuvenating force that brings education and craft back to the country. They hope that with those skills spread out, we might all be able to reconnect one day.
+	Caleb_Smile: Besides, as long as I'm with my <color=#813408>Calli</color> I'll survive.
+- What's with the goggles
+	Chance_Thinking: So why are you wearing big goggles right now?
+	Caleb_Annoyed: What do you mean? Eye protection is very serious, you know.
+	Caleb: Any person, any time, you lose an eye, BAM. You gotta spend time learning how to see without depth perception, and depending on how you lose it you might need to pop that sucker out.
+	Chance_Sigh: Ew!
+	Caleb: I watched a man who didn't believe in eye protection get a piece of metal lodged into his eye while shaping some rebar. We had to carry him to the medical station, and then hold him down while the doc tried to get the piece out.
+	Caleb_Annoyed: Man wouldn't stop moving, doc made one wrong move and <b>POP!</b> Had to hold him down even longer while the doctor scooped out his deflated eyeball and sew his eyelid shut to protect the hole.
+	Chance_Scared: Dude I'm gonna puke, I get it!!
+=> BBEnd
