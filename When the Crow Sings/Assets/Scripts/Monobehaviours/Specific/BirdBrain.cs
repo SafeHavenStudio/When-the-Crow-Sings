@@ -20,11 +20,14 @@ public class BirdBrain : StateMachineComponent
     [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
+    [HideInInspector]
+    public float timeAllowedToReachBirdseed = 2f; // Time in seconds
+
     private void Awake()
     {
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new CrowIdleState(this), "CrowIdleState");
-        stateMachine.RegisterState(new CrowScatterState(this), "CrowScatterState");
+        stateMachine.RegisterState(new CrowTakeoffState(this), "CrowTakeoffState");
         stateMachine.RegisterState(new CrowTargetState(this), "CrowTargetState");
         stateMachine.RegisterState(new CrowPeckState(this), "CrowPeckState");
     }
@@ -38,23 +41,19 @@ public class BirdBrain : StateMachineComponent
     public Vector3 destination;
     [HideInInspector]
     public Vector3 direction;
-    [HideInInspector]
-    public float distanceToDestination = 1f;
-    public void FlyNavigate()
+
+    public void FlyNavigate_FixedUpdate()
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
-        direction = (destination - transform.position).normalized * distanceToDestination;
+        direction =  (destination - transform.position).normalized*flyingSpeed;
         transform.rotation = Quaternion.LookRotation(direction);
-        controller.Move(direction / (flyingSpeed * 200f));//targetPosition);
-
-
-        // D=RT, R=D/T, T=D/R
+        controller.Move(direction);//targetPosition);
     }
 
     public void SetTargetAsTarget(bool _target)
     {
         targetIsTargetNotSpawn = _target;
-        stateMachine.Enter("CrowScatterState");
+        stateMachine.Enter("CrowTakeoffState");
     }
 
     public void StillGravity()
