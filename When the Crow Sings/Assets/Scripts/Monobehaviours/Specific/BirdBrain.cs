@@ -20,6 +20,9 @@ public class BirdBrain : StateMachineComponent
     [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
+    [HideInInspector]
+    public float timeAllowedToReachBirdseed = 2f; // Time in seconds
+
     private void Awake()
     {
         stateMachine = new StateMachine(this);

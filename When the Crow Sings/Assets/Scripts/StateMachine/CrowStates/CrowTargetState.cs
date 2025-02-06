@@ -17,10 +17,19 @@ public class CrowTargetState : StateMachineState
     }
     public override void StateEntered()
     {
-        if (s.targetIsTargetNotSpawn) s.destination = s.crowHolder.CrowTarget.transform.position;
+        if (s.targetIsTargetNotSpawn) setupSeedDestination();
         else s.destination = s.restPoint.transform.position;
         s.crowAnimator.SetBool("isFlying", true);
         s.crowAnimator.SetBool("isIdle", false);
         s.crowAnimator.SetBool("isPecking", false);
+    }
+
+    void setupSeedDestination()
+    {
+        s.destination = s.crowHolder.CrowTarget.transform.position;
+
+        float distanceToSeed = (s.transform.position - s.destination).magnitude;
+        float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60);// + s.timeAllowedToReachBirdseed; // TODO: make sure this is right.
+        Debug.Log("Time: " + timeItWouldTakeToReachSeed.ToString() + " and WaitTime should be " + s.timeAllowedToReachBirdseed.ToString());
     }
 }

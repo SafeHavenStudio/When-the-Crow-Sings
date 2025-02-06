@@ -13,7 +13,7 @@ public class CrowTakeoffState : StateMachineState
     public override void FixedUpdate()
     {
         //s.FlyNavigate_FixedUpdate();
-        s.controller.Move(Vector3.up);
+        s.controller.Move(Vector3.up * 0.25f);
     }
 
     public override void StateEntered()
