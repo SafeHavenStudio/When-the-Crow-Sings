@@ -14,4 +14,15 @@ public class CrowManager : MonoBehaviour, IService
     {
         RegisterSelfAsService();
     }
+
+
+    private List<CrowRestPoint> crowRestPoints = new List<CrowRestPoint>();
+    public void RegisterCrowRestPoint(CrowRestPoint crowRestPoint)
+    {
+        crowRestPoints.Add(crowRestPoint);
+    }
+    public void UnregisterCrowRestPoint(CrowRestPoint crowRestPoint)
+    {
+        crowRestPoints.Remove(crowRestPoint);
+    }
 }
