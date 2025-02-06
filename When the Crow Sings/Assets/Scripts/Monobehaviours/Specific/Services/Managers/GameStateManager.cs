@@ -223,7 +223,7 @@ public class GameStateManager : MonoBehaviour, IService
         Destroy(playerHolder);
         taskManager.AbortQTE();
         if (actorCrowTarget != null) actorCrowTarget.DisableTarget();
-        ServiceLocator.Get<GameManager>().crowHolder.GetComponent<CrowHolder>().DestroyCrows();
+        ServiceLocator.Get<CrowManager>().crowHolder.GetComponent<CrowHolder>().DestroyCrows(); // TODO: Make compatible with the new system.
     }
 
     void ValidateScenes()

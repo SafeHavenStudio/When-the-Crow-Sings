@@ -7,11 +7,11 @@ public class CrowRestPoint : MonoBehaviour
     public GameObject debugVisible;
     private void OnEnable()
     {
-        ServiceLocator.Get<GameManager>().RegisterCrowRestPoint(this);
+        ServiceLocator.Get<CrowManager>().RegisterCrowRestPoint(this);
     }
     private void OnDisable()
     {
-        ServiceLocator.Get<GameManager>().UnregisterCrowRestPoint(this);
+        ServiceLocator.Get<CrowManager>().UnregisterCrowRestPoint(this);
     }
     private void Awake()
     {
