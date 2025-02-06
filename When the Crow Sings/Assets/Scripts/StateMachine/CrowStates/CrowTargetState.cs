@@ -29,10 +29,16 @@ public class CrowTargetState : StateMachineState
         s.destination = s.crowHolder.CrowTarget.transform.position;
         CalculateTimeToTarget();
 
+        Debug.Log(s.name + " is too far away! Teleporting!");
+        float distanceToTeleport = s.flyingSpeed * CalculateTimeToTarget() * 60;
+        Debug.Log("Distance to Teleport: " + distanceToTeleport.ToString());
+        s.controller.enabled = false;
+        s.transform.position = Vector3.MoveTowards(s.transform.position, s.destination, -distanceToTeleport);
+        s.controller.enabled = true;
+
         if (Mathf.Sign(CalculateTimeToTarget()) == -1)
         {
-            Debug.Log(s.name + " is too far away! Teleporting!");
-
+            
         }
 
 
@@ -42,7 +48,7 @@ public class CrowTargetState : StateMachineState
     {
         float distanceToSeed = (s.transform.position - s.destination).magnitude;
         float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed; // TODO: make sure this is right.
-        Debug.Log("Time: " + timeItWouldTakeToReachSeed.ToString() + " and WaitTime should be " + s.timeAllowedToReachBirdseed.ToString());
+        //Debug.Log("Time: " + timeItWouldTakeToReachSeed.ToString() + " and WaitTime should be " + s.timeAllowedToReachBirdseed.ToString());
 
         return timeItWouldTakeToReachSeed;
     }
