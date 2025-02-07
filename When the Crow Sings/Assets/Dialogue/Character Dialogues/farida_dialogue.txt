@@ -26,6 +26,8 @@ Farida: Ugh. Come in!
 
 ~ farida_sec_int
 Farida: Did you need something?
+if timeOfDay == 3:
+	=> farida_night_intro
 if ifBeauAndFrancisco == true:
 	- Francisco sent me.
 		=> farida_francisco
@@ -81,13 +83,52 @@ Farida_Exhausted: I'm.. busy, right now. Look, why don't you make yourself usefu
 	set HFFaridaTA = true;
 	set MFFaridaTA = true;
 	set FaridaTaskOn = true;
-	emit 1;
 	Chance: Okay, I can help.
 	Farida: Alright just. . . stand over there, by the gauges. Wait for the needles to hit the red section, and mark the time when it happens. Do that four times then bring it back.
+	emit 1;
 	=> END
 - Maybe later.
 	Chance: Maybe later, I'll come back.
 	=> END
+
+~ farida_night_intro
+set FaridaTaskOffered = true;
+Chance_Scared: <b>Shit!</b> Do you not see that thing outside?
+Farida: Do you think I don't have eyes?
+Chance_Angry: What so you know that thing is out there and you just don't care?
+Farida_Annoyed: They're not a <b>thing</b>. Going out at night is the only thing causing a problem, they don't <b>do</b> anything if you just leave them alone. There is a curfew for a reason, you know.
+Chance_Sigh: They?!
+Farida: Is there something you needed, or are you just in here to break rules and then scream about the consequences of it?
+Chance_Annoyed: I-
+Farida_Annoyed: Well?
+if CalebBaseCompleted == true:
+	<i>Deep breaths. I can see why Caleb has issues with this lady.</i>
+else:
+	<i>Deep breaths.</i>
+Chance_Sigh: I wanted to know about why that thing is out there. It came banging on my window, it just was stomping around out there, that can't be normal!
+Farida_Annoyed: You just got here, and you think you're entitled to know everything? You can't just follow the rules and live a quiet life?!
+Chance_Angry: You read my file! You had to in order to accept me, right?!? You know where I'm from, you know what happened! If you just let whatever is causing this keep happening, this place is going to end up just like my home! 
+Chance_Angry: <b>GONE!</b>
+Farida_Stunned:...
+Farida_Exhausted: Just.. Give me a minute.
+Chance_Annoyed: To do what?
+Farida_Exhausted: To think... Can you do something for me, while I do?
+set FaridaTaskWhen = 3;
+- Okay.
+	set FaridaTaskAccepted = true;
+	set MFFaridaTag = false;
+	set HFFaridaTA = true;
+	set MFFaridaTA = true;
+	set FaridaTaskOn = true;
+	Chance: Okay, I can help.
+	Farida: Alright just. . . stand over there, by the gauges. Wait for the needles to hit the red section, and mark the time when it happens. Do that four times then bring it back.
+	emit 1;
+	=> END
+- Maybe later.
+	Chance: Maybe later, I'll come back.
+	=> END
+
+
 
 ~ farida_no_task
 Farida: You're back. I take it you can't just settle for a nice quiet place to live?
@@ -97,20 +138,23 @@ Farida: You're back. I take it you can't just settle for a nice quiet place to l
 	set HFFaridaTA = true;
 	set MFFaridaTA = true;
 	set FaridaTaskOn = true;
-	emit 1;
 	Chance: Nope, afraid not. Maybe if it actually was.
 	Farida_Annoyed: Really?
 	Farida: Alright, just. . . stand over there, wait for the gauge to hit the red section, mark the time when it happens. Do that four times, then bring it back to me.
+	emit 1;
 	=> END
 - Whatever.
-	Chance_Angry: Whatever.
+	Chance_Annoyed: Whatever.
 	=> END
 
 ~ farida_task_unfin
 Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need glasses?
 - I forgot.
 	Chance_Sad: I forgot what you asked me to do.
-	Farida_Annoyed: <size=75%> You're going through all of this trouble to get into here, to disrupt my day, and you can't even remember the simple instructions I gave you? Are you kidding me? Did you lose all your brain cells between the coast and here? Why did I even accept your application?!
+	if timeOfDay == 3:
+		Farida_Annoyed: All that ruckus just then and you can't even remember what I asked you to do? Is this some kind of joke?
+	else:
+		Farida_Annoyed: <size=75%> You're going through all of this trouble to get into here, to disrupt my day, and you can't even remember the simple instructions I gave you? Are you kidding me? Did you lose all your brain cells between the coast and here? Why did I even accept your application?!
 	Farida_Exhausted: Stand over there, wait for the gauge to hit the red section, mark the time when it happens. Do that four times, then bring it back to me.
 	=> END
 - The vibe was off.
@@ -122,6 +166,12 @@ Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need gl
 ~ farida_task_fin
 set FaridaBaseCompleted = true;
 set ClinicDoorUnlocked = true;
+if FaridaTaskWhen == 3:
+	=> farida_task_fin_night
+else:
+	=> farida_task_fin_day
+
+~ farida_task_fin_day
 Farida_Stunned: This looks.. good. Thank you.
 if FranciscoBaseCompleted == false:
 	Farida: About your question, I suppose you could always talk to <color=#813408>Francisco</color> about it. He works at the <color=#5b5b1f>clinic</color>, and lived here before I got sent here, meaning he probably remembers something about it.
@@ -134,10 +184,36 @@ Farida_Exhausted: Just be gentle with her, please. Her mind is not what it used 
 Chance_Sad: Okay, I'll try.
 Farida: ... Here.
 It's a small brass key. The brand name has been rubbed off.
-Farida: This will open the padlock to <color=#5b5b1f>the abandoned quarter's</color> gate. I go to check on her sometimes.
+Farida: This will open the padlock to the<color=#5b5b1f>residential area's</color> gate. I go to check on her sometimes.
 Chance: What do I call her?
 Farida_Exhausted:... <color=#813408>Phil</color>. 
 Chance_Smile: Thank you, <color=#813408>Farida</color>.
+Farida_Exhausted: Right...
+set MFFaridaTC = false;
+set HFFaridaBC = true;
+emit 1;
+set MFPhilomenaTag = true;
+=> day_check
+
+~ farida_task_fin_night
+if timeOfDay == 3:
+	Farida_Exhausted: Ah, you're done.
+else:
+	Farida_Annoyed: All that grief and you didn't even do it when I asked you to...
+Farida_Exhausted: Look, there's not a whole lot I can offer you about <b>why</b> they roam around out there. Or even what they are..
+Farida: If you haven't talked to <color=#813408>Francisco</color> about it, he might be able to give you some insight into the whole... Amalgamation, part.
+Farida: He was here before the solar panels. That <color=#a11bbe>old power grid</color> seems to be connected to this somehow..
+Farida_Exhausted: I don't know why they come in here. When I got here, <color=#813408>Phil</color> said it had been happening and that the best thing to do was just stay out of their way.
+Farida_Annoyed: So that's what I did! Too many people went missing, I closed off the <color=#5b5b1f>residential area</color>, I instilled a curfew, and I thought things would get better!
+Farida: And they did, for a little bit.
+Farida_Stunned: And then it happened again. More people went missing, and she couldn't handle it.
+Farida_Exhausted:... If anyone here were to know, it would be her. She was here since the beginning. But she's not all there anymore..
+Chance_Sad: ... Please. I can't let something happen here. I don't know where we'd even go.
+Farida_Stunned:...
+Farida_Exhausted: Here.
+It's a small brass key. The brand name has been rubbed off.
+Farida: This will open the padlock to the <color=#5b5b1f>residential area's</color> gate to the <color=#5b5b1f>south-east</color>. I go to check on her sometimes.
+Chance_Sad: Thank you, <color=#813408>Farida</color>.
 Farida_Exhausted: Right...
 set MFFaridaTC = false;
 set HFFaridaBC = true;
