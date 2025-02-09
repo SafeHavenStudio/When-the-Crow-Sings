@@ -20,6 +20,8 @@ else:
 
 ~ francisco_first_int
 set FranciscoTaskOffered = true;
+if timeOfDay == 3:
+	=> francisco_night_intro
 Francisco: Ah hello! You must be our new resident Chance, yes? I don't think I've sent out the request for your entry checkup yet, did you need something?
 if ifFaridaAndCaleb == true:
 	- Caleb sent me.
@@ -57,7 +59,7 @@ if FaridaBaseCompleted == true:
 Francisco_Thinking: <color=#a11bbe>The old energy source</color>, huh? That spooky purple stuff.. Yeah, I lived here before the <color=#813408>old scientist</color>...
 Francisco_Scared: Disappeared? It sounds bad but I don't know if anyone really figured out where he went. He was just gone one day.
 Francisco_Sad: After that-
-Francisco_Scared: AH!
+Francisco_Scared: AY!
 Francisco_Excited: Ah I'm sorry, I shouldn't be chatting while I have work to do.
 Chance_Sad: . . . 
 Francisco_Thinking: One of the little EVOs is feeling unwell again... No signs of ERS, but they've all been so restless lately!
@@ -82,6 +84,43 @@ Francisco_Excited: Ah! Yes! You want something, I need something. I need to get 
 	=> END
 - Maybe later.
 	Chance: I can't right now, maybe later. 
+	=> END
+
+~ francisco_night_intro
+set FranciscoTaskWhen = 3;
+Chance_Scared:<b>Jesus!</b>
+Francisco_Scared: Ay! What's with the commotion?
+Chance_Scared: Are you kidding me?! There's no way you don't know about that thing stomping around out there!
+Francisco_Scared: Um..
+Chance_Angry: Don't pretend you don't, you have to leave here to get to the <color=#5b5b1f>lodging</color> at night, right? You have to have run into it at some point.
+Francisco_Sad: Well, sure. I know of it. I do try to be... discrete, making my way back to the <color=#5b5b1f>rec-center</color>.
+Francisco: Is there a reason you're out past curfew? I believe that's sort of the point of the curfew..
+Chance_Sigh: Are you serious? That thing is out there and you're worried about me breaking curfew? The only reason I'm out is because I'm trying to figure out what it wants so it'll go away! There's no way that thing isn't dangerous.
+Francisco_Sad: I mean.. I guess that makes sense..
+Francisco: It might be related to some of the <color=#a11bbe>old power system</color> here.. It used to be much worse before-
+Francisco_Scared: Ay! Oh no..
+Chance_Annoyed: What?
+Francisco_Sad: I just got a message from <color=#813408>Jazmyne</color> that the little EVOs are feeling under the weather again.. and I'm low on supplies.
+Chance_Sigh: Let me guess, you need my help?
+Francisco_Excited: It would be mutually beneficial. You get me what I need to help the little ones feel better, I tell you what I know about the <color=#a11bbe>power grid</color>.
+Chance_Sigh: You gotta be kidding me, dude. What am I supposed to get?
+Francisco_Thinking: Eheh.. There are some flowers I need the leaves from.. On the <color=#5b5b1f>north-west</color> side of the compound, by the <color=#5b5b1f>rec-center</color>.
+Chance_Angry: Is that a joke?! You want me to go out there with that <b>thing</b> and risk my life for some flowers?!
+Francisco: I mean, you could wait until morning, I suppose. It would really be better if I got her this medicine sooner than that.
+Chance_Sigh: I feel like I'm in some trash video game getting thrown shitty sidequests.
+- What exactly do I need to do?
+	Chance_Sigh: You just need the leaves from the flower? That's it?
+	Francisco_Excited: Three of them. And be careful, they're a little prickly.
+	Chance_Angry: Yeah, something tells me I have bigger problems than sticking myself on a stupid flower!
+	set FranciscoTaskAccepted = true;
+	set MFFranciscoTag = false;
+	set FranciscoTaskOn = true;
+	set HFFranciscoTA = true;
+	emit 1;
+	set MFFranciscoTA = true;
+	=> END
+- I'll come back later.
+	Chance_Annoyed: I can't do this right now, I'll come back later.
 	=> END
 
 ~ francisco_no_task
@@ -115,6 +154,8 @@ Francisco: Oh you're back! You've got what I asked for?
 ~francisco_task_fin
 set FranciscoBaseCompleted = true;
 set EnergyHQDoorUnlocked = true;
+if FranciscoTaskWhen == 3:
+	=> francisco_task_fin_night
 Francisco: Ah, perfect timing. You've got what I asked for?
 Chance: Yeah, here you go.
 Francisco_Excited: You know, this herb is something that has been used in this area for centuries. A long time ago, it even almost went extinct.
@@ -122,36 +163,85 @@ Francisco_Excited: You know, this herb is something that has been used in this a
 	Francisco_Excited: Yes! The people here slowly stopped practicing herbalism as it had been labelled "uncivilized" by the people in power. Though you know, it just made room for big companies to sell similar medications to the people instead.
 	Francisco_Thinking: It was only after the collapse that people returned to their more holistic traditions. We are lucky it survived all the way till now! Especially with the environment the way it is...
 	Francisco: Ah! All done! How time flies when you're having fun.
+	Francisco: I guess it's time to fulfill my part of the deal, no?
 	=> francisco_task_fin_cont
 - Uh huh.
 	Francisco_Sad: . . . . . . Well, that's done.
+	Francisco: I guess it's time to fulfill my part of the deal, no?
 	=> francisco_task_fin_cont
 
+~ francisco_task_fin_night
+Francisco: You're back. You've got what I asked for?
+Chance_Angry: Yes I have your stupid flower leaves.
+Francisco_Sad: Right, just give me a moment. . . .
+Francisco_Excited: I suppose it's time for me to fulfill my part of the deal, yes?
+Chance_Sigh: Yeah, I'd say so.
+
+
+
 ~ francisco_task_fin_cont
-Francisco: I guess it's time to fulfill my part of the deal, no?
-Francisco_Thinking: <color=#5b5b1f>The old power source</color>... The man who took care of it was very cold, and we didn't see him often here. He lived beyond the main compound to the <color=#5b5b1f>north-east at the old quarry</color>. He only walked through to get to the <color=#5b5b1f>power control station</color>, and he only spoke to his <color=#813408>assistant</color>.
+Francisco_Thinking: <color=#a11bbe>The old power source</color>... The man who took care of it was very cold, and we didn't see him often here. He lived beyond the main compound to the <color=#5b5b1f>north-east</color> at the <color=#5b5b1f>old quarry</color>. He only walked through to get to the <color=#5b5b1f>power control station</color>, and he only spoke to his <color=#813408>assistant</color>.
 Francisco_Scared: His work was very... secretive. I never really understood his <color=#a11bbe>"discovery"</color>, but I know it gave me the chills. That hypnotic pink haze that blurred the horizon to the west, especially at night..
-Francisco_Excited: But he's been gone for a long while now. And his <color=#813408>assistant</color> holed herself up in the abandoned <color=#5b5b1f>residential area</color> not long after. Once he was gone, the power stopped working and the coalition sent us the solar panels along with <color=#813408>Farida</color> and <color=#813408>Caleb</color> to care for them.
+Francisco_Excited: But he's been gone for a long while now. Once he was gone, the power stopped working and the coalition sent us the solar panels along with <color=#813408>Farida</color> and <color=#813408>Caleb</color> to care for them. His <color=#813408>assistant</color> holed herself up in the abandoned <color=#5b5b1f>residential area</color> not long after.
 Francisco: People stopped going missing so much too.
-- Going missing?
-	Chance_Scared: People went missing?
-	Francisco_Sad: Yes, before he left mostly. The compound was never big but, it was a good deal more than we have now. Mostly EVOs..
-	Francisco: That's why the <color=#5b5b1f>residential area</color> got closed off, and we all live in here now. Not enough people to upkeep the houses..
-	Francisco_Sad: My job is to check for ERS, you know? And sometimes they would have that <color=#a11bbe>nasty pink color</color> to them before they-
-	Francisco_Scared: . . .
-	Francisco_Scared: Ah- anyway..
-	=> francisco_task_fin_cont_2
-- . . .
-	=> francisco_task_fin_cont_2
+if FaridaTaskWhen == 3:
+	- But they didn't stop.
+		Chance: They didn't stop though. <color=#813408>Farida</color> said it got better, but it still happened anyway.
+		Francisco_Sad: Yes, that's right. The people would come to me and they'd be coughing up this horrible <color=#a11bbe>pink sludge</color>, and then a week or two later they'd disappear from the compound.
+		Francisco_Scared: And then after enough time, those big creatures would come back now and then. I'm not sure what they want, but they are.. less than friendly.
+		Francisco_Sad: But after <color=#813408>Farida</color> instilled the curfew, it's been better. Nobody has been hurt, and they just leave at day break. 
+		Chance_Sigh: So that means we should just pretend that everything is okay?! Can't go outside without some big beast wanting to take a bite of you and that's chill!?!
+		Francisco_Sad:...
+		=> francisco_unpleasant_task_fin
+	- What about the mutations?
+		Chance_Sigh: Well why do they look like that? <color=#813408>Farida</color> said you might know.
+		Francisco_Scared: I have no idea.
+		Chance_Angry: WHAT? 
+		Francisco_Sad: The people would come to me and they'd be coughing up this horrible <color=#a11bbe>pink sludge</color>, and then a week or two later they'd disappear from the compound. I have no idea why, their symptoms didn't line up with ERS or any known conditions.
+		Chance_Thinking: So it's only the EVOs that get sick and go missing?
+		Francisco_Think: Yes, I think so.. But I can't even recognise.. I mean. If that thing is a person, I couldn't tell you who it is. It doesn't look like anyone I knew.
+		Chance_Sigh: You're saying it like it's a question but <color=#813408>Farida</color> seemed pretty sure.
+		Francisco_Sad: Would you want to admit that the people you are meant to protect have turned into something like that?
+		Chance_Annoyed: No I wouldn't, but I wouldn't bury my head in the sand until something worse happens!
+		Chance_Sigh: If you don't know why it's like that, or who it is, or whatever, do you at least know something about the power grid? Something that can help me? <color=#813408>Farida</color> is sure that it has something to do with what's going on.
+		=> francisco_unpleasant_task_fin
+else:
+	- Going missing?
+		Chance_Scared: People went missing?
+		Francisco_Sad: Yes, before he left mostly. The compound was never big but, it was a good deal more than we have now. Mostly EVOs..
+		Francisco: That's why the <color=#5b5b1f>residential area</color> got closed off, and we all live in here now. Not enough people to upkeep the houses..
+		Francisco_Sad: My job is to check for ERS, you know? And sometimes they would have that <color=#a11bbe>nasty pink color</color> to them before they-
+		Francisco_Scared: . . .
+		Francisco_Scared: Ah- anyway..
+		=> francisco_task_fin_cont_2
+	- . . .
+		=> francisco_task_fin_cont_2
+
+~ francisco_unpleasant_task_fin
+Francisco_Think: The <color=#5b5b1f>old power substation</color> is still standing, to the <color=#5b5b1f>north-west</color>. Maybe there's something there that can give you insight.
+Francisco_Sad: I'm sorry I can't be of more help.
+Chance_Annoyed: Aren't all the outside doors locked? How would I get in?
+Francisco: The lock is mechanical, it should still be working if it hasn't rusted shut. The code is <color=#a11bbe>4663</color>.
+Chance: Right. Thanks, I guess.
+Francisco_Sad: Let me know if you find anything out there. 
+set MFFranciscoTC = false;
+set HFFranciscoBC = true;
+emit 1;
+if day == 1:
+	=> curfew_check
+else:
+	=> time_forward
 
 ~ francisco_task_fin_cont_2
-Francisco: If you wanted to know something about it, I know <color=#a11bbe>the old control substation</color> is still standing out there, past the gate to the <color=#5b5b1f>north-west</color>.
+Francisco: If you wanted to know more about it, I know <color=#a11bbe>the old control substation</color> is still standing out there, past the gate to the <color=#5b5b1f>north-west</color>.
 Francisco_Thinking: Though you shouldn't tell <color=#813408>Farida</color>, she doesn't like anyone going out past the gates unless they have to.
 if FaridaBaseCompleted == true:
 	- She said...
 		Chance: She said something about there being old gauges not working in the <color=#5b5b1f>energy building</color>. Were they connected to that <color=#5b5b1f>power substation</color>?
 		Francisco_Thinking: I suppose they could be. We never really talked about it.
 		=> gauges_check
+	- How do I get in?
+		=> francisco_task_fin_cont_3
 else:
 set MFFaridaTag = true;
 	- Would she be mad?
@@ -162,6 +252,7 @@ set MFFaridaTag = true;
 	- How do I get in?
 		=> francisco_task_fin_cont_3
 
+
 ~ gauges_check
 if SeenBrokenGauges == true:
 	Chance_Sad: I wonder why they were smashed..
@@ -171,10 +262,10 @@ else:
 	=> francisco_task_fin_cont_3
 
 ~ francisco_task_fin_cont_3
-Chance_Sad: How would I get in? Isn't it locked?
+Chance_Thinking: How would I get in? Isn't it locked?
 Francisco_Excited: Yes, but the lock is manual, so the buttons should still work. The code is <color=#a11bbe>4663</color>, if I remember correctly.
 Chance_Smile: Oh, okay. Thanks <color=#813408>Francisco</color>.
-Francisco: Of course. Um, let me know if you find anything out. It was nice to talk to you.
+Francisco: Of course. Let me know if you find anything out.
 set MFFranciscoTC = false;
 set HFFranciscoBC = true;
 emit 1;
