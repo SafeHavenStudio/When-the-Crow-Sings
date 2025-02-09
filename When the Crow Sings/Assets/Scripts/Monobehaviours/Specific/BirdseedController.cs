@@ -46,7 +46,7 @@ public class BirdseedController : MonoBehaviour
         args.objectArgs.Add(this);
         birdseedLanded.Emit(args);
 
-        if (ServiceLocator.Get<GameManager>().activeBirdseed != this) Destroy(gameObject, birdseedLifeAfterGround);
+        //if (ServiceLocator.Get<GameManager>().activeBirdseed != this) Destroy(gameObject, birdseedLifeAfterGround);
     }
 
     private void Init(Vector3 direction)

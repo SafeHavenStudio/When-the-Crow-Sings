@@ -812,6 +812,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingNextButton: {fileID: 303511286}
   cameraFinished: {fileID: 11400000, guid: 6ff63fe5abcb510419f49446bfcd9dca, type: 2}
+--- !u!1 &100933090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100933091}
+  - component: {fileID: 100933092}
+  m_Layer: 0
+  m_Name: CrowHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100933091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100933090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1228388621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100933092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100933090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33d278ce7ba6c64c8fae4f7c8932862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CrowPrefab: {fileID: 7616777099089193631, guid: e173a1eb24ca5c2419e7b6e59dc5c773,
+    type: 3}
 --- !u!1001 &104974490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7079,10 +7125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dynamicEnables: []
-  landedBirdseed: []
-  crowHolder: {fileID: 0}
-  crowRestPoints: []
-  activeBirdseed: {fileID: 0}
   gameStateManager: {fileID: 8806014526471703756}
 --- !u!114 &943808691
 MonoBehaviour:
@@ -11503,7 +11545,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 100933091}
   m_Father: {fileID: 1530234482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1228388622
@@ -11518,6 +11561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37f40e294272754ab67600461c1811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crowHolder: {fileID: 100933092}
 --- !u!1001 &1233038287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22812,7 +22856,6 @@ MonoBehaviour:
   loadScreen: {fileID: 529008941}
   canLoad: 1
   currentLevelDataLVL: {fileID: 0}
-  actorCrowTarget: {fileID: 0}
   debugScenes:
   - {fileID: 11400000, guid: 36f35bc577aea704db6b5fb2b38ccf05, type: 2}
   - {fileID: 11400000, guid: 0d27ad5e7dba89e46bd68fc6f1991732, type: 2}

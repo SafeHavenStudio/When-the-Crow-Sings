@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CrowManager : MonoBehaviour, IService
 {
+    public CrowHolder crowHolder;
+
     public void RegisterSelfAsService()
     {
         ServiceLocator.Register<CrowManager>(this);
@@ -17,6 +19,12 @@ public class CrowManager : MonoBehaviour, IService
 
 
     private List<CrowRestPoint> crowRestPoints = new List<CrowRestPoint>();
+
+    public void InitializeCrows()
+    {
+        crowHolder.SpawnCrows(crowRestPoints);
+    }
+
     public void RegisterCrowRestPoint(CrowRestPoint crowRestPoint)
     {
         crowRestPoints.Add(crowRestPoint);
@@ -25,4 +33,31 @@ public class CrowManager : MonoBehaviour, IService
     {
         crowRestPoints.Remove(crowRestPoint);
     }
+
+
+
+
+
+
+
+
+
+    //public void AddCrowTargetIfNoneExists(BirdseedController birdseedToFeastUpon)//Vector3 feast)
+    //{
+
+    //    //Instantiate(CrowTargetPrefab,feast, Quaternion.identity);
+
+    //    if (!CrowTarget.GetComponent<CrowTarget>().isActiveTarget)
+    //    {
+    //        CrowTarget.transform.position = birdseedToFeastUpon.transform.position;
+    //        CrowTarget.GetComponent<CrowTarget>().SetActiveTarget();
+    //        ServiceLocator.Get<GameManager>().activeBirdseed = birdseedToFeastUpon;
+    //    }
+
+
+    //    //foreach (BirdBrain i in crows)
+    //    //{
+    //    //    i.stateMachine.Enter("CrowScatterState");
+    //    //}
+    //}
 }

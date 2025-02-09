@@ -51,9 +51,9 @@ public class CrowTarget : MonoBehaviour
     {
         isActiveTarget = false;
 
-        if (ServiceLocator.Get<GameManager>().activeBirdseed != null)
-            Destroy(ServiceLocator.Get<GameManager>().activeBirdseed.gameObject);
-        ServiceLocator.Get<GameManager>().activeBirdseed = null;
+        //if (ServiceLocator.Get<GameManager>().activeBirdseed != null)
+        //    Destroy(ServiceLocator.Get<GameManager>().activeBirdseed.gameObject);
+        //ServiceLocator.Get<GameManager>().activeBirdseed = null;
         disabledSignal.Emit();
 
         visualDebug.SetActive(false);

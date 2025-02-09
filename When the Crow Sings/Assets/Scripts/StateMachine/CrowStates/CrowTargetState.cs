@@ -26,7 +26,7 @@ public class CrowTargetState : StateMachineState
 
     void setupSeedDestination()
     {
-        s.destination = s.crowHolder.CrowTarget.transform.position;
+        //s.destination = s.crowHolder.crowTarget.transform.position;
         CalculateTimeToTarget();
 
         Debug.Log(s.name + " is too far away! Teleporting!");
