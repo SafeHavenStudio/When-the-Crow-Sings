@@ -6,10 +6,6 @@ public class CrowHolder : MonoBehaviour
 {
     List<BirdBrain> crows = new List<BirdBrain>();
     public GameObject CrowPrefab;
-    //public GameObject CrowTargetPrefab;
-    //public CrowTarget crowTarget;
-
-    
 
     public void DestroyCrows()
     {

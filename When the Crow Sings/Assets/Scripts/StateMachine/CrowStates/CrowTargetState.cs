@@ -12,7 +12,6 @@ public class CrowTargetState : StateMachineState
 
     public override void FixedUpdate()
     {
-        //s.targetPosition = (s.destination - s.transform.position)*.01f;
         s.FlyNavigate_FixedUpdate();
     }
     public override void StateEntered()
@@ -26,7 +25,6 @@ public class CrowTargetState : StateMachineState
 
     void setupSeedDestination()
     {
-        //s.destination = s.crowHolder.crowTarget.transform.position;
         CalculateTimeToTarget();
 
         Debug.Log(s.name + " is too far away! Teleporting!");
@@ -47,8 +45,7 @@ public class CrowTargetState : StateMachineState
     private float CalculateTimeToTarget() // TODO: Move this to be a delay before it takes off.
     {
         float distanceToSeed = (s.transform.position - s.destination).magnitude;
-        float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed; // TODO: make sure this is right.
-        //Debug.Log("Time: " + timeItWouldTakeToReachSeed.ToString() + " and WaitTime should be " + s.timeAllowedToReachBirdseed.ToString());
+        float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed;
 
         return timeItWouldTakeToReachSeed;
     }

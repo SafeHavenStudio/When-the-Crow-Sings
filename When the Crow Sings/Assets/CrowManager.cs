@@ -6,12 +6,8 @@ public class CrowManager : MonoBehaviour, IService
 {
     public CrowHolder crowHolder;
 
-    public void RegisterSelfAsService()
-    {
-        ServiceLocator.Register<CrowManager>(this);
-    }
+    public void RegisterSelfAsService() {ServiceLocator.Register<CrowManager>(this);}
 
-    // Start is called before the first frame update
     void Start()
     {
         RegisterSelfAsService();
@@ -34,30 +30,4 @@ public class CrowManager : MonoBehaviour, IService
         crowRestPoints.Remove(crowRestPoint);
     }
 
-
-
-
-
-
-
-
-
-    //public void AddCrowTargetIfNoneExists(BirdseedController birdseedToFeastUpon)//Vector3 feast)
-    //{
-
-    //    //Instantiate(CrowTargetPrefab,feast, Quaternion.identity);
-
-    //    if (!CrowTarget.GetComponent<CrowTarget>().isActiveTarget)
-    //    {
-    //        CrowTarget.transform.position = birdseedToFeastUpon.transform.position;
-    //        CrowTarget.GetComponent<CrowTarget>().SetActiveTarget();
-    //        ServiceLocator.Get<GameManager>().activeBirdseed = birdseedToFeastUpon;
-    //    }
-
-
-    //    //foreach (BirdBrain i in crows)
-    //    //{
-    //    //    i.stateMachine.Enter("CrowScatterState");
-    //    //}
-    //}
 }

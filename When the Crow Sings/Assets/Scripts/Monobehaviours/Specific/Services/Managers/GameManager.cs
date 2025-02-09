@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour, IService
 {
-    // Likely where we keep track of general stuff going on in the game. Possibly birdseed.
     [HideInInspector]
     public List<DynamicEnable> dynamicEnables = new List<DynamicEnable>();
     
