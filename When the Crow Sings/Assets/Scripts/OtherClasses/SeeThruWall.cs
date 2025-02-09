@@ -8,11 +8,11 @@ public class SeeThruWall : MonoBehaviour
     public Camera Camera;
     public LayerMask mask; // Assign this to wall layer
     //private float sphereRadius = 0.9f; //determines size of raycast
-    public float occluderSize = 0;
-    public float occluderMaxSize = 2f;
-    public float lerpFactor = 0f;
-    public float growSpeed = 0.001f;
-    public float shrinkSpeed = 0.003f;
+    private float occluderSize = 0;
+    private float occluderMaxSize = 1.5f;
+    private float lerpFactor = 0f;
+    private float growSpeed = 2f;
+    private float shrinkSpeed = 2f;
 
     public static int PosID = Shader.PropertyToID("_Position");
     public static int SizeID = Shader.PropertyToID("_Size");
@@ -39,35 +39,18 @@ public class SeeThruWall : MonoBehaviour
 
         bool isInView = Physics.Raycast(ray, 3000, mask);
 
-        //Gradually increase or decrease lerpFactor based on isInView
-        if (isInView)
-        {
-            lerpFactor += Time.deltaTime * growSpeed; 
-        }
-        else
-        {
-            lerpFactor -= Time.deltaTime * shrinkSpeed; 
-        }
+        float targetFactor = isInView ? 1f : 0f;
+        float speed = isInView ? growSpeed : shrinkSpeed;
+        lerpFactor = Mathf.MoveTowards(lerpFactor, targetFactor, speed * Time.deltaTime);
 
         //Clamp the lerpFactor between 0 and max size
         lerpFactor = Mathf.Clamp(lerpFactor, 0, occluderMaxSize);
 
+        //Use lerpFactor directly to control occluder size
+        occluderSize = Mathf.Lerp(0f, occluderMaxSize, lerpFactor);
+
         foreach (var material in SeeThruMaterials)
         {
-            //Blend between the current occluderSize 0
-            if (isInView)
-            {
-                occluderSize = Mathf.Lerp(occluderSize, occluderMaxSize, lerpFactor);
-            }
-            else
-            {
-                occluderSize = Mathf.Lerp(occluderSize, 0f, lerpFactor);
-                if (occluderSize < 0.6f)
-                {
-                    occluderSize = 0;
-                }
-            }
-
             //Sets the size to the material
             material.SetFloat(SizeID, occluderSize);
             //Debug.Log("Occluder size = " + occluderSize);
@@ -102,7 +85,6 @@ public class SeeThruWall : MonoBehaviour
                 
             }
         }
-
         //Debug.Log($"Found {SeeThruMaterials.Count} materials with the shader: {seeThruWalls}");
     }
 }
