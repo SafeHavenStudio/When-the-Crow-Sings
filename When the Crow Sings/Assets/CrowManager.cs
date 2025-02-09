@@ -30,6 +30,12 @@ public class CrowManager : MonoBehaviour, IService
         crowRestPoints.Remove(crowRestPoint);
     }
 
-    
+    public void InformCrowsOfTarget(CrowTarget crowTarget)
+    {
+        for (int i = 0; i < crowHolder.crows.Count; i++)
+        {
+            crowHolder.crows[i].StartFlyingTowardBirdseed(crowTarget.GetRandomSubtarget());
+        }
+    }
 
 }

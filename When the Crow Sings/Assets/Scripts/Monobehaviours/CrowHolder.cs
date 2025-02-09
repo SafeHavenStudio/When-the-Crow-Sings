@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrowHolder : MonoBehaviour
 {
-    List<BirdBrain> crows = new List<BirdBrain>();
+    public List<BirdBrain> crows = new List<BirdBrain>();
     public GameObject CrowPrefab;
 
     public void DestroyCrows()

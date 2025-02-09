@@ -1,30 +1,26 @@
 using ScriptableObjects;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CrowTarget : MonoBehaviour
 {
-    public float lifetime = 5.0f;
     public List<GameObject> subTargets = new List<GameObject>();
 
     public GameObject visualDebug;
 
-    public void StartDisableCoroutine()
+    public void StartActingAsObstacle(float lifetime) // Called by crows when they touch this.
     {
-        if (!isCoroutineRunning_DisableAfterTime) StartCoroutine(DisableAfterTime());
+        GetComponent<NavMeshObstacle>().enabled = true;
+        Destroy(gameObject, lifetime);
     }
 
-    bool isCoroutineRunning_DisableAfterTime = true;
-    public IEnumerator DisableAfterTime()
+    public GameObject GetRandomSubtarget()
     {
-        isCoroutineRunning_DisableAfterTime = true;
-        GetComponent<NavMeshObstacle>().enabled = true;
-
-        yield return new WaitForSeconds(lifetime);
-
-        isCoroutineRunning_DisableAfterTime = false;
-        Destroy(gameObject);
+        int randomIndex = UnityEngine.Random.Range(0, subTargets.Count - 1);
+        return subTargets[randomIndex];
     }
 }

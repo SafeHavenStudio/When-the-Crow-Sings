@@ -9,6 +9,9 @@ public class BirdseedManager : MonoBehaviour
     [SerializeField]
     GameObject targetPrefab;
 
+    [SerializeField]
+    CrowManager crowManager;
+
     public void OnBirseedLanded(SignalArguments args)
     {
         Debug.Log("Birdseed has landed!");
@@ -16,6 +19,8 @@ public class BirdseedManager : MonoBehaviour
         if (targetObject == null)
         {
             spawnTarget((BirdseedController)args.objectArgs[0]);
+
+            crowManager.InformCrowsOfTarget(targetObject.GetComponent<CrowTarget>());
         }
         else
         {
@@ -27,6 +32,5 @@ public class BirdseedManager : MonoBehaviour
     {
         targetObject = Instantiate(targetPrefab, transform);
         targetObject.transform.position = birdseedController.transform.position;
-        Destroy(targetObject, 2f); // Temporary Destroy(). To be removed.
     }
 }
