@@ -59,8 +59,6 @@ GameObject:
   - component: {fileID: 4240251560430903145}
   - component: {fileID: 3527518958370958998}
   - component: {fileID: 7269275418895521287}
-  - component: {fileID: 7491101395590694452}
-  - component: {fileID: 3841574232447091061}
   - component: {fileID: 3650327899952369636}
   - component: {fileID: 4066688519271929169}
   m_Layer: 11
@@ -102,13 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7269275418895521287}
   crowHolder: {fileID: 0}
-  secondsToPeck: 0
+  secondsToPeck: 1
   flyingSpeed: 0.5
   crowAnimator: {fileID: 3960627997628165419}
   restPoint: {fileID: 0}
-  targetIsTargetNotSpawn: 0
   idleWaitingAfterPecking: 0
-  destination: {x: 0, y: 0, z: 0}
+  timeAllowedToReachBirdseed: 2
+  target: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
 --- !u!143 &7269275418895521287
 CharacterController:
@@ -136,62 +134,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7491101395590694452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616777099089193631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: 6f040831a86d25944ab46991604690a3, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3527518958370958998}
-        m_TargetAssemblyTypeName: BirdBrain, Assembly-CSharp
-        m_MethodName: OnCrowTargetActivated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3841574232447091061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616777099089193631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: 31ada72ff3210d14f9ccd76cfa10d650, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3527518958370958998}
-        m_TargetAssemblyTypeName: BirdBrain, Assembly-CSharp
-        m_MethodName: OnCrowTargetDeactivated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!54 &3650327899952369636
 Rigidbody:
   m_ObjectHideFlags: 0

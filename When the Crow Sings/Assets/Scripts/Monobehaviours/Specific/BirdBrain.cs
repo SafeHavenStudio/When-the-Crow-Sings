@@ -16,8 +16,6 @@ public class BirdBrain : StateMachineComponent
     public CrowRestPoint restPoint;
 
     [HideInInspector]
-    public bool targetIsTargetNotSpawn; // Determines whether TargetState should focus on birdseed or spawn.
-    [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
     [HideInInspector]
@@ -38,38 +36,39 @@ public class BirdBrain : StateMachineComponent
     }
 
     [HideInInspector]
-    public Vector3 destination;
+    public Transform target;
+
     [HideInInspector]
     public Vector3 direction;
 
     public void FlyNavigate_FixedUpdate()
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
-        direction =  (destination - transform.position).normalized*flyingSpeed;
+        direction =  (target.position - transform.position).normalized*flyingSpeed;
         transform.rotation = Quaternion.LookRotation(direction);
         controller.Move(direction);//targetPosition);
     }
 
-    public void SetTargetAsTarget(bool _target)
+    public void StartFlyingTowardTarget(Transform _target)
     {
-        targetIsTargetNotSpawn = _target;
+        target = _target;
         stateMachine.Enter("CrowTakeoffState");
     }
 
-    public void StillGravity()
+    public void ApplyGravityWhileStill()
     {
         controller.Move(new Vector3(0, -1f, 0));
     }
 
-    public void OnCrowTargetActivated(SignalArguments args)
+    public void StartFlyingTowardBirdseed(GameObject _target)
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
-        SetTargetAsTarget(true);
+        StartFlyingTowardTarget(_target.transform);
     }
-    public void OnCrowTargetDeactivated(SignalArguments args)
+    public void StartFlyingTowardRestPoint()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
-        SetTargetAsTarget(false);
+        StartFlyingTowardTarget(restPoint.transform);
     }
 
     public void SetRestPoint(CrowRestPoint _restPoint)
@@ -81,12 +80,11 @@ public class BirdBrain : StateMachineComponent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CrowRestPoint>() == restPoint && !targetIsTargetNotSpawn) stateMachine.Enter("CrowIdleState");
-        if (other.GetComponent<CrowTarget>() && targetIsTargetNotSpawn)
+        if (other.GetComponent<CrowRestPoint>() == restPoint && target == restPoint.transform) stateMachine.Enter("CrowIdleState");
+        else if (other.GetComponent<CrowTarget>() && target != restPoint.transform)
         {
-            other.GetComponent<CrowTarget>().StartDisable();
+            other.GetComponent<CrowTarget>().StartActingAsObstacle(secondsToPeck);
             stateMachine.Enter("CrowPeckState");
         }
-        
     }
 }

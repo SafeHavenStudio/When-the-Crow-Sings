@@ -13,7 +13,7 @@ public class CrowIdleState : StateMachineState
 
     public override void FixedUpdate()
     {
-        s.StillGravity();
+        s.ApplyGravityWhileStill();
     }
 
     public override void StateEntered()
