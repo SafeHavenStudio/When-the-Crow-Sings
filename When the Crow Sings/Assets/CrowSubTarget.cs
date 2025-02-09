@@ -8,7 +8,7 @@ public class CrowSubTarget : MonoBehaviour
 
     public LayerMask layerMask;
 
-    public static float approachDistance = 5f;
+    public static float approachDistance = 7f;
     public Vector3 FindApproachPoint()
     {
         RaycastHit hit;
