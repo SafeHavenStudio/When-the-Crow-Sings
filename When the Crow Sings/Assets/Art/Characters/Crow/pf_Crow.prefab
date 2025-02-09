@@ -101,13 +101,105 @@ MonoBehaviour:
   controller: {fileID: 7269275418895521287}
   crowHolder: {fileID: 0}
   secondsToPeck: 1
-  flyingSpeed: 0.5
+  flyingSpeed: 0.4
   crowAnimator: {fileID: 3960627997628165419}
   restPoint: {fileID: 0}
   idleWaitingAfterPecking: 0
-  timeAllowedToReachBirdseed: 2
+  timeAllowedToReachBirdseed: 1.25
   target: {fileID: 0}
+  approachPoint: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
+  progressToTarget: 0
+  weightACurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0
+      value: 0.000008225441
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  weightBCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.91667175
+      value: 0.9381286
+      inSlope: -0.24748564
+      outSlope: -0.24748564
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: -0.000009894371
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  weightCCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.05
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9440233
+      value: 0.0358392
+      inSlope: 0.1509019
+      outSlope: 0.1509019
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!143 &7269275418895521287
 CharacterController:
   m_ObjectHideFlags: 0
@@ -352,6 +444,11 @@ PrefabInstance:
       value: Crow
       objectReference: {fileID: 0}
     - target: {fileID: 6684295394808222897, guid: f872f4ef09f86e74590bda67a0619cc8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe7df3d01695ef04f869a97f85075864, type: 2}
+    - target: {fileID: 7146836499155943969, guid: f872f4ef09f86e74590bda67a0619cc8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

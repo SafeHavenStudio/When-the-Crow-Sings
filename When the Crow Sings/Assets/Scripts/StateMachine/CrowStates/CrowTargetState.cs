@@ -43,7 +43,7 @@ public class CrowTargetState : StateMachineState
 
     private float CalculateTimeToTarget() // TODO: Move this to be a delay before it takes off.
     {
-        float distanceToSeed = (s.transform.position - s.target.position).magnitude;
+        float distanceToSeed = (s.transform.position - s.approachPoint).magnitude;
         float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed;
 
         return timeItWouldTakeToReachSeed;

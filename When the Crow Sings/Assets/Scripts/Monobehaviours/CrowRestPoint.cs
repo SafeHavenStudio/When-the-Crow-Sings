@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrowRestPoint : MonoBehaviour
 {
     public GameObject debugVisible;
+    public Transform approachPoint;
     private void OnEnable()
     {
         ServiceLocator.Get<CrowManager>().RegisterCrowRestPoint(this);

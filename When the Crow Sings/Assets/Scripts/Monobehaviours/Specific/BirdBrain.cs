@@ -18,7 +18,6 @@ public class BirdBrain : StateMachineComponent
     [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
-    [HideInInspector]
     public float timeAllowedToReachBirdseed = 2f; // Time in seconds
 
     private void Awake()
@@ -37,21 +36,53 @@ public class BirdBrain : StateMachineComponent
 
     [HideInInspector]
     public Transform target;
+    [HideInInspector] public Vector3 approachPoint;
 
     [HideInInspector]
     public Vector3 direction;
 
+    [HideInInspector]
+    public float progressToTarget = 0f;
+    float progressSpeed = .5f;
+    float approachWeight = 1f;
     public void FlyNavigate_FixedUpdate()
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
-        direction =  (target.position - transform.position).normalized*flyingSpeed;
+        //direction =  (target.position - transform.position).normalized*flyingSpeed;
+
+        //progressToTarget = Mathf.Clamp01(progressToTarget + (1.0f / 60.0f)*progressSpeed);
+
+        if ((transform.position - approachPoint).magnitude < 1)
+        {
+            crowAnimator.SetBool("isFlying", false);
+            progressToTarget = 1f;
+        }
+
+
+        Vector3 weights = new Vector3(weightACurve.Evaluate(progressToTarget), approachWeight * weightBCurve.Evaluate(progressToTarget), weightCCurve.Evaluate(progressToTarget));
+        //weights = weights.normalized;
+
+        //Debug.Log(weights.ToString() + " Progress: " + progressToTarget.ToString());
+
+        Vector3 weightedWayPoint = 
+            ((restPoint.transform.position * weights.x)
+            + (approachPoint * weights.y)
+            + (target.position * weights.z))
+            / (weights.x + weights.y + weights.z);
+
+        direction = (weightedWayPoint - transform.position).normalized * flyingSpeed;
+
         transform.rotation = Quaternion.LookRotation(direction);
+
         controller.Move(direction);//targetPosition);
     }
-
+    public AnimationCurve weightACurve;
+    public AnimationCurve weightBCurve;
+    public AnimationCurve weightCCurve;
     public void StartFlyingTowardTarget(Transform _target)
     {
         target = _target;
+        progressToTarget = 0f;
         stateMachine.Enter("CrowTakeoffState");
     }
 
@@ -63,11 +94,15 @@ public class BirdBrain : StateMachineComponent
     public void StartFlyingTowardBirdseed(GameObject _target)
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
+
+        approachPoint = _target.GetComponent<CrowSubTarget>().FindApproachPoint();
         StartFlyingTowardTarget(_target.transform);
     }
     public void StartFlyingTowardRestPoint()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
+
+        approachPoint = restPoint.approachPoint.position;
         StartFlyingTowardTarget(restPoint.transform);
     }
 
