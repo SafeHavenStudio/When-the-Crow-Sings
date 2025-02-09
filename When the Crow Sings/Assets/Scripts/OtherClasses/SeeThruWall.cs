@@ -9,7 +9,7 @@ public class SeeThruWall : MonoBehaviour
     public LayerMask mask; // Assign this to wall layer
     //private float sphereRadius = 0.9f; //determines size of raycast
     private float occluderSize = 0;
-    private float occluderMaxSize = 1.4f;
+    private float occluderMaxSize = 1.5f;
     private float lerpFactor = 0f;
     private float growSpeed = 2f;
     private float shrinkSpeed = 2f;
