@@ -30,4 +30,6 @@ public class CrowManager : MonoBehaviour, IService
         crowRestPoints.Remove(crowRestPoint);
     }
 
+    
+
 }
