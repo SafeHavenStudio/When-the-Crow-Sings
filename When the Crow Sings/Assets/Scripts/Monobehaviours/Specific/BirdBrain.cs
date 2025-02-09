@@ -37,21 +37,51 @@ public class BirdBrain : StateMachineComponent
 
     [HideInInspector]
     public Transform target;
+    [HideInInspector] public Vector3 approachPoint;
 
     [HideInInspector]
     public Vector3 direction;
 
+    [HideInInspector]
+    public float progressToTarget = 0f;
+    float progressSpeed = .1f;
+    float approachWeight = 1f;
     public void FlyNavigate_FixedUpdate()
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
-        direction =  (target.position - transform.position).normalized*flyingSpeed;
-        transform.rotation = Quaternion.LookRotation(direction);
+        //direction =  (target.position - transform.position).normalized*flyingSpeed;
+
+        
+        
+        
+        //transform.rotation = Quaternion.LookRotation(direction);
+
+        progressToTarget = Mathf.Clamp01(progressToTarget + (1.0f / 60.0f)*progressSpeed);
+        Debug.Log("Progress: " + progressToTarget.ToString());
+
+        Vector3 weights = new Vector3(1f - progressToTarget, approachWeight * (-Mathf.Pow(((progressToTarget * 2f) - 1f), 4f) + 1), 0 + progressToTarget);
+        //Vector3 weights = new Vector3(0,1,0);
+        weights = weights.normalized;
+
+        Vector3 weightedWayPoint = 
+            ((restPoint.transform.position * weights.x)
+            + (approachPoint * weights.y)
+            + (target.position * weights.z))
+            / (weights.x + weights.y + weights.z);
+
+        debugWaypoint.position = weightedWayPoint;
+
+        direction = (weightedWayPoint - transform.position).normalized * flyingSpeed;
+
         controller.Move(direction);//targetPosition);
     }
+    public Transform debugWaypoint;
+    public AnimationCurve weightBCurve;
 
     public void StartFlyingTowardTarget(Transform _target)
     {
         target = _target;
+        progressToTarget = 0f;
         stateMachine.Enter("CrowTakeoffState");
     }
 
@@ -63,11 +93,15 @@ public class BirdBrain : StateMachineComponent
     public void StartFlyingTowardBirdseed(GameObject _target)
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
+
+        approachPoint = _target.GetComponent<CrowSubTarget>().FindApproachPoint();
         StartFlyingTowardTarget(_target.transform);
     }
     public void StartFlyingTowardRestPoint()
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, this.transform.position);
+
+        approachPoint = restPoint.approachPoint.position;
         StartFlyingTowardTarget(restPoint.transform);
     }
 
