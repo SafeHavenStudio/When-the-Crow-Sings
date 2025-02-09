@@ -52,7 +52,11 @@ public class BirdBrain : StateMachineComponent
 
         //progressToTarget = Mathf.Clamp01(progressToTarget + (1.0f / 60.0f)*progressSpeed);
 
-        if ((transform.position - approachPoint).magnitude < 1) progressToTarget = 1f;
+        if ((transform.position - approachPoint).magnitude < 1)
+        {
+            crowAnimator.SetBool("isFlying", false);
+            progressToTarget = 1f;
+        }
 
 
         Vector3 weights = new Vector3(weightACurve.Evaluate(progressToTarget), approachWeight * weightBCurve.Evaluate(progressToTarget), weightCCurve.Evaluate(progressToTarget));
