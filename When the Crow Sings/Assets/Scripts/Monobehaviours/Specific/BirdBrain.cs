@@ -18,7 +18,6 @@ public class BirdBrain : StateMachineComponent
     [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
-    [HideInInspector]
     public float timeAllowedToReachBirdseed = 2f; // Time in seconds
 
     private void Awake()
@@ -67,15 +66,12 @@ public class BirdBrain : StateMachineComponent
             + (target.position * weights.z))
             / (weights.x + weights.y + weights.z);
 
-        debugWaypoint.position = weightedWayPoint;
-
         direction = (weightedWayPoint - transform.position).normalized * flyingSpeed;
 
         transform.rotation = Quaternion.LookRotation(direction);
 
         controller.Move(direction);//targetPosition);
     }
-    public Transform debugWaypoint;
     public AnimationCurve weightACurve;
     public AnimationCurve weightBCurve;
     public AnimationCurve weightCCurve;
