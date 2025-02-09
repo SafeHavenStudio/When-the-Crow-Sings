@@ -12,13 +12,11 @@ public class CrowTargetState : StateMachineState
 
     public override void FixedUpdate()
     {
-        //s.targetPosition = (s.destination - s.transform.position)*.01f;
         s.FlyNavigate_FixedUpdate();
     }
     public override void StateEntered()
     {
-        if (s.targetIsTargetNotSpawn) setupSeedDestination();
-        else s.destination = s.restPoint.transform.position;
+        if (s.target != s.restPoint.transform) setupSeedDestination();
         s.crowAnimator.SetBool("isFlying", true);
         s.crowAnimator.SetBool("isIdle", false);
         s.crowAnimator.SetBool("isPecking", false);
@@ -26,14 +24,13 @@ public class CrowTargetState : StateMachineState
 
     void setupSeedDestination()
     {
-        s.destination = s.crowHolder.CrowTarget.transform.position;
         CalculateTimeToTarget();
 
         Debug.Log(s.name + " is too far away! Teleporting!");
         float distanceToTeleport = s.flyingSpeed * CalculateTimeToTarget() * 60;
         Debug.Log("Distance to Teleport: " + distanceToTeleport.ToString());
         s.controller.enabled = false;
-        s.transform.position = Vector3.MoveTowards(s.transform.position, s.destination, -distanceToTeleport);
+        s.transform.position = Vector3.MoveTowards(s.transform.position, s.target.position, -distanceToTeleport);
         s.controller.enabled = true;
 
         if (Mathf.Sign(CalculateTimeToTarget()) == -1)
@@ -46,9 +43,8 @@ public class CrowTargetState : StateMachineState
 
     private float CalculateTimeToTarget() // TODO: Move this to be a delay before it takes off.
     {
-        float distanceToSeed = (s.transform.position - s.destination).magnitude;
-        float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed; // TODO: make sure this is right.
-        //Debug.Log("Time: " + timeItWouldTakeToReachSeed.ToString() + " and WaitTime should be " + s.timeAllowedToReachBirdseed.ToString());
+        float distanceToSeed = (s.transform.position - s.target.position).magnitude;
+        float timeItWouldTakeToReachSeed = -((distanceToSeed / s.flyingSpeed) / 60) + s.timeAllowedToReachBirdseed;
 
         return timeItWouldTakeToReachSeed;
     }

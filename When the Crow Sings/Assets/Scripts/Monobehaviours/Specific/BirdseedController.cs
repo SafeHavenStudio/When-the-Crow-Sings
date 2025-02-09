@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class BirdseedController : MonoBehaviour
 {
-    public GameSignal birdseedLanded;
     public GameObject throwVisual;
     public GameObject landedVisual;
-    public GameObject crowTargetPrefab;
+
+    public GameSignal landedSignal;
 
     private bool _isLanded = false;
 
-    public float crowDelayInSeconds = .5f;
     public float birdseedLifeAfterGround = 1.5f;
 
     public float groundDampeningMultiplier = .01f;
@@ -36,19 +35,6 @@ public class BirdseedController : MonoBehaviour
         return birdseed;
     }
 
-    private IEnumerator SpawnCrows() // This needs to get Eliminated at some point.
-    {
-        yield return new WaitForSeconds(crowDelayInSeconds);
-        //Instantiate(pfCrowsTemp,transform.position, Quaternion.identity);
-
-
-        SignalArguments args = new SignalArguments();
-        args.objectArgs.Add(this);
-        birdseedLanded.Emit(args);
-
-        if (ServiceLocator.Get<GameManager>().activeBirdseed != this) Destroy(gameObject, birdseedLifeAfterGround);
-    }
-
     private void Init(Vector3 direction)
     {
         isLanded = false;
@@ -62,7 +48,6 @@ public class BirdseedController : MonoBehaviour
 
     private void Shoot(Vector3 direction)
     {
-
         GetComponent<Rigidbody>().velocity = direction*speedMultiplier;
     }
     public float gravityMultiplier;
@@ -87,14 +72,15 @@ public class BirdseedController : MonoBehaviour
             {
                 firstTime = true;
                 isLanded = true;
-                //GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.x * groundDampeningMultiplier, 0, GetComponent<Rigidbody>().velocity.z * groundDampeningMultiplier);
                 GetComponent<Rigidbody>().velocity *= groundDampeningMultiplier;
 
+                SignalArguments args = new SignalArguments();
+                args.objectArgs.Add(this);
+                landedSignal.Emit(args);
+
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.SeedHit, this.transform.position);
-                StartCoroutine(SpawnCrows());
             }
         }
-        
     }
 
 

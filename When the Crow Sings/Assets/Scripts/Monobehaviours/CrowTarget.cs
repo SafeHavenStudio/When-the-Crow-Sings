@@ -1,63 +1,26 @@
 using ScriptableObjects;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CrowTarget : MonoBehaviour
 {
-    public float SecondsToAttractCrows = 5.0f;
-    [HideInInspector]
-    public bool isActiveTarget = false;
-    
+    public List<GameObject> subTargets = new List<GameObject>();
 
     public GameObject visualDebug;
 
-    public GameSignal enabledSignal;
-    public GameSignal disabledSignal;
-
-    public void SetActiveTarget()
+    public void StartActingAsObstacle(float lifetime) // Called by crows when they touch this.
     {
-        isDisableAfterTimeRunning = false;
-        isActiveTarget = true;
-        enabledSignal.Emit();
-        //visualDebug.SetActive(true);
-    }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.GetComponent<BirdBrain>() != null)
-    //    {
-    //        if (!isDisableAfterTimeRunning) StartCoroutine(DisableAfterTime());
-    //    }
-    //}
-
-    public bool isDisableAfterTimeRunning = true;
-
-    public void StartDisable()
-    {
-        if (!isDisableAfterTimeRunning) StartCoroutine(DisableAfterTime());
-    }
-    public IEnumerator DisableAfterTime()
-    {
-        isDisableAfterTimeRunning = true;
         GetComponent<NavMeshObstacle>().enabled = true;
-        yield return new WaitForSeconds(SecondsToAttractCrows);
-        
-        
-        DisableTarget();
+        Destroy(gameObject, lifetime);
     }
 
-    public void DisableTarget()
+    public GameObject GetRandomSubtarget()
     {
-        isActiveTarget = false;
-
-        if (ServiceLocator.Get<GameManager>().activeBirdseed != null)
-            Destroy(ServiceLocator.Get<GameManager>().activeBirdseed.gameObject);
-        ServiceLocator.Get<GameManager>().activeBirdseed = null;
-        disabledSignal.Emit();
-
-        visualDebug.SetActive(false);
-        isDisableAfterTimeRunning = false;
-        GetComponent<NavMeshObstacle>().enabled = false;
+        int randomIndex = UnityEngine.Random.Range(0, subTargets.Count - 1);
+        return subTargets[randomIndex];
     }
 }

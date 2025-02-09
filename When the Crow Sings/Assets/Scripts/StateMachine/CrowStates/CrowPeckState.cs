@@ -12,22 +12,22 @@ public class CrowPeckState : StateMachineState
 
     public override void FixedUpdate()
     {
-        s.StillGravity();
+        s.ApplyGravityWhileStill();
     }
 
     public override void StateEntered()
     {
         s.transform.localRotation = Quaternion.Euler(0f, s.transform.localRotation.eulerAngles.y, s.transform.localRotation.eulerAngles.z);
+        s.StartCoroutine(ExitStateAfterSeconds());
 
         s.crowAnimator.SetBool("isFlying", false);
         s.crowAnimator.SetBool("isIdle", false);
         s.crowAnimator.SetBool("isPecking", true);
     }
 
-    IEnumerator ExitStateAfterSeconds()
+    IEnumerator ExitStateAfterSeconds() // TODO: Figure out a way to make all birds end simultaneously to avoid potential issues.
     {
         yield return new WaitForSeconds(s.secondsToPeck);
-        // TODO: Figure out best place for "decide if it should look for more birdseed or not"
-        s.stateMachine.Enter("CrowIdleState");
+        s.StartFlyingTowardRestPoint();
     }
 }
