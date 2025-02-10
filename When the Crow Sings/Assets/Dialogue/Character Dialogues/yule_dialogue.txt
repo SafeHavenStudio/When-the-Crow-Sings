@@ -60,6 +60,9 @@ Yule_Stare: Do you want to get me one?
 	set HFYuleTA = true;
 	set YuleTaskAccepted = true;
 	set YuleTaskOneOn = true;
+	set MFYuleRod = true;
+	set MFYuleString = true;
+	set MFYuleHook = true;
 	Chance: If it will make you not busy, then yes.
 	Yule: If you say so. 
 	Chance: Uh, what do I need to make you a fishing rod?
@@ -67,9 +70,6 @@ Yule_Stare: Do you want to get me one?
 	Chance: I can find all that here?
 	Yule: Should be able to.
 	Chance: Okay, I'll see what I can do.
-	set MFYuleRod = true;
-	set MFYuleString = true;
-	set MFYuleHook = true;
 	emit 1;
 	=> END
 - No.
@@ -88,14 +88,14 @@ Yule: Once I'm done fishing.
 	set HFYuleTA = true;
 	set YuleTaskAccepted = true;
 	set YuleTaskOneOn = true;
+	set MFYuleRod = true;
+	set MFYuleString = true;
+	set MFYuleHook = true;
 	Chance: I'll help you, what do I need to make you a fishing rod?
 	Yule_Thinking: Oh let's see.. A young flexible branch for the rod, some wire for the guides, and some fiber for line.
 	Chance: I can find all that here?
 	Yule: Should be able to.
 	Chance: Okay, I'll see what I can do.
-	set MFYuleRod = true;
-	set MFYuleString = true;
-	set MFYuleHook = true;
 	emit 1;
 	=> END
 - Right.
@@ -120,6 +120,10 @@ Yule_Thinking: Why?
 
 ~ yule_task_part_fin
 set YuleTaskTwoOn = true;
+set YuleFishingrod = true;
+set MFYuleTPC = false;
+set MFYuleTNC = true;
+set HFYuleTNC = true;
 Chance: Alright, I got all the stuff you asked for.
 Yule_Smile: It looks good. Let me have it.
 Yule_Stare: . . .
@@ -128,10 +132,6 @@ Yule_Thinking: Yes. But I don't know if it works.
 Chance: ... So you want me to see if it works?
 Yule: Yes.
 Chance: Uh, okay.
-set YuleFishingrod = true;
-set MFYuleTPC = false;
-set MFYuleTNC = true;
-set HFYuleTNC = true;
 emit 1;
 => END
 
@@ -145,6 +145,8 @@ set MFYuleTPC = false;
 set KeyInformation1 = true;
 set YuleBaseCompleted = true;
 set MFYuleTC = false;
+set HFYuleBC = true;
+set timeOfDay += 1;
 Yule_Smile: That's a nice looking fish. Came up easy, too. It's a good rod.
 Chance: Yeah, it is.
 It made me feel like when I used to fish at home.
@@ -185,9 +187,7 @@ Yule_Angry: Yes. Wherever he ran off to, I hope he doesn't get a good night's sl
 Chance: Yeah...
 Chance: Thanks for the info, big guy.
 Yule: Sure. Come and see me again, if you want.
-set HFYuleBC = true;
 emit 1;
-set timeOfDay += 1;
 call ReloadScene(1);
 => END
 

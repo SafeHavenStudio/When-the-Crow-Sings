@@ -144,7 +144,8 @@ else:
 	=> time_forward
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 
@@ -157,6 +158,13 @@ else:
 => END
 
 ~ caleb_beyond_base
+Do I want to talk with <color=#813408>Caleb</color> now?
+- Sure
+	=> caleb_beyond_base_directory
+- Ugh, no
+	=> END
+
+~ caleb_beyond_base_directory
 if CalebBB == 0:
 	=> C0
 if CalebBB == 1:
@@ -203,7 +211,7 @@ Caleb: Yeah? What about 'em?
 	Caleb: I guess it isn't the biggest deal, ones up there don't seem to have as many issues or require repairs.
 	Caleb_Annoyed: Trust me, <color=#813408>Farida</color> doesn't let me hear the end of it when they go out.
 	Chance_Thinking: Why do the ones down here need more repair than the ones on the roofs? 
-	Caleb: Oh plenty o' things, more foot traffic, some little critters, bugs. The kids running around and playing sports mostly.
+	Caleb: Oh plenty of things. More foot traffic, some little critters, bugs, the kids runnin' around and playin' sports mostly.
 	Caleb_Smile: I don't mind it though, as long as my <color=#813408>Calli</color> is having a good time, I'll spend all day fixing these things.
 	Caleb_Annoyed: <size=75%>Well maybe not all day, it does a number on my back but you get me.</size>
 => BBEnd
@@ -235,12 +243,11 @@ Chance_Annoyed: Uhuh.
 	Caleb_Smile: As long as she's happy, I don't mind a bit.
 	Caleb: But giving back to your community is important! It's what keeps all this workin', keeps us all alive.
 	Caleb_Thinking: What are you going to do 'round here anyway? 
-	Caleb_Wink: I'd guess it isn't "designated nail technician", based on your hands.
 	Chance_Sigh: I don't know.
-	Chance_Annoyed: I haven't been placed yet, <color=#813408>Farida</color> will assign me in a few weeks or something based off the report C.A.N. sent. 
+	Chance_Annoyed: I haven't been placed yet, <color=#813408>Farida</color> will assign me in a few weeks or something based on the report C.A.N. sent. 
 	Caleb_Smile: Well let's hope it isn't the head of the fashion police!
-	Chance_Sigh: Yeah, cause you'd get arrested first.
-	Caleb_Smile: Hah!
+	Chance_Sigh: We are both wearing like the exact same clothes.
+	Caleb_Annoyed: I would not be caught dead in cargo shorts, kid.
 => BBEnd
 
 ~ C2

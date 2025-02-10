@@ -56,7 +56,7 @@ Quinn: Maybe someone who lives outside of the central hub would know about it, s
 Chance: Outside? I thought we all lived in the <color=#5b5b1f>lodgings</color> or the <color=#5b5b1f>recreational center</color>.
 Quinn: Well, kind of. Not all of us. As far as I can tell, <color=#813408>Farida</color> assigned the residencies inside the gates. Some people lived here before her.
 Quinn: . . . You know, I could get you in touch with our <color=#813408>resident outsider</color>. He's lived here for a long while, so if something changed with any residents or <color=#a11bbe>the strays</color>, he would know. 
-Quinn_Excited: You couuuuld lend me a hand? I could tell <color=#813408>Farida</color> to open his gate for you to go in and talk to him about it.
+Quinn_Excited: You couuuuld lend me a hand? I could tell <color=#813408>Farida</color> to open his gate to the <color=#5b5b1f>south-west</color> for you to go in and talk to him about it.
 Chance: Doing what exactly?
 Quinn: Oh! I just need a hand with some seed bags. It's about time to start incubating what will sprout in spring. Problem is, the crows that have been coming in have taken a liking to the seed bags and...
 Quinn_Scared: I'm just not a big fan of birds.
@@ -68,7 +68,7 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 	set HFQuinnTA = true;
 	emit 1;
 	Chance: Um, I guess I can.
-	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>south-west gate</color>, get them and bring them in to me and I'll see what I can do for ya.
+	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>dining tent</color>, get them and bring them in to me and I'll see what I can do for ya.
 	=> END
 - Later.
 	Chance_Sad: Maybe later.
@@ -84,7 +84,7 @@ Quinn: Turnott?.. I'm workshopping it.
 	set HFQuinnTA = true;
 	emit 1;
 	Chance: I wanted to talk to your guy who lives outside.
-	Quinn: Sure sure. Just go get those seeds for me, the bags are down by the <color=#5b5b1f>south-west gate</color>. I'll page <color=#813408>Farida</color> about a delivery for <color=#813408>Yule</color> and give him a heads-up.
+	Quinn: Sure sure. Just go get those seeds for me, the bags are down by the <color=#5b5b1f>dining tent</color>. I'll page <color=#813408>Farida</color> about a delivery for <color=#813408>Yule</color> and give him a heads-up.
 	=> END
 - No thanks.
 	Chance: Er, no thanks.
@@ -97,7 +97,7 @@ Chance: What?
 Quinn: Uhhh, I totally asked you to do something.
 - What was it?
 	Chance_Sad: I forgot, what was it?
-	Quinn: You sure are a weird kid. I just need you to get those seed bags from the crows by the <color=#5b5b1f>south-west gate</color>.
+	Quinn: You sure are a weird kid. I just need you to get those seed bags from the crows by the <color=#5b5b1f>dining tent</color>.
 	=> END
 - Yeah I know.
 	Chance: Yeah, I know. Just haven't gotten around to it yet.
@@ -106,8 +106,11 @@ Quinn: Uhhh, I totally asked you to do something.
 
 ~ quinn_task_fin
 set QuinnBaseCompleted = true;
+set MFYuleTag = true;
+set MFQuinnTC = false;
+set HFQuinnBC = true;
 Quinn_Excited: Hey there, just in time!
-Quinn: I let <color=#813408>Farida</color> know I've got <color=#813408>Yule</color> bringing in some irregular deliveries, due to the season change coming up. Sooo, You should be alright just to come and go through the gate when you buzz it now.
+Quinn: I let <color=#813408>Farida</color> know I've got <color=#813408>Yule</color> bringing in some irregular deliveries, due to the season change coming up. Sooo, You should be alright just to come and go through the <color=#5b5b1f>south-west gate</color> when you buzz it now.
 Quinn: About <color=#813408>the big guy</color>? Be patient. He's old and quiet. Been here a long time, not the most social. I'm sure he'll tell you what you wanna know, but he's a little quirky. Moves to his own rhythm, you know?
 Chance: Uh, sure.
 Quinn: I'm basically the only person he talks to other than maybe <color=#813408>Beau</color> once in a while. Or the fish.
@@ -115,9 +118,6 @@ Chance: The fish?
 Quinn_Scared: The fish.
 Quinn: Thanks for your help, by the way.
 Chance_Smile: Sure, no problem.
-set MFYuleTag = true;
-set MFQuinnTC = false;
-set HFQuinnBC = true;
 emit 1;
 if day == 1:
 	=> curfew_check
@@ -126,7 +126,8 @@ else:
 
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 

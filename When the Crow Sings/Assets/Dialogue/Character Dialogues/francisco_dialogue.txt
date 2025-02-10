@@ -22,7 +22,7 @@ else:
 set FranciscoTaskOffered = true;
 if timeOfDay == 3:
 	=> francisco_night_intro
-Francisco: Ah hello! You must be our new resident Chance, yes? I don't think I've sent out the request for your entry checkup yet, did you need something?
+Francisco: Ah hello! You must be our new resident <color=#813408>Chance</color>, yes? I don't think I've sent out the request for your entry checkup yet, did you need something?
 if ifFaridaAndCaleb == true:
 	- Caleb sent me.
 		Chance: <color=#813408>Caleb</color> said you might know something about <color=#a11bbe>the old energy source</color> here, whatever was used before the solar panels.
@@ -109,15 +109,15 @@ Chance_Angry: Is that a joke?! You want me to go out there with that <b>thing</b
 Francisco: I mean, you could wait until morning, I suppose. It would really be better if I got her this medicine sooner than that.
 Chance_Sigh: I feel like I'm in some trash video game getting thrown shitty sidequests.
 - What exactly do I need to do?
-	Chance_Sigh: You just need the leaves from the flower? That's it?
-	Francisco_Excited: Three of them. And be careful, they're a little prickly.
-	Chance_Angry: Yeah, something tells me I have bigger problems than sticking myself on a stupid flower!
 	set FranciscoTaskAccepted = true;
 	set MFFranciscoTag = false;
 	set FranciscoTaskOn = true;
 	set HFFranciscoTA = true;
-	emit 1;
 	set MFFranciscoTA = true;
+	Chance_Sigh: You just need the leaves from the flower? That's it?
+	Francisco_Excited: Three of them. And be careful, they're a little prickly.
+	Chance_Angry: Yeah, something tells me I have bigger problems than sticking myself on a stupid flower!
+	emit 1;
 	=> END
 - I'll come back later.
 	Chance_Annoyed: I can't do this right now, I'll come back later.
@@ -130,12 +130,12 @@ Francisco: I'm sorry but I really can't chat until I get this done. Did you stil
 	set MFFranciscoTag = false;
 	set FranciscoTaskOn = true;
 	set HFFranciscoTA = true;
-	emit 1;
 	set MFFranciscoTA = true;
 	Chance: Turns out I do. What did you need?
 	Francisco: There is this little pink flower you may have seen around, pipsissewa they call it. The leaves help with some of the discomfort. 
 	Francisco_Excited: They're a little spiky though, so be careful while picking them. Three plants worth will do, you can find them up by the locked up gate to the <color=#5b5b1f>north-west</color>.
 	Chance: Alright, I'll be back.
+	emit 1;
 	=> END
 - Maybe later.
 	=> END
@@ -160,7 +160,7 @@ Francisco: Ah, perfect timing. You've got what I asked for?
 Chance: Yeah, here you go.
 Francisco_Excited: You know, this herb is something that has been used in this area for centuries. A long time ago, it even almost went extinct.
 - Really?
-	Francisco_Excited: Yes! The people here slowly stopped practicing herbalism as it had been labelled "uncivilized" by the people in power. Though you know, it just made room for big companies to sell similar medications to the people instead.
+	Francisco_Excited: Yes! The people here slowly stopped practicing herbalism as it had been labeled "uncivilized" by the people in power. Though you know, it just made room for big companies to sell similar medications to the people instead.
 	Francisco_Thinking: It was only after the collapse that people returned to their more holistic traditions. We are lucky it survived all the way till now! Especially with the environment the way it is...
 	Francisco: Ah! All done! How time flies when you're having fun.
 	Francisco: I guess it's time to fulfill my part of the deal, no?
@@ -176,7 +176,7 @@ Chance_Angry: Yes I have your stupid flower leaves.
 Francisco_Sad: Right, just give me a moment. . . .
 Francisco_Excited: I suppose it's time for me to fulfill my part of the deal, yes?
 Chance_Sigh: Yeah, I'd say so.
-
+	=> francisco_task_fin_cont
 
 
 ~ francisco_task_fin_cont
@@ -189,7 +189,7 @@ if FaridaTaskWhen == 3:
 		Chance: They didn't stop though. <color=#813408>Farida</color> said it got better, but it still happened anyway.
 		Francisco_Sad: Yes, that's right. The people would come to me and they'd be coughing up this horrible <color=#a11bbe>pink sludge</color>, and then a week or two later they'd disappear from the compound.
 		Francisco_Scared: And then after enough time, those big creatures would come back now and then. I'm not sure what they want, but they are.. less than friendly.
-		Francisco_Sad: But after <color=#813408>Farida</color> instilled the curfew, it's been better. Nobody has been hurt, and they just leave at day break. 
+		Francisco_Sad: But after <color=#813408>Farida</color> instilled the curfew, it's been better. Nobody has been hurt, and they just leave at daybreak. 
 		Chance_Sigh: So that means we should just pretend that everything is okay?! Can't go outside without some big beast wanting to take a bite of you and that's chill!?!
 		Francisco_Sad:...
 		=> francisco_unpleasant_task_fin
@@ -203,18 +203,18 @@ if FaridaTaskWhen == 3:
 		Chance_Sigh: You're saying it like it's a question but <color=#813408>Farida</color> seemed pretty sure.
 		Francisco_Sad: Would you want to admit that the people you are meant to protect have turned into something like that?
 		Chance_Annoyed: No I wouldn't, but I wouldn't bury my head in the sand until something worse happens!
-		Chance_Sigh: If you don't know why it's like that, or who it is, or whatever, do you at least know something about the power grid? Something that can help me? <color=#813408>Farida</color> is sure that it has something to do with what's going on.
+		Chance_Sigh: If you don't know why it's like that, or who it is, or whatever, do you at least know something about the <color=#a11bbe>power grid</color>? Something that can help me? <color=#813408>Farida</color> is sure that it has something to do with what's going on.
 		=> francisco_unpleasant_task_fin
 else:
 	- Going missing?
 		Chance_Scared: People went missing?
-		Francisco_Sad: Yes, before he left mostly. The compound was never big but, it was a good deal more than we have now. Mostly EVOs..
+		Francisco_Sad: Yes, before he left mostly. The compound was never big but it was a good deal more than we have now. Mostly EVOs..
 		Francisco: That's why the <color=#5b5b1f>residential area</color> got closed off, and we all live in here now. Not enough people to upkeep the houses..
 		Francisco_Sad: My job is to check for ERS, you know? And sometimes they would have that <color=#a11bbe>nasty pink color</color> to them before they-
 		Francisco_Scared: . . .
 		Francisco_Scared: Ah- anyway..
 		=> francisco_task_fin_cont_2
-	- . . .
+	- <i>Listen</i>
 		=> francisco_task_fin_cont_2
 
 ~ francisco_unpleasant_task_fin
@@ -246,7 +246,7 @@ else:
 set MFFaridaTag = true;
 	- Would she be mad?
 		Chance: Would she get mad if she found out I went?
-		Francisco_Thinking: I mean... Maybe. I can't gaurantee anything, she's has a little bit of a temper.
+		Francisco_Thinking: I mean... Maybe. I can't guarantee anything, she's has a little bit of a temper.
 		Francisco_Excited: Just a little one. What she doesn't know wouldn't hurt her, eh?
 		=> francisco_task_fin_cont_3
 	- How do I get in?
@@ -262,12 +262,12 @@ else:
 	=> francisco_task_fin_cont_3
 
 ~ francisco_task_fin_cont_3
+set MFFranciscoTC = false;
+set HFFranciscoBC = true;
 Chance_Thinking: How would I get in? Isn't it locked?
 Francisco_Excited: Yes, but the lock is manual, so the buttons should still work. The code is <color=#a11bbe>4663</color>, if I remember correctly.
 Chance_Smile: Oh, okay. Thanks <color=#813408>Francisco</color>.
 Francisco: Of course. Let me know if you find anything out.
-set MFFranciscoTC = false;
-set HFFranciscoBC = true;
 emit 1;
 if day == 1:
 	=> curfew_check
@@ -276,7 +276,8 @@ else:
 
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 

@@ -19,9 +19,9 @@ else:
 	=> angel_task_fin
 
 ~ angel_first_int
-if timeOfDay == 0:
-	Angel_Smile: Good morning, are you settling in alright?
 if timeOfDay == 1:
+	Angel_Smile: Good morning, are you settling in alright?
+if timeOfDay == 2:
 	Angel_Smile: Good afternoon, are you settling in alright?
 Chance_Thinking: Uh.. Not sure I'd say that.
 Angel_Worried: Oh! Well..
@@ -53,7 +53,7 @@ Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of
 	Chance_Sigh: . . . Yeah, sure.
 	Angel_Smile: Thanks! I just need you to stir our forever soup!
 	Angel: It has to be stirred a couple times a day, and if you do it, I can take care of some other things.
-	Angel_Stare: It's been here since before I got here. Probably older than some siblings...
+	Angel_Stare: It's been here since before I got here. Probably older than my siblings...
 	=> END
 - Maybe later.
 	Chance: Um, maybe later.
@@ -117,9 +117,11 @@ if day == 1:
 	=> curfew_check
 else:
 	=> time_forward
+	
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 
@@ -132,6 +134,13 @@ else:
 => END
 
 ~ angel_beyond_base
+Do I want to talk to <color=#813408>Angel</color> right now?
+- Yep
+	=> angel_beyond_base_directory
+- No
+	=> END
+
+~ angel_beyond_base_directory
 if AngelBB == 0:
 	=> A0
 if AngelBB == 1:
@@ -158,7 +167,7 @@ Angel_Smile: Anyway! Did you want to talk about something?
 	Angel_Smile: Well maybe! I'm not sure.
 	Angel_Thinking: We always had something like this where I'm from, a soup that never ends.
 	Angel: It's a good way to stretch resources and make sure you've always got something to eat.
-	Angel_Smile: When we came here, this one was already going. They said it had been going since before place was established.
+	Angel_Smile: When we came here, this one was already going. They said it had been going since before this place was established.
 	if EnergyKnown == true:
 		Chance_Thinking: Even though the power went out for a while?
 	else:
@@ -261,7 +270,7 @@ Angel_Smile: Hey!
 	Chance_Thinking: Oh, I get it. And your mom takes care of him?
 	Angel: Mhm. We're lucky that <color=#813408>Miss Jazmyne</color> came too, I don't know how she'd manage if she had to watch the little ones too.
 	Chance_Thinking: You and <color=#813408>Jazmyne</color> are from the same place?
-	Angel_Stare: Yep. Us, <color=#813408>Jazmyne</color>, and <color=#813408>Theo</color> all came from the same compound. It's a few days bus drive to the..... West?
+	Angel_Stare: Yep. Us, <color=#813408>Jazmyne</color>, and <color=#813408>Theo</color> all came from the same compound. It's a few days' bus drive to the..... West?
 	Angel_Thinking: Never Eat Soggy Waffles.. Sun sets in the west...
 	<i> What are waffles? </i>
 	Angel_Smile: Yeah, the west.
@@ -284,7 +293,7 @@ if JazmyneBaseCompleted == true:
 		Chance_Thinking: Blows them up?
 		Angel_Smile: Yes, and it makes this crazy sound!
 		Angel_Stare: It kinda hurts my ears sometimes.
-		Chance_Thinking: And that has to do with movies how?
+		Chance_Thinking: And that has to do with movies, how?
 		Angel_Smile: Oh right! We make a bunch, and then we all sit on the floor in the <color=#5b5b1f>rec center</color> and they turn a projector on and we watch it on the wall.
 		Chance: That sounds pretty cool, I guess. What kind of movies do you have?
 		Angel_Thinking: Um, some adventure fantasy stuff, some with crazy technology stuff, all kinds. You know, before EVOs came around they actually made movies about talking animals?
