@@ -70,11 +70,11 @@ else:
 
 ~ seed_bags
 if QuinnTaskAccepted == true:
-	Better grab these quick.
 	set MFQuinnTA = false;
 	set MFQuinnTC = true;
 	set HFQuinnTC = true;
 	set QuinnTaskCompleted = true;
+	Better grab these quick.
 	emit 1;
 	=> END
 else:
@@ -175,7 +175,10 @@ set Zone1DoorUnlocked = true;
 => END
 
 ~ zone_door_2
-The door is completely stuck. There's no way to open it even if I wanted to.
+if JazmyneBaseCompleted == true:
+	The door is stuck, like <color=#813408>Jazmyne</color> said. There's gotta be a hole or something nearby.. Maybe behind that wood pile?
+else:
+	The door is completely stuck. There's no way to open it even if I wanted to.
 => END
 
 ~ zone_door_3
@@ -247,7 +250,7 @@ else:
 if timeOfDay == 3:
 	The door is shut fast.
 else:
-	I don't have a reason to go in there. I don't think I've ever felt a temperature below 70 fahrenheit.
+	I don't have a reason to go in there. I don't think I've ever felt a temperature below 22 celsius.
 	... I wonder what the winters here are like.
 => END
 

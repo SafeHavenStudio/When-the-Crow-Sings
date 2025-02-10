@@ -134,6 +134,10 @@ public class SaveData
         { "Zone4DoorUnlocked",false },
         { "TheoPickaxe",false },
         { "TheodoreHole",false },
+        { "QuarryEntered", false},
+        { "PowerStationEntered", false},
+        { "ForestEntered", false},
+        { "ResidentialEntered", false},
 
         //Endings relevant flags
 
