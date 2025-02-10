@@ -15,6 +15,7 @@ public class SaveData
         { "SceneStructureFlag",false  },
 
         { "IntroContextSeen",false },
+        { "NightIntroSeen",false },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
