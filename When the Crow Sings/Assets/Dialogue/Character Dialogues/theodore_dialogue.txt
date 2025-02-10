@@ -27,7 +27,7 @@ Theodore_Angry: What?!
 Chance_Excited: Hole. There was a hole in the wall. 
 Theodore_Sigh: U G H
 Theodore_Annoyed: What do you want? Can't you respect a man's privacy? Who even are you?
-Chance_Smile: I'm Chance, the new resident. You must be <color=#813408>Teddy</color>.
+Chance_Smile: I'm <color=#813408>Chance</color>, the new resident. You must be <color=#813408>Teddy</color>.
 Theodore_Angry: TEDDY?!!?!?!
 Theodore_Sigh: @#%@#%$%^^@##@!
 Theodore_Annoyed: Do NOT call me that. I don't know why <color=#813408>Jazmyne</color> sent you here but I don't need you looking over me.
@@ -134,6 +134,9 @@ if CalebBaseCompleted == true:
 ~ theodore_task_fin_2
 set TheodoreBaseCompleted = true;
 set KeyInformation2 = true;
+set MFTheodoreTC = false;
+set HFTheodoreBC = true;
+set timeOfDay += 1;
 Theodore_Stunned: . . .
 Theodore_Excited: That's all I know. Now give that thing to me.
 Chance_Angry: Hey!
@@ -141,10 +144,7 @@ Chance: Well what about the other stuff?
 Theodore_Annoyed: What about it? Do you think I'm up here filing paperwork? Do you see a computer? I don't care, keep it.
 Chance_Excited: Fine. See you, <color=#813408>Teddy</color>.
 Theodore_Angry: IT'S <color=#813408>THEODORE</color>!
-set MFTheodoreTC = false;
-set HFTheodoreBC = true;
 emit 1;
-set timeOfDay += 1;
 => END
 
 ~ theodore_beyond_base

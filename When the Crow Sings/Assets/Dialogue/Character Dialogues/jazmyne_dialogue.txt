@@ -25,7 +25,7 @@ if ifCalebAndAngel == true:
 		=> jazmyne_first_int_cont
 	- Angel sent me.
 		Chance: <color=#813408>Angel</color> said that you know everyone, that you might know about who would be out past curfew.
-		Jazmyne_Annoyed: Well, I'm up late, but, I'm always here with the kids. Most of them anyway. . .
+		Jazmyne_Annoyed: Well, I'm up late, but I'm always here with the kids. Most of them anyway. . .
 		=> jazmyne_first_int_cont
 if CalebBaseCompleted == true:
 	Chance: <color=#813408>Caleb</color> said that you had a, uh.. <color=#813408>troublemaker</color> who might know something interesting about the stuff outside of the central compound?
@@ -33,19 +33,19 @@ if CalebBaseCompleted == true:
 	=> jazmyne_first_int_cont
 if AngelBaseCompleted == true:
 	Chance: <color=#813408>Angel</color> said that you know everyone, that you might know about who would be out past curfew.
-	Jazmyne_Annoyed: Well, I'm up late, but, I'm always here with the kids. Most of them anyway. . .
+	Jazmyne_Annoyed: Well, I'm up late, but I'm always here with the kids. Most of them anyway. . .
 	=> jazmyne_first_int_cont
 
 ~ jazmyne_first_int_cont
-Jazmyne_Stunned: Oh no!
-Jazmyne_Worried: I didn't get nearly enough time to clean up.. Oh!
-Jazmyne_Worried: Could you help me and clean up out here? Just gather up all the drawings and put them on the board!
-Jazmyne_Exhausted: I can talk more once the babies are back to sleep!
 set MFJazmyneTag = false;
 set MFJazmyneTA = true;
 set HFJazmyneTA = true;
 set JazmyneTaskAccepted = true;
-set JazmyneTaskOn =  true;
+set JazmyneTaskOn =  true; 
+Jazmyne_Stunned: Oh no!
+Jazmyne_Worried: I didn't get nearly enough time to clean up.. Oh!
+Jazmyne_Worried: Could you help me and clean up out here? Just gather up all the drawings and put them on the board!
+Jazmyne_Exhausted: I can talk more once the little ones are back to sleep!
 emit 1;
 => END
 
@@ -64,23 +64,23 @@ Jazmyne: Oh! You did what I asked you to!
 Chance_Smile: Yeah, it wasn't too bad. I am used to cleaning up after kids.
 Jazmyne: Oh really? Well I appreciate it so so so much. What was it you wanted to talk about again?
 Chance: The-
-Jazmyne: Oh, I remember! Lately, I couldn't tell you what goes on at night. I'm kept up at all hours helping with the babies. 
+Jazmyne: Oh, I remember! Lately, I couldn't tell you what goes on at night. I'm kept up at all hours helping with the little ones. 
 Jazmyne_Exhausted: One cries, wakes another, like screaming dominoes...
 Jazmyne_Sigh: But, um, <color=#813408>Teddy</color>... He does sneak through that fence to <color=#5b5b1f>the quarry</color> to the <color=#5b5b1f>north-east</color>. He's been so rebellious since we had to move here. I mean I know it was difficult but-
-Jazmyne_Exhausted: I'm not sure what he's looking for out there exactly, but lately he's there almost every day. He's probably still out there now. Maybe you can get more out of him than I can...
-Chance: Uh... Thanks. I appreciate it.
-Jazmyne: Of course! You know... if you're used to babies, I could always use a hand. Oh! We all get together for movies on Wednesdays! If you're interested?
+Jazmyne_Exhausted: I'm not sure what he's looking for out there exactly, but lately he's there almost every day. He's probably still out there now. Maybe you can get more out of him than I can.. 
+Jazmyne_Annoyed: I don't even know how he gets out there! I mean, the door is broken.
+Jazmyne_Stunned: Do you think he can actually fly?
+Chance: Uh... Thanks for the info. I appreciate it.
+Jazmyne: Of course! You know... if you're used to little ones, I could always use a hand. Oh! We all get together for movies on Wednesdays! If you're interested?
 Jazmyne_Sigh: Though, we are running a little low on movies...
+set MFJazmyneTC = false;
+set HFJazmyneBC = true;
 - Sure.
 	Chance_Smile: Sure, I will. See you later.
-	set MFJazmyneTC = false;
-	set HFJazmyneBC = true;
 	emit 1;
 	=> day_check
 - Maybe.
 	Chance: Uh, maybe. See you.
-	set MFJazmyneTC = false;
-	set HFJazmyneBC = true;
 	emit 1;
 	=> day_check
 
@@ -92,7 +92,8 @@ else:
 
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 

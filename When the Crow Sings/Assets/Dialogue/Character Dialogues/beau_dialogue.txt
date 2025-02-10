@@ -22,7 +22,7 @@ else:
 Beau: Ey! Don't suppose you brought any Timmies?
 Chance: Any what?
 Beau_Smile: Timmies! Coffee! It's what my parents always called it.
-Beau: I sure could use some, monitoring the cold storage is boring work.
+Beau: I sure could use some, monitoring the <color=#5b5b1f>cold storage</color> is boring work.
 Beau: My name is <color=#813408>Beau</color>! You must be the newest addition to our lovely gated compound.
 - . . .
 	=> beau_awkward
@@ -30,7 +30,7 @@ Beau: My name is <color=#813408>Beau</color>! You must be the newest addition to
 	=> beau_nawkward
 
 ~ beau_awkward
-Beau_Awkward: Well, aren't you a ray of sunshine.
+Beau_Awkward: Well, aren't you a ray of sunshine?
 => beau_first_int_cont
 
 ~beau_nawkward
@@ -140,11 +140,11 @@ else:
 set BeauBaseCompleted = true;
 set GreenhouseDoorUnlocked = true;
 set EnergyHQDoorUnlocked = true;
+set MFBeauTC = false;
+set HFBeauBC = true;
 Chance: I'll look into it. Thanks.
 Beau_Teasing: No problem, ey? Not to be a keener but, wouldn't want you to be uncomfortable livin' here.
 Beau_Awkward: <size=75%> Not like you got anywhere else to go.
-set MFBeauTC = false;
-set HFBeauBC = true;
 emit 1;
 if day == 1:
 	=> curfew_check
@@ -152,7 +152,8 @@ else:
 	=> time_forward
 ~ curfew_check
 if timeOfDay == 2:
-	It's almost time for dinner, then I've got to be back at the lodging before curfew. Better get going.
+	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	=> time_forward
 else:
 	=> time_forward
 
@@ -165,6 +166,13 @@ else:
 => END
 
 ~ beau_beyond_base
+Do I want to chat with <color=#813408>Beau</color> right now?
+- Yeah
+	=> beau_beyond_base_directory
+- Nah
+	=> END
+
+~ beau_beyond_base_directory
 if BeauBB == 0:
 	=> B0
 if BeauBB == 1:

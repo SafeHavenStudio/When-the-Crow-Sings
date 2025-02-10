@@ -19,6 +19,14 @@ else:
 	=> phil_cat
 
 ~ philomena_first_int
+set PhilomenaTaskAccepted = true;
+set PhilomenaTaskOn = true;
+set HFPhilomenaTA = true;
+set MFPhilomenaTag = false;
+set MFPhilomenaBatt1 = true;
+set MFPhilomenaBatt2 = true;
+set MFPhilomenaCasette = true;
+set PhilTalk += 1;
 Phil: Yes. Hello. Who are you? You're new. I haven't seen you. No, not you.
 Chance: Um, I'm Chance. <color=#813408>Farida</color> told me that you'd be here, that maybe you'd want to talk.
 Phil: <color=#813408>Farida</color>! She's lovely, <color=#813408>Farida</color>. So sweet. Tried so hard. Learned very quickly. Smart, smart.
@@ -35,15 +43,7 @@ if YuleBaseCompleted == true:
 	That guy <color=#813408>Yule</color> mentioned..
 Phil: And I have to stop it. Have to. I have to. They come, and they DRIp DriP drip <i>DrIp</i> drip DriP dRiP dRIp drIp DRip DrIp DRiP Drip DRiP driP drIp dRip <u>DRIp</u> dRip Drip DRIp drIp drip driP dRIp DRIp dRIP <b>dRiP</b> drIp drip DRip Drip DrIp dRip drip DRiP DriP drIp driP DRIP DriP drIP DrIP dRIP <u>DriP</u> DRip DRip DRIp dRiP driP drip dRIp drIp Drip dRip dRIP <b>drip</b> DRip drIP dRiP DRIp DrIp DriP DrIP DRip dRIp DRIP DrIp DriP drIp <i>dRIp</i> DRIp DriP Drip drip driP DriP DRIP dRIP DriP dRip DRip driP dRip dRip dRIp DrIP drIp DRip DrIp DrIP dRip dRiP DriP dRIp DRIP DrIp drIp dRiP dRiP DriP drip driP driP drip driP DRIp drip dRip DRiP DRIp DriP dRiP 
 She seems to have become catatonic. Her lips stop moving, and she starts to hum shakily.
-set PhilomenaTaskAccepted = true;
-set PhilomenaTaskOn = true;
-set HFPhilomenaTA = true;
-set MFPhilomenaTag = false;
 emit 1;
-set MFPhilomenaBatt1 = true;
-set MFPhilomenaBatt2 = true;
-set MFPhilomenaCasette = true;
-set PhilTalk += 1;
 => END
 
 ~ phil_cat
@@ -63,12 +63,14 @@ set PhilTalk += 1;
 => END
 
 ~ phil_task_part_fin
-She's still unresponsive, but I have what I need to get the casette player working.
+She's still unresponsive, but I have what I need to get the cassette player working.
 => END
 
 ~ philomena_task_fin
 set KeyInformation3 = true;
 set PhilomenaBaseCompleted = true;
+set HFPhilomenaBC = true;
+set timeOfDay += 1;
 Phil: I like that song. I haven't heard it in a while. Not for a long while.
 Phil: . . .
 Chance: Are you okay?
@@ -78,9 +80,7 @@ Phil: Mm..
 It's a birthday card.
 "Doctor, a year older. Thank you so much for all of the opportunities you've given me. I hope for another year making history with you! Happy Birthday, <color=#813408>Philomena</color>"
 There is a date scribbled up in the top right corner. <color=#a11bbe>03/15</color>.
-set HFPhilomenaBC = true;
 emit 1;
-set timeOfDay += 1;
 call ReloadScene(1);
 => END
 
