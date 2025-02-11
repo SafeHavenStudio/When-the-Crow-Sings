@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157596678}
   - component: {fileID: 157596677}
-  - component: {fileID: 157596676}
+  - component: {fileID: 157596679}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -140,18 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &157596676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157596675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e35977a220da048aa0d67c0ebbad26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &157596677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 999
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 30d0afedee2f37b48a1602c67fcc5a99, type: 2}
@@ -184,6 +172,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &157596679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157596675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c535d49e3fac0c4c923417297f20569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392879429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8447467612959875866, guid: a567f9e56bb9fac4cbee5ea7ada2e8a0,

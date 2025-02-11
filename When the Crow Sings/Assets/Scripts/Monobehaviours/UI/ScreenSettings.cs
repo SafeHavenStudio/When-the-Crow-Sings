@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ScreenSettings : MonoBehaviour
 {
@@ -18,8 +19,30 @@ public class ScreenSettings : MonoBehaviour
 
     private void Start()
     {
-        volume = FindObjectOfType<Volume>();
-        if (volume != null) liftGammaGain = FindObjectOfType<LiftGammaGain>();
+        volume = FindObjectOfType<Volume>(); 
+
+        if (volume == null)
+        {
+            Debug.Log("there's no global volume in the scene");
+            return;
+        }
+
+        if (volume.profile == null)
+        {
+            Debug.Log("Global volume has no profile");
+            return;
+        }
+
+        volume.profile = Instantiate(volume.profile);
+
+        if (volume.profile.TryGet(out liftGammaGain))
+        {
+            Debug.Log("Successfully retrieved LiftGammaGain!");
+        }
+        else
+        {
+            Debug.LogError("Failed to find LiftGammaGain. Ensure the effect is added to your Volume Profile.");
+        }
 
         resolutions = Screen.resolutions;
 
@@ -43,12 +66,24 @@ public class ScreenSettings : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
     }
 
     public void setBrightness(float brightnessIndex)
     {
-        liftGammaGain.gamma.value = new Vector4(brightnessIndex, brightnessIndex, brightnessIndex, 1f);
-        brightnessSlider.value = brightnessIndex;
+        if (liftGammaGain != null)
+        {
+            liftGammaGain.gain.value = new Vector4(brightnessIndex, brightnessIndex, brightnessIndex, brightnessIndex);
+            volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
+            brightnessSlider.value = brightnessIndex;
+            PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.LogError("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
+        }
     }
 
     public void setResolution(int resolutionIndex)
@@ -59,7 +94,10 @@ public class ScreenSettings : MonoBehaviour
 
     public void setQuality(int qualityIndex)
     {
+        qualityIndex = PlayerPrefs.GetInt("quality", 2);
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("quality", qualityIndex);
+        PlayerPrefs.Save();
     }
 
     public void setFullscreen(bool isFullscreen)
