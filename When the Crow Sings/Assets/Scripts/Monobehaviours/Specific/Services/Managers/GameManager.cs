@@ -32,14 +32,20 @@ public class GameManager : MonoBehaviour, IService
             switch (i.valueType)
             {
                 case DynamicEnable.VALUE_TYPE.BOOL:
-                    newValue = SaveDataAccess.saveData.boolFlags[i.associatedDataKey] == i.boolValue;
+                    if (SaveDataAccess.saveData.boolFlags.ContainsKey(i.associatedDataKey))
+                        newValue = SaveDataAccess.saveData.boolFlags[i.associatedDataKey] == i.boolValue;
+                    else throw new System.Exception("Associated data key for " + i.ToString() + " is not valid!");
                     break;
                 case DynamicEnable.VALUE_TYPE.INT:
-                    newValue = SaveDataAccess.saveData.intFlags[i.associatedDataKey] == i.intValue;
+                    if (SaveDataAccess.saveData.intFlags.ContainsKey(i.associatedDataKey))
+                        newValue = SaveDataAccess.saveData.intFlags[i.associatedDataKey] == i.intValue;
+                    else throw new System.Exception("Associated data key for " + i.ToString() + " is not valid!");
                     break;
                 case DynamicEnable.VALUE_TYPE.STRING:
-                newValue = SaveDataAccess.saveData.stringFlags[i.associatedDataKey] == i.stringValue;
-                break;
+                    if (SaveDataAccess.saveData.stringFlags.ContainsKey(i.associatedDataKey))
+                        newValue = SaveDataAccess.saveData.stringFlags[i.associatedDataKey] == i.stringValue;
+                    else throw new System.Exception("Associated data key for " + i.ToString() + " is not valid!");
+                    break;
             }
             if (newValue == false
                 && i.gameObject.activeInHierarchy
