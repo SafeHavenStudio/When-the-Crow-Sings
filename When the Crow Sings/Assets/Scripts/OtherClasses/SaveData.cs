@@ -15,6 +15,7 @@ public class SaveData
         { "SceneStructureFlag",false  },
 
         { "IntroContextSeen",false },
+        { "NightIntroSeen",false },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
@@ -122,7 +123,6 @@ public class SaveData
 
 
         //Door/loadzone relevant flags
-
         { "RecCenterDoorUnlocked",false },
         { "GreenhouseDoorUnlocked",false },
         { "EnergyHQDoorUnlocked",false },
@@ -144,6 +144,11 @@ public class SaveData
         { "KeyInformation1",false },
         { "KeyInformation2",false },
         { "KeyInformation3",false },
+        { "GoodEnding",false },
+        { "NeutralEnding1",false },
+        { "NeutralEnding2",false },
+        { "NeutralEnding3",false },
+        { "BadEnding",true },
 
         //Map relevant flags
         { "MFAngelTag",true },
@@ -257,6 +262,7 @@ public class SaveData
         { "HFPhilomenaTPC",false },
         { "HFPhilomenaTC",false },
         { "HFPhilomenaBC",false },
+
     };
 
     public Dictionary<string, int> intFlags = new Dictionary<string, int>()

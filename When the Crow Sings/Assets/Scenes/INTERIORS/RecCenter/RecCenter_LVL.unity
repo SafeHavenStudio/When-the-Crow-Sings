@@ -148,6 +148,16 @@ PrefabInstance:
       propertyPath: targetSpawnPointIndex
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 360612306633946843, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: boolValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 360612306633946843, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: associatedDataKey
+      value: RecCenterDoorUnlocked
+      objectReference: {fileID: 0}
     - target: {fileID: 849876045101493094, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1005,12 +1015,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111333959}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000119209275, y: 0.99953437, z: -0.00000019371507, w: -0.030512538}
-  m_LocalPosition: {x: -4.651, y: 0.079, z: 0.763}
-  m_LocalScale: {x: 0.15145764, y: 0.1256666, z: 0.1256666}
+  m_LocalRotation: {x: 0.9995344, y: 0.0000013764947, z: 0.030512523, w: 0.000000029802319}
+  m_LocalPosition: {x: 0.19847825, y: -0.00845923, z: 0.09251462}
+  m_LocalScale: {x: 0.016426772, y: 0.013629526, z: 0.013629528}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 711298043}
+  m_Father: {fileID: 1402084549}
   m_LocalEulerAnglesHint: {x: 0, y: 183.497, z: 0}
 --- !u!64 &111333961
 MeshCollider:
@@ -2727,7 +2737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &414452028
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4291,7 +4301,6 @@ Transform:
   m_Children:
   - {fileID: 435835330}
   - {fileID: 1110941901}
-  - {fileID: 111333960}
   - {fileID: 666078722}
   - {fileID: 569331493}
   - {fileID: 382358381}
@@ -7324,6 +7333,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7592978042063789851, guid: 92ce9dc5a637b254984cf06fc1fc5703,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 111333960}
+    - targetCorrespondingSourceObject: {fileID: 7592978042063789851, guid: 92ce9dc5a637b254984cf06fc1fc5703,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 711298043}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92ce9dc5a637b254984cf06fc1fc5703, type: 3}
@@ -8834,6 +8847,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.09
       objectReference: {fileID: 0}
@@ -8850,12 +8878,32 @@ PrefabInstance:
     - target: {fileID: 2607802357089630781, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6309013105091465998, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_Name
       value: pf_LoadZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596839837850111421, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_Radius
+      value: 15.82931
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596839837850111421, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 2.9393256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596839837850111421, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596839837850111421, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 9.556687
       objectReference: {fileID: 0}
     - target: {fileID: 7596839837850111421, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
