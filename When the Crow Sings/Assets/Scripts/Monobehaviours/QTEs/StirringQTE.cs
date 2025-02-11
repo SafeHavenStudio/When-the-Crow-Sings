@@ -248,7 +248,7 @@ public class StirringQTE : QuickTimeEvent
             if (qteInteractable.isSoup)
             {
                 i++;
-                if(i % 14 == 0) //plays it every 14th press
+                if(i % 22 == 0) //plays it every 14th press
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
             }
         }
