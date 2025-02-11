@@ -1,0 +1,256 @@
+~ power_station_control
+<i> It's a big control panel, all of the screens are throwing up errors. </i>
+Chance_Scared: What is going on in here?!?
+ISOTOPE GENERATOR UNSTABLE<br>COMPLETE DEGRADATION IMMINENT<br>GENERATOR SHUTDOWN ADVISED
+Chance_Scared: Shutdown! Okay! Uhh...
+<i>Let's click on that shutdown button!</i>
+ADMINISTRATOR ACCESS REQUIRED<br>PLEASE PROVIDE LOGIN DETAILS
+Chance_Angry: Ugh, what?! How am I supposed to know what they are?!?!
+- ADMIN NAME
+	=> admin_block_1
+- PASS CODE
+	=> pass_block_1
+- USB KEY
+	=> usb_block_1
+
+~ admin_block_1
+if KeyInformation1 == true:
+	Chance_Sigh: Admin name... what was that guy's name...
+	Chance_Excited: Right! <color=#a11bbe>Simon Petrova</color>, the name <color=#813408>Yule</color> told me.
+	ADMINISTRATOR NAME ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	- PASS CODE
+		=> pass_block_2
+	- USB KEY
+		=> usb_block_2
+else:
+	Chance_Angry: I have no idea what this dude's name was! Everyone just calls him a scientist or doctor or something!
+	Chance_Sigh: Here goes nothing...
+	ADMINISTRATOR NAME INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Angry: FUCK!
+	- PASS CODE
+		=> pass_block_2
+	- USB KEY
+		=> usb_block_2
+
+~ admin_block_2
+if KeyInformation1 == true:
+	Chance_Sigh: Admin name... what was that guy's name...
+	Chance_Excited: Right! <color=#a11bbe>Simon Petrova</color>, the name <color=#813408>Yule</color> told me.
+	ADMINISTRATOR NAME ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	- PASS CODE
+		=> pass_block_4
+else:
+	Chance_Angry: I have no idea what this dude's name was! Everyone just calls him a scientist or doctor or something!
+	Chance_Sigh: Here goes nothing...
+	ADMINISTRATOR NAME INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Angry: FUCK!
+	- PASS CODE
+		=> pass_block_4
+
+~ admin_block_3
+if KeyInformation1 == true:
+	Chance_Sigh: Admin name... what was that guy's name...
+	Chance_Excited: Right! <color=#a11bbe>Simon Petrova</color>, the name <color=#813408>Yule</color> told me.
+	ADMINISTRATOR NAME ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	- USB KEY
+		=> usb_block_4
+else:
+	Chance_Angry: I have no idea what this dude's name was! Everyone just calls him a scientist or doctor or something!
+	Chance_Sigh: Here goes nothing...
+	ADMINISTRATOR NAME INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Angry: FUCK!
+	- USB KEY
+		=> usb_block_4
+
+~ admin_block_4
+if KeyInformation1 == true:
+	Chance_Sigh: Admin name... what was that guy's name...
+	Chance_Excited: Right! <color=#a11bbe>Simon Petrova</color>, the name <color=#813408>Yule</color> told me.
+	ADMINISTRATOR NAME ACCEPTED
+	=> ending_determination
+else:
+	Chance_Angry: I have no idea what this dude's name was! Everyone just calls him a scientist or doctor or something!
+	Chance_Sigh: Here goes nothing...
+	ADMINISTRATOR NAME INCORRECT<br>DETAILS INCORRECT
+	Chance_Angry: FUCK!
+	=> ending_determination
+
+~ pass_block_1
+if KeyInformation3 == true:
+	Chance_Sigh: Alright, I can do this.
+	Chance_Thinking: It looks like a four digit code.. Like a pin number or something. What do I have that is a four digit code?
+	Chance_Thinking: It can't be the code to the gate to get in, that would be really stupid...
+	Chance_Excited: The birthday card! Please tell me this guy was stupid enough to just use his own birthday as a pass code...
+	PASS CODE ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Excited: Yes!!
+	- ADMIN NAME
+		=> admin_block_3
+	- USB KEY
+		=> usb_block_3
+else:
+	Chance_Angry: What is this, a memory game?
+	Chance_Thinking: Come on, think. Four digits... four digits...
+	Chance_Sigh: There's no way that it's the same as the code on the gate, right?
+	PASS CODE INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Annoyed: Yeah I coulda guessed that was wrong...
+	- ADMIN NAME
+		=> admin_block_3
+	- USB KEY
+		=> usb_block_3
+
+~ pass_block_2
+if KeyInformation3 == true:
+	Chance_Sigh: Alright, I can do this.
+	Chance_Thinking: It looks like a four digit code.. Like a pin number or something. What do I have that is a four digit code?
+	Chance_Thinking: It can't be the code to the gate to get in, that would be really stupid...
+	Chance_Excited: The birthday card! Please tell me this guy was stupid enough to just use his own birthday as a pass code...
+	PASS CODE ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Excited: Yes!!
+	- USB KEY
+		=> usb_block_4
+else:
+	Chance_Angry: What is this, a memory game?
+	Chance_Thinking: Come on, think. Four digits... four digits...
+	Chance_Sigh: There's no way that it's the same as the code on the gate, right?
+	PASS CODE INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Annoyed: Yeah I coulda guessed that was wrong...
+	- USB KEY
+		=> usb_block_4
+
+~ pass_block_3
+if KeyInformation3 == true:
+	Chance_Sigh: Alright, I can do this.
+	Chance_Thinking: It looks like a four digit code.. Like a pin number or something. What do I have that is a four digit code?
+	Chance_Thinking: It can't be the code to the gate to get in, that would be really stupid...
+	Chance_Excited: The birthday card! Please tell me this guy was stupid enough to just use his own birthday as a pass code...
+	PASS CODE ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Excited: Yes!!
+	- ADMIN NAME
+		=> admin_block_4
+else:
+	Chance_Angry: What is this, a memory game?
+	Chance_Thinking: Come on, think. Four digits... four digits...
+	Chance_Sigh: There's no way that it's the same as the code on the gate, right?
+	PASS CODE INCORRECT<br>PLEASE RE-ENTER OR PROVIDE ADDITIONAL DETAILS
+	Chance_Annoyed: Yeah I coulda guessed that was wrong...
+	- ADMIN NAME
+		=> admin_block_4
+
+~ pass_block_4
+if KeyInformation3 == true:
+	Chance_Sigh: Alright, I can do this.
+	Chance_Thinking: It looks like a four digit code.. Like a pin number or something. What do I have that is a four digit code?
+	Chance_Thinking: It can't be the code to the gate to get in, that would be really stupid...
+	Chance_Excited: The birthday card! Please tell me this guy was stupid enough to just use his own birthday as a pass code...
+	PASS CODE ACCEPTED
+	Chance_Excited: Yes!!
+	=> ending_determination
+else:
+	Chance_Angry: What is this, a memory game?
+	Chance_Thinking: Come on, think. Four digits... four digits...
+	Chance_Sigh: There's no way that it's the same as the code on the gate, right?
+	PASS CODE INCORRECT<br>DETAILS INCORRECT
+	Chance_Annoyed: Yeah I coulda guessed that was wrong...
+	=> ending_determination
+
+~ usb_block_1
+if KeyInformation2 == true:
+	Chance_Excited: I've got this, easy! It's gotta be that thumb drive from when I helped <color=#813408>Theodore</color>!
+	Chance_Thinking: Where did I put it...
+	Chance_Excited: Ah!
+	Chance_Thinking: Now to find a USB port.. aaaand got it.
+	USB KEY ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Smile: Hell yeah!
+	- ADMIN NAME
+		=> admin_block_2
+	- PASS CODE
+		=> pass_block_3
+else:
+	Chance_Angry: Are you kidding me?! Where would I have even gotten a usb from!?
+	- ADMIN NAME
+		=> admin_block_2
+	- PASS CODE
+		=> pass_block_3
+
+~ usb_block_2
+if KeyInformation2 == true:
+	Chance_Excited: I've got this, easy! It's gotta be that thumb drive from when I helped <color=#813408>Theodore</color>!
+	Chance_Thinking: Where did I put it...
+	Chance_Excited: Ah!
+	Chance_Thinking: Now to find a USB port.. aaaand got it.
+	USB KEY ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Smile: Hell yeah!
+	- PASS CODE
+		=> pass_block_4
+else:
+	Chance_Angry: Are you kidding me?! Where would I have even gotten a usb from!?
+	- PASS CODE
+		=> pass_block_4
+
+~ usb_block_3
+if KeyInformation2 == true:
+	Chance_Excited: I've got this, easy! It's gotta be that thumb drive from when I helped <color=#813408>Theodore</color>!
+	Chance_Thinking: Where did I put it...
+	Chance_Excited: Ah!
+	Chance_Thinking: Now to find a USB port.. aaaand got it.
+	USB KEY ACCEPTED<br>PLEASE PROVIDE ADDITIONAL DETAILS
+	Chance_Smile: Hell yeah!
+	- ADMIN NAME
+		=> admin_block_4
+else:
+	Chance_Angry: Are you kidding me?! Where would I have even gotten a usb from!?
+	- ADMIN NAME
+		=> admin_block_4
+
+~ usb_block_4
+if KeyInformation2 == true:
+	Chance_Excited: I've got this, easy! It's gotta be that thumb drive from when I helped <color=#813408>Theodore</color>!
+	Chance_Thinking: Where did I put it...
+	Chance_Excited: Ah!
+	Chance_Thinking: Now to find a USB port.. aaaand got it.
+	USB KEY ACCEPTED
+	Chance_Smile: Hell yeah!
+	=> ending_determination
+else:
+	Chance_Angry: Are you kidding me?! Where would I have even gotten a usb from!?
+	DETAILS INCORRECT
+	=> ending_determination
+
+~ ending_determination
+if GoodEnding == true:
+	=> good_ending
+if NeutralEnding1 == true:
+	=> neutral_ending
+if NeutralEnding2 == true:
+	=> neutral_ending
+if NeutralEnding3 == true:
+	=> neutral_ending
+else:
+	=> bad_ending
+
+~ good_ending
+ADMINISTRATOR ACCESS GRANTED
+Chance_Excited: Yes! Let's shut this shit down!
+: ISOTOPE GENERATOR SHUTDOWN INITIATED<br>STABILITY WILL BE REACHED IN : 4 HOURS
+Chance_Thinking: I wonder how long it'll take the big guy outside to leave.. Better just wait it out in here.
+Chance_Smile: Glad I spent so long doing useless bullshit around here, really paid off..
+=> END
+
+~ neutral_ending
+ADMINISTRATOR ACCESS CANNOT BE GRANTED
+Chance_Angry: Of course. We're screwed!
+TEMPORARY OVERRIDE ACCESS AVAILABLE
+Chance_Thinking: . . .
+Chance_Sigh: Okay, well that's better than nothing.
+: TEMPORARY OVERRIDE INITIATED<br>ISOTOPE GENERATOR SHUTDOWN INITIATED<br>ISOTOPE GENERATOR WILL RETURN TO SPECIFIED ROUTINE IN : 24 HOURS<br>STABILITY WILL BE REACHED IN : 4 HOURS
+Chance_Annoyed: 24 hours is not a lot of time
+Chance_Sigh: Let's hope I got on with everyone enough that they'll believe me and get out of here before this place blows
+Chance_Scared: Even less time cause I have to wait for that thing to leave.. Best to wait it out in here.
+=> END
+
+~ bad_ending
+ADMINISTRATOR ACCESS CANNOT BE GRANTED
+Chance_Angry: What am I supposed to do now!?
+: COMPLETE DEGRADATION WILL BE REACHED IN : 2 HOURS
+Chance_Scared: I gotta get out of here!
+=> END

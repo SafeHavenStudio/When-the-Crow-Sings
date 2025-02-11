@@ -16,34 +16,42 @@ public class SaveDataAccess
         saveData.boolFlags[key] = value;
         Debug.Log(key + " is now "+ saveData.boolFlags[key]);
 
-
+        // Flags related to completing Francisco's task
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["FranciscoTaskCompleted"] = true;
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["MFFranciscoTC"] = true;
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["HFFranciscoTC"] = true;
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["FranciscoTaskOn"] = false;
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["MFFranciscoTA"] = false;
 
+        // Flags related to completing Yule's task
         if (saveData.boolFlags["YuleString"] && saveData.boolFlags["YuleRod"] && saveData.boolFlags["YuleHook"]) saveData.boolFlags["YuleTaskPartCompleted"] = true;
         if (saveData.boolFlags["YuleString"] && saveData.boolFlags["YuleRod"] && saveData.boolFlags["YuleHook"]) saveData.boolFlags["MFYuleTPC"] = true;
         if (saveData.boolFlags["YuleString"] && saveData.boolFlags["YuleRod"] && saveData.boolFlags["YuleHook"]) saveData.boolFlags["MFYuleTA"] = false;
         if (saveData.boolFlags["YuleString"] && saveData.boolFlags["YuleRod"] && saveData.boolFlags["YuleHook"]) saveData.boolFlags["YuleTaskOneOn"] = false;
 
+        // Flags related to completing Theodore's task
         if (saveData.boolFlags["RubiksCube"] && saveData.boolFlags["PaperClip"] && saveData.boolFlags["Thumbdrive"]) saveData.boolFlags["TheodoreTaskCompleted"] = true;
         if (saveData.boolFlags["RubiksCube"] && saveData.boolFlags["PaperClip"] && saveData.boolFlags["Thumbdrive"]) saveData.boolFlags["MFTheodoreTC"] = true;
         if (saveData.boolFlags["RubiksCube"] && saveData.boolFlags["PaperClip"] && saveData.boolFlags["Thumbdrive"]) saveData.boolFlags["MFTheodoreTA"] = false;
         if (saveData.boolFlags["RubiksCube"] && saveData.boolFlags["PaperClip"] && saveData.boolFlags["Thumbdrive"]) saveData.boolFlags["TheodoreTaskOn"] = false;
 
+        // Flags related to completing Philomena's task
         if (saveData.boolFlags["PhilBatt1"] && saveData.boolFlags["PhilBatt2"] && saveData.boolFlags["PhilCasette"]) saveData.boolFlags["PhilomenaTaskPartCompleted"] = true;
         if (saveData.boolFlags["PhilBatt1"] && saveData.boolFlags["PhilBatt2"] && saveData.boolFlags["PhilCasette"]) saveData.boolFlags["MFPhilomenaTPC"] = true;
         if (saveData.boolFlags["PhilBatt1"] && saveData.boolFlags["PhilBatt2"] && saveData.boolFlags["PhilCasette"]) saveData.boolFlags["MFPhilomenaTA"] = false;
         if (saveData.boolFlags["PhilBatt1"] && saveData.boolFlags["PhilBatt2"] && saveData.boolFlags["PhilCasette"]) saveData.boolFlags["HFPhilomenaTPC"] = true;
 
+        // Flags related to dialogue checks to allow the player to see the game cares who they talked to lol
         if (saveData.boolFlags["BeauBaseCompleted"] && saveData.boolFlags["FranciscoBaseCompleted"]) saveData.boolFlags["ifBeauAndFrancisco"] = true;
         if (saveData.boolFlags["BeauBaseCompleted"] && saveData.boolFlags["AngelBaseCompleted"]) saveData.boolFlags["ifBeauAndAngel"] = true;
         if (saveData.boolFlags["FaridaBaseCompleted"] && saveData.boolFlags["CalebBaseCompleted"]) saveData.boolFlags["ifFaridaAndCaleb"] = true;
         if (saveData.boolFlags["CalebBaseCompleted"] && saveData.boolFlags["AngelBaseCompleted"]) saveData.boolFlags["ifCalebAndAngel"] = true;
-        //else boolFlags["FranciscoTaskCompleted"] = false; // Commented out rn because for testing we only have 1 QTE.
-
+        
+        // Flags related to combinations for endings
+        if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["GoodEnding"] = true;
+        if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation2"]) saveData.boolFlags["NeutralEnding1"] = true;
+        if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding2"] = true;
+        if (saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding3"] = true;
 
     }
     public static void SetFlag(string key, int value)
