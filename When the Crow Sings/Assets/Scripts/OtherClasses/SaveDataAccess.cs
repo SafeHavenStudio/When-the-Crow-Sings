@@ -57,7 +57,12 @@ public class SaveDataAccess
     public static void SetFlag(string key, int value)
     {
         saveData.intFlags[key] = value;
-        if (saveData.intFlags["timeOfDay"] > 3) saveData.intFlags["timeOfDay"] = 1;
+        if (saveData.intFlags["timeOfDay"] > 3)
+        {
+            saveData.intFlags["timeOfDay"] = 1;
+            saveData.intFlags["day"] += 1;
+        }
+            
         Debug.Log(key + " is now " + saveData.intFlags[key]);
     }
     public static void SetFlag(string key, string value)
