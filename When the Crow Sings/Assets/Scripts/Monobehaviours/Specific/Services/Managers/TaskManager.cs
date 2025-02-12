@@ -1,3 +1,4 @@
+using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,14 @@ public class TaskManager : MonoBehaviour
 
 
     SuccessAndFailValues currentQTESuccessAndFailValues = null;
+    GameSignal currentSuccessSignal = null;
+    GameSignal currentFailureSignal = null;
     public void OnQTEStartRequested(SignalArguments signalArgs)
     {
         QuickTimeEvent qteToLoad = (QuickTimeEvent)signalArgs.objectArgs[0];
         currentQTESuccessAndFailValues = (SuccessAndFailValues)signalArgs.objectArgs[1];
+        currentSuccessSignal = (GameSignal)signalArgs.objectArgs[2];
+        currentFailureSignal = (GameSignal)signalArgs.objectArgs[3];
 
         qteUiHolder.LoadQte(qteToLoad);
     }
@@ -45,6 +50,7 @@ public class TaskManager : MonoBehaviour
                     SaveDataAccess.SetFlag(i.Key, i.Value);
                 }
             }
+            if (currentSuccessSignal != null) currentSuccessSignal.Emit();
         }
         else
         {
@@ -55,8 +61,11 @@ public class TaskManager : MonoBehaviour
                     SaveDataAccess.SetFlag(i.Key, i.Value);
                 }
             }
+            if (currentFailureSignal != null) currentFailureSignal.Emit();
         }
         currentQTESuccessAndFailValues = null;
+        currentSuccessSignal = null;
+        currentFailureSignal = null;
         
     }
 

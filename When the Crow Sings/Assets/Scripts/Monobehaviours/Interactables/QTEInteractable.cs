@@ -12,6 +12,8 @@ public class QTEInteractable : MonoBehaviour
 
     public SerializableDictionary successDict;
     public SerializableDictionary failureDict;
+    public GameSignal successSignal;
+    public GameSignal failureSignal;
     public AudioClip successSound;
     public AudioClip failSound;
     public AudioSource audioSource;
@@ -53,6 +55,9 @@ public class QTEInteractable : MonoBehaviour
             successAndFailValues.fail[i.key] = i.value;
         }
         signalArgs.objectArgs.Add(successAndFailValues);
+        signalArgs.objectArgs.Add(successSignal);
+        signalArgs.objectArgs.Add(failureSignal);
+        Debug.Log("Objectargs is now " + signalArgs.objectArgs.Count.ToString());
     }
 
     public void EmitStartQteSignal()
