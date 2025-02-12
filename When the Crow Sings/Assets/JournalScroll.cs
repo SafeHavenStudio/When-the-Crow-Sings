@@ -12,6 +12,7 @@ public class JournalScroll : MonoBehaviour
     private void OnEnable()
     {
         InputManager.playerInputActions.UI.Journal_Scroll.performed += OnJournalScrollPerformed;
+        scrollbar.value = 0;
     }
     private void OnDisable()
     {
