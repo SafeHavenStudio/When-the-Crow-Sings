@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using Unity.VisualScripting;
 
 public class PlayFootsteps : MonoBehaviour
 {
@@ -10,6 +9,10 @@ public class PlayFootsteps : MonoBehaviour
     [field: SerializeField] public EventReference GrassFootsteps { get; private set; }
     [field: SerializeField] public EventReference IndoorFootsteps { get; private set; }
     [field: SerializeField] public EventReference DefaultFootsteps { get; private set; }
+    [field: SerializeField] public EventReference DirtFootsteps { get; private set; }
+    [field: SerializeField] public EventReference GravelFootsteps { get; private set; }
+    [field: SerializeField] public EventReference LeafFootsteps { get; private set; }
+
 
     public void PlayOneShot()
     {
