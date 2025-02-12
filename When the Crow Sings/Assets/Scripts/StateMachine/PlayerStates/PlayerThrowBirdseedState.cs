@@ -76,6 +76,8 @@ public class PlayerThrowBirdseedState : StateMachineState
         
         s.ThrowBirdseed();
 
+        SaveDataAccess.SetFlag("HasThrownBirdseed", true);
+
         s.playerAnimator.SetTrigger("animThrow");
 
         s.throwTarget.SetActive(false);
