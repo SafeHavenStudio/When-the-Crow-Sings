@@ -20,6 +20,8 @@ public class Interactable : MonoBehaviour
         if (GetComponent<DialogueInteractable>())
         {
             GetComponent<DialogueInteractable>().EmitStartDialogueSignal();
+
+            if(AudioManager.instance.penClickSound)
             AudioManager.instance.PlayOneShot(FMODEvents.instance.Interact);
         }
         else if (GetComponent<QTEInteractable>())

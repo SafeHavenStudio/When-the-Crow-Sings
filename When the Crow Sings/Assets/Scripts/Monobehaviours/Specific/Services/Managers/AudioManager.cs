@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using System;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -25,6 +27,9 @@ public class AudioManager : MonoBehaviour
 
     [Range(0, 1)]
     public float talkingSoundVolume = .7f;
+
+    public bool penClickSound = true;
+    public Toggle penClickToggle;
 
     private Bus masterBus;
     private Bus musicBus;
@@ -55,6 +60,14 @@ public class AudioManager : MonoBehaviour
         ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 1f);
         soundFXVolume = PlayerPrefs.GetFloat("soundFXVolume", 1f);
         talkingSoundVolume = PlayerPrefs.GetFloat("talkingSoundVolume", 1f);
+
+        penClickSound = PlayerPrefs.GetInt("PenClick", 1) != 0;
+
+        if (penClickToggle != null)
+        {
+            penClickToggle.isOn = penClickSound;
+            penClickToggle.onValueChanged.AddListener(delegate { toggleSwitch(); });
+        }
     }
 
 
@@ -81,6 +94,15 @@ public class AudioManager : MonoBehaviour
     public bool IsSoundPlaying(EventReference sound)
     {
         return false;
+    }
+
+    public void toggleSwitch()
+    {
+        if (penClickToggle == null) return;
+
+        penClickSound = penClickToggle.isOn;
+        PlayerPrefs.SetInt("PenClick", penClickSound ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
