@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour, IService
     public float textSpeed = .03f;
     public float secondsBetweenAudioPlays = .05f;
     public float pauseMultiplier = 10f;
+    public float secondsToDelayChoiceInput = .1f;
     public List<GameSignal> signalsDialogueCanUse;
 
     DialogueChoiceBlock activeChoiceBlock = null;
@@ -254,6 +255,20 @@ public class DialogueManager : MonoBehaviour, IService
             dialogueChoiceButtons[loop].GetComponent<DialogueChoiceButton>().dialogueLineIndex = i.choiceIndex;
             dialogueChoiceButtons[loop].GetComponent<DialogueChoiceButton>().dialogueChoice = i;
             loop++;
+        }
+        StartCoroutine(delayChoiceInputActivation());
+    }
+
+    IEnumerator delayChoiceInputActivation()
+    {
+        foreach (GameObject i in dialogueChoiceButtons)
+        {
+            i.GetComponent<Button>().interactable = false;
+        }
+        yield return new WaitForSeconds(secondsToDelayChoiceInput);
+        foreach (GameObject i in dialogueChoiceButtons)
+        {
+            i.GetComponent<Button>().interactable = true;
         }
     }
 
