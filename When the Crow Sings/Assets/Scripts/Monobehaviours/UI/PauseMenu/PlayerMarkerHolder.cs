@@ -21,6 +21,6 @@ public class PlayerMarkerHolder : MonoBehaviour
         else playerOffset = new Vector2(gameStateManager.currentLevelDataLVL.transform.position.x, gameStateManager.currentLevelDataLVL.transform.position.z);
         
 
-        playerMarker.GetComponent<RectTransform>().anchoredPosition = new Vector3(playerOffset.x,playerOffset.y,0) * offsetScaling;
+        playerMarker.GetComponent<RectTransform>().anchoredPosition = new Vector3(playerOffset.x,playerOffset.y,0) * offsetScaling * gameStateManager.currentLevelDataLVL.relativeMapScale;
     }
 }
