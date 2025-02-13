@@ -16,7 +16,7 @@ public class LevelData : MonoBehaviour
     public bool isExterior = false;
     //public Vector2 mapCenterCoordinates = Vector2.zero;
     //public Vector2 playerMapCoordinates = Vector2.zero;
-
+    public float relativeMapScale = 1.0f;
     //[Header("UNASSIGNED")]
 
     [Header("LEVEL")]
