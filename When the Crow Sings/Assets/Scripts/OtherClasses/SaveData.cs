@@ -143,6 +143,7 @@ public class SaveData
 
         //Endings relevant flags
 
+        { "FinalSequence",false },
         { "KeyInformation1",false },
         { "KeyInformation2",false },
         { "KeyInformation3",false },
