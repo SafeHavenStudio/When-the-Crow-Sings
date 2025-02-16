@@ -32,15 +32,5 @@ public class CrowHolder : MonoBehaviour
         crows.Add(birdBrain.GetComponent<BirdBrain>());
         birdBrain.GetComponent<BirdBrain>().crowHolder = this;
         birdBrain.GetComponent<BirdBrain>().SetRestPoint(_crowRestPoint);
-        birdBrain.GetComponent<BirdBrain>().finishedEating.AddListener(onCrowFinishedEating);
-    }
-
-    void onCrowFinishedEating()
-    {
-        Debug.Log("A crow has finished eating, I'm told...");
-        foreach (BirdBrain i in crows)
-        {
-            i.StartFlyingTowardRestPoint();
-        }
     }
 }
