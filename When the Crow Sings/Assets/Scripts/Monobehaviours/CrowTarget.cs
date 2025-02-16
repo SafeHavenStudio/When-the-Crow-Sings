@@ -1,3 +1,4 @@
+using FMOD;
 using ScriptableObjects;
 using System;
 using System.Collections;
@@ -18,9 +19,22 @@ public class CrowTarget : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
+    List<int> indicesReturnedAlready = new List<int>();
     public GameObject GetRandomSubtarget()
     {
-        int randomIndex = UnityEngine.Random.Range(0, subTargets.Count - 1);
+        int randomIndex = GetRandomIndex();
+        indicesReturnedAlready.Add(randomIndex);
         return subTargets[randomIndex];
+    }
+
+    int GetRandomIndex()
+    {
+        int _index;
+        _index = UnityEngine.Random.Range(0, subTargets.Count - 1);
+        if (indicesReturnedAlready.Contains(_index))
+        {
+            GetRandomIndex();
+        }
+        return _index;
     }
 }
