@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BirdBrain : StateMachineComponent
 {
@@ -20,6 +21,8 @@ public class BirdBrain : StateMachineComponent
 
     public float timeAllowedToReachBirdseed = 2f; // Time in seconds
 
+    [HideInInspector]
+    public UnityEvent finishedEating = new UnityEvent();
     private void Awake()
     {
         stateMachine = new StateMachine(this);
@@ -83,7 +86,12 @@ public class BirdBrain : StateMachineComponent
     {
         target = _target;
         progressToTarget = 0f;
-        stateMachine.Enter("CrowTakeoffState");
+
+        if (stateMachine.currentState != stateMachine.states["CrowTargetState"])
+        {
+            stateMachine.Enter("CrowTakeoffState");
+        }
+        
     }
 
     public void ApplyGravityWhileStill()

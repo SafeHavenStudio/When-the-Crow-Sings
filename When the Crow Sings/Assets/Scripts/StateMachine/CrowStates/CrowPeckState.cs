@@ -28,6 +28,9 @@ public class CrowPeckState : StateMachineState
     IEnumerator ExitStateAfterSeconds() // TODO: Figure out a way to make all birds end simultaneously to avoid potential issues.
     {
         yield return new WaitForSeconds(s.secondsToPeck);
-        s.StartFlyingTowardRestPoint();
+
+        s.finishedEating.Invoke();
+
+        //s.StartFlyingTowardRestPoint();
     }
 }
