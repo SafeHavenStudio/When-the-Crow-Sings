@@ -8,6 +8,8 @@ public class BirdBrain : StateMachineComponent
     public CharacterController controller;
     public CrowHolder crowHolder;
 
+    public LayerMask whenFlyingMask;
+
     public float secondsToPeck;
     public float flyingSpeed = .2f;
 
@@ -51,9 +53,6 @@ public class BirdBrain : StateMachineComponent
     public void FlyNavigate_FixedUpdate()
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
-        //direction =  (target.position - transform.position).normalized*flyingSpeed;
-
-        //progressToTarget = Mathf.Clamp01(progressToTarget + (1.0f / 60.0f)*progressSpeed);
 
         if ((transform.position - approachPoint).magnitude < 1)
         {
@@ -61,11 +60,7 @@ public class BirdBrain : StateMachineComponent
             progressToTarget = 1f;
         }
 
-
         Vector3 weights = new Vector3(weightACurve.Evaluate(progressToTarget), approachWeight * weightBCurve.Evaluate(progressToTarget), weightCCurve.Evaluate(progressToTarget));
-        //weights = weights.normalized;
-
-        //Debug.Log(weights.ToString() + " Progress: " + progressToTarget.ToString());
 
         Vector3 weightedWayPoint = 
             ((restPoint.transform.position * weights.x)
@@ -77,7 +72,7 @@ public class BirdBrain : StateMachineComponent
 
         transform.rotation = Quaternion.LookRotation(direction);
 
-        controller.Move(direction);//targetPosition);
+        controller.Move(direction);
     }
     public AnimationCurve weightACurve;
     public AnimationCurve weightBCurve;

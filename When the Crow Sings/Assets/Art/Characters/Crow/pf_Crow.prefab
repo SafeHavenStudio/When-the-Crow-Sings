@@ -100,12 +100,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7269275418895521287}
   crowHolder: {fileID: 0}
+  whenFlyingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   secondsToPeck: 1
   flyingSpeed: 0.4
   crowAnimator: {fileID: 3960627997628165419}
   restPoint: {fileID: 0}
   idleWaitingAfterPecking: 0
   timeAllowedToReachBirdseed: 1.25
+  finishedEating:
+    m_PersistentCalls:
+      m_Calls: []
   target: {fileID: 0}
   approachPoint: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
@@ -252,7 +258,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &4066688519271929169
 CapsuleCollider:
   m_ObjectHideFlags: 0
