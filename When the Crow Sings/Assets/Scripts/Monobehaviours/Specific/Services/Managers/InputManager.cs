@@ -6,25 +6,22 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour, IService
 {
     public static PlayerInputActions playerInputActions;
-
     public static bool IsControllerConnected { get; private set; }
 
     public static InputDevices inputDevice = InputDevices.MOUSE_AND_KEYBOARD;
     public enum InputDevices { MOUSE_AND_KEYBOARD,GAMEPAD}
-
     private void Update()
     {
         // Detects if any controller is connected
         IsControllerConnected = Gamepad.current != null;
+
+        Cursor.visible = inputDevice != InputDevices.GAMEPAD;
     }
 
     public void EnablePlayerInput(bool enable)
     {
         if (enable) playerInputActions.Player.Enable();
         else playerInputActions.Player.Disable();
-
-        
-        //playerInputActions.Player.Pause.activeControl.device
     }
     public void EnableUiInput(bool enable)
     {

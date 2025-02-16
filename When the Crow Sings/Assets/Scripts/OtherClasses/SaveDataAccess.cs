@@ -53,6 +53,8 @@ public class SaveDataAccess
         if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding2"] = true;
         if (saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding3"] = true;
 
+        if(saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
+
     }
     public static void SetFlag(string key, int value)
     {
@@ -64,6 +66,8 @@ public class SaveDataAccess
         }
             
         Debug.Log(key + " is now " + saveData.intFlags[key]);
+
+        if ((saveData.intFlags["timeOfDay"] == 3) && (saveData.intFlags["day"] == 3)) saveData.boolFlags["FinalSequence"] =  true;
     }
     public static void SetFlag(string key, string value)
     {
