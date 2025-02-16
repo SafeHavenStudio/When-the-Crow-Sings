@@ -9,7 +9,7 @@ public class StirSlider : MonoBehaviour
     public Image fillImage;
     public Slider slider;
     float fillValue = 0f;
-    private float meterSpeed = 20f;
+    private float meterSpeed = 15f;
 
     private void Awake()
     {

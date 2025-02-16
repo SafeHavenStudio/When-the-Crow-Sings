@@ -10,9 +10,11 @@ public class StirringQTE : QuickTimeEvent
 
     public GameObject displayBox;
     private int currentStep = 0;
+    private int RightCurrentStep = 0;
     private bool correctKey;
     private bool countingDown;
-    int i = 13; 
+    public float switchCount;
+    private int soundIndex = 13;
     [HideInInspector] public bool complete = false;
     public int score = 0;
     public float timer = 8;
@@ -24,19 +26,36 @@ public class StirringQTE : QuickTimeEvent
     public Image downJoystick;
     public Image leftJoystick;
 
+    public Image rightUpJoystick;
+    public Image rightRightJoystick;
+    public Image rightDownJoystick;
+    public Image rightLeftJoystick;
+
     public Image wKey;
     public Image aKey;
     public Image sKey;
     public Image dKey;
 
-    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D }; 
-    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left }; 
+    public Image upArrow;
+    public Image leftArrow;
+    public Image downArrow;
+    public Image rightArrow;
+
+    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
+    private KeyCode[] RightKeySequence = { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
+    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
+    private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
     private float inputThreshold = 0.8f; //Threshold for recognizing a joystick direction
 
     public QTEInteractable qteInteractable;
     public Slider slider;
 
     //private bool isControllerConnected;
+
+    private void Start()
+    {
+        StartCoroutine(randomizeInput());
+    }
 
     private void Update()
     {
@@ -46,6 +65,8 @@ public class StirringQTE : QuickTimeEvent
         {
             Debug.Log("Complete is true");
         }
+
+        showArrowDirection();
 
         if (!countingDown)
         {
@@ -121,11 +142,6 @@ public class StirringQTE : QuickTimeEvent
 
         if (currentStep == 0)
         {
-            /*wKey.enabled = true;
-            aKey.enabled = false;
-            sKey.enabled = false;
-            dKey.enabled = false;*/
-
             wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, 1);
             aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
             sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
@@ -133,11 +149,6 @@ public class StirringQTE : QuickTimeEvent
         }
         else if (currentStep == 1)
         {
-            /*wKey.enabled = false;
-            aKey.enabled = true;
-            sKey.enabled = false;
-            dKey.enabled = false;*/
-
             wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
             aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, 1);
             sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
@@ -145,11 +156,6 @@ public class StirringQTE : QuickTimeEvent
         }
         else if (currentStep == 2)
         {
-            /*wKey.enabled = false;
-            aKey.enabled = false;
-            sKey.enabled = true;
-            dKey.enabled = false;*/
-
             wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
             aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
             sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, 1);
@@ -157,11 +163,6 @@ public class StirringQTE : QuickTimeEvent
         }
         else if (currentStep == 3)
         {
-            /*wKey.enabled = false;
-            aKey.enabled = false;
-            sKey.enabled = false;
-            dKey.enabled = true;*/
-
             wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .1f);
             aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .1f);
             sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .1f);
@@ -212,25 +213,119 @@ public class StirringQTE : QuickTimeEvent
 
     private void CheckKeyboardInput()
     {
-        if (Input.anyKeyDown)
-        {
-            KeyCode expectedKey = keySequence[currentStep];
+        KeyCode rightKeyHold = RightKeySequence[RightCurrentStep];
 
-            if (Input.GetKeyDown(expectedKey))
+        if (Input.GetKey(rightKeyHold))
+        {
+            //Debug.Log("Right key hold = " + rightKeyHold);
+            if (Input.anyKeyDown)
             {
-                correctKey = true;
-                KeyPressFeedback();
-                if (qteInteractable.isSoup)
+                KeyCode expectedKey = keySequence[currentStep];
+
+                if (Input.GetKeyDown(expectedKey))
                 {
-                    i++;
-                    if(i % 14 == 0) //Plays it every 14th press
-                    AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                    correctKey = true;
+                    KeyPressFeedback();
+                    if (qteInteractable.isSoup)
+                    {
+                        soundIndex++;
+                        if (soundIndex % 22 == 0) //Plays it every 22nd press
+                            AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                    }
+                }
+                else
+                {
+                    correctKey = false;
+                    KeyPressFeedback();
                 }
             }
-            else
+        }
+    }
+
+    private IEnumerator randomizeInput()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
+            RightCurrentStep = Random.Range(0, 4);
+
+            Debug.Log("Right currentStep = " + RightCurrentStep);
+        }
+    }
+
+    public void showArrowDirection()
+    {
+        rightUpJoystick.enabled = false;
+        rightRightJoystick.enabled = false;
+        rightLeftJoystick.enabled = false;
+        rightDownJoystick.enabled = false;
+
+        if (RightCurrentStep == 0)
+        {
+            upArrow.enabled = true;
+            rightArrow.enabled = false;
+            leftArrow.enabled = false;
+            downArrow.enabled = false;
+        }
+        else if (RightCurrentStep == 1)
+        {
+            upArrow.enabled = false;
+            rightArrow.enabled = false;
+            leftArrow.enabled = true;
+            downArrow.enabled = false;
+        }
+        else if (RightCurrentStep == 2)
+        {
+            upArrow.enabled = false;
+            rightArrow.enabled = false;
+            leftArrow.enabled = false;
+            downArrow.enabled = true;
+        }
+        else if (RightCurrentStep == 3)
+        {
+            upArrow.enabled = false;
+            rightArrow.enabled = true;
+            leftArrow.enabled = false;
+            downArrow.enabled = false;
+        }
+    }
+
+    public void showRightJoystickDirection()
+    {
+        if (InputManager.IsControllerConnected)
+        {
+            upArrow.enabled = false;
+            rightArrow.enabled = false;
+            leftArrow.enabled = false;
+            downArrow.enabled = false;
+
+            if (RightCurrentStep == 0)
             {
-                correctKey = false;
-                KeyPressFeedback();
+                rightUpJoystick.enabled = true;
+                rightRightJoystick.enabled = false;
+                rightLeftJoystick.enabled = false;
+                rightDownJoystick.enabled = false;
+            }
+            else if (RightCurrentStep == 0)
+            {
+                rightUpJoystick.enabled = false;
+                rightRightJoystick.enabled = false;
+                rightLeftJoystick.enabled = true;
+                rightDownJoystick.enabled = false;
+            }
+            else if (RightCurrentStep == 0)
+            {
+                rightUpJoystick.enabled = false;
+                rightRightJoystick.enabled = false;
+                rightLeftJoystick.enabled = false;
+                rightDownJoystick.enabled = true;
+            }
+            else if (RightCurrentStep == 0)
+            {
+                rightUpJoystick.enabled = false;
+                rightRightJoystick.enabled = true;
+                rightLeftJoystick.enabled = false;
+                rightDownJoystick.enabled = false;
             }
         }
     }
@@ -247,8 +342,8 @@ public class StirringQTE : QuickTimeEvent
 
             if (qteInteractable.isSoup)
             {
-                i++;
-                if(i % 22 == 0) //plays it every 14th press
+                soundIndex++;
+                if(soundIndex % 22 == 0) //plays it every 22nd press
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
             }
         }
