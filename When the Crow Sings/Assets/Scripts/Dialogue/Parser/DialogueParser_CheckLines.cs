@@ -280,7 +280,9 @@ public partial class DialogueParser
 
                 else if (split2[1] == "Stunned") newLine.characterEmotion = Constants.EMOTIONS.STUNNED;
                 else if (split2[1] == "Exhausted") newLine.characterEmotion = Constants.EMOTIONS.EXHAUSTED;
-               
+
+                else if (split2[1] == "NOPORTRAIT") newLine.characterEmotion = Constants.EMOTIONS.NO_PORTRAIT;
+
                 else newLine.characterEmotion = Constants.EMOTIONS.DEFAULT;
 
             }

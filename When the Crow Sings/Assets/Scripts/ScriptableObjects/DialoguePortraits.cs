@@ -19,6 +19,7 @@ public class DialoguePortraits : ScriptableObject
     public List<Sprite> jazmynePortraits;
     public List<Sprite> fransiscoPortraits;
     public List<Sprite> yulePortraits;
+    public List<Sprite> itemPortraits;
 
     public bool isChance;
     public bool isTheodore;
@@ -96,6 +97,9 @@ public class DialoguePortraits : ScriptableObject
             case "Yule":
                 portraits = yulePortraits;
                 isYule = true;
+                break;
+            case "Item":
+                portraits = itemPortraits;
                 break;
             default:
                 portraits = new List<Sprite>();

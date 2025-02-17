@@ -32,6 +32,7 @@ public class Constants
         INTELLIGENT, 
         STARTLED,
         STUNNED, 
-        EXHAUSTED
+        EXHAUSTED,
+        NO_PORTRAIT
     }
 }
