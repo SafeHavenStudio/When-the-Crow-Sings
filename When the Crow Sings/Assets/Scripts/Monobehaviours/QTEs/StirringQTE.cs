@@ -13,7 +13,7 @@ public class StirringQTE : QuickTimeEvent
     private int RightCurrentStep = 0;
     private bool correctKey;
     private bool countingDown;
-    public float switchCount;
+    public float switchCount = 3;
     private int soundIndex = 13;
     [HideInInspector] public bool complete = false;
     public int score = 0;
@@ -44,39 +44,62 @@ public class StirringQTE : QuickTimeEvent
     private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
     private KeyCode[] RightKeySequence = { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
     private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
-    private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
+    private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.left, Vector2.down, Vector2.right };
     private float inputThreshold = 0.8f; //Threshold for recognizing a joystick direction
 
-    public QTEInteractable qteInteractable;
+    //public QTEInteractable qteInteractable;
     public Slider slider;
+
+    public enum QTETYPES
+    {
+        isSoup,
+        isFishing,
+        isFaridaMeter,
+        isNone
+    }
+
+    public QTETYPES type = QTETYPES.isSoup;
 
     //private bool isControllerConnected;
 
     private void Start()
     {
         StartCoroutine(randomizeInput());
+
+        //qteInteractable = FindObjectOfType<QTEInteractable>();
+
+        slider = GetComponentInChildren<Slider>();
+
+        if (type != QTETYPES.isFishing)
+        {
+            rightUpJoystick.enabled = false;
+            rightRightJoystick.enabled = false;
+            rightLeftJoystick.enabled = false;
+            rightDownJoystick.enabled = false;
+            upArrow.enabled = false;
+            rightArrow.enabled = false;
+            leftArrow.enabled = false;
+            downArrow.enabled = false;
+        }
     }
 
     private void Update()
     {
-        qteInteractable = FindObjectOfType<QTEInteractable>();
-        slider = GetComponentInChildren<Slider>();
-        if (complete == true)
-        {
-            Debug.Log("Complete is true");
-        }
-
-        showArrowDirection();
-
         if (!countingDown)
         {
             if (InputManager.IsControllerConnected)
             {
+                if (type == QTETYPES.isFishing)
+                    showRightJoystickDirection();
+
                 ShowCurrentDirection();
                 CheckJoystickInput();
             }
             else
             {
+                if (type == QTETYPES.isFishing)
+                    showArrowDirection();
+
                 ShowCurrentKey();
                 CheckKeyboardInput();
             }
@@ -140,33 +163,16 @@ public class StirringQTE : QuickTimeEvent
         downJoystick.enabled = false;
         leftJoystick.enabled = false;
 
-        if (currentStep == 0)
+        Image[] keyColor = { wKey, aKey, sKey, dKey };
+
+        foreach (var key in keyColor)
         {
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, 1);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
+            key.color = new Color(key.color.r, key.color.g, key.color.b, .2f);
         }
-        else if (currentStep == 1)
+
+        if (currentStep >= 0 && currentStep < keyColor.Length)
         {
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, 1);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
-        }
-        else if (currentStep == 2)
-        {
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, 1);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
-        }
-        else if (currentStep == 3)
-        {
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .1f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .1f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .1f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, 1);
+            keyColor[currentStep].color = Color.white;
         }
     }
 
@@ -178,66 +184,60 @@ public class StirringQTE : QuickTimeEvent
         sKey.enabled = false;
         dKey.enabled = false;
 
-        if (currentStep == 0)
+        Image[] keyDirection = { wKey, aKey, sKey, dKey };
+
+        foreach (var key in keyDirection)
         {
-            upJoystick.enabled = true;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 1)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = true;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 2)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = true;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 3)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = true;
+            key.enabled = false;
         }
 
-        //string direction = joystickSequence[currentStep].ToString();
-        //displayBox.GetComponentInChildren<TextMeshProUGUI>().text = direction;
+        if (currentStep >= 0 && currentStep < keyDirection.Length)
+        {
+            keyDirection[currentStep].enabled = true;
+        }
     }
 
     private void CheckKeyboardInput()
     {
         KeyCode rightKeyHold = RightKeySequence[RightCurrentStep];
 
-        if (Input.GetKey(rightKeyHold))
-        {
             //Debug.Log("Right key hold = " + rightKeyHold);
-            if (Input.anyKeyDown)
-            {
-                KeyCode expectedKey = keySequence[currentStep];
+        if (Input.anyKeyDown)
+        {
+            KeyCode expectedKey = keySequence[currentStep];
 
-                if (Input.GetKeyDown(expectedKey))
+            if (Input.GetKeyDown(expectedKey) && (type != QTETYPES.isFishing))
+            {
+                correctKey = true;
+                KeyPressFeedback();
+                if (type == QTETYPES.isFishing)
                 {
-                    correctKey = true;
-                    KeyPressFeedback();
-                    if (qteInteractable.isSoup)
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //Plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
+            }
+            else if (type == QTETYPES.isFishing)
+            {
+                if (Input.GetKey(rightKeyHold))
+                {
+                    if (Input.GetKeyDown(expectedKey))
                     {
-                        soundIndex++;
-                        if (soundIndex % 22 == 0) //Plays it every 22nd press
-                            AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                        correctKey = true;
+                        KeyPressFeedback();
+                        if (type == QTETYPES.isSoup)
+                        {
+                            soundIndex++;
+                            if (soundIndex % 22 == 0) //Plays it every 22nd press
+                                AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                        }
                     }
                 }
-                else
-                {
-                    correctKey = false;
-                    KeyPressFeedback();
-                }
+            }
+            else
+            {
+                correctKey = false;
+                KeyPressFeedback();
             }
         }
     }
@@ -246,7 +246,7 @@ public class StirringQTE : QuickTimeEvent
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(switchCount);
             RightCurrentStep = Random.Range(0, 4);
 
             Debug.Log("Right currentStep = " + RightCurrentStep);
@@ -260,93 +260,78 @@ public class StirringQTE : QuickTimeEvent
         rightLeftJoystick.enabled = false;
         rightDownJoystick.enabled = false;
 
-        if (RightCurrentStep == 0)
+        Image[] arrowDirections = { upArrow, leftArrow, downArrow, rightArrow };
+
+        foreach (var arrow in arrowDirections)
         {
-            upArrow.enabled = true;
-            rightArrow.enabled = false;
-            leftArrow.enabled = false;
-            downArrow.enabled = false;
+            arrow.enabled = false;
         }
-        else if (RightCurrentStep == 1)
+
+        if (RightCurrentStep >= 0 && RightCurrentStep < arrowDirections.Length)
         {
-            upArrow.enabled = false;
-            rightArrow.enabled = false;
-            leftArrow.enabled = true;
-            downArrow.enabled = false;
-        }
-        else if (RightCurrentStep == 2)
-        {
-            upArrow.enabled = false;
-            rightArrow.enabled = false;
-            leftArrow.enabled = false;
-            downArrow.enabled = true;
-        }
-        else if (RightCurrentStep == 3)
-        {
-            upArrow.enabled = false;
-            rightArrow.enabled = true;
-            leftArrow.enabled = false;
-            downArrow.enabled = false;
+            arrowDirections[RightCurrentStep].enabled = true;
         }
     }
 
     public void showRightJoystickDirection()
     {
-        if (InputManager.IsControllerConnected)
-        {
-            upArrow.enabled = false;
-            rightArrow.enabled = false;
-            leftArrow.enabled = false;
-            downArrow.enabled = false;
+        upArrow.enabled = false;
+        rightArrow.enabled = false;
+        leftArrow.enabled = false;
+        downArrow.enabled = false;
 
-            if (RightCurrentStep == 0)
-            {
-                rightUpJoystick.enabled = true;
-                rightRightJoystick.enabled = false;
-                rightLeftJoystick.enabled = false;
-                rightDownJoystick.enabled = false;
-            }
-            else if (RightCurrentStep == 0)
-            {
-                rightUpJoystick.enabled = false;
-                rightRightJoystick.enabled = false;
-                rightLeftJoystick.enabled = true;
-                rightDownJoystick.enabled = false;
-            }
-            else if (RightCurrentStep == 0)
-            {
-                rightUpJoystick.enabled = false;
-                rightRightJoystick.enabled = false;
-                rightLeftJoystick.enabled = false;
-                rightDownJoystick.enabled = true;
-            }
-            else if (RightCurrentStep == 0)
-            {
-                rightUpJoystick.enabled = false;
-                rightRightJoystick.enabled = true;
-                rightLeftJoystick.enabled = false;
-                rightDownJoystick.enabled = false;
-            }
+        //Store joystick UI elements in an array
+        Image[] joystickDirections = { rightUpJoystick, rightLeftJoystick, rightDownJoystick, rightRightJoystick };
+
+        //Disable all joystick indicators first
+        foreach (var joystick in joystickDirections)
+        {
+            joystick.enabled = false;
+        }
+
+        //Enable the correct joystick indicator
+        if (RightCurrentStep >= 0 && RightCurrentStep < joystickDirections.Length)
+        {
+            joystickDirections[RightCurrentStep].enabled = true;
         }
     }
 
-    private void CheckJoystickInput()
+        private void CheckJoystickInput()
     {
         Vector2 expectedDirection = joystickSequence[currentStep];
         Vector2 joystickInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 rightJoystickInput = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
+        Vector2 rightJoystickHold = RightJoystickSequence[RightCurrentStep];
+
+        //Debug.Log($"Right joystick input: {rightJoystickInput})");
 
         if (Vector2.Dot(joystickInput.normalized, expectedDirection) > inputThreshold)
         {
-            correctKey = true;
-            KeyPressFeedback();
+                correctKey = true;
+                KeyPressFeedback();
 
-            if (qteInteractable.isSoup)
+                if (type == QTETYPES.isSoup)
             {
-                soundIndex++;
-                if(soundIndex % 22 == 0) //plays it every 22nd press
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
-            }
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
         }
+        else if (type == QTETYPES.isFishing)
+        {
+            if (Vector2.Dot(rightJoystickInput.normalized, rightJoystickHold) > inputThreshold)
+            {
+                correctKey = true;
+                KeyPressFeedback();
+
+                if (type == QTETYPES.isSoup)
+                {
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
+            }
+        }  
     }
 
     private void KeyPressFeedback()

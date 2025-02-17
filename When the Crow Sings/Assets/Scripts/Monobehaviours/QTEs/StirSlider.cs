@@ -29,14 +29,14 @@ public class StirSlider : MonoBehaviour
         {
             fillImage.color = Color.green;
             fillValue = slider.value;
-            Debug.Log("QTE COLOR CHANGE:");
+            //Debug.Log("QTE COLOR CHANGE:");
         }
 
         if (stirringQTE.failed == true)
         {
             fillImage.color = Color.red;
             fillValue = slider.value;
-            Debug.Log("QTE COLOR CHANGE:");
+            //Debug.Log("QTE COLOR CHANGE:");
         }
     }
 }
