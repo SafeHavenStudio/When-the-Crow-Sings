@@ -20,6 +20,12 @@ public class CrowTargetState : StateMachineState
         s.crowAnimator.SetBool("isFlying", true);
         s.crowAnimator.SetBool("isIdle", false);
         s.crowAnimator.SetBool("isPecking", false);
+
+        s.controller.excludeLayers = s.whenFlyingMask;
+    }
+    public override void StateExited()
+    {
+        s.controller.excludeLayers = new LayerMask();
     }
 
     void setupSeedDestination()
