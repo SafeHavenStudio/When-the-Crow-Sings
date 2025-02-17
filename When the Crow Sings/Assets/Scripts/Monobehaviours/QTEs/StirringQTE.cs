@@ -10,9 +10,11 @@ public class StirringQTE : QuickTimeEvent
 
     public GameObject displayBox;
     private int currentStep = 0;
+    private int RightCurrentStep = 0;
     private bool correctKey;
     private bool countingDown;
-    int i = 13; 
+    public float switchCount = 3;
+    private int soundIndex = 13;
     [HideInInspector] public bool complete = false;
     public int score = 0;
     public float timer = 8;
@@ -24,38 +26,80 @@ public class StirringQTE : QuickTimeEvent
     public Image downJoystick;
     public Image leftJoystick;
 
+    public Image rightUpJoystick;
+    public Image rightRightJoystick;
+    public Image rightDownJoystick;
+    public Image rightLeftJoystick;
+
     public Image wKey;
     public Image aKey;
     public Image sKey;
     public Image dKey;
 
-    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D }; 
-    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left }; 
+    public Image upArrow;
+    public Image leftArrow;
+    public Image downArrow;
+    public Image rightArrow;
+
+    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
+    private KeyCode[] RightKeySequence = { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
+    private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
+    private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.left, Vector2.down, Vector2.right };
     private float inputThreshold = 0.8f; //Threshold for recognizing a joystick direction
 
-    public QTEInteractable qteInteractable;
+    //public QTEInteractable qteInteractable;
     public Slider slider;
+
+    public enum QTETYPES
+    {
+        isSoup,
+        isFishing,
+        isFaridaMeter,
+        isNone
+    }
+
+    public QTETYPES type = QTETYPES.isSoup;
 
     //private bool isControllerConnected;
 
+    private void Start()
+    {
+        StartCoroutine(randomizeInput());
+
+        //qteInteractable = FindObjectOfType<QTEInteractable>();
+
+        slider = GetComponentInChildren<Slider>();
+
+        if (type != QTETYPES.isFishing)
+        {
+            rightUpJoystick.enabled = false;
+            rightRightJoystick.enabled = false;
+            rightLeftJoystick.enabled = false;
+            rightDownJoystick.enabled = false;
+            upArrow.enabled = false;
+            rightArrow.enabled = false;
+            leftArrow.enabled = false;
+            downArrow.enabled = false;
+        }
+    }
+
     private void Update()
     {
-        qteInteractable = FindObjectOfType<QTEInteractable>();
-        slider = GetComponentInChildren<Slider>();
-        if (complete == true)
-        {
-            Debug.Log("Complete is true");
-        }
-
         if (!countingDown)
         {
             if (InputManager.IsControllerConnected)
             {
+                if (type == QTETYPES.isFishing)
+                    showRightJoystickDirection();
+
                 ShowCurrentDirection();
                 CheckJoystickInput();
             }
             else
             {
+                if (type == QTETYPES.isFishing)
+                    showArrowDirection();
+
                 ShowCurrentKey();
                 CheckKeyboardInput();
             }
@@ -119,53 +163,16 @@ public class StirringQTE : QuickTimeEvent
         downJoystick.enabled = false;
         leftJoystick.enabled = false;
 
-        if (currentStep == 0)
-        {
-            /*wKey.enabled = true;
-            aKey.enabled = false;
-            sKey.enabled = false;
-            dKey.enabled = false;*/
+        Image[] keyColor = { wKey, aKey, sKey, dKey };
 
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, 1);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
+        foreach (var key in keyColor)
+        {
+            key.color = new Color(key.color.r, key.color.g, key.color.b, .2f);
         }
-        else if (currentStep == 1)
-        {
-            /*wKey.enabled = false;
-            aKey.enabled = true;
-            sKey.enabled = false;
-            dKey.enabled = false;*/
 
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, 1);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .2f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
-        }
-        else if (currentStep == 2)
+        if (currentStep >= 0 && currentStep < keyColor.Length)
         {
-            /*wKey.enabled = false;
-            aKey.enabled = false;
-            sKey.enabled = true;
-            dKey.enabled = false;*/
-
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .2f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .2f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, 1);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, .2f);
-        }
-        else if (currentStep == 3)
-        {
-            /*wKey.enabled = false;
-            aKey.enabled = false;
-            sKey.enabled = false;
-            dKey.enabled = true;*/
-
-            wKey.color = new Color(wKey.color.r, wKey.color.g, wKey.color.b, .1f);
-            aKey.color = new Color(aKey.color.r, aKey.color.g, aKey.color.b, .1f);
-            sKey.color = new Color(sKey.color.r, sKey.color.g, sKey.color.b, .1f);
-            dKey.color = new Color(dKey.color.r, dKey.color.g, dKey.color.b, 1);
+            keyColor[currentStep].color = Color.white;
         }
     }
 
@@ -177,54 +184,54 @@ public class StirringQTE : QuickTimeEvent
         sKey.enabled = false;
         dKey.enabled = false;
 
-        if (currentStep == 0)
+        Image[] keyDirection = { wKey, aKey, sKey, dKey };
+
+        foreach (var key in keyDirection)
         {
-            upJoystick.enabled = true;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 1)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = true;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 2)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = true;
-            leftJoystick.enabled = false;
-        }
-        else if (currentStep == 3)
-        {
-            upJoystick.enabled = false;
-            rightJoystick.enabled = false;
-            downJoystick.enabled = false;
-            leftJoystick.enabled = true;
+            key.enabled = false;
         }
 
-        //string direction = joystickSequence[currentStep].ToString();
-        //displayBox.GetComponentInChildren<TextMeshProUGUI>().text = direction;
+        if (currentStep >= 0 && currentStep < keyDirection.Length)
+        {
+            keyDirection[currentStep].enabled = true;
+        }
     }
 
     private void CheckKeyboardInput()
     {
+        KeyCode rightKeyHold = RightKeySequence[RightCurrentStep];
+
+            //Debug.Log("Right key hold = " + rightKeyHold);
         if (Input.anyKeyDown)
         {
             KeyCode expectedKey = keySequence[currentStep];
 
-            if (Input.GetKeyDown(expectedKey))
+            if (Input.GetKeyDown(expectedKey) && (type != QTETYPES.isFishing))
             {
                 correctKey = true;
                 KeyPressFeedback();
-                if (qteInteractable.isSoup)
+                if (type == QTETYPES.isFishing)
                 {
-                    i++;
-                    if(i % 14 == 0) //Plays it every 14th press
-                    AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //Plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
+            }
+            else if (type == QTETYPES.isFishing)
+            {
+                if (Input.GetKey(rightKeyHold))
+                {
+                    if (Input.GetKeyDown(expectedKey))
+                    {
+                        correctKey = true;
+                        KeyPressFeedback();
+                        if (type == QTETYPES.isSoup)
+                        {
+                            soundIndex++;
+                            if (soundIndex % 22 == 0) //Plays it every 22nd press
+                                AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                        }
+                    }
                 }
             }
             else
@@ -235,23 +242,96 @@ public class StirringQTE : QuickTimeEvent
         }
     }
 
-    private void CheckJoystickInput()
+    private IEnumerator randomizeInput()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(switchCount);
+            RightCurrentStep = Random.Range(0, 4);
+
+            Debug.Log("Right currentStep = " + RightCurrentStep);
+        }
+    }
+
+    public void showArrowDirection()
+    {
+        rightUpJoystick.enabled = false;
+        rightRightJoystick.enabled = false;
+        rightLeftJoystick.enabled = false;
+        rightDownJoystick.enabled = false;
+
+        Image[] arrowDirections = { upArrow, leftArrow, downArrow, rightArrow };
+
+        foreach (var arrow in arrowDirections)
+        {
+            arrow.enabled = false;
+        }
+
+        if (RightCurrentStep >= 0 && RightCurrentStep < arrowDirections.Length)
+        {
+            arrowDirections[RightCurrentStep].enabled = true;
+        }
+    }
+
+    public void showRightJoystickDirection()
+    {
+        upArrow.enabled = false;
+        rightArrow.enabled = false;
+        leftArrow.enabled = false;
+        downArrow.enabled = false;
+
+        //Store joystick UI elements in an array
+        Image[] joystickDirections = { rightUpJoystick, rightLeftJoystick, rightDownJoystick, rightRightJoystick };
+
+        //Disable all joystick indicators first
+        foreach (var joystick in joystickDirections)
+        {
+            joystick.enabled = false;
+        }
+
+        //Enable the correct joystick indicator
+        if (RightCurrentStep >= 0 && RightCurrentStep < joystickDirections.Length)
+        {
+            joystickDirections[RightCurrentStep].enabled = true;
+        }
+    }
+
+        private void CheckJoystickInput()
     {
         Vector2 expectedDirection = joystickSequence[currentStep];
         Vector2 joystickInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 rightJoystickInput = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
+        Vector2 rightJoystickHold = RightJoystickSequence[RightCurrentStep];
+
+        //Debug.Log($"Right joystick input: {rightJoystickInput})");
 
         if (Vector2.Dot(joystickInput.normalized, expectedDirection) > inputThreshold)
         {
-            correctKey = true;
-            KeyPressFeedback();
+                correctKey = true;
+                KeyPressFeedback();
 
-            if (qteInteractable.isSoup)
+                if (type == QTETYPES.isSoup)
             {
-                i++;
-                if(i % 22 == 0) //plays it every 14th press
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
-            }
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
         }
+        else if (type == QTETYPES.isFishing)
+        {
+            if (Vector2.Dot(rightJoystickInput.normalized, rightJoystickHold) > inputThreshold)
+            {
+                correctKey = true;
+                KeyPressFeedback();
+
+                if (type == QTETYPES.isSoup)
+                {
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
+            }
+        }  
     }
 
     private void KeyPressFeedback()
