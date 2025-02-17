@@ -989,6 +989,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 425797a5b3385fb489c2f849c438a271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutscenes:
+  - {fileID: 5931547624255899636}
+  mainScene:
+    asset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
 --- !u!1 &870539837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,12 +1822,12 @@ PrefabInstance:
     - target: {fileID: 2558346037134715608, guid: b25784c36eb41354a96b1cf10b695d4e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: 9.07
       objectReference: {fileID: 0}
     - target: {fileID: 2558346037134715608, guid: b25784c36eb41354a96b1cf10b695d4e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.18
+      value: -9.31
       objectReference: {fileID: 0}
     - target: {fileID: 2558346037134715608, guid: b25784c36eb41354a96b1cf10b695d4e,
         type: 3}
@@ -1862,7 +1867,12 @@ PrefabInstance:
     - target: {fileID: 2647399612293820613, guid: b25784c36eb41354a96b1cf10b695d4e,
         type: 3}
       propertyPath: m_Name
-      value: pf_Cutscene
+      value: IntroCutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647399612293820613, guid: b25784c36eb41354a96b1cf10b695d4e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3287596345393751397, guid: b25784c36eb41354a96b1cf10b695d4e,
         type: 3}
@@ -2020,6 +2030,12 @@ PrefabInstance:
 --- !u!4 &5931547624255899635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5391131159498185595, guid: b25784c36eb41354a96b1cf10b695d4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5931547624255899634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5931547624255899636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2647399612293820613, guid: b25784c36eb41354a96b1cf10b695d4e,
     type: 3}
   m_PrefabInstance: {fileID: 5931547624255899634}
   m_PrefabAsset: {fileID: 0}
