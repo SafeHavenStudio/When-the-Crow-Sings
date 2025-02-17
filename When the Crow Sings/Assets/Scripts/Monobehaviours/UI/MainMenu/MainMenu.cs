@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public MainMenuDebugLoadHolder mainMenuDebugLoadHolder;
 
     public SceneReference mainScene;
-    public SceneReference cutsceneScene;
+    public SceneReference cinematicScene;
 
     public Button sceneLoadButtonPrefab;
     public GridLayoutGroup sceneLoadButtonsHolder;
@@ -79,7 +79,8 @@ public class MainMenu : MonoBehaviour
         SaveDataAccess.ResetSaveData();
         mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
         //SceneManager.LoadScene(mainScene.Name);
-        SceneManager.LoadScene(cutsceneScene.Name);
+        Cinematic_SCN_Manager.LoadCinematicScene(cinematicScene,
+            Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_0);
     }
 
     public void quitGame()

@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
@@ -16,10 +17,12 @@ public class CutsceneManager : MonoBehaviour
     public GameSignal cameraMovementFinishedSignal;
     public GameObject nextButton;
 
-    public SceneReference mainScene;
-
     [HideInInspector]
     public List<CinemachineVirtualCamera> virtualCameras = new List<CinemachineVirtualCamera>();
+
+
+    [HideInInspector]
+    public UnityEvent cutsceneFinished = new UnityEvent();
 
     private void Start()
     {
@@ -51,9 +54,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (loop >= virtualCameras.Count)
         {
-            // TODO: End it.
-            Debug.Log("End of cutscene.");
-            SceneManager.LoadScene(mainScene.Name);
+            cutsceneFinished.Invoke();
         }
         else
         {
