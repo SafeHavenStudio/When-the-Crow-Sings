@@ -79,8 +79,7 @@ public class MainMenu : MonoBehaviour
         SaveDataAccess.ResetSaveData();
         mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
         //SceneManager.LoadScene(mainScene.Name);
-        Cinematic_SCN_Manager.LoadCinematicScene(cinematicScene,
-            Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_0);
+        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_0);
     }
 
     public void quitGame()

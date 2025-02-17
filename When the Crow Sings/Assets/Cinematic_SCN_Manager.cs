@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Cinematic_SCN_Manager : MonoBehaviour
 {
     public List<GameObject> cutscenes = new List<GameObject>();
+    public GameObject gameOverScreen;
 
     public enum DesiredBehavior
     {
@@ -18,15 +19,16 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 
     public SceneReference mainScene;
 
-    public static void LoadCinematicScene(SceneReference sceneReference, DesiredBehavior _desiredBehavior)
+    public static void LoadCinematicScene(DesiredBehavior _desiredBehavior)
     {
-        SceneManager.LoadScene(sceneReference.Name);
         desiredBehavior = _desiredBehavior;
-        Debug.Log("Desired behavior is " +  desiredBehavior.ToString());
+        Debug.Log("Load() Desired behavior is " + desiredBehavior.ToString());
+        SceneManager.LoadScene("Cinematic_SCN"); // Not using a scenereference because it'll only ever be this one spot.
     }
 
-    private void Awake()
+    private void Start()
     {
+        Debug.Log("Awake() Desired behavior is " + desiredBehavior.ToString());
         switch (desiredBehavior)
         {
             case DesiredBehavior.CUTSCENE_0:
@@ -34,22 +36,29 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 cutscenes[0].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
                 break;
             case DesiredBehavior.GAME_OVER:
+                gameOverScreen.SetActive(true);
                 break;
             default: // This should include DesiredBehavior.NONE
                 throw new System.Exception("Cinematic_SCN WAS NOT CORRECTLY LOADED, PLEASE USE LoadCinematicScene() AND PASS A VALID DesiredBehavior.");
                 break;
         }
+        desiredBehavior = DesiredBehavior.NONE;
     }
 
     private void OnDestroy()
     {
-        desiredBehavior = DesiredBehavior.NONE;
+        //desiredBehavior = DesiredBehavior.NONE;
+    }
+
+
+    public void OnGameOverButtonPressed()
+    {
+        //SaveDataAccess.ReadDataFromDisk();
+        LoadMain_SCN();
     }
 
     public void LoadMain_SCN()
     {
-        // TODO: End it.
-        Debug.Log("End of cutscene.");
         SceneManager.LoadScene(mainScene.Name);
     }
 }
