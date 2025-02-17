@@ -13,10 +13,7 @@ using FMODUnity;
 
 public class DialogueManager : MonoBehaviour, IService
 {
-
-
     private DialogueResource dialogueResource;
-
 
     [Header("Dialogue UI Elements")]
     [SerializeField] private GameObject dialogueUI;
@@ -44,7 +41,6 @@ public class DialogueManager : MonoBehaviour, IService
     DialogueChoiceBlock activeChoiceBlock = null;
     DialogueConditionBlock activeConditionBlock = null;
 
-
     #region StartMethods()
     private void Awake()
     {
@@ -62,13 +58,6 @@ public class DialogueManager : MonoBehaviour, IService
         if (PlayerPrefs.HasKey("textSpeed")) textSpeed = PlayerPrefs.GetFloat("textSpeed");
     }
     #endregion
-
-
-
-
-
-
-
 
 
     public void StartDialogue(SignalArguments signalArgs)
