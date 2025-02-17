@@ -13,10 +13,7 @@ using FMODUnity;
 
 public class DialogueManager : MonoBehaviour, IService
 {
-
-
     private DialogueResource dialogueResource;
-
 
     [Header("Dialogue UI Elements")]
     [SerializeField] private GameObject dialogueUI;
@@ -27,6 +24,7 @@ public class DialogueManager : MonoBehaviour, IService
     [SerializeField] private GameObject nextButton;
     public Image npcImageUi;
     public Image playerImageUi;
+    public Image itemImageUi;
     public Image nameBox;
     public DialoguePortraits dialoguePortraits;
 
@@ -43,7 +41,6 @@ public class DialogueManager : MonoBehaviour, IService
 
     DialogueChoiceBlock activeChoiceBlock = null;
     DialogueConditionBlock activeConditionBlock = null;
-
 
     #region StartMethods()
     private void Awake()
@@ -62,13 +59,6 @@ public class DialogueManager : MonoBehaviour, IService
         if (PlayerPrefs.HasKey("textSpeed")) textSpeed = PlayerPrefs.GetFloat("textSpeed");
     }
     #endregion
-
-
-
-
-
-
-
 
 
     public void StartDialogue(SignalArguments signalArgs)
@@ -617,14 +607,23 @@ public class DialogueManager : MonoBehaviour, IService
         Image activeImageObject = null;
         if (response.characterName == "Chance")
         {
-            npcImageUi.gameObject.SetActive(false);
             playerImageUi.gameObject.SetActive(true);
+            npcImageUi.gameObject.SetActive(false);
+            itemImageUi.gameObject.SetActive(false);
             activeImageObject = playerImageUi;
+        }
+        else if (response.characterName == "Item")
+        {
+            playerImageUi.gameObject.SetActive(false);
+            npcImageUi.gameObject.SetActive(false);
+            itemImageUi.gameObject.SetActive(true);
+            activeImageObject = itemImageUi;
         }
         else
         {
-            npcImageUi.gameObject.SetActive(true);
             playerImageUi.gameObject.SetActive(false);
+            npcImageUi.gameObject.SetActive(true);
+            itemImageUi.gameObject.SetActive(false);
             activeImageObject = npcImageUi;
         }
         activeImageObject.sprite = dialoguePortraits.GetPortrait(response.characterName, response.characterEmotion);
