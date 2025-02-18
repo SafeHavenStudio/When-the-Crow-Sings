@@ -145,8 +145,12 @@ Theodore_Annoyed: What about it? Do you think I'm up here filing paperwork? Do y
 Chance_Excited: Fine. See you, <color=#813408>Teddy</color>.
 Theodore_Angry: IT'S <color=#813408>THEODORE</color>!
 emit 1;
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ theodore_beyond_base
 Nothing.
-=> END
+=> ending_call

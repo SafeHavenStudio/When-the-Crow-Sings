@@ -40,25 +40,25 @@ if BeauBaseCompleted == true:
 		=> quinn_first_int_cont
 else:
 	Quinn: Who even invited you in here?
-	=> END
+	=> ending_call
 
 ~ quinn_first_int_cont
 Quinn: Mmm. Did he?
-Quinn: Well, I am up late and I provide something to just about everyone in some way or another. So, I guess he sent you somewhere good. What's up?
+Quinn_Thinking: Well, I am up late and I provide something to just about everyone in some way or another. So, I guess he sent you somewhere good. What's up?
 Chance: Someone was out past curfew and banged on my window.
-Quinn: Ah, yep.
+Quinn_Worried: Ah, yep.
 Chance_Scared: Yep?
 Quinn: I've noticed some <color=#a11bbe>strays</color> around lately. Never saw them banging on any windows. They look a little funny but they just sort of roam around.
-Quinn: Well, as far as I know. Nobody really messes with them so they might be violent.
+Quinn_Worried: Well, as far as I know. Nobody really messes with them so they might be violent.
 Chance_Scared: Huh?!?
 Quinn: But I don't really know anything about them. Never knew them or anything.
-Quinn: Maybe someone who lives outside of the central hub would know about it, since they don't really get in here often.
-Chance: Outside? I thought we all lived in the <color=#5b5b1f>lodgings</color> or the <color=#5b5b1f>recreational center</color>.
+Quinn_Thinking: Maybe someone who lives outside of the central hub would know about it, since they don't really get in here often.
+Chance_Thinking: Outside? I thought we all lived in the <color=#5b5b1f>lodgings</color> or the <color=#5b5b1f>recreational center</color>.
 Quinn: Well, kind of. Not all of us. As far as I can tell, <color=#813408>Farida</color> assigned the residencies inside the gates. Some people lived here before her.
-Quinn: . . . You know, I could get you in touch with our <color=#813408>resident outsider</color>. He's lived here for a long while, so if something changed with any residents or <color=#a11bbe>the strays</color>, he would know. 
+Quinn_Thinking: . . . You know, I could get you in touch with our <color=#813408>resident outsider</color>. He's lived here for a long while, so if something changed with any residents or <color=#a11bbe>the strays</color>, he would know. 
 Quinn_Excited: You couuuuld lend me a hand? I could tell <color=#813408>Farida</color> to open his gate to the <color=#5b5b1f>south-west</color> for you to go in and talk to him about it.
 Chance: Doing what exactly?
-Quinn: Oh! I just need a hand with some seed bags. It's about time to start incubating what will sprout in spring. Problem is, the crows that have been coming in have taken a liking to the seed bags and...
+Quinn: I just need a hand with some seed bags. It's about time to start incubating what will sprout in spring. Problem is, the crows that have been coming in have taken a liking to the seed bags and...
 Quinn_Scared: I'm just not a big fan of birds.
 Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 - I guess.
@@ -69,14 +69,14 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 	emit 1;
 	Chance: Um, I guess I can.
 	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>dining tent</color>, get them and bring them in to me and I'll see what I can do for ya.
-	=> END
+	=> ending_call
 - Later.
 	Chance_Sad: Maybe later.
-		=> END
+		=> ending_call
 
 ~ quinn_no_task
 Quinn_Excited: Oh, you're back. Here to try my carnop?
-Quinn: Turnott?.. I'm workshopping it.
+Quinn_Thinking: Turnott?.. I'm workshopping it.
 - Guy outside.
 	set MFQuinnTag = false;
 	set QuinnTaskAccepted = true;
@@ -85,24 +85,24 @@ Quinn: Turnott?.. I'm workshopping it.
 	emit 1;
 	Chance: I wanted to talk to your guy who lives outside.
 	Quinn: Sure sure. Just go get those seeds for me, the bags are down by the <color=#5b5b1f>dining tent</color>. I'll page <color=#813408>Farida</color> about a delivery for <color=#813408>Yule</color> and give him a heads-up.
-	=> END
+	=> ending_call
 - No thanks.
 	Chance: Er, no thanks.
 	Quinn: Pff. Suit yourself.
-	=> END
+	=> ending_call
 
 ~ quinn_task_unfin
-Quinn: Really dude?
+Quinn_Worried: Really dude?
 Chance: What?
-Quinn: Uhhh, I totally asked you to do something.
+Quinn_Thinking: Uhhh, I totally asked you to do something.
 - What was it?
 	Chance_Sad: I forgot, what was it?
 	Quinn: You sure are a weird kid. I just need you to get those seed bags from the crows by the <color=#5b5b1f>dining tent</color>.
-	=> END
+	=> ending_call
 - Yeah I know.
-	Chance: Yeah, I know. Just haven't gotten around to it yet.
-	Quinn: Alright, whatever dude. Beat of your own drum, I guess. Even if it's a slow one.
-	=> END
+	Chance_Annoyed: Yeah, I know. Just haven't gotten around to it yet.
+	Quinn_Thinking: Alright, whatever dude. Beat of your own drum, I guess. Even if it's a slow one.
+	=> ending_call
 
 ~ quinn_task_fin
 set QuinnBaseCompleted = true;
@@ -111,12 +111,12 @@ set MFQuinnTC = false;
 set HFQuinnBC = true;
 Quinn_Excited: Hey there, just in time!
 Quinn: I let <color=#813408>Farida</color> know I've got <color=#813408>Yule</color> bringing in some irregular deliveries, due to the season change coming up. Sooo, You should be alright just to come and go through the <color=#5b5b1f>south-west gate</color> when you buzz it now.
-Quinn: About <color=#813408>the big guy</color>? Be patient. He's old and quiet. Been here a long time, not the most social. I'm sure he'll tell you what you wanna know, but he's a little quirky. Moves to his own rhythm, you know?
+Quinn_Smile: About <color=#813408>the big guy</color>? Be patient. He's old and quiet. Been here a long time, not the most social. I'm sure he'll tell you what you wanna know, but he's a little quirky. Moves to his own rhythm, you know?
 Chance: Uh, sure.
 Quinn: I'm basically the only person he talks to other than maybe <color=#813408>Beau</color> once in a while. Or the fish.
 Chance: The fish?
 Quinn_Scared: The fish.
-Quinn: Thanks for your help, by the way.
+Quinn_Smile: Thanks for your help, by the way.
 Chance_Smile: Sure, no problem.
 emit 1;
 if day == 1:
@@ -133,8 +133,12 @@ else:
 
 ~ time_forward
 set timeOfDay += 1;
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ quinn_beyond_base
 Quinn: Back for more hybrid plants? I wonder what would happen if I could splice a human with plants....
-=> END
+=> ending_call

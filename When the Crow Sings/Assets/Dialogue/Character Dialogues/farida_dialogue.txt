@@ -22,7 +22,7 @@ else:
 Farida: WHAT?!
 Farida: . . .
 Farida: Ugh. Come in!
-=> END
+=> ending_call
 
 ~ farida_sec_int
 Farida: Did you need something?
@@ -39,7 +39,7 @@ if BeauBaseCompleted == true:
 	=> farida_beau
 else:
 	Farida: You have broken the laws of this game and shall be banished to the sixth dimension. 
-	=> END
+	=> ending_call
 
 ~ farida_francisco
 Chance: <color=#813408>Francisco</color> sent me.
@@ -86,10 +86,10 @@ Farida_Exhausted: I'm.. busy, right now. Look, why don't you make yourself usefu
 	Chance: Okay, I can help.
 	Farida: Alright just. . . stand over there, by the gauges. Wait for the needles to hit the red section, and mark the time when it happens. Do that four times then bring it back.
 	emit 1;
-	=> END
+	=> ending_call
 - Maybe later.
 	Chance: Maybe later, I'll come back.
-	=> END
+	=> ending_call
 
 ~ farida_night_intro
 set FaridaTaskOffered = true;
@@ -123,10 +123,10 @@ set FaridaTaskWhen = 3;
 	Chance: Okay, I can help.
 	Farida: Alright just. . . stand over there, by the gauges. Wait for the needles to hit the red section, and mark the time when it happens. Do that four times then bring it back.
 	emit 1;
-	=> END
+	=> ending_call
 - Maybe later.
 	Chance: Maybe later, I'll come back.
-	=> END
+	=> ending_call
 
 
 
@@ -142,10 +142,10 @@ Farida: You're back. I take it you can't just settle for a nice quiet place to l
 	Farida_Annoyed: Really?
 	Farida: Alright, just. . . stand over there, wait for the gauge to hit the red section, mark the time when it happens. Do that four times, then bring it back to me.
 	emit 1;
-	=> END
+	=> ending_call
 - Whatever.
 	Chance_Annoyed: Whatever.
-	=> END
+	=> ending_call
 
 ~ farida_task_unfin
 Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need glasses?
@@ -156,12 +156,12 @@ Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need gl
 	else:
 		Farida_Annoyed: <size=75%> You're going through all of this trouble to get into here, to disrupt my day, and you can't even remember the simple instructions I gave you? Are you kidding me? Did you lose all your brain cells between the coast and here? Why did I even accept your application?!
 	Farida_Exhausted: Stand over there, wait for the gauge to hit the red section, mark the time when it happens. Do that four times, then bring it back to me.
-	=> END
+	=> ending_call
 - The vibe was off.
 	Chance_Angry: The vibes were off, I'm waiting for them to be right to do it.
 	Farida_Stunned: . . .
 	Farida_Annoyed: <size=75%> I'm never accepting a new resident application again. I can't deal with this.
-	=> END
+	=> ending_call
 
 ~ farida_task_fin
 set FaridaBaseCompleted = true;
@@ -236,8 +236,12 @@ else:
 
 ~ time_forward
 set timeOfDay += 1;
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ farida_beyond_base
 Farida: Look I don't know how you didn't get the memo kid, but I don't want to talk to you. You finished my dialogue! Buzz off.
-=> END
+=> ending_call

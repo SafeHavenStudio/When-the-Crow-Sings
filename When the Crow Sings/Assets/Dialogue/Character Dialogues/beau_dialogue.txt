@@ -73,10 +73,10 @@ Beau_Smile: I've got to swap out some stock for <color=#813408>Angel</color>, pu
 	set MFBeauTA = true;
 	Chance: Yeah, sure.
 	Beau_Smile: Thanks bud, I'll owe ya one.
-	=> END
+	=> ending_call
 - Not now.
 	Chance_Sad: Um, not right now.
-	=> END
+	=> ending_call
 
 ~ beau_no_task
 Beau_Teasing: Back for more <color=#813408>Beau</color>?
@@ -88,10 +88,10 @@ Beau_Teasing: Back for more <color=#813408>Beau</color>?
 	set MFBeauTA = true;
 	Chance_Smile: Yeah, I'm free to help now.
 	Beau_Smile: Thanks bud, I owe ya one.
-	=> END
+	=> ending_call
 - No.
 	Chance: . . . No.
-	=> END
+	=> ending_call
 
 ~ beau_task_unfin
 Beau: You're back.
@@ -100,11 +100,11 @@ Beau_Awkward: With no veggies. Did something happen, or?
 		Chance_Sad: I forgot where to go.
 		Beau_Teasing: Oh no worries bud. I'm a little absent-minded myself, I get it. Just trot on over to <color=#813408>Quinn</color>'s and scoop up that veggie delivery, then bring it back.
 		Chance: Okay, got it.
-		=> END
+		=> ending_call
 	- No!
 		Chance_Angry: No! I just wasn't ready to do it yet!
 		Beau_Awkward: Riiiiiight. Whatever you say bud.
-		=> END
+		=> ending_call
 
 ~ beau_task_fin
 Beau_Smile: Ah! Lookin' good! <color=#813408>Quinn</color> sure knows how to grow 'em. Thanks for your help.
@@ -163,6 +163,10 @@ if timeOfDay == 3:
 	call ReloadScene(0);
 else:
 	call ReloadScene(5);
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ beau_beyond_base
@@ -170,7 +174,7 @@ Do I want to chat with <color=#813408>Beau</color> right now?
 - Yeah
 	=> beau_beyond_base_directory
 - Nah
-	=> END
+	=> ending_call
 
 ~ beau_beyond_base_directory
 if BeauBB == 0:
@@ -181,11 +185,11 @@ if BeauBB == 2:
 	=> B2
 else:
 	All done!
-	=> END
+	=> ending_call
 
 ~ BBEnd 
 set BeauBB += 1;
-=> END
+=> ending_call
 
 ~ B0
 Beau_Smile: Hello again lil bud. 

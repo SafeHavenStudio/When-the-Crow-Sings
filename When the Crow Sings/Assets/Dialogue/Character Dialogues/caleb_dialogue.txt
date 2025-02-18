@@ -61,7 +61,7 @@ Caleb_Thinking: If you're curious about it, maybe I could spend some time thinki
 	Chance_Sigh: Not a chance.
 	Caleb_Smile: HAH!
 	Caleb: Well you come back if you want me to slide some knowledge your way, kid.
-	=> END
+	=> ending_call
 
 ~ caleb_first_cont_2
 set MFCalebTag = false;
@@ -73,7 +73,7 @@ Caleb_Smile: Great!
 Caleb_Annoyed: Now listen. These damned crows are bad enough, weighing down the power lines connecting the buildings and making me do maintenance on the connectors.
 Caleb_Annoyed: Then, they started taking my wires! They've been making nests over by the <color=#5b5b1f>south-east gate</color>, near the old quarter. 
 Caleb_Smile: If you could go and grab some back for me, I'd be mighty grateful.
-=> END
+=> ending_call
 
 ~ caleb_no_task
 Caleb_Smile: Decide to take a <i>chance</i> on helping me out?
@@ -82,7 +82,7 @@ Caleb_Smile: Decide to take a <i>chance</i> on helping me out?
 	=> caleb_first_cont_2
 - Ugh.
 	Chance_Sigh: Ugh.
-	=> END
+	=> ending_call
 
 ~ caleb_task_unfin
 Caleb_Thinking: I don't see any wire on you. Why're you back?
@@ -90,11 +90,11 @@ Caleb_Thinking: I don't see any wire on you. Why're you back?
 	Chance_Sad: I forgot where you said to go.
 	Caleb_Annoyed: Uh-huh. The crows are making nests by the <color=#5b5b1f>south-east gate</color>.
 	Chance_Sad: Thanks.
-	=> END
+	=> ending_call
 - Nunya.
 	Chance_Angry: None of your business old man, I just didn't get around to it yet!
 	Caleb_Annoyed: Uh-huh.
-	=> END
+	=> ending_call
 
 ~ caleb_task_fin
 set CalebBaseCompleted = true;
@@ -155,6 +155,10 @@ if timeOfDay == 3:
 	call ReloadScene(0);
 else:
 	call ReloadScene(7);
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ caleb_beyond_base
@@ -162,7 +166,7 @@ Do I want to talk with <color=#813408>Caleb</color> now?
 - Sure
 	=> caleb_beyond_base_directory
 - Ugh, no
-	=> END
+	=> ending_call
 
 ~ caleb_beyond_base_directory
 if CalebBB == 0:
@@ -175,11 +179,11 @@ if CalebBB == 3:
 	=> C3
 else:
 	No more! All gone!
-	=> END
+	=> ending_call
 
 ~ BBEnd
 set CalebBB += 1;
-=> END
+=> ending_call
 
 ~ C0
 Caleb: Oh! You came back to talk to me!
