@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,9 +64,9 @@ public class GameManager : MonoBehaviour, IService
     {
         Debug.Log("Popped up image!");
     }
-
     public void OnEnemyCaughtPlayer()
     {
-        gameStateManager.ReloadCurrentScene(0);
+        //gameStateManager.ReloadCurrentScene(0);
+        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.GAME_OVER);
     }
 }

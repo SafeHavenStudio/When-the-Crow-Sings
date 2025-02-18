@@ -116,6 +116,8 @@ public class SaveDataAccess
     }
     public static void ReadDataFromDisk()
     {
+        if (!SavedDataExistsOnDisk()) return;
+
         ResetSaveData();
 
         switch (saveData.saveDataVersion) // TODO: Make it so it starts reading, stops after the version number, then calls the correct method using this switch statement.

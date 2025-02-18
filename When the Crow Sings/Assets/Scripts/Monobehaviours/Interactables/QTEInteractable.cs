@@ -19,10 +19,15 @@ public class QTEInteractable : MonoBehaviour
     public AudioSource audioSource;
 
     //This is for the qte script to use as a sound check to see which sound to play
-    public bool isSoup;
-    public bool isFishing;
-    public bool isFaridaMeter;
-    public bool isNone;
+    /*public enum QTETYPES
+    {
+        isSoup,
+        isFishing,
+        isFaridaMeter,
+        isNone
+    }
+
+    public QTETYPES type = QTETYPES.isSoup;*/
 
     private SignalArguments signalArgs;
     private void Awake()
@@ -58,6 +63,8 @@ public class QTEInteractable : MonoBehaviour
         signalArgs.objectArgs.Add(successSignal);
         signalArgs.objectArgs.Add(failureSignal);
         Debug.Log("Objectargs is now " + signalArgs.objectArgs.Count.ToString());
+
+        signalArgs.objectArgs.Add(this);
     }
 
     public void EmitStartQteSignal()

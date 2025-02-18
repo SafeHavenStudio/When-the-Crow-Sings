@@ -1335,6 +1335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: doorlocked_dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 2658357030368060936, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3378733413695567597, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_Layer
@@ -1424,6 +1429,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 610835700}
+    - targetCorrespondingSourceObject: {fileID: 3378733413695567597, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 198002107}
   m_SourcePrefab: {fileID: 100100000, guid: 8bf4c190bd1ead649bc051cf88ff48b4, type: 3}
 --- !u!4 &198002105 stripped
 Transform:
@@ -1431,6 +1440,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 198002104}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &198002106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3378733413695567597, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 198002104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &198002107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198002106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: RecCenterDoorUnlocked
+  valueType: 0
+  boolValue: 0
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
 --- !u!1001 &242112772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8924,17 +8957,17 @@ PrefabInstance:
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39999998
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39999998
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39999998
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
@@ -8954,7 +8987,7 @@ PrefabInstance:
     - target: {fileID: 2607802357089630781, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6309013105091465998, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
