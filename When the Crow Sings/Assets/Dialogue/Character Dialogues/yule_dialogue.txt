@@ -71,13 +71,13 @@ Yule_Stare: Do you want to get me one?
 	Yule: Should be able to.
 	Chance: Okay, I'll see what I can do.
 	emit 1;
-	=> END
+	=> ending_call
 - No.
 	Chance: No, not right now.
 	Yule: Okay.
 	Chance: . . .
 	Yule: . . .
-	=> END
+	=> ending_call
 
 ~yule_no_task
 Yule: You're back.
@@ -97,9 +97,9 @@ Yule: Once I'm done fishing.
 	Yule: Should be able to.
 	Chance: Okay, I'll see what I can do.
 	emit 1;
-	=> END
+	=> ending_call
 - Right.
-	=> END
+	=> ending_call
 
 ~ yule_task_part_unfin
 Yule: Mm. You're back.
@@ -110,13 +110,13 @@ Yule_Thinking: Why?
 	Yule_Smile: You were getting the ingredients for a fishing rod.
 	Chance_Smile: Ahh, right. Thanks!
 	Yule: Mm..
-	=> END
+	=> ending_call
 - No reason.
 	Chance: No reason.
 	Yule: Okay.
 	Chance: . . .
 	Yule: . . . 
-	=> END
+	=> ending_call
 
 ~ yule_task_part_fin
 set YuleTaskTwoOn = true;
@@ -133,12 +133,12 @@ Chance: ... So you want me to see if it works?
 Yule: Yes.
 Chance: Uh, okay.
 emit 1;
-=> END
+=> ending_call
 
 ~ yule_task_unfin
 set MFYuleTPC = false;
 Yule_Smile: You went through all the trouble to get the pieces for the rod, don't keep me in suspense. Catch a fish!
-=> END
+=> ending_call
 
 ~ yule_task_fin
 set MFYuleTPC = false;
@@ -189,8 +189,12 @@ Chance: Thanks for the info, big guy.
 Yule: Sure. Come and see me again, if you want.
 emit 1;
 call ReloadScene(1);
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ yule_beyond_base
 This guy doesn't talk much, I'm gonna fuck off.
-=> END
+=> ending_call

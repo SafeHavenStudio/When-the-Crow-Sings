@@ -54,10 +54,10 @@ Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of
 	Angel_Smile: Thanks! I just need you to stir our forever soup!
 	Angel: It has to be stirred a couple times a day, and if you do it, I can take care of some other things.
 	Angel_Stare: It's been here since before I got here. Probably older than my siblings...
-	=> END
+	=> ending_call
 - Maybe later.
 	Chance: Um, maybe later.
-	=> END
+	=> ending_call
 
 ~angel_no_task
 Angel_Smile: Oh! You're back!!!
@@ -73,9 +73,9 @@ Angel: Did you have time to lend me a hand?
 	Angel_Smile: Thanks! I just need you to stir our forever soup!
 	Angel: It has to be stirred a couple times a day, and if you do it, I can take care of some other things.
 	Angel_Stare: It's been here since before I got here. Probably older than my siblings...
-	=> END
+	=> ending_call
 - Maybe later.
-	=> END
+	=> ending_call
 
 ~ angel_task_unfin
 Angel_Worried: Uh, are you okay? Did you forget what I asked you to do?
@@ -83,11 +83,11 @@ Angel_Worried: Uh, are you okay? Did you forget what I asked you to do?
 	Chance_Sad: Yeah, I did.
 	Angel_Worried: <size=50%> I told you just a minute ago...
 	Angel_Stare: I just need you to stir the soup for me, please.
-	=> END
+	=> ending_call
 - No...
 	Chance_Sigh: No?! Of course not.
 	Angel_Worried: Um, okay..
-	=> END
+	=> ending_call
 
 ~ angel_task_fin
 set MFAngelTC = false;
@@ -131,14 +131,19 @@ if timeOfDay == 3:
 	call ReloadScene(0);
 else:
 	call ReloadScene(6);
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
+
 
 ~ angel_beyond_base
 Do I want to talk to <color=#813408>Angel</color> right now?
 - Yep
 	=> angel_beyond_base_directory
 - No
-	=> END
+	=> ending_call
 
 ~ angel_beyond_base_directory
 if AngelBB == 0:
@@ -151,11 +156,11 @@ if AngelBB == 3:
 	=> A3
 else:
 	all done!
-	=> END
+	=> ending_call
 
 ~ BBend
 set AngelBB += 1;
-=> END
+=> ending_call
 
 ~ A0
 Angel_Smile: Oh! Hello, you're back. I wasn't sure you'd come talk to me again.

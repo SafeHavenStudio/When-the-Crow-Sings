@@ -44,7 +44,7 @@ if YuleBaseCompleted == true:
 Phil: And I have to stop it. Have to. I have to. They come, and they DRIp DriP drip <i>DrIp</i> drip DriP dRiP dRIp drIp DRip DrIp DRiP Drip DRiP driP drIp dRip <u>DRIp</u> dRip Drip DRIp drIp drip driP dRIp DRIp dRIP <b>dRiP</b> drIp drip DRip Drip DrIp dRip drip DRiP DriP drIp driP DRIP DriP drIP DrIP dRIP <u>DriP</u> DRip DRip DRIp dRiP driP drip dRIp drIp Drip dRip dRIP <b>drip</b> DRip drIP dRiP DRIp DrIp DriP DrIP DRip dRIp DRIP DrIp DriP drIp <i>dRIp</i> DRIp DriP Drip drip driP DriP DRIP dRIP DriP dRip DRip driP dRip dRip dRIp DrIP drIp DRip DrIp DrIP dRip dRiP DriP dRIp DRIP DrIp drIp dRiP dRiP DriP drip driP driP drip driP DRIp drip dRip DRiP DRIp DriP dRiP 
 She seems to have become catatonic. Her lips stop moving, and she starts to hum shakily.
 emit 1;
-=> END
+=> ending_call
 
 ~ phil_cat
 if PhilTalk == 1:
@@ -60,11 +60,11 @@ if PhilTalk == 4:
 else:
 	Nothing is going to change. Best to leave her alone until I can figure out how to help.
 set PhilTalk += 1;
-=> END
+=> ending_call
 
 ~ phil_task_part_fin
 She's still unresponsive, but I have what I need to get the cassette player working.
-=> END
+=> ending_call
 
 ~ philomena_task_fin
 set KeyInformation3 = true;
@@ -82,8 +82,12 @@ It's a birthday card.
 There is a date scribbled up in the top right corner. <color=#a11bbe>O3/15</color>.
 emit 1;
 call ReloadScene(1);
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ phil_beyond_base
 Nothing to see here folks.
-=> END
+=> ending_call

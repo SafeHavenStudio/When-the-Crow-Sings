@@ -81,10 +81,10 @@ Francisco_Excited: Ah! Yes! You want something, I need something. I need to get 
 	Francisco: There is this little pink flower you may have seen around, pipsissewa they call it. The leaves help with some of the discomfort. 
 	Francisco_Excited: They're a little spiky though, so be careful while picking them. Three plants worth will do. If I remember right, there's still a good amount by the <color=#5b5b1f>north-west fence</color> where the kids play.
 	Chance: Alright, I'll be back.
-	=> END
+	=> ending_call
 - Maybe later.
 	Chance: I can't right now, maybe later. 
-	=> END
+	=> ending_call
 
 ~ francisco_night_intro
 set FranciscoTaskWhen = 3;
@@ -118,10 +118,10 @@ Chance_Sigh: I feel like I'm in some trash video game getting thrown shitty side
 	Francisco_Excited: Three of them. And be careful, they're a little prickly.
 	Chance_Angry: Yeah, something tells me I have bigger problems than sticking myself on a stupid flower!
 	emit 1;
-	=> END
+	=> ending_call
 - I'll come back later.
 	Chance_Annoyed: I can't do this right now, I'll come back later.
-	=> END
+	=> ending_call
 
 ~ francisco_no_task
 Francisco: I'm sorry but I really can't chat until I get this done. Did you still need to talk?
@@ -136,20 +136,20 @@ Francisco: I'm sorry but I really can't chat until I get this done. Did you stil
 	Francisco_Excited: They're a little spiky though, so be careful while picking them. Three plants worth will do, you can find them up by the locked up gate to the <color=#5b5b1f>north-west</color>.
 	Chance: Alright, I'll be back.
 	emit 1;
-	=> END
+	=> ending_call
 - Maybe later.
-	=> END
+	=> ending_call
 
 ~ francisco_task_unfin
 Francisco: Oh you're back! You've got what I asked for?
 - What to get?
 	Chance_Sad: No, I forgot what you said to get.
 	Francisco_Excited: Ah! No worries, friend. Just collect me the leaves from three flowers near the <color=#5b5b1f>north-west outer fence</color>.
-	=> END
+	=> ending_call
 - No, not yet.
 	Chance: No, not yet.
 	Francisco_Thinking: Right. Well... it is kind of time sensitive. Could you be on your way?
-	=> END
+	=> ending_call
 
 ~francisco_task_fin
 set FranciscoBaseCompleted = true;
@@ -283,8 +283,12 @@ else:
 
 ~ time_forward
 set timeOfDay += 1;
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END
 
 ~ francisco_beyond_base
 Francisco_Excited: Begone, thot.
-=> END
+=> ending_call
