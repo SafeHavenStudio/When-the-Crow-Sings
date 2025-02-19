@@ -29,7 +29,7 @@ Theodore_Sigh: U G H
 Theodore_Annoyed: What do you want? Can't you respect a man's privacy? Who even are you?
 Chance_Smile: I'm <color=#813408>Chance</color>, the new resident. You must be <color=#813408>Teddy</color>.
 Theodore_Angry: TEDDY?!!?!?!
-Theodore_Sigh: @#%@#%$%^^@##@!
+Theodore_Sigh: @#^$@#^@#$#@^!
 Theodore_Annoyed: Do NOT call me that. I don't know why <color=#813408>Jazmyne</color> sent you here but I don't need you looking over me.
 Theodore: And my name is not Teddy. It's <color=#813408>THEODORE</color>.
 Chance: Uh, right. She didn't send me here to spy on you.
@@ -161,6 +161,10 @@ Should I chat with <color=#813408>Theodore</color> right now?
 ~ theodore_beyond_base_directory
 if TheodoreBB == 0:
 	=> T0
+if TheodoreBB == 1:
+	=> T1
+if TheodoreBB == 2:
+	=> T2
 else:
 	No more!
 	=> ending_call
