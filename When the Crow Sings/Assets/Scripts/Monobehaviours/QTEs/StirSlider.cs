@@ -10,6 +10,7 @@ public class StirSlider : MonoBehaviour
     public Slider slider;
     float fillValue = 0f;
     private float meterSpeed = 15f;
+    private float decaySpeed = 1f;
 
     private void Awake()
     {
@@ -21,22 +22,23 @@ public class StirSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Sets slider to fill adjacent to stirringqte.score
+        //Increase smoothly when scoring
         fillValue = Mathf.MoveTowards(fillValue, stirringQTE.score, Time.deltaTime * meterSpeed);
+
+        //Gradually decrease if no input
+        if (stirringQTE.score == fillValue)
+            fillValue = Mathf.MoveTowards(fillValue, 0, Time.deltaTime * decaySpeed);
+
         slider.value = fillValue;
 
-        if (stirringQTE.complete == true)
+        if (stirringQTE.complete)
         {
             fillImage.color = Color.green;
-            fillValue = slider.value;
-            //Debug.Log("QTE COLOR CHANGE:");
         }
 
-        if (stirringQTE.failed == true)
+        if (stirringQTE.failed)
         {
             fillImage.color = Color.red;
-            fillValue = slider.value;
-            //Debug.Log("QTE COLOR CHANGE:");
         }
     }
 }

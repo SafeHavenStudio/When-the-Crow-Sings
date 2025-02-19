@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using UnityEditor;
 using FMODUnity;
+using static DialoguePortraits;
 
 public class DialogueManager : MonoBehaviour, IService
 {
@@ -324,64 +325,65 @@ public class DialogueManager : MonoBehaviour, IService
 
                 if (canPlayAudio && textMesh.maxVisibleCharacters < textMesh.text.Length-1)
                 {
-                    switch (dialoguePortraits.combinedConditions)
+                    switch (dialoguePortraits.whoIsTalking)
                     {
-                        case 1:
+                        case DialoguePortraits.WhoIsTalking.Chance:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.ChanceBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Chance");
                             break;
-                        case 2:
+                        case DialoguePortraits.WhoIsTalking.Theodore:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.TheodoreBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Theodore");
                             break;
-                        case 4:
+                        case DialoguePortraits.WhoIsTalking.Phil:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.PhilomenaBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Phil");
                             break;
-                        case 8:
+                        case DialoguePortraits.WhoIsTalking.Farida:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.FaridaBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Farida");
                             break;
-                        case 16:
+                        case DialoguePortraits.WhoIsTalking.Angel:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.AngelBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Angel");
                             break;
-                        case 32:
+                        case DialoguePortraits.WhoIsTalking.Caleb:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.CalebBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Caleb");
                             break;
-                        case 64:
+                        case DialoguePortraits.WhoIsTalking.Beau:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.BeauBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Beau");
                             break;
-                        case 128:
+                        case DialoguePortraits.WhoIsTalking.Quinn:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.QuinnBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Quinn");
                             break;
-                        case 256:
+                        case DialoguePortraits.WhoIsTalking.Jazmyne:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.JazmyneBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Jaz");
                             break;
-                        case 512:
+                        case DialoguePortraits.WhoIsTalking.Francisco:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.FranciscoBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Francisco");
                             break;
-                        case 1024:
+                        case DialoguePortraits.WhoIsTalking.Yule:
                             AudioManager.instance.PlayOneShot(FMODEvents.instance.YuleBlip);
                             StartCoroutine(DelayBeforeAudioCanPlay());
                             //Debug.Log("Yule");
                             break;
                         default:
+                            dialoguePortraits.whoIsTalking = WhoIsTalking.None;
                             break;
                     }
                 }
