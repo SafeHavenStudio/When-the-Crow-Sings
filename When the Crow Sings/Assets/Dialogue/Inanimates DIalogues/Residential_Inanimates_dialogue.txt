@@ -1,25 +1,29 @@
 ~ casette_player
 if PhilomenaTaskAccepted == false:
 	A casette player radio. Looks like it isn't working.
-	=> END
+	=> ending_call
 if PhilomenaTaskCompleted == true:
 	Casette player is up and working, and played a nice little song.
-	=> END
+	=> ending_call
 if PhilomenaTaskPartCompleted == true:
 	set PhilomenaTaskCompleted = true;
 	set MFPhilomenaTPC = false;
 	set MFPhilomenaTC = true;
 	set HFPhilomenaTC = true;
 	I should have everything to get this working, let's see.
-	=> END
+	=> ending_call
 if PhilomenaTaskAccepted == true:
 	Looks like it needs some batteries to work, and a casette if I want it to actually play anything. I should look around, I'm sure if she has it here what I need is also nearby.
-	=> END
+	=> ending_call
 else:
 	idk how u got here
-	=> END
+	=> ending_call
 
 ~ residential_unlock
 Yeesh, the path here was awful, all these torn down gates. How can someone live out here?...
 set MFResidentialTag = false;
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
 => END

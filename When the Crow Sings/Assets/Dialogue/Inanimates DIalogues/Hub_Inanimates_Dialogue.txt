@@ -1,48 +1,52 @@
+~ ending_call
+call SaveGameToDisk();
+=> END
+
 ~ cafeteria_table
 Lots of room and seating. Are there even enough people here to fill the chairs?
 They're probably just inside, or off working somewhere.
-=> END
+=> ending_call
 
 ~ cafeteria_serving_station
 Coffee, water, fruits, vegetables. A nice spread.
-=> END
+=> ending_call
 
 ~ wood_pile_unmoved
 if WoodPileMovable == true:
 	This must've been what <color=#813408>Jazmyne</color> was talking about. Let me just...
 	set Zone2DoorUnlocked = true;
-	=> END
+	=> ending_call
 else:
 	A pile of wooden planks leaning against the fence.
-	=> END
+	=> ending_call
 
 ~ pot_of_soup
 if AngelTaskCompleted == true:
 	Soup, professionally stirred by yours truly.
-	=> END
+	=> ending_call
 else:
 	It's soup.
 	Good soup.
-	=> END
+	=> ending_call
 
 ~ pipsissewa
 if day == 1:
 	A pretty pink flower. Its leaves look thorny. Better not touch it. 
-	=> END
+	=> ending_call
 if day == 2:
 	A vibrant pink flower. It almost looks like it's glowing.
-	=> END
+	=> ending_call
 if day == 3:
 	A glowing pink flower. It's dripping some luminous mucus type substance.
-	=> END
+	=> ending_call
 else:
 	Uhoh! You escaped time!!
-	=> END
+	=> ending_call
 
 ~ shiny_dirt
 if CalebTaskCompleted == true:
 	No more shinies for the crows. Bet they're pissed. I'd be pissed.
-	=> END
+	=> ending_call
 if CalebTaskAccepted == true:
 	Whew, time to snatch these wires while the crows are distracted.
 	set MFCalebTA = false;
@@ -50,10 +54,10 @@ if CalebTaskAccepted == true:
 	set HFCalebTC = true;
 	set CalebTaskCompleted = true;
 	emit 1;
-	=> END
+	=> ending_call
 else:
 	Something shiny is in the dirt ... Better not steal from the crows.
-	=> END
+	=> ending_call
 
 ~ veggie_basket
 if BeauTaskAccepted == true:
@@ -63,10 +67,10 @@ if BeauTaskAccepted == true:
 	set MFBeauTC = true;
 	set HFBeauTC = true;
 	emit 1;
-	=> END
+	=> ending_call
 else:
 	A basket of fresh vegetables. Wonder why it's out here.
-	=> END
+	=> ending_call
 
 ~ seed_bags
 if QuinnTaskAccepted == true:
@@ -76,50 +80,50 @@ if QuinnTaskAccepted == true:
 	set QuinnTaskCompleted = true;
 	Better grab these quick.
 	emit 1;
-	=> END
+	=> ending_call
 else:
 	Big burlap sacks filled to the brim with seed. The crows are definitely enjoying this careless placement.
-	=> END
+	=> ending_call
 
 ~ utility_pole
 if day == 1:
 	A utility pole. Seems like the local fauna really gravitate towards the power lines.
-	=> END
+	=> ending_call
 if day == 2:
 	The power lines seem taut on the utility pole. Must be more weight than they're used to.
-	=> END
+	=> ending_call
 if day == 3:
 	It's starting to look like the poles are leaning from the weight of all the crows. Let's hope they leave soon..
-	=> END
+	=> ending_call
 else:
 	You have escaped time. Oops.
-	=> END
+	=> ending_call
 
 ~ monkey_bars
 Monkey bars! Oh, to be a kid. Now I can reach the bars standing.
-=> END
+=> ending_call
 
 ~ play_place
 A sturdy playset made of nicely treated wood. Lucky kids, all I had back home was a tire hanging from a tree.
-=> END
+=> ending_call
 
 ~ solar_panel
 Lined up solar panels, recently wiped down and clear of dust.
-=> END
+=> ending_call
 
 
 ~ energy_hq_sign
 "Energy Regulation Head Quarters"
-=> END
+=> ending_call
 
 ~ cold_storage_sign
 "Cold Storage"
-=> END
+=> ending_call
 
 ~ greenhouse_sign
 "<size=60%><color=#813408>Quinn</color>'s</size><br>Greenhouse"
 '<color=#813408>Quinn</color>'s' seems to have been carved in with a knife.
-=> END
+=> ending_call
 
 ~ bench
 if benchcounter == 0:
@@ -134,30 +138,30 @@ if benchcounter == 4:
 	This town is full of monsters. How can you just sit there?
 else:
 	Enough bench.
-	=> END
+	=> ending_call
 set benchcounter += 1;
-=> END
+=> ending_call
 
 
 ~ ground_crack
 That.. can't be normal.
-=> END
+=> ending_call
 
 ~ fountain
 An old fountain that looks like it stopped functioning a while ago. The reservoir has been filled in with soil and flowers.
-=> END
+=> ending_call
 
 ~intro
 I should ask around about <color=#a11bbe>what happened last night</color>.
 Maybe that guy who greeted me last night knows something about it... I think he said he works at the <color=#5b5b1f>dining tent</color>.
 set IntroContextSeen = true;
-=> END
+=> ending_call
 
 ~night_intro
 I need to try and steer clear of the <color=#a11bbe>big guy</color>..
 There are lot of crows out right now, maybe if he spots me I can use some of my trail mix to call them down and keep him off my tail.
 set NightIntroSeen = true;
-=> END
+=> ending_call
 
  
 
@@ -168,7 +172,7 @@ if FranciscoBaseCompleted == true:
 	=> zone_door_cont
 else:
 	The door is rusty. Looks like it hasn't been used in a while. 
-=> END
+=> ending_call
 
 ~ zone_door_cont
 if timeOfDay == 3:
@@ -178,21 +182,21 @@ else:
 	Just need to put in the code that <color=#813408>Francisco</color> gave me and...
 	Open. Voila.
 set Zone1DoorUnlocked = true;
-=> END
+=> ending_call
 
 ~ zone_door_2
 if JazmyneBaseCompleted == true:
 	The door is stuck, like <color=#813408>Jazmyne</color> said. There's gotta be a hole or something nearby.. Maybe behind that wood pile?
 else:
 	The door is completely stuck. There's no way to open it even if I wanted to.
-=> END
+=> ending_call
 
 ~ zone_door_3
 if FaridaBaseCompleted == true:
 	=> zone_door_3_cont
 else:
 	The door looks like it gets some use now and then, but it's locked with a padlock.
-=> END
+=> ending_call
 
 ~ zone_door_3_cont
 if timeOfDay == 3:
@@ -202,7 +206,7 @@ else:
 	This must be the door that <color=#813408>Farida</color> was talking about. Where's that key she gave me...
 	Ah, there we go. With a little bit of elbow grease, the padlock pops off.
 set Zone3DoorUnlocked = true;
-=> END
+=> ending_call
 
 
 ~ zone_door_4
@@ -210,7 +214,7 @@ if QuinnBaseCompleted == true:
 	=> zone_door_4_cont
 else:
 	A pristine door. Must get used often. There is a button on an intercom, but I don't think buzzing someone without reason is a good idea.
-	=> END
+	=> ending_call
 
 ~ zone_door_4_cont
 if timeOfDay == 3:
@@ -219,7 +223,7 @@ if timeOfDay == 3:
 else:
 	Pressing on the intercom button, the door lock releases after a few seconds and swings freely.
 set Zone4DoorUnlocked = true;
-=> END
+=> ending_call
 
 ~rec_center_door
 if RecCenterDoorUnlocked == true:
@@ -228,14 +232,14 @@ if timeOfDay == 3:
 	The door is locked, crap.
 else:
 	Sounds like there are some kids running around inside. Best to wait until I have a reason to be here.
-=> END
+=> ending_call
 
 ~ clinic_door
 if timeOfDay == 3:
 	The door is locked, damn.
 else:
 	The door's locked, someone is probably in an appointment. Don't want to intrude.
-=> END
+=> ending_call
 
 ~ energy_hq_door
 if timeOfDay == 3:
@@ -243,14 +247,14 @@ if timeOfDay == 3:
 else:
 	There's definitely someone inside. 
 	... Pretty sure they're ignoring me on purpose.
-=> END
+=> ending_call
 
 ~greenhouse_door
 if timeOfDay == 3:
 	The door is locked, even though the lights are on.
 else:
 	Someone is shuffling around inside, I don't think they can hear me.
-=> END
+=> ending_call
 
 ~ cold_storage_door
 if timeOfDay == 3:
@@ -258,11 +262,11 @@ if timeOfDay == 3:
 else:
 	I don't have a reason to go in there. I don't think I've ever felt a temperature below 22 celsius.
 	... I wonder what the winters here are like.
-=> END
+=> ending_call
 
 ~ lodging_door
 if timeOfDay == 3:
 	I can't go back in, I need to use all the time I have.
 else:
 	I'm not gonna waste my time sitting around in my room. Who knows what will happen if that <color=#a11bbe>thing</color> roams around unchecked.
-=> END
+=> ending_call
