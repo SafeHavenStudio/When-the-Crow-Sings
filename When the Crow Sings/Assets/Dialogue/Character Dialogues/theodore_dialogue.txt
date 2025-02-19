@@ -251,7 +251,7 @@ Theodore: You again.
 	Chance: Why a star?
 	Theodore_Excited: None of your business.
 	Chance_Annoyed: You're like super annoying, you know that right?
-	Theodore_Annoyed: Takes one to know one, I guess.
+	Theodore_Annoyed: Takes one to know one.
 => BBEnd
 
 ~ T2
@@ -274,4 +274,25 @@ Chance_Excited: And miss out on the yelling? No way.
 	Chance_Sigh: If you're going to just let it happen you must not give much of a shit in the first place.
 	Theodore_Stunned:...
 - Exploring
+	Chance: Do you ever find anything good when you're out exploring?
+	Theodore: If I did, why would I tell you? Gonna pillage the spots I haven't got to yet?
+	Chance_Annoyed: Are you always so defensive and whiny?
+	Theodore_Annoyed: Only when people are trying to take my stuff. And no, I haven't found anything good, so I doubt you will either.
+	Chance: Where have you gone besides the quarry?
+	Theodore_Excited: I've made it out into the forest and the old residential area, but I avoid the old power station.
+	Theodore: I'm not getting closer to that purple stuff during the day, it's hard enough to avoid at night nowadays.
+	Chance_Thinking: So you know about the stuff coming out of the ground from there, and you just avoid it? Pretend it's not happening?
+	Theodore_Excited: What else can I do? All <color=#813408>Farida</color> has done about it is set a curfew and tell us not to go outside. If she can't do anything about it, maybe there's nothing to be done.
+	<i>What a cheery thought.</i>
+	Chance:... Well what did you find in the other places.
+	Theodore: I didn't really go exploring in the forest much after I noticed that bear dude definitely knew I was there.
+	Theodore_Stunned: And after seeing that chick in the residential area, I haven't been back. She gives me the creeps.
+	if PhilomenaBaseCompleted == true:
+		Chance_Sad: Well it's not her fault she's like that.
+		Theodore: That doesn't make it less freaky to try and walk around and have some lady whispering to herself nearby.
+	else:
+		Chance: Did she do something to freak you out?
+		Theodore_Excited: I mean no not something specifically, but she just wanders around and talks to herself and goes through trash.
+		Chance_Smile: Kinda sounds like whawt you do.
+		Theodore_Stunned: !?!
 => BBEnd
