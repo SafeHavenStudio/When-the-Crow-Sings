@@ -319,9 +319,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d80d6d7a5de3a4493e188f3358aad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWaypointsHolders: []
+  enemyWaypointsHolders:
+  - {fileID: 0}
   patrolSpeed: 4.5
-  pursuitSpeed: 10
+  pursuitSpeed: 13
   currentWaypoint: {fileID: 0}
   enemyAnimator: {fileID: 5549008216811023264}
   navMeshAgent: {fileID: 0}
@@ -703,7 +704,7 @@ Light:
   m_InnerSpotAngle: 129.57144
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2902,7 +2903,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 40
+  OverrideMaxDistance: 60
 --- !u!4 &2009209367542591962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53be2b27f84e63842ae669e6ab9caea1,

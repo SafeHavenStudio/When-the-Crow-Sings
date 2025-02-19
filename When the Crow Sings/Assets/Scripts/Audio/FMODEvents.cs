@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class FMODEvents : MonoBehaviour
 {
     public static FMODEvents instance { get; private set; }
-    public AreaMusic areaMusic;
+    [HideInInspector] public AreaMusic areaMusic;
 
 
     [field: Header("Player SFX")]
