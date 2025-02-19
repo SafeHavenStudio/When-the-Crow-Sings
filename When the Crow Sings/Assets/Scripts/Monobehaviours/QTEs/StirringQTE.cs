@@ -16,8 +16,8 @@ public class StirringQTE : QuickTimeEvent
     public float switchCount = 3;
     private int soundIndex = 13;
     [HideInInspector] public bool complete = false;
-    public int score = 0;
-    public float timer = 8;
+    public float score = 0;
+    //public float timer = 8;
     private bool firstTime = true;
     [HideInInspector] public bool failed = false;
 
@@ -110,20 +110,16 @@ public class StirringQTE : QuickTimeEvent
         {
             SucceedQTE();
         }
+        else if (score < slider.maxValue)
+        {
+            StartCoroutine(decayDelay());
+        }
+    }
 
-        // Timer countdown logic
-        if (!countingDown && timer > 0)
-        {
-            timer -= Time.deltaTime;
-            UpdateTimer(timer);
-        }
-        else if (timer <= 0 && firstTime)
-        {
-            Debug.Log("Time is up, QTE Failed");
-            //AudioManager.instance.PlayOneShot(FMODEvents.instance.QteFailed, this.transform.position);
-            failed = true;
-            FailQTE();
-        }
+    private IEnumerator decayDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        score -= 0.01f;
     }
 
     private IEnumerator waitBeforeCompletion()
@@ -225,12 +221,6 @@ public class StirringQTE : QuickTimeEvent
                     {
                         correctKey = true;
                         KeyPressFeedback();
-                        if (type == QTETYPES.isSoup)
-                        {
-                            soundIndex++;
-                            if (soundIndex % 22 == 0) //Plays it every 22nd press
-                                AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
-                        }
                     }
                 }
             }
@@ -238,6 +228,12 @@ public class StirringQTE : QuickTimeEvent
             {
                 correctKey = false;
                 KeyPressFeedback();
+                if (type == QTETYPES.isSoup)
+                {
+                    soundIndex++;
+                    if (soundIndex % 22 == 0) //Plays it every 22nd press
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
+                }
             }
         }
     }
@@ -349,11 +345,6 @@ public class StirringQTE : QuickTimeEvent
         {
             currentStep = (currentStep + 1) % keySequence.Length;
             score++;
-            timer = 7; //Reset timer
-        }
-        else
-        {
-            //score = Mathf.Max(0, score - 1);
         }
 
         correctKey = false;

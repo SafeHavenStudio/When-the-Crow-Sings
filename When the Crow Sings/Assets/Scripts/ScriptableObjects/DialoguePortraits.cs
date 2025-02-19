@@ -21,27 +21,29 @@ public class DialoguePortraits : ScriptableObject
     public List<Sprite> yulePortraits;
     public List<Sprite> itemPortraits;
 
-    public bool isChance;
-    public bool isTheodore;
-    public bool isPhil;
-    public bool isFarida;
-    public bool isAngel;
-    public bool isCaleb;
-    public bool isBeau;
-    public bool isQuinn;
-    public bool isJazmyne;
-    public bool isFrancisco;
-    public bool isYule;
+    public enum WhoIsTalking
+    {
+        Chance,
+        Theodore,
+        Phil,
+        Farida,
+        Angel,
+        Caleb,
+        Beau,
+        Quinn,
+        Jazmyne,
+        Francisco,
+        Yule,
+        None
+    }
 
-    public int combinedConditions;
+    public WhoIsTalking whoIsTalking = WhoIsTalking.Chance;
+
 
     void start()
     {
         manager = FindObjectOfType<DialogueManager>();
         if (manager == null) Debug.Log("Manager is null");
-
-        combinedConditions = (isChance ? 1 : 0) | (isTheodore ? 2 : 0) | (isPhil ? 4 : 0) | (isFarida ? 8 : 0) | (isAngel ? 16 : 0)
-            | (isCaleb ? 32 : 0) | (isBeau ? 64 : 0) | (isQuinn ? 128 : 0) | (isJazmyne ? 256 : 0) | (isFrancisco ? 512 : 0) | (isYule ? 1024 : 0);
     }
 
 
@@ -49,67 +51,61 @@ public class DialoguePortraits : ScriptableObject
     {
         List<Sprite> portraits = null;
 
-        //Reset all conditions
-        isChance = isTheodore = isPhil = isFarida = isAngel = isCaleb = isBeau = isQuinn = isJazmyne = isFrancisco = isYule = false;
-
         switch (characterName)
         {
             case "Chance":
                 portraits = chancePortraits;
-                isChance = true;
+                whoIsTalking = WhoIsTalking.Chance;
                 break;
             case "Theodore":
                 portraits = theodorePortraits;
-                isTheodore = true;
+                whoIsTalking = WhoIsTalking.Theodore;
                 break;
             case "Phil":
                 portraits = philPortraits;
-                isPhil = true;
+                whoIsTalking = WhoIsTalking.Phil;
                 break;
             case "Farida":
                 portraits = faridaPortraits;
-                isFarida = true;
+                whoIsTalking = WhoIsTalking.Farida;
                 break;
             case "Angel":
                 portraits = angelPortraits;
-                isAngel = true;
+                whoIsTalking = WhoIsTalking.Angel;
                 break;
             case "Caleb":
                 portraits = calebPortraits;
-                isCaleb = true;
+                whoIsTalking = WhoIsTalking.Caleb;
                 break;
             case "Beau":
                 portraits = beauPortraits;
-                isBeau = true;
+                whoIsTalking = WhoIsTalking.Beau;
                 break;
             case "Quinn":
                 portraits = quinnPortraits;
-                isQuinn = true;
+                whoIsTalking = WhoIsTalking.Quinn;
                 break;
             case "Jazmyne":
                 portraits = jazmynePortraits;
-                isJazmyne = true;
+                whoIsTalking = WhoIsTalking.Jazmyne;
                 break;
             case "Francisco":
                 portraits = fransiscoPortraits;
-                isFrancisco = true;
+                whoIsTalking = WhoIsTalking.Francisco;
                 break;
             case "Yule":
                 portraits = yulePortraits;
-                isYule = true;
+                whoIsTalking = WhoIsTalking.Yule;
                 break;
             case "Item":
                 portraits = itemPortraits;
+                whoIsTalking = WhoIsTalking.None;
                 break;
             default:
                 portraits = new List<Sprite>();
+                whoIsTalking = WhoIsTalking.None;
                 break;
         }
-
-        //Recalculate combined conditions immediately
-        combinedConditions = (isChance ? 1 : 0) | (isTheodore ? 2 : 0) | (isPhil ? 4 : 0) | (isFarida ? 8 : 0) | (isAngel ? 16 : 0)
-            | (isCaleb ? 32 : 0) | (isBeau ? 64 : 0) | (isQuinn ? 128 : 0) | (isJazmyne ? 256 : 0) | (isFrancisco ? 512 : 0) | (isYule ? 1024 : 0);
-        //Debug.Log($"Updated combinedConditions: {combinedConditions}");
 
 
         if (portraits.Count != 0)
