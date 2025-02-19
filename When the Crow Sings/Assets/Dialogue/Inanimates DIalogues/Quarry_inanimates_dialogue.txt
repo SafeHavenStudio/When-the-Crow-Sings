@@ -1,7 +1,7 @@
 ~ quarry_unlock
 set MFQuarryTag = false;
 Made it through that gate without ripping my clothes! Let's see if I can find this <color=#813408>Teddy</color> guy.
-=>END
+=> ending_call
 
 ~ theodoor_int
 if theodoor == 0:
@@ -16,7 +16,7 @@ if theodoor == 2:
 else:
 	It seems I've pissed off the guy inside enough that he just lets out an exasperated sigh when I knock. Maybe there's another way in...
 set theodoor += 1;
-=> END
+=> ending_call
 
 ~ pickaxe
 if TheodoreIntroduction == true:
@@ -27,7 +27,7 @@ if TheodoreIntroduction == true:
 	I bet I can use this to get in somehow. Here I come, little piggie.
 else:
 	Wonder who left this here.
-=>END
+=> ending_call
 
 ~ hole_lol
 if TheoPickaxe == true:
@@ -42,7 +42,7 @@ if TheodoreIntroduction == true:
 	set MFTheodoreTPC = true;
 else:
 	A boarded up hole. Why'd they patch it up if nobody lives out here anymore?
-=>END
+=> ending_call
 
 ~ telescope
 if timeOfDay == 1:
@@ -53,4 +53,8 @@ if timeOfDay == 3:
 	A clear look at the stars. They're so pretty!
 else:
 	I broke time again, oh no! And now there's an alien :( hes gonna get me
-=>END
+=> ending_call
+
+~ ending_call
+call SaveGameToDisk();
+=> END
