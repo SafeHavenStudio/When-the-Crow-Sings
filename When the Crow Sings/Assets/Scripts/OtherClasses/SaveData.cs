@@ -18,6 +18,7 @@ public class SaveData
         { "NightIntroSeen",false },
 
         { "HasThrownBirdseed",false },
+        { "HasSpawnedAtLodgingNight",true },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
