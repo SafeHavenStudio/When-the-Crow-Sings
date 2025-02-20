@@ -82,7 +82,7 @@ Caleb_Smile: Decide to take a <i>chance</i> on helping me out?
 	=> caleb_first_cont_2
 - Ugh.
 	Chance_Sigh: Ugh.
-	=> ending_call
+	=> END
 
 ~ caleb_task_unfin
 Caleb_Thinking: I don't see any wire on you. Why're you back?
@@ -90,11 +90,11 @@ Caleb_Thinking: I don't see any wire on you. Why're you back?
 	Chance_Sad: I forgot where you said to go.
 	Caleb_Annoyed: Uh-huh. The crows are making nests by the <color=#5b5b1f>south-east gate</color>.
 	Chance_Sad: Thanks.
-	=> ending_call
+	=> END
 - Nunya.
 	Chance_Angry: None of your business old man, I just didn't get around to it yet!
 	Caleb_Annoyed: Uh-huh.
-	=> ending_call
+	=> END
 
 ~ caleb_task_fin
 set CalebBaseCompleted = true;
@@ -166,7 +166,7 @@ Do I want to talk with <color=#813408>Caleb</color> now?
 - Sure
 	=> caleb_beyond_base_directory
 - Ugh, no
-	=> ending_call
+	=> END
 
 ~ caleb_beyond_base_directory
 if CalebBB == 0:
@@ -179,7 +179,7 @@ if CalebBB == 3:
 	=> C3
 else:
 	No more! All gone!
-	=> ending_call
+	=> END
 
 ~ BBEnd
 set CalebBB += 1;

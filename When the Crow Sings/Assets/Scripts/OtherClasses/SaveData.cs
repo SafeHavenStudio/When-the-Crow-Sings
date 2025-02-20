@@ -75,6 +75,7 @@ public class SaveData
         { "FlowerThree",false },
         { "FranciscoBaseCompleted",false },
         { "FranciscoExhausted",false },
+        { "TurnThatIconOffOrSoHelpMe", true},
 
         { "YuleTaskOffered",false },
         { "YuleTaskAccepted",false },
@@ -91,6 +92,7 @@ public class SaveData
         { "FiberPlant1", true},
         { "FiberPlant2", true},
         { "FiberPlant3", true},
+        { "TurnThatDamnIconOff", true},
 
         { "PhilomenaTaskOffered",false },
         { "PhilomenaTaskAccepted",false },
@@ -102,6 +104,8 @@ public class SaveData
         { "PhilomenaTaskOn",false },
         { "PhilomenaBaseCompleted",false },
         { "PhilomenaExhausted",false },
+        { "IfYouDontGetOffThatIconYoureGrounded", true},
+        { "NoMoreIconForAMonth", true},
 
         { "TheodoreIntroduction",false },
         { "TheodoreTaskOffered",false },
@@ -113,6 +117,7 @@ public class SaveData
         { "TheodoreTaskOn",false },
         { "TheodoreBaseCompleted",false },
         { "TheodoreExhausted",false },
+        { "ISaidGetOffThatDamnIcon", true},
 
         { "ifBeauAndFrancisco",false },
         { "ifBeauAndAngel",false },

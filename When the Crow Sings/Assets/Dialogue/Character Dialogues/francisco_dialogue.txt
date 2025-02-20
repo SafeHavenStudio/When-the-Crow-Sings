@@ -138,18 +138,18 @@ Francisco: I'm sorry but I really can't chat until I get this done. Did you stil
 	emit 1;
 	=> ending_call
 - Maybe later.
-	=> ending_call
+	=> END
 
 ~ francisco_task_unfin
 Francisco: Oh you're back! You've got what I asked for?
 - What to get?
 	Chance_Sad: No, I forgot what you said to get.
 	Francisco_Excited: Ah! No worries, friend. Just collect me the leaves from three flowers near the <color=#5b5b1f>north-west outer fence</color>.
-	=> ending_call
+	=> END
 - No, not yet.
 	Chance: No, not yet.
 	Francisco_Thinking: Right. Well... it is kind of time sensitive. Could you be on your way?
-	=> ending_call
+	=> END
 
 ~francisco_task_fin
 set FranciscoBaseCompleted = true;
@@ -180,6 +180,7 @@ Chance_Sigh: Yeah, I'd say so.
 
 
 ~ francisco_task_fin_cont
+set TurnThatIconOffOrSoHelpMe = false;
 Francisco_Thinking: <color=#a11bbe>The old power source</color>... The man who took care of it was very cold, and we didn't see him often here. He lived beyond the main compound to the <color=#5b5b1f>north-east</color> at the <color=#5b5b1f>old quarry</color>. He only walked through to get to the <color=#5b5b1f>power control station</color>, and he only spoke to his <color=#813408>assistant</color>.
 Francisco_Scared: His work was very... secretive. I never really understood his <color=#a11bbe>"discovery"</color>, but I know it gave me the chills. That hypnotic pink haze that blurred the horizon to the west, especially at night..
 Francisco_Excited: But he's been gone for a long while now. Once he was gone, the power stopped working and the coalition sent us the solar panels along with <color=#813408>Farida</color> and <color=#813408>Caleb</color> to care for them. His <color=#813408>assistant</color> holed herself up in the abandoned <color=#5b5b1f>residential area</color> not long after.
@@ -294,14 +295,16 @@ Do I want to chat with <color=#813408>Francisco</color> right now?
 - Yeah
 	=> francisco_beyond_base_directory
 - Nah
-	=> ending_call
+	=> END
 
 ~ francisco_beyond_base_directory
 if FranciscoBB == 0:
 	=> F0
+if FranciscoBB == 1:
+	=> F1
 else:
 	No more! All gone!
-	=> ending_call
+	=> END
 
 ~ BBEnd
 set FranciscoBB += 1;

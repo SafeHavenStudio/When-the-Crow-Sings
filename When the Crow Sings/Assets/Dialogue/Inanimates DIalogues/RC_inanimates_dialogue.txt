@@ -9,17 +9,17 @@ if JazmyneTaskOn == true:
 	=> ending_call
 else:
 	Drawings, all over the floor. Honestly, not bad.
-	=> ending_call
+	=> END
 
 ~ locked_door
 if JazmyneTaskCompleted == true:
 	Well I went through all of the trouble of picking the drawings up and putting them on the board, I should at least check back in with Jazmyne.
-	=> ending_call
+	=> END
 if PapersUp == true:
 	I probably shouldn't leave with these drawings, let me just go put them on the corkboard.
 else:
 	She seemed like she really needed some help.. I'll just help clean up before I leave.
-=> ending_call
+=> END
 
 ~ ending_call
 call SaveGameToDisk();

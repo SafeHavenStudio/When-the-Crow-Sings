@@ -75,7 +75,7 @@ Angel: Did you have time to lend me a hand?
 	Angel_Stare: It's been here since before I got here. Probably older than my siblings...
 	=> ending_call
 - Maybe later.
-	=> ending_call
+	=> END
 
 ~ angel_task_unfin
 Angel_Worried: Uh, are you okay? Did you forget what I asked you to do?
@@ -83,11 +83,11 @@ Angel_Worried: Uh, are you okay? Did you forget what I asked you to do?
 	Chance_Sad: Yeah, I did.
 	Angel_Worried: <size=50%> I told you just a minute ago...
 	Angel_Stare: I just need you to stir the soup for me, please.
-	=> ending_call
+	=> END
 - No...
 	Chance_Sigh: No?! Of course not.
 	Angel_Worried: Um, okay..
-	=> ending_call
+	=> END
 
 ~ angel_task_fin
 set MFAngelTC = false;
@@ -143,7 +143,7 @@ Do I want to talk to <color=#813408>Angel</color> right now?
 - Yep
 	=> angel_beyond_base_directory
 - No
-	=> ending_call
+	=> END
 
 ~ angel_beyond_base_directory
 if AngelBB == 0:
@@ -156,7 +156,7 @@ if AngelBB == 3:
 	=> A3
 else:
 	all done!
-	=> ending_call
+	=> END
 
 ~ BBend
 set AngelBB += 1;

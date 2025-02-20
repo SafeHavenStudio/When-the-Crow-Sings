@@ -40,7 +40,7 @@ if BeauBaseCompleted == true:
 		=> quinn_first_int_cont
 else:
 	Quinn: Who even invited you in here?
-	=> ending_call
+	=> END
 
 ~ quinn_first_int_cont
 Quinn: Mmm. Did he?
@@ -89,7 +89,7 @@ Quinn_Thinking: Turnott?.. I'm workshopping it.
 - No thanks.
 	Chance: Er, no thanks.
 	Quinn: Pff. Suit yourself.
-	=> ending_call
+	=> END
 
 ~ quinn_task_unfin
 Quinn_Worried: Really dude?
@@ -98,11 +98,11 @@ Quinn_Thinking: Uhhh, I totally asked you to do something.
 - What was it?
 	Chance_Sad: I forgot, what was it?
 	Quinn: You sure are a weird kid. I just need you to get those seed bags from the crows by the <color=#5b5b1f>dining tent</color>.
-	=> ending_call
+	=> END
 - Yeah I know.
 	Chance_Annoyed: Yeah, I know. Just haven't gotten around to it yet.
 	Quinn_Thinking: Alright, whatever dude. Beat of your own drum, I guess. Even if it's a slow one.
-	=> ending_call
+	=> END
 
 ~ quinn_task_fin
 set QuinnBaseCompleted = true;
@@ -141,4 +141,4 @@ call SaveGameToDisk();
 
 ~ quinn_beyond_base
 Quinn: Back for more hybrid plants? I wonder what would happen if I could splice a human with plants....
-=> ending_call
+=> END
