@@ -91,6 +91,7 @@ public class SaveData
         { "FiberPlant1", true},
         { "FiberPlant2", true},
         { "FiberPlant3", true},
+        { "TurnThatDamnIconOff", true},
 
         { "PhilomenaTaskOffered",false },
         { "PhilomenaTaskAccepted",false },
