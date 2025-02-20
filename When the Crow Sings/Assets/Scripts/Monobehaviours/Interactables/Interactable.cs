@@ -44,6 +44,10 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<AutoSaveTrigger>().AutoSave();
         }
+        else if (GetComponent<FlagFlipperTrigger>())
+        {
+            GetComponent<FlagFlipperTrigger>().FlipFlag();
+        }
     }
 
     public void OnDialogueFinished(SignalArguments args)

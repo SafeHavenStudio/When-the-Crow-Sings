@@ -6,7 +6,12 @@ public class Constants
 {
     const string KEY_TITLE = "~";
 
-
+    public enum FLAG_TYPES
+    {
+        BOOL,
+        INT,
+        STRING
+    }
     public enum EMOTIONS { 
         DEFAULT, 
         HAPPY, 
