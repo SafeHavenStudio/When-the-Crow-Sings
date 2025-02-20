@@ -8,7 +8,7 @@ public class EnemyController : StateMachineComponent,IService
 {
     public List<EnemyWaypointsHolder> enemyWaypointsHolders;
     public float patrolSpeed = 4.5f;
-    public float pursuitSpeed = 10.0f;
+    public float pursuitSpeed = 13.0f;
 
     [HideInInspector]
     public EnemyWaypoint currentWaypoint;

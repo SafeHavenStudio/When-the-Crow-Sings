@@ -290,5 +290,79 @@ call SaveGameToDisk();
 => END
 
 ~ francisco_beyond_base
-Francisco_Excited: Begone, thot.
+Do I want to chat with <color=#813408>Francisco</color> right now?
+- Yeah
+	=> francisco_beyond_base_directory
+- Nah
+	=> ending_call
+
+~ francisco_beyond_base_directory
+if FranciscoBB == 0:
+	=> F0
+else:
+	No more! All gone!
+	=> ending_call
+
+~ BBEnd
+set FranciscoBB += 1;
 => ending_call
+
+
+~ F0
+Francisco: Ah, hello again! How can I help you?
+- About Caleb
+	Chance: So, you call <color=#813408>Caleb</color> tio sometimes. But he's not your actual uncle, right?
+	Francisco_Excited: Heh, no he's not.
+	Chance_Thinking: So why do you call him that?
+	Francisco: He was friends with my parents on the compound we came from. My parents just had me call him tio.
+	Chance: Oh, I get it. Where are your parents?
+	Francisco_Sad: They passed a long time ago. 
+	Chance_Sad: Oh, um. I'm sorry. 
+	Francisco_Sad: It's alright. They were young, it was a bit of a shock. But, things happen. People get sick, sometimes nothing you can do.
+	Chance_Thinking: Is that why you went into medicine?
+	Francisco: That's not how it works where we were from, but it did push me to focus on my studies, yes. 
+	Francisco_Excited: We took aptitude tests and I was set into biology when I was about ten. 
+	Chance: Guess it all kinda worked out.
+	Francisco: I suppose so.
+- About your work
+	Chance: So, do you like working in the clinic?
+	Francisco_Thinking: Well that's an interesting question..
+	Francisco_Excited: On the one hand, I enjoy helping people and putting my education to work. It's also very quiet here, with the limited number of residents we have.
+	Francisco_Sad: On the other, anything other than a checkup usually means something bad happened. Someone is sick, or having ERS symptoms. When a sickness comes in that I can't identify from my studies, that is the worst..
+	Chance_Thinking: The purple stuff you mentioned earlier?
+	Francisco_Scared: Yes, that's one of them. I've never heard of the symptoms, so I've had no way to deal with it. I used to try and write to the C.A.N. scientific board about it, but they never really helped and then <color=#813408>Farida</color>...
+	Francisco_Sad: I never figured it out. Nothing I could do to help them and they just sort of left. I see them sometimes, through the gate into the residential area. But they don't hang around, usually.
+	Francisco: Ah, but it stopped happening so much after <color=#813408>Farida</color> took over, so I suppose whatever conclusion she came to must've helped.
+	Chance_Thinking: They stopped getting purple sick after she came? What could she have done?
+	Francisco_Thinking: I'm not sure. Maybe environmental changes? Something with the power?
+	Francisco_Excited: I'm not overly concerned with why, as long as I don't need to see people hacking up that awful sludge anymore. 
+=> BBEnd
+
+~ F1
+Francisco: Still curious about something?
+- Your hair
+	Chance: So, do you guys have a salon out here or something?
+	Francisco: Hmm?
+	Chance_Thinking: Your hair just looks really nice, like you do more than just wash it normally.
+	Francisco: <color=#813408>Calliope</color> helps me with my hair, her mother taught her before she came here and it can be easier with some help.
+	Chance: What does she do to get those light strands in your hair?
+	Francisco_Scared: Sorry?
+	Chance_Thinking: The like, lighter strands. Your hair is dark brown right, there's like strips of lighter brown.
+	Francisco_Thinking: She doesn't do anything! That's just how my hair looks.
+	Chance_Annoyed: There is no way that is your natural hair, I've never seen anyone with random chunks of different colored hair. And it doesn't go all the way down, near your scalp it's darker!
+	Francisco_Excited: I'm not sure what you mean. You may not have seen someone with my type of hair before, but there's a first time for everything.
+	Chance_Sigh: You're probably just going grey because you're old.
+	Francisco_Scared: Huh?! Old!?
+- Your equipment
+	Chance_Thinking: So how do you get the disposable gloves and stuff? They don't look like they're made here or anything.
+	Francisco_Excited: When I am close to running out, <color=#813408>Farida</color> sends a message to C.A.N. and they send a shipment of whatever I ask for. 
+	Francisco: There is a limit per year though, I have to make sure to be somewhat conservative with them.
+	Chance: Are you waiting for a patient now?
+	Francisco: Hm?
+	Chance_Thinking: You're wearing them right now.. 
+	Francisco_Scared: Ah, well, you see I was-
+	Francisco_Sad: I like wearing them and have a bit of a germ thing..
+	Chance: Right. 
+	Francisco_Thinking: And really I don't ask for them that often! I've only gone over the restriction once, so it really isn't that big of a deal, right?
+	Chance_Annoyed: I dunno man.
+=> BBEnd

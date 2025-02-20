@@ -12,6 +12,7 @@ public class ScreenSettings : MonoBehaviour
 {
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown qualityDropdown;
     public Slider brightnessSlider;
     public Volume volume;
     public LiftGammaGain liftGammaGain;
@@ -66,6 +67,10 @@ public class ScreenSettings : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
+        int savedQuality = PlayerPrefs.GetInt("quality", 0);
+        QualitySettings.SetQualityLevel(savedQuality);
+        qualityDropdown.value = savedQuality;
+
         brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
     }
 
@@ -93,10 +98,12 @@ public class ScreenSettings : MonoBehaviour
 
     public void setQuality(int qualityIndex)
     {
-        qualityIndex = PlayerPrefs.GetInt("quality", 2);
-        QualitySettings.SetQualityLevel(qualityIndex);
         PlayerPrefs.SetInt("quality", qualityIndex);
         PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(qualityIndex);
+
+        qualityDropdown.value = qualityIndex;
     }
 
     public void setFullscreen(bool isFullscreen)

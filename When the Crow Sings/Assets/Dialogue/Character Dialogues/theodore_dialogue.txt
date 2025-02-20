@@ -29,7 +29,7 @@ Theodore_Sigh: U G H
 Theodore_Annoyed: What do you want? Can't you respect a man's privacy? Who even are you?
 Chance_Smile: I'm <color=#813408>Chance</color>, the new resident. You must be <color=#813408>Teddy</color>.
 Theodore_Angry: TEDDY?!!?!?!
-Theodore_Sigh: @#%@#%$%^^@##@!
+Theodore_Sigh: @#^$@#^@#$#@^!
 Theodore_Annoyed: Do NOT call me that. I don't know why <color=#813408>Jazmyne</color> sent you here but I don't need you looking over me.
 Theodore: And my name is not Teddy. It's <color=#813408>THEODORE</color>.
 Chance: Uh, right. She didn't send me here to spy on you.
@@ -152,5 +152,147 @@ call SaveGameToDisk();
 => END
 
 ~ theodore_beyond_base
-Nothing.
+Should I chat with <color=#813408>Theodore</color> right now?
+- Sure
+	=> theodore_beyond_base_directory
+- Maybe later
+	=> ending_call
+
+~ theodore_beyond_base_directory
+if TheodoreBB == 0:
+	=> T0
+if TheodoreBB == 1:
+	=> T1
+if TheodoreBB == 2:
+	=> T2
+else:
+	No more!
+	=> ending_call
+
+~ BBEnd
+set TheodoreBB += 1;
 => ending_call
+
+~ T0
+Theodore_Annoyed: You again? What do you want?
+if AngelBaseCompleted == true:
+- Theo
+	=> T01
+- Teddy
+	=> T01
+- Theodore
+	=> T01
+else:
+- Teddy
+	=> T02
+- Theodore
+	=> T02
+
+~ T01
+Chance: So what name is it that you like to go by?
+Theodore_Excited: What do you care?
+Chance_Sigh: I'm just asking bro. I've heard you called Theodore, Teddy, Theo, I was just wondering which one you liked. It's clearly not Teddy.
+Theodore_Stunned: Who called me Theo?
+Chance: <color=#813408>Angel</color> did. Said you might've been the one banging on my window, that you "love a good prank".
+Theodore: That's cool of him... I guess..
+Chance_Thinking: Are you guys friends or..?
+Theodore_Excited: I wouldn't say we're friends, though he probably would.
+Chance_Sigh: Yeah I'm sure you've got plenty already.
+Theodore_Annoyed: It's not like that it's just weird. He's older than me and I don't want to him to give me his big brother crap.
+Theodore_Angry: The last thing I need is another person thinking they need to take care of me because they feel bad for me.
+Chance_Thinking: Why would he do that?
+Theodore_Excited: The same reason <color=#813408>Jazmyne</color> does, because he knew my parents and thinks now I'm some loser who needs to talk about my feelings all the time.
+Chance_Annoyed: You've got people who want to be there for you after you lost your family and that annoys you?
+Theodore_Sigh: I'm not some little kid who needs everyone's pity.
+Chance_Sigh: Maybe he does just want to be your friend. He probably just wants to be there for you, that's what friends do y'know.
+Theodore_Annoyed: What do you know about it? Why do you care?
+Chance_Sigh: If I had someone who gave a crap about me, I wouldn't care if they knew my parents or not, or think about if they pity me. You should be grateful that you have people here who care about you. You could've lost everything and ended up completely alone like me.
+Theodore_Stunned: . . .
+Theodore_Excited: Whatever.
+=> BBEnd
+
+~ T02
+Chance: So what name is it that you like to go by?
+Theodore_Excited: What do you care?
+Chance_Sigh: I'm just asking bro. You have a pretty strong reaction to Teddy.
+Theodore_Angry: Cause it's a stupid name!
+Chance_Smile: I think it's cute.
+Theodore_Angry: Do I look cute to you?!?!
+Chance_Smile:...
+Theodore_Excited: Do not answer that.
+Theodore_Sigh: My mom used to call me Teddy when I was little, and now <color=#813408>Jazmyne</color> won't stop calling me that. Like she thinks she can replace my mom or something.
+Chance_Thinking: Replace?
+Theodore_Excited: Yes. My mom and dad died and we got sent here and it sucks. Happy?
+Chance_Sad: I'm sorry, that's rough.
+Theodore_Annoyed: Whatever dude. Just call me <color=#813408>Theodore</color>, or <color=#813408>Theo</color>. Or, don't call me at all and leave me alone out here.
+<i>He must really be having a rough time. Wonder if he was like this before.</i>
+=> BBEnd
+
+~ T1
+Theodore: You again.
+- Your jacket
+	Chance: So where did you get a nice jacket like that.
+	Theodore: The people who moved us here gave it to me when we were coming over.
+	Chance_Annoyed: Really? The clothes they gave me are not as nice as that.
+	Theodore_Excited: I can see that.
+	Chance_Sigh: Alright man, not like I got to choose. 
+	Theodore: Yeah but you chose to keep the ratty hat, right?
+	Chance_Annoyed: It's one of the only things I kept from where I lived before man, chill out. I know it's messed up, I've had it since I was a little kid.
+	Theodore_Excited: Maybe they saw you wearing that and figured they'd just give you whatever since you already dress like a bum.
+	Chance_Annoyed: Whatever dude.
+- The star
+	Chance: What's with the star on your jacket?
+	Theodore: What about it?
+	Chance_Annoyed: It's clearly stitched on. It looks like it was done really crappy and then someone else went over it and stitched it on nicer.
+	Theodore_Angry: You try sewing something together with feathers on your hands!
+	Theodore_Annoyed: The second set of stitches is because <color=#813408>Jazmyne</color> washed it and then fixed it even though I told her not to touch my stuff.
+	Chance_Sigh: Sounds like she was doing you a favor, it looks like it would've torn off by now if she didn't.
+	Theodore_Sigh: Yeah whatever.
+	Chance: Why a star?
+	Theodore_Excited: None of your business.
+	Chance_Annoyed: You're like super annoying, you know that right?
+	Theodore_Annoyed: Takes one to know one.
+=> BBEnd
+
+~ T2
+Theodore_Annoyed: Don't you ever get bored trying to talk to me?
+Chance_Smile: Maybe a little bit.
+Theodore_Angry: Then why not go bother someone else?
+Chance_Excited: And miss out on the yelling? No way.
+- Scavenging
+	Chance: So what exactly are you hoping to find up here?
+	Theodore: I don't know, anything. Something valuable.
+	Chance_Thinking: Uh, why? Do you guys barter or trade or something? I thought everything was just like free.
+	Theodore_Annoyed: Well yeah here but who knows about the next place.
+	Chance_Thinking: The next place?
+	Theodore_Sigh: Yes the next place. When shit hits the fan here, who knows what the rules are going to be somewhere new? I just want to be prepared.
+	Chance: You think that this place is going to fall apart?
+	Theodore_Excited: That's what happened last time.
+	Chance_Annoyed: Why not try and stop that from happening instead of just acting like it'll happen no matter what?
+	Theodore_Annoyed: What am I supposed to do about it?
+	Chance_Angry: I don't know, anything! Figure out what's going on, stop it from happening. Nothing just happens for no reason, those creatures didn't just magically exist one day.
+	Chance_Sigh: If you're going to just let it happen you must not give much of a shit in the first place.
+	Theodore_Stunned:...
+- Exploring
+	Chance: Do you ever find anything good when you're out exploring?
+	Theodore: If I did, why would I tell you? Gonna pillage the spots I haven't got to yet?
+	Chance_Annoyed: Are you always so defensive and whiny?
+	Theodore_Annoyed: Only when people are trying to take my stuff. And no, I haven't found anything good, so I doubt you will either.
+	Chance: Where have you gone besides the quarry?
+	Theodore_Excited: I've made it out into the forest and the old residential area, but I avoid the old power station.
+	Theodore: I'm not getting closer to that purple stuff during the day, it's hard enough to avoid at night nowadays.
+	Chance_Thinking: So you know about the stuff coming out of the ground from there, and you just avoid it? Pretend it's not happening?
+	Theodore_Excited: What else can I do? All <color=#813408>Farida</color> has done about it is set a curfew and tell us not to go outside. If she can't do anything about it, maybe there's nothing to be done.
+	<i>What a cheery thought.</i>
+	Chance:... Well what did you find in the other places.
+	Theodore: I didn't really go exploring in the forest much after I noticed that bear dude definitely knew I was there.
+	Theodore_Stunned: And after seeing that chick in the residential area, I haven't been back. She gives me the creeps.
+	if PhilomenaBaseCompleted == true:
+		Chance_Sad: Well it's not her fault she's like that.
+		Theodore: That doesn't make it less freaky to try and walk around and have some lady whispering to herself nearby.
+	else:
+		Chance: Did she do something to freak you out?
+		Theodore_Excited: I mean no not something specifically, but she just wanders around and talks to herself and goes through trash.
+		Chance_Smile: Kinda sounds like whawt you do.
+		Theodore_Stunned: !?!
+=> BBEnd
