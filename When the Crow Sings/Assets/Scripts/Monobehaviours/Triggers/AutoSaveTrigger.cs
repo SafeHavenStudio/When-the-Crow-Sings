@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class AutoSaveTrigger : MonoBehaviour
 {
-    public string flagToFlip = "thisShouldMatchTheDynamicEnable";
+    public string associatedDynamicEnableFlag = "thisShouldMatchTheDynamicEnable";
     public void AutoSave()
     {
         Debug.Log("Autosaving!");
         SaveDataAccess.WriteDataToDisk();
-        SaveDataAccess.SetFlag(flagToFlip,true);
+        SaveDataAccess.SetFlag(associatedDynamicEnableFlag,true);
         
     }
 }
