@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FlagFlipperTrigger : MonoBehaviour
 {
-    public string flagToFlip = "thisShouldMatchTheDynamicEnable";
+    public string flagToFlip = "pleaseFillThisChelle";
     public Constants.FLAG_TYPES flagType = Constants.FLAG_TYPES.BOOL;
     public bool new_bool_value = false;
     public int new_int_value = 0;
