@@ -58,7 +58,10 @@ public class SaveDataAccess
     }
     public static void SetFlag(string key, int value)
     {
+        if (saveData.intFlags["timeOfDay"] == 2 && value == 3) saveData.boolFlags["HasSpawnedAtLodgingNight"] = false;
+
         saveData.intFlags[key] = value;
+
         if (saveData.intFlags["timeOfDay"] > 3)
         {
             saveData.intFlags["timeOfDay"] = 1;
