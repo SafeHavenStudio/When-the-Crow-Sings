@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 768087352989844745}
   - component: {fileID: 4568778303380155492}
   - component: {fileID: 1848593738724463271}
+  - component: {fileID: 5010189103349942140}
   m_Layer: 15
   m_Name: Player
   m_TagString: Player
@@ -1477,6 +1478,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSignal: {fileID: 11400000, guid: 9b3c320fdfe314e4cb8ba21801d6e3ce, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3124118830521834551}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDialogueStarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5010189103349942140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195737949493200412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: b1265efb62005ec4193f7d65be844793, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:

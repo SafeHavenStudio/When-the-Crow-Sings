@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour, IService
 {
@@ -60,9 +61,12 @@ public class GameManager : MonoBehaviour, IService
         }
     }
 
+    public GameObject imagePopupUi;
     public void PopupImage(SignalArguments args)
     {
         Debug.Log("Popped up image!");
+        imagePopupUi.SetActive(true);
+        imagePopupUi.GetComponent<ImagePopup>().image.sprite = (Sprite)args.objectArgs[0];
     }
     public void OnEnemyCaughtPlayer()
     {
