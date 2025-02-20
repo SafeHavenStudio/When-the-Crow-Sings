@@ -69,4 +69,8 @@ public class GameManager : MonoBehaviour, IService
         //gameStateManager.ReloadCurrentScene(0);
         Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.GAME_OVER);
     }
+    public void OnCutsceneSignal()
+    {
+        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_NIGHT1);
+    }
 }
