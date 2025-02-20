@@ -138,18 +138,18 @@ Francisco: I'm sorry but I really can't chat until I get this done. Did you stil
 	emit 1;
 	=> ending_call
 - Maybe later.
-	=> ending_call
+	=> END
 
 ~ francisco_task_unfin
 Francisco: Oh you're back! You've got what I asked for?
 - What to get?
 	Chance_Sad: No, I forgot what you said to get.
 	Francisco_Excited: Ah! No worries, friend. Just collect me the leaves from three flowers near the <color=#5b5b1f>north-west outer fence</color>.
-	=> ending_call
+	=> END
 - No, not yet.
 	Chance: No, not yet.
 	Francisco_Thinking: Right. Well... it is kind of time sensitive. Could you be on your way?
-	=> ending_call
+	=> END
 
 ~francisco_task_fin
 set FranciscoBaseCompleted = true;
@@ -295,14 +295,16 @@ Do I want to chat with <color=#813408>Francisco</color> right now?
 - Yeah
 	=> francisco_beyond_base_directory
 - Nah
-	=> ending_call
+	=> END
 
 ~ francisco_beyond_base_directory
 if FranciscoBB == 0:
 	=> F0
+if FranciscoBB == 1:
+	=> F1
 else:
 	No more! All gone!
-	=> ending_call
+	=> END
 
 ~ BBEnd
 set FranciscoBB += 1;

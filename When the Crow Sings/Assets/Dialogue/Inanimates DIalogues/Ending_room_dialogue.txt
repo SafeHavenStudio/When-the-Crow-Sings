@@ -229,6 +229,7 @@ else:
 	=> bad_ending
 
 ~ good_ending
+call SaveGameToDisk();
 ADMINISTRATOR ACCESS GRANTED
 Chance_Excited: Yes! Let's shut this shit down!
 : ISOTOPE GENERATOR SHUTDOWN INITIATED<br>STABILITY WILL BE REACHED IN : 4 HOURS
@@ -237,6 +238,7 @@ Chance_Smile: Glad I spent so long doing useless bullshit around here, really pa
 => END
 
 ~ neutral_ending
+call SaveGameToDisk();
 ADMINISTRATOR ACCESS CANNOT BE GRANTED
 Chance_Angry: Of course. We're screwed!
 TEMPORARY OVERRIDE ACCESS AVAILABLE
@@ -249,6 +251,7 @@ Chance_Scared: Even less time cause I have to wait for that thing to leave.. Bes
 => END
 
 ~ bad_ending
+call SaveGameToDisk();
 ADMINISTRATOR ACCESS CANNOT BE GRANTED
 Chance_Angry: What am I supposed to do now!?
 : COMPLETE DEGRADATION WILL BE REACHED IN : 2 HOURS

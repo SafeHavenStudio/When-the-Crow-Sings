@@ -18,12 +18,6 @@ if FaridaTaskCompleted == false:
 else:
 	=> farida_task_fin
 
-~ farida_first_int
-Farida: WHAT?!
-Farida: . . .
-Farida: Ugh. Come in!
-=> ending_call
-
 ~ farida_sec_int
 Farida: Did you need something?
 if timeOfDay == 3:
@@ -39,7 +33,7 @@ if BeauBaseCompleted == true:
 	=> farida_beau
 else:
 	Farida: You have broken the laws of this game and shall be banished to the sixth dimension. 
-	=> ending_call
+	=> END
 
 ~ farida_francisco
 Chance: <color=#813408>Francisco</color> sent me.
@@ -145,7 +139,7 @@ Farida: You're back. I take it you can't just settle for a nice quiet place to l
 	=> ending_call
 - Whatever.
 	Chance_Annoyed: Whatever.
-	=> ending_call
+	=> END
 
 ~ farida_task_unfin
 Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need glasses?
@@ -156,12 +150,12 @@ Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need gl
 	else:
 		Farida_Annoyed: <size=75%> You're going through all of this trouble to get into here, to disrupt my day, and you can't even remember the simple instructions I gave you? Are you kidding me? Did you lose all your brain cells between the coast and here? Why did I even accept your application?!
 	Farida_Exhausted: Stand over there, wait for the gauge to hit the red section, mark the time when it happens. Do that four times, then bring it back to me.
-	=> ending_call
+	=> END
 - The vibe was off.
 	Chance_Angry: The vibes were off, I'm waiting for them to be right to do it.
 	Farida_Stunned: . . .
 	Farida_Annoyed: <size=75%> I'm never accepting a new resident application again. I can't deal with this.
-	=> ending_call
+	=> END
 
 ~ farida_task_fin
 set FaridaBaseCompleted = true;
@@ -244,4 +238,4 @@ call SaveGameToDisk();
 
 ~ farida_beyond_base
 Farida: Look I don't know how you didn't get the memo kid, but I don't want to talk to you. You finished my dialogue! Buzz off.
-=> ending_call
+=> END

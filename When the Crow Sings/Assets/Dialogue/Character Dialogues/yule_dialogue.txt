@@ -99,7 +99,7 @@ Yule: Once I'm done fishing.
 	emit 1;
 	=> ending_call
 - Right.
-	=> ending_call
+	=> END
 
 ~ yule_task_part_unfin
 Yule: Mm. You're back.
@@ -110,13 +110,13 @@ Yule_Thinking: Why?
 	Yule_Smile: You were getting the ingredients for a fishing rod.
 	Chance_Smile: Ahh, right. Thanks!
 	Yule: Mm..
-	=> ending_call
+	=> END
 - No reason.
 	Chance: No reason.
 	Yule: Okay.
 	Chance: . . .
 	Yule: . . . 
-	=> ending_call
+	=> END
 
 ~ yule_task_part_fin
 set YuleTaskTwoOn = true;
@@ -199,4 +199,4 @@ call SaveGameToDisk();
 
 ~ yule_beyond_base
 This guy doesn't talk much, I'm gonna fuck off.
-=> ending_call
+=> END

@@ -91,7 +91,7 @@ Beau_Teasing: Back for more <color=#813408>Beau</color>?
 	=> ending_call
 - No.
 	Chance: . . . No.
-	=> ending_call
+	=> END
 
 ~ beau_task_unfin
 Beau: You're back.
@@ -100,11 +100,11 @@ Beau_Awkward: With no veggies. Did something happen, or?
 		Chance_Sad: I forgot where to go.
 		Beau_Teasing: Oh no worries bud. I'm a little absent-minded myself, I get it. Just trot on over to <color=#813408>Quinn</color>'s and scoop up that veggie delivery, then bring it back.
 		Chance: Okay, got it.
-		=> ending_call
+		=> END
 	- No!
 		Chance_Angry: No! I just wasn't ready to do it yet!
 		Beau_Awkward: Riiiiiight. Whatever you say bud.
-		=> ending_call
+		=> END
 
 ~ beau_task_fin
 Beau_Smile: Ah! Lookin' good! <color=#813408>Quinn</color> sure knows how to grow 'em. Thanks for your help.
@@ -174,7 +174,7 @@ Do I want to chat with <color=#813408>Beau</color> right now?
 - Yeah
 	=> beau_beyond_base_directory
 - Nah
-	=> ending_call
+	=> END
 
 ~ beau_beyond_base_directory
 if BeauBB == 0:

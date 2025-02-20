@@ -1,19 +1,19 @@
 ~ broken_gauges
 A set of gauges. Unlike the second set, these gauges are smashed. I wonder why..
-=> ending_call
+=> END
 
 ~ working_gauges
 if FaridaTaskCompleted == true:
 	Only a skilled person could possibly accurately mark these spinning gauges. I know, cause I've done it.
-	=> ending_call
+	=> END
 else:
 	A set of gauges with four dials, the hands all flailing back and forth randomly. Wonder what they mean.
-	=> ending_call
+	=> END
 
 ~ filing_cabinet
 A filing cabinet.
 Best to remember what kills the cat, and keep my hands to myself. I mean, she's literally right there.
-=> ending_call
+=> END
 
 ~ pager
 if FaridaBaseCompleted == true:
@@ -24,18 +24,18 @@ if FaridaBaseCompleted == true:
 	FRANCISCO - MOVIE NIGHT?
 	REPLY - NO!
 	Wow. Guess Francisco can't catch a break.
-	=> ending_call
+	=> END
 else:
 	Something about Farida's resting face tells me that touching this will have dire consequences.
-	=> ending_call
+	=> END
 
 ~ clipboard
 if FaridaBaseCompleted == true:
 	Wow, my handwriting is not good. I should've been a doctor.
-	=> ending_call
+	=> END
 else:
 	A clipboard with some sort of template clipped in. I have no idea what it's for.
-	=> ending_call
+	=> END
 
 ~ ending_call
 call SaveGameToDisk();

@@ -1,10 +1,10 @@
 ~ casette_player
 if PhilomenaTaskAccepted == false:
 	A casette player radio. Looks like it isn't working.
-	=> ending_call
+	=> END
 if PhilomenaTaskCompleted == true:
 	Casette player is up and working, and played a nice little song.
-	=> ending_call
+	=> END
 if PhilomenaTaskPartCompleted == true:
 	set PhilomenaTaskCompleted = true;
 	set MFPhilomenaTPC = false;
@@ -15,10 +15,10 @@ if PhilomenaTaskPartCompleted == true:
 	=> ending_call
 if PhilomenaTaskAccepted == true:
 	Looks like it needs some batteries to work, and a casette if I want it to actually play anything. I should look around, I'm sure if she has it here what I need is also nearby.
-	=> ending_call
+	=> END
 else:
 	idk how u got here
-	=> ending_call
+	=> END
 
 ~ residential_unlock
 Yeesh, the path here was awful, all these torn down gates. How can someone live out here?...

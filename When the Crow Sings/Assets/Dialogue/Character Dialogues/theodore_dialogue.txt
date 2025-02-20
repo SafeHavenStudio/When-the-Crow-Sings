@@ -59,10 +59,10 @@ Theodore_Excited: Do you want my help or not? 'Cause if not, the least you could
 	Theodore: And go through all of 'em, don't slack!
 	Chance_Angry: I said alright, man.
 	emit 1;
-	=>END
+	=> ending_call
 - As if.
 	Chance: As if, I've got better stuff to waste my time doing right now.
-	=>END
+	=> ending_call
 
 ~ theodore_no_task
 Theodore_Annoyed: You again?
@@ -81,24 +81,24 @@ Theodore: I made my terms clear, either you help me find something in here or my
 	Theodore: And go through all of 'em, don't slack!
 	Chance_Angry: I said alright, man.
 	emit 1;
-	=>END
+	=> ending_call
 - No way.
 	Chance_Smile: No way, bird brain.
 	Theodore_Angry: ?!?!
-	=>END
+	=> END
 
 ~ theodore_task_unfin
 Theodore: What? Why are you looking at me like that? Where's my stuff?
 - I'm getting it
 	Chance: I'm getting to it, stuff it bird brains.
 	Theodore_Angry: >:O
-	=>END
+	=> END
 - I forgot
 	Chance_Sad: I forgot what you asked me to do.
 	Theodore_Angry: <size=120%>ARE YOUR BRAINS SCRAMBLED? I JUST WANTED YOU TO GO THROUGH THE STUPID PILES ON THE FLOOR AND BRING ME SOMETHING USEFUL! HOW DID YOU EVEN GET ACCEPTED HERE?!?</size>
 	Chance_Sad: Yeesh, cool it.
 	Theodore_Angry: Guh?!?
-	=>END
+	=> END
 
 ~theodore_task_fin
 set ISaidGetOffThatDamnIcon = false;
@@ -157,7 +157,7 @@ Should I chat with <color=#813408>Theodore</color> right now?
 - Sure
 	=> theodore_beyond_base_directory
 - Maybe later
-	=> ending_call
+	=> END
 
 ~ theodore_beyond_base_directory
 if TheodoreBB == 0:
@@ -168,7 +168,7 @@ if TheodoreBB == 2:
 	=> T2
 else:
 	No more!
-	=> ending_call
+	=> END
 
 ~ BBEnd
 set TheodoreBB += 1;
