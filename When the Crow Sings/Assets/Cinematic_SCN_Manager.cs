@@ -14,6 +14,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
         NONE,
         CUTSCENE_0,
         CUTSCENE_NIGHT1,
+        CUTSCENE_ENDING_0,
         GAME_OVER
     }
     static DesiredBehavior desiredBehavior = DesiredBehavior.CUTSCENE_0;
