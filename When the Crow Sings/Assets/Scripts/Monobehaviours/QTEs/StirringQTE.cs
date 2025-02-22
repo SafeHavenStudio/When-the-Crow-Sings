@@ -20,6 +20,7 @@ public class StirringQTE : QuickTimeEvent
     //public float timer = 8;
     private bool firstTime = true;
     [HideInInspector] public bool failed = false;
+    private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -105,8 +106,8 @@ public class StirringQTE : QuickTimeEvent
             }
         }
 
-        // Check for QTE completion
-        if(score >= slider.maxValue && firstTime)
+        //Check for QTE completion
+        if (score >= slider.maxValue && firstTime)
         {
             SucceedQTE();
         }
@@ -114,11 +115,22 @@ public class StirringQTE : QuickTimeEvent
         {
             StartCoroutine(decayDelay());
         }
+
+        //Checks if the qte was started and if it drops back to 0, fail
+        if (score > 0)
+        {
+            aboveZero = true;
+        }
+        else if (score <= 0 && aboveZero == true)
+        {
+            aboveZero = false;
+            FailQTE();
+        }
     }
 
     private IEnumerator decayDelay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         score -= 0.01f;
     }
 
@@ -206,7 +218,7 @@ public class StirringQTE : QuickTimeEvent
             {
                 correctKey = true;
                 KeyPressFeedback();
-                if (type == QTETYPES.isFishing)
+                if (type == QTETYPES.isSoup)
                 {
                     soundIndex++;
                     if (soundIndex % 22 == 0) //Plays it every 22nd press
@@ -228,12 +240,6 @@ public class StirringQTE : QuickTimeEvent
             {
                 correctKey = false;
                 KeyPressFeedback();
-                if (type == QTETYPES.isSoup)
-                {
-                    soundIndex++;
-                    if (soundIndex % 22 == 0) //Plays it every 22nd press
-                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
-                }
             }
         }
     }
