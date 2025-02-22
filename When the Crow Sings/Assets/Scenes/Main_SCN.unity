@@ -9859,7 +9859,6 @@ GameObject:
   m_Component:
   - component: {fileID: 943808688}
   - component: {fileID: 943808689}
-  - component: {fileID: 943808691}
   - component: {fileID: 943808692}
   - component: {fileID: 943808698}
   m_Layer: 0
@@ -9899,34 +9898,6 @@ MonoBehaviour:
   dynamicEnables: []
   gameStateManager: {fileID: 8806014526471703756}
   imagePopupUi: {fileID: 1513933470}
---- !u!114 &943808691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943808687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: b1265efb62005ec4193f7d65be844793, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 943808689}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PopupImage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &943808692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16648,6 +16619,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1298680168}
   - component: {fileID: 1298680169}
+  - component: {fileID: 1298680170}
+  - component: {fileID: 1298680171}
+  - component: {fileID: 1298680172}
   m_Layer: 0
   m_Name: InteractablesManager
   m_TagString: Untagged
@@ -16682,6 +16656,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dd2b840b8f0654aab33b81758c47c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionFinishedSignal: {fileID: 11400000, guid: e9116f97eba84ae45bbeda1063d87889,
+    type: 2}
+--- !u!114 &1298680170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298680167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: b1265efb62005ec4193f7d65be844793, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 943808689}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PopupImage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1298680171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298680167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: 20b772f70a9d9fd45bb90955e34f0875, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 769733860930222430}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1298680172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298680167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: 2241f19dd97e274478e011625b833c15, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1765020098}
+        m_TargetAssemblyTypeName: TaskManager, Assembly-CSharp
+        m_MethodName: OnQTEStartRequested
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1310132084
 GameObject:
   m_ObjectHideFlags: 0
@@ -22566,7 +22626,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1765020097}
   - component: {fileID: 1765020098}
-  - component: {fileID: 1765020099}
   - component: {fileID: 1765020100}
   m_Layer: 0
   m_Name: TaskManager
@@ -22603,34 +22662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteUiHolder: {fileID: 1674788033}
---- !u!114 &1765020099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765020096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: 2241f19dd97e274478e011625b833c15, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1765020098}
-        m_TargetAssemblyTypeName: TaskManager, Assembly-CSharp
-        m_MethodName: OnQTEStartRequested
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1765020100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28739,7 +28770,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8678019367360410499}
   - component: {fileID: 769733860930222430}
-  - component: {fileID: 3838670728832093628}
   - component: {fileID: 8678019367360410501}
   - component: {fileID: 8678019367360410500}
   m_Layer: 0
@@ -28965,34 +28995,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3838670728832093628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3289023823644689653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: 20b772f70a9d9fd45bb90955e34f0875, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 769733860930222430}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &3903255793023883511
 MonoBehaviour:
   m_ObjectHideFlags: 0
