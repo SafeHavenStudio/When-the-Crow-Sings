@@ -1407,6 +1407,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 104974490}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &108183616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 22856899085645728, guid: 59b602844cd73bc43a1bb9284cc1baf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032625674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &123961944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5864,6 +5870,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1609490492}
+  - {fileID: 1032625675}
   m_Father: {fileID: 482170304666749427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11408,7 +11415,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1609490492}
+    m_TransformParent: {fileID: 529008942}
     m_Modifications:
     - target: {fileID: 22856899085645728, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
@@ -11439,6 +11446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: 1362788781
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468619550618802403, guid: 59b602844cd73bc43a1bb9284cc1baf3,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2468619550618802403, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
@@ -11483,17 +11495,17 @@ PrefabInstance:
     - target: {fileID: 6322415355191125793, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6322415355191125793, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6322415355191125793, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6322415355191125793, guid: 59b602844cd73bc43a1bb9284cc1baf3,
         type: 3}
@@ -11524,7 +11536,11 @@ PrefabInstance:
     - {fileID: 1287291634187879111, guid: 59b602844cd73bc43a1bb9284cc1baf3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 22856899085645728, guid: 59b602844cd73bc43a1bb9284cc1baf3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1032625679}
   m_SourcePrefab: {fileID: 100100000, guid: 59b602844cd73bc43a1bb9284cc1baf3, type: 3}
 --- !u!224 &1032625675 stripped
 RectTransform:
@@ -11532,6 +11548,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1032625674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1032625676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2468619550618802403, guid: 59b602844cd73bc43a1bb9284cc1baf3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032625674}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108183616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &1032625679
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108183616}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 1
 --- !u!1001 &1043258062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20578,7 +20618,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1032625675}
   - {fileID: 1360381095}
   m_Father: {fileID: 529008942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31317,6 +31356,11 @@ MonoBehaviour:
   fullyFinishedLoadSignal: {fileID: 11400000, guid: 2e2215924db2d964e8d09e99c368a355,
     type: 2}
   loadScreen: {fileID: 529008941}
+  sourceImage: {fileID: 1609490493}
+  loadScreens:
+  - {fileID: 21300000, guid: 7a143e3f3fc7afa448a32268d095c2de, type: 3}
+  - {fileID: 21300000, guid: 576e8618ff3cef446898c6527846e185, type: 3}
+  loadingAnim: {fileID: 1032625676}
   canLoad: 1
   currentLevelDataLVL: {fileID: 0}
   debugScenes:
