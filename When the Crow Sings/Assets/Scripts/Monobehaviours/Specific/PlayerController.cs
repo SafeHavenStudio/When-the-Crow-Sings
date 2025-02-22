@@ -136,11 +136,11 @@ public class PlayerController : StateMachineComponent, IService
 
 
 
-    public void OnDialogueStarted(SignalArguments signalArgs)
+    public void OnInteractStarted(SignalArguments signalArgs)
     {
         stateMachine.Enter("PlayerFrozenState");
     }
-    public void OnDialogueFinished()
+    public void OnInteractFinished()
     {
         stateMachine.Enter("PlayerMovementState");
     }
