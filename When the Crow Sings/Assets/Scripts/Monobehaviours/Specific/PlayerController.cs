@@ -71,13 +71,11 @@ public class PlayerController : StateMachineComponent, IService
 
         characterController = GetComponent<CharacterController>();
 
-        // I don't know why this line is here, so it's just commented out.
-        //speed = 8;
-
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new PlayerFrozenState(this), "PlayerFrozenState");
         stateMachine.RegisterState(new PlayerMovementState(this), "PlayerMovementState");
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
+        stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
     }
     private void Start()
     {
@@ -87,7 +85,6 @@ public class PlayerController : StateMachineComponent, IService
 
     private void OnDestroy()
     {
-        stateMachine.RegisterState(new DestroyState(this), "DestroyState");
         stateMachine.Enter("DestroyState");
     }
 
@@ -135,6 +132,10 @@ public class PlayerController : StateMachineComponent, IService
         codexSignalTEMP.Emit();
     }
 
+
+
+
+
     public void OnDialogueStarted(SignalArguments signalArgs)
     {
         stateMachine.Enter("PlayerFrozenState");
@@ -144,6 +145,8 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.Enter("PlayerMovementState");
     }
 
+
+
     public void OnFullyLoadFinished(SignalArguments args)
     {
         if (!ServiceLocator.Get<DialogueManager>().isInDialogue)
@@ -151,7 +154,6 @@ public class PlayerController : StateMachineComponent, IService
             stateMachine.Enter("PlayerMovementState");
         }
     }
-
     public void OnAnimationFinished(SignalArguments args)
     {
         if (args.stringArgs[0] == "Throw")
@@ -162,8 +164,6 @@ public class PlayerController : StateMachineComponent, IService
 
 
     // Ricky code
-
-    //[HideInInspector]
     public float speed;
     [HideInInspector]
     public Vector3 movementInput;
