@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DestroyState : StateMachineState
+public class PlayerDestroyState : StateMachineState
 {
     PlayerController s;
-    public DestroyState(PlayerController component)
+    public PlayerDestroyState(PlayerController component)
     {
         s = component;
     }

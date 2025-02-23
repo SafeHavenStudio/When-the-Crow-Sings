@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1063922760433704584}
+  - component: {fileID: 8666004597834440502}
   - component: {fileID: 6787458002468338055}
   - component: {fileID: 8275137780379619323}
+  - component: {fileID: 3246865704057378893}
   - component: {fileID: 4729501700146265821}
   - component: {fileID: 5350610170646720509}
-  - component: {fileID: 3246865704057378893}
-  - component: {fileID: 8666004597834440502}
   m_Layer: 14
   m_Name: pf_SaveFlagFlipperTrigger
   m_TagString: Untagged
@@ -37,6 +37,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8666004597834440502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5712937579828342720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  pfInteractArrow: {fileID: 8949982218517640275, guid: a477ca45d233b724db2f5d680740acb7,
+    type: 3}
+  autoInteract: 1
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
 --- !u!114 &6787458002468338055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +90,27 @@ MonoBehaviour:
   intValue: 0
   stringValue: 
   playPickupSoundOnDisable: 0
+--- !u!65 &3246865704057378893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5712937579828342720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &4729501700146265821
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,40 +161,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3246865704057378893
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712937579828342720}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8666004597834440502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712937579828342720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  pfInteractArrow: {fileID: 8949982218517640275, guid: a477ca45d233b724db2f5d680740acb7,
-    type: 3}
-  autoInteract: 1

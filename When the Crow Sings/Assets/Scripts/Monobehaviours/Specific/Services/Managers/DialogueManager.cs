@@ -29,10 +29,6 @@ public class DialogueManager : MonoBehaviour, IService
     public Image nameBox;
     public DialoguePortraits dialoguePortraits;
 
-    [Header("Signals")]
-    public GameSignal startDialogueSignal;
-    public GameSignal finishDialogueSignal;
-
     [Header("Settings")]
     public float textSpeed = .03f;
     public float secondsBetweenAudioPlays = .05f;
@@ -88,7 +84,7 @@ public class DialogueManager : MonoBehaviour, IService
         choiceButtonsMBHS.enabled = false;
         nextButtonMBHS.enabled = false;
         dialogueUI.SetActive(false);
-        finishDialogueSignal.Emit();
+        ServiceLocator.Get<InteractablesManager>().FinishInteraction();
     }
 
 

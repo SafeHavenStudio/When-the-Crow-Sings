@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6803497763721583419}
-  - component: {fileID: 4468416896440592636}
   - component: {fileID: 158499437496051691}
+  - component: {fileID: 4468416896440592636}
   - component: {fileID: 1875406335147647528}
   - component: {fileID: 4567623960314235791}
   m_Layer: 14
@@ -37,6 +37,24 @@ Transform:
   - {fileID: 3741825203840651700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &158499437496051691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658357030368060936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  pfInteractArrow: {fileID: 3559112393581804139}
+  autoInteract: 0
+  playerResponse: 1
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
 --- !u!114 &4468416896440592636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,21 +71,6 @@ MonoBehaviour:
     type: 2}
   startingTitle: my_second_title
   dialogueResource: {fileID: 11400000, guid: c955e6afdee9394488baa327ed03e514, type: 2}
---- !u!114 &158499437496051691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658357030368060936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  pfInteractArrow: {fileID: 3559112393581804139}
-  autoInteract: 0
 --- !u!135 &1875406335147647528
 SphereCollider:
   m_ObjectHideFlags: 0
