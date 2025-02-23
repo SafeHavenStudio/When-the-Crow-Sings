@@ -13,8 +13,12 @@ public class PlayerFearState : StateMachineState
 
     public override void StateEntered()
     {
-        Debug.Log("AAAAAH");
+        s.playerAnimator.SetBool("animIsFear", true);
         s.StartCoroutine(Wait());
+    }
+    public override void StateExited()
+    {
+        s.playerAnimator.SetBool("animIsFear", false);
     }
     public override void Update(float deltaTime)
     {
@@ -23,12 +27,14 @@ public class PlayerFearState : StateMachineState
         Vector3 directionToInteractable = (s.transform.position - s.mostRecentInteractable.transform.position).normalized*3;
 
         s.characterController.Move(directionToInteractable * deltaTime);
-        s.transform.Rotate(new Vector3(0, -1000, 0) * deltaTime);
+        //s.transform.Rotate(new Vector3(0, -1000, 0) * deltaTime);
+        s.transform.rotation = Quaternion.LookRotation(-directionToInteractable);
     }
 
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(s.timeToFear);
-        s.stateMachine.Enter("PlayerMovementState");
+        if (s.isInteracting) s.stateMachine.Enter("PlayerFrozenState");
+        else s.stateMachine.Enter("PlayerMovementState");
     }
 }

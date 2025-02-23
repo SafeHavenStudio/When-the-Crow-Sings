@@ -18,6 +18,9 @@ public class PlayerController : StateMachineComponent, IService
     private BirdseedController pfBirdseedProjectile;
     [HideInInspector]
     public bool isCrouchingToggled = false;
+
+    [HideInInspector] public bool isInteracting = false;
+
     //[HideInInspector]
 
     //private bool _isSprinting;
@@ -151,6 +154,7 @@ public class PlayerController : StateMachineComponent, IService
                 Debug.Log("No reason to stop.");
                 break;
             case Interactable.PlayerResponses.FREEZE:
+                isInteracting = true;
                 stateMachine.Enter("PlayerFrozenState");
                 break;
             case Interactable.PlayerResponses.FEAR:
@@ -161,6 +165,7 @@ public class PlayerController : StateMachineComponent, IService
     }
     public void OnInteractFinished(SignalArguments signalArgs)
     {
+        isInteracting = false;
         stateMachine.Enter("PlayerMovementState");
     }
 
