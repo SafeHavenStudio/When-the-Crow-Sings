@@ -15189,6 +15189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1310132093}
+    - target: {fileID: 3054539210031781835, guid: ba9d4aae592064b46878b709ec121f23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UnpauseGame
       objectReference: {fileID: 0}
     - target: {fileID: 3363691148873610424, guid: ba9d4aae592064b46878b709ec121f23,
         type: 3}
@@ -15214,6 +15219,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1310132093}
+    - target: {fileID: 3372445851275449907, guid: ba9d4aae592064b46878b709ec121f23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitToMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372445851275449907, guid: ba9d4aae592064b46878b709ec121f23,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4209679585005558388, guid: ba9d4aae592064b46878b709ec121f23,
         type: 3}
@@ -27398,8 +27413,6 @@ MonoBehaviour:
   itemImageUi: {fileID: 571534993}
   nameBox: {fileID: 2015342513}
   dialoguePortraits: {fileID: 11400000, guid: 40978ffc62fbc1244953405ec4519b71, type: 2}
-  finishDialogueSignal: {fileID: 11400000, guid: 6ff63fe5abcb510419f49446bfcd9dca,
-    type: 2}
   textSpeed: 0.03
   secondsBetweenAudioPlays: 0.05
   pauseMultiplier: 10
