@@ -34,6 +34,7 @@ public class PlayerFearState : StateMachineState
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(s.timeToFear);
-        s.stateMachine.Enter("PlayerMovementState");
+        if (s.isInteracting) s.stateMachine.Enter("PlayerFrozenState");
+        else s.stateMachine.Enter("PlayerMovementState");
     }
 }
