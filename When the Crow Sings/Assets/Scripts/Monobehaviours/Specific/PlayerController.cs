@@ -138,7 +138,19 @@ public class PlayerController : StateMachineComponent, IService
 
     public void OnInteractStarted(SignalArguments signalArgs)
     {
-        stateMachine.Enter("PlayerFrozenState");
+        switch (signalArgs.intArgs[0])
+        {
+            case 0:
+                Debug.Log("No reason to stop.");
+                break;
+            case 1:
+                stateMachine.Enter("PlayerFrozenState");
+                break;
+            case 2:
+                Debug.Log("AAAAH");
+                break;
+        }
+        
     }
     public void OnInteractFinished(SignalArguments signalArgs)
     {

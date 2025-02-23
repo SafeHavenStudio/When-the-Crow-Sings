@@ -54,10 +54,9 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
-
-        if (playerResponse == PlayerResponses.FREEZE) interactionStartedSignal.Emit();
-
-        if (playerResponse == PlayerResponses.FEAR) Debug.Log("AAAAAAAH");
+        SignalArguments args = new SignalArguments();
+        args.intArgs.Add((int)playerResponse);
+        interactionStartedSignal.Emit(args);
     }
 
     public void OnDialogueFinished(SignalArguments args)
