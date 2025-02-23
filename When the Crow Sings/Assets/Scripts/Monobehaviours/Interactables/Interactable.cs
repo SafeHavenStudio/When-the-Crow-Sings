@@ -55,7 +55,7 @@ public class Interactable : MonoBehaviour
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
         SignalArguments args = new SignalArguments();
-        args.intArgs.Add((int)playerResponse);
+        args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
     }
 

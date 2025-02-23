@@ -964,10 +964,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3409146517385565981}
+  - component: {fileID: 3124118830521834551}
   - component: {fileID: 8977349329150907190}
   - component: {fileID: 4517351704927642564}
   - component: {fileID: 5870364044150093514}
-  - component: {fileID: 3124118830521834551}
   - component: {fileID: 4532223004577938253}
   - component: {fileID: 1465768496392498134}
   - component: {fileID: 768087352989844745}
@@ -1000,6 +1000,48 @@ Transform:
   - {fileID: 988348585599327649}
   m_Father: {fileID: 6605035451907473929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3124118830521834551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195737949493200412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb679c7beffc9394d9837eede24bf5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwPosition: {fileID: 6164491848343134619}
+  throwTarget: {fileID: 261162267532544375}
+  playerAnimator: {fileID: 6581866930302715867}
+  timeToFear: 1
+  pfBirdseedProjectile: {fileID: 6028207027951552103, guid: 7ce579de01b4ca149902ac291e1b93f5,
+    type: 3}
+  isCrouchingToggled: 0
+  isSprintingButtonHeld: 0
+  gravity: -9.81
+  gravityMultiplier: 3
+  gravityVelocity: 0
+  maxWalkSpeed: 5
+  minWalkSpeed: 2
+  minSprintSpeed: 9
+  maxSprintSpeed: 14
+  minCrouchSpeed: 1.5
+  maxCrouchSpeed: 3.5
+  walkSlideSpeedCorrection: 0.19
+  crouchSlideSpeedCorrection: 0.24
+  sprintSlideSpeedCorrection: 0.07
+  characterController: {fileID: 5870364044150093514}
+  trajectoryLine: {fileID: 5635314769509727636}
+  pauseSignalTEMP: {fileID: 11400000, guid: 46f67eb6b653cbe4a992cc406e4dbbb6, type: 2}
+  mapSignalTEMP: {fileID: 11400000, guid: 892526f6f597bee45a1504e13938ee76, type: 2}
+  historySignalTEMP: {fileID: 11400000, guid: 41502dc2554216f4195c08301c35ee3f, type: 2}
+  codexSignalTEMP: {fileID: 11400000, guid: f51b955aa1ff4714ea8787db5d736ec2, type: 2}
+  mostRecentInteractable: {fileID: 0}
+  speed: 0
+  movementInput: {x: 0, y: 0, z: 0}
+  acceleration: 5
 --- !u!54 &8977349329150907190
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1076,46 +1118,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3124118830521834551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9195737949493200412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb679c7beffc9394d9837eede24bf5b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwPosition: {fileID: 6164491848343134619}
-  throwTarget: {fileID: 261162267532544375}
-  playerAnimator: {fileID: 6581866930302715867}
-  pfBirdseedProjectile: {fileID: 6028207027951552103, guid: 7ce579de01b4ca149902ac291e1b93f5,
-    type: 3}
-  isCrouchingToggled: 0
-  isSprintingButtonHeld: 0
-  gravity: -9.81
-  gravityMultiplier: 3
-  gravityVelocity: 0
-  maxWalkSpeed: 5
-  minWalkSpeed: 2
-  minSprintSpeed: 9
-  maxSprintSpeed: 14
-  minCrouchSpeed: 1.5
-  maxCrouchSpeed: 3.5
-  walkSlideSpeedCorrection: 0.19
-  crouchSlideSpeedCorrection: 0.24
-  sprintSlideSpeedCorrection: 0.07
-  characterController: {fileID: 5870364044150093514}
-  trajectoryLine: {fileID: 5635314769509727636}
-  pauseSignalTEMP: {fileID: 11400000, guid: 46f67eb6b653cbe4a992cc406e4dbbb6, type: 2}
-  mapSignalTEMP: {fileID: 11400000, guid: 892526f6f597bee45a1504e13938ee76, type: 2}
-  historySignalTEMP: {fileID: 11400000, guid: 41502dc2554216f4195c08301c35ee3f, type: 2}
-  codexSignalTEMP: {fileID: 11400000, guid: f51b955aa1ff4714ea8787db5d736ec2, type: 2}
-  speed: 0
-  movementInput: {x: 0, y: 0, z: 0}
-  acceleration: 5
 --- !u!114 &4532223004577938253
 MonoBehaviour:
   m_ObjectHideFlags: 0

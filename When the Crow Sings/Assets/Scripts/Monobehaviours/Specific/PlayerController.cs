@@ -10,6 +10,10 @@ public class PlayerController : StateMachineComponent, IService
     public Transform throwPosition;
     public GameObject throwTarget;
     public Animator playerAnimator;
+
+    public float timeToFear = 2f;
+
+
     [SerializeField]
     private BirdseedController pfBirdseedProjectile;
     [HideInInspector]
@@ -75,6 +79,7 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerFrozenState(this), "PlayerFrozenState");
         stateMachine.RegisterState(new PlayerMovementState(this), "PlayerMovementState");
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
+        stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
     }
     private void Start()
@@ -135,19 +140,21 @@ public class PlayerController : StateMachineComponent, IService
 
 
 
-
+    [HideInInspector] public Interactable mostRecentInteractable;
     public void OnInteractStarted(SignalArguments signalArgs)
     {
-        switch (signalArgs.intArgs[0])
+        mostRecentInteractable = (Interactable)signalArgs.objectArgs[0];
+
+        switch (mostRecentInteractable.playerResponse)
         {
-            case 0:
+            case Interactable.PlayerResponses.NONE:
                 Debug.Log("No reason to stop.");
                 break;
-            case 1:
+            case Interactable.PlayerResponses.FREEZE:
                 stateMachine.Enter("PlayerFrozenState");
                 break;
-            case 2:
-                Debug.Log("AAAAH");
+            case Interactable.PlayerResponses.FEAR:
+                stateMachine.Enter("PlayerFearState");
                 break;
         }
         
