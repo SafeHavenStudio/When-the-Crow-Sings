@@ -1,4 +1,5 @@
 using Cinemachine;
+using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class Interactable : MonoBehaviour
     public SpriteRenderer pfInteractArrow;
 
     public bool autoInteract = false;
+
+    public enum PlayerResponses { NONE, FREEZE, FEAR}
+    public PlayerResponses playerResponse = PlayerResponses.NONE;
+
+    public GameSignal interactionStartedSignal;
 
     public void DoInteraction()
     {
@@ -48,6 +54,9 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
+        SignalArguments args = new SignalArguments();
+        args.objectArgs.Add(this);
+        interactionStartedSignal.Emit(args);
     }
 
     public void OnDialogueFinished(SignalArguments args)

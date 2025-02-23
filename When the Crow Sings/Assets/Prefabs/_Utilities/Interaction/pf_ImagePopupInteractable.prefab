@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6803497763721583419}
   - component: {fileID: 158499437496051691}
-  - component: {fileID: 1875406335147647528}
   - component: {fileID: 2497022635328601373}
+  - component: {fileID: 1875406335147647528}
   m_Layer: 14
   m_Name: pf_ImagePopupInteractable
   m_TagString: Untagged
@@ -51,6 +51,23 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   pfInteractArrow: {fileID: 227253322206012740}
   autoInteract: 0
+  playerResponse: 1
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
+--- !u!114 &2497022635328601373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658357030368060936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d33f157f384c54ab051d4f52b43814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupImage: {fileID: 0}
+  gameSignal: {fileID: 11400000, guid: b1265efb62005ec4193f7d65be844793, type: 2}
 --- !u!135 &1875406335147647528
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72,20 +89,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2497022635328601373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658357030368060936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d33f157f384c54ab051d4f52b43814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupImage: {fileID: 0}
-  gameSignal: {fileID: 11400000, guid: b1265efb62005ec4193f7d65be844793, type: 2}
 --- !u!1 &4654524222143933120
 GameObject:
   m_ObjectHideFlags: 0
