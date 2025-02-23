@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4660365753249618797}
+  - component: {fileID: 76588370671562283}
   - component: {fileID: 8418291272669372247}
   - component: {fileID: 337611794241370640}
   - component: {fileID: 3030128756513669999}
   - component: {fileID: 2032793269451314157}
   - component: {fileID: 1498971081129601356}
-  - component: {fileID: 76588370671562283}
   m_Layer: 14
   m_Name: pf_AutoSaveTrigger
   m_TagString: Untagged
@@ -37,6 +37,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76588370671562283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015799251510275383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  pfInteractArrow: {fileID: 8949982218517640275, guid: a477ca45d233b724db2f5d680740acb7,
+    type: 3}
+  autoInteract: 1
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
 --- !u!114 &8418291272669372247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb65c3d3e6f814181c69ca74dfeb20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flagToFlip: thisShouldMatchTheDynamicEnable
+  associatedDynamicEnableFlag: thisShouldMatchTheDynamicEnable
 --- !u!114 &337611794241370640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +85,7 @@ MonoBehaviour:
   boolValue: 0
   intValue: 0
   stringValue: 
+  playPickupSoundOnDisable: 0
 --- !u!33 &3030128756513669999
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,19 +157,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &76588370671562283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015799251510275383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  pfInteractArrow: {fileID: 8949982218517640275, guid: a477ca45d233b724db2f5d680740acb7,
-    type: 3}
-  autoInteract: 1

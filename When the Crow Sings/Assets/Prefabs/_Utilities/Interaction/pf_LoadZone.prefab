@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849876045101493094}
+  - component: {fileID: 7018123819021616508}
   - component: {fileID: 14091964248574467}
   - component: {fileID: 4931641952728137522}
   - component: {fileID: 1186738049909941713}
   - component: {fileID: 7321826550539102296}
-  - component: {fileID: 7018123819021616508}
   m_Layer: 0
   m_Name: pf_LoadZone
   m_TagString: Untagged
@@ -37,6 +37,23 @@ Transform:
   - {fileID: 1085046948282167880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7018123819021616508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309013105091465998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  pfInteractArrow: {fileID: 2607802357089630781}
+  autoInteract: 0
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
 --- !u!114 &14091964248574467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,21 +144,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6309013105091465998}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7018123819021616508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309013105091465998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  pfInteractArrow: {fileID: 2607802357089630781}
-  autoInteract: 0
 --- !u!1001 &6342333838757105262
 PrefabInstance:
   m_ObjectHideFlags: 0

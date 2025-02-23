@@ -140,7 +140,7 @@ public class PlayerController : StateMachineComponent, IService
     {
         stateMachine.Enter("PlayerFrozenState");
     }
-    public void OnInteractFinished()
+    public void OnInteractFinished(SignalArguments signalArgs)
     {
         stateMachine.Enter("PlayerMovementState");
     }

@@ -66,7 +66,8 @@ public class TaskManager : MonoBehaviour
         currentQTESuccessAndFailValues = null;
         currentSuccessSignal = null;
         currentFailureSignal = null;
-        
+
+        ServiceLocator.Get<InteractablesManager>().FinishInteraction();
     }
 
     public void AbortQTE()
