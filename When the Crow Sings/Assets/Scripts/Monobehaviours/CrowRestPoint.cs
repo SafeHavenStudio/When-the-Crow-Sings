@@ -6,6 +6,9 @@ public class CrowRestPoint : MonoBehaviour
 {
     public GameObject debugVisible;
     public Transform approachPoint;
+
+    public enum CrowTypes { REGULAR, TASK }
+    public CrowTypes crowType = CrowTypes.REGULAR;
     private void OnEnable()
     {
         ServiceLocator.Get<CrowManager>().RegisterCrowRestPoint(this);

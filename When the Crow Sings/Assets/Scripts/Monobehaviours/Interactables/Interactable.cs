@@ -56,6 +56,8 @@ public class Interactable : MonoBehaviour
         }
 
         if (playerResponse == PlayerResponses.FREEZE) interactionStartedSignal.Emit();
+
+        if (playerResponse == PlayerResponses.FEAR) Debug.Log("AAAAAAAH");
     }
 
     public void OnDialogueFinished(SignalArguments args)
