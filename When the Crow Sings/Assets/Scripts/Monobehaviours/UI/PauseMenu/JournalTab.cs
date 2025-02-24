@@ -25,6 +25,7 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
         foreach (GameObject i in associatedPages)
         {
             if (i.activeInHierarchy) isPageActive = true;
+            break;
         }
         if (!isHovering)
         {
