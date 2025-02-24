@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class JournalTabSide : JournalTab//, IPointerEnterHandler, IPointerExitHandler
+public class JournalTabSide : JournalTab
 {
 
 }
