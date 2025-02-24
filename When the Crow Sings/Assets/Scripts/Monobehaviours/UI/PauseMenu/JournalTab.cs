@@ -11,9 +11,16 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
     public Sprite deactivatedSprite;
     public Image image;
 
+    public GameObject associatedPage;
+
     public List<JournalTabSide> journalTabSides = new List<JournalTabSide>();
 
     public bool isActivated = false;
+
+    protected virtual void Update()
+    {
+        
+    }
 
     public virtual void SetActivateTab(bool activated)
     {
