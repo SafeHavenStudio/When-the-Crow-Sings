@@ -11,15 +11,25 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
     public Sprite deactivatedSprite;
     public Image image;
 
-    public GameObject associatedPage;
+    public List<GameObject> associatedPages;
 
     public List<JournalTabSide> journalTabSides = new List<JournalTabSide>();
 
     public bool isActivated = false;
 
+    bool isHovering = false;
+
     protected virtual void Update()
     {
-        
+        bool isPageActive = false;
+        foreach (GameObject i in associatedPages)
+        {
+            if (i.activeInHierarchy) isPageActive = true;
+        }
+        if (!isHovering)
+        {
+            SetActivateTab(isPageActive);
+        }
     }
 
     public virtual void SetActivateTab(bool activated)
@@ -30,6 +40,7 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
     }
     public virtual void ActivateTab()
     {
+        isHovering = true;
         Debug.Log("Ping!");
         image.sprite = activatedSprite;
         SetActivateTab(true);
@@ -37,9 +48,10 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public virtual void DeactivateTab()
     {
+        isHovering = false;
         Debug.Log("!gniP");
         image.sprite = deactivatedSprite;
-        SetActivateTab(false);
+        //SetActivateTab(false);
     }
 
     private void OnEnable()
