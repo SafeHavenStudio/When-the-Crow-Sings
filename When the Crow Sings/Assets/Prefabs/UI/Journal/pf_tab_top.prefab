@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3775017695287868936}
-  - component: {fileID: 7595437266214329175}
   - component: {fileID: 7552746671901361827}
+  - component: {fileID: 7349154003604009739}
+  - component: {fileID: 1430831785116016483}
   m_Layer: 0
   m_Name: pf_tab_top
   m_TagString: Untagged
@@ -38,14 +39,6 @@ RectTransform:
   m_AnchoredPosition: {x: -203, y: 444}
   m_SizeDelta: {x: 1.8, y: 1.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7595437266214329175
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2968313900711266313}
-  m_CullTransparentMesh: 1
 --- !u!114 &7552746671901361827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,14 +51,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0675764967c0a8640916cebd4681ee41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  activatedSprite: {fileID: 0}
+  animator: {fileID: 189100991809820381}
+  activatedSprite: {fileID: 21300000, guid: 057a3066b48fca94a8bbde1f68b968e1, type: 3}
   deactivatedSprite: {fileID: 0}
-  image: {fileID: 0}
+  image: {fileID: 5616989332893260743}
+  associatedPages: []
   journalTabSides: []
   isActivated: 0
-  tabColorSprite: {fileID: 0}
-  tabImage: {fileID: 5616989332893260743}
+--- !u!225 &7349154003604009739
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968313900711266313}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
+--- !u!114 &1430831785116016483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968313900711266313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5644916371084503327
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +125,7 @@ GameObject:
   - component: {fileID: 6121444250104651216}
   - component: {fileID: 6328295954498134778}
   - component: {fileID: 5616989332893260743}
+  - component: {fileID: 189100991809820381}
   m_Layer: 0
   m_Name: TabImage
   m_TagString: Untagged
@@ -93,7 +142,7 @@ RectTransform:
   m_GameObject: {fileID: 5644916371084503327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01777, y: 0.014, z: 0.014}
+  m_LocalScale: {x: 0.013, y: 0.014, z: 0.014}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3775017695287868936}
@@ -141,3 +190,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &189100991809820381
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644916371084503327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3020717ae9d3d30409eaacbdcf680f89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -24,13 +24,20 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
         bool isPageActive = false;
         foreach (GameObject i in associatedPages)
         {
-            if (i.activeInHierarchy) isPageActive = true;
-            break;
+            if (i.activeInHierarchy)
+            {
+                isPageActive = true;
+                break;
+            }
         }
         if (!isHovering)
         {
             SetActivateTab(isPageActive);
         }
+    }
+    private void Awake()
+    {
+        image.sprite = deactivatedSprite;
     }
 
     public virtual void SetActivateTab(bool activated)
