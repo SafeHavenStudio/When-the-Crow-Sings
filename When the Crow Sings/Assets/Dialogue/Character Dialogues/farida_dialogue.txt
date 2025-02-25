@@ -237,5 +237,73 @@ call SaveGameToDisk();
 => END
 
 ~ farida_beyond_base
-Farida: Look I don't know how you didn't get the memo kid, but I don't want to talk to you. You finished my dialogue! Buzz off.
-=> END
+Do I want to talk to <color=#813408>Farida>/color> right now? 
+- Yes
+	=> farida_beyond_base_directory
+- No
+	=> END
+
+~ farida_beyond_base_directory
+if FaridaBB == 0:
+	=> F0
+else:
+	All done!
+	=> END
+
+~ BBEnd
+set FaridaBB += 1;
+=> ending_call
+
+~F0
+Farida: You again? I told you all I know about it, really.
+Chance: I just wanted to talk to you. About other stuff, promise.
+Farida_Exhausted: Fine.
+- Friends 
+	Chance_Thinking: So do you have any friends?
+	Farida: What?
+	Chance: I mean it just seems like you're alone in here all day and don't really talk to anyone and nobody really talks to you so..
+	Farida_Annoyed: I have friends.
+	Chance_Thinking: Who?
+	if BeauBaseCompleted == true:
+		Chance_Thinking: Seemed like <color=#813408>Beau</color> was kind of put off of you even though he told me to come talk to you.
+	if CalebBaseCompleted == true:
+		Chance: <color=#813408>Caleb</color> wanted to recommend me to you but he didn't, obviously.
+	if FranciscoBaseCompleted == true:
+		Chance_Thinking: <color=#813408>Francisco</color> told me to come talk to you but then also gave me a code for a gate you wouldn't want me going into..
+		Farida_Annoyed: He did what?
+		Chance_Smile: Nothing.
+	Chance: Just seems like you don't really get along with many people.
+	Farida_Annoyed: I get along with others fine, they are just averse to being told what to do by others.
+	Farida: And <color=#813408>Francisco</color> and I are colleagues.
+	Chance_Thinking: So not friends.
+	Farida_Annoyed: It's close enough.
+	Chance: What about <color=#813408>Phil</color>?
+	Farida_Stunned: What about her?
+	Chance_Thinking: Are you friends?
+	Farida_Exhausted: It's complicated..
+	Chance_Sad:...
+	Chance: So no, on the friends thing, then.
+	Farida_Annoyed: Can you get out of here? I have work to do.
+- Enemies
+	Chance_Thinking: Why does it seem like you don't get along with anybody?
+	Farida_Annoyed: Because nobody likes the person who sets rules, let alone the person who enforces them.
+	Chance: Enforces rules?
+	Farida: I am head of security, energy analyst, and the person who needs to contact C.A.N. when we need supplies we cannot furnish ourselves.
+	Farida_Annoyed: There are rules about how much energy we can use, where we can go, and how much we can ask for. All of those come through me, and nobody likes being told no.
+	Chance_Thinking: Right.. So the curfew and all the locked doors are your doing?
+	Farida_Exhausted: Yes. The strays that come through here could be dangerous, and there were no preventative measures in place when I came here. 
+	Chance_Thinking: So this was going on before you came here and they just did nothing?
+	Farida_Exhausted: Yes. Nobody sees that I'm just trying to keep everything running with minimal casualties. 
+	Farida_Annoyed: Everyone has a bone to pick about wanting their fans on all day during the summer, or wanting to run around at night with no restrictions.
+	Chance_Smile: The kids must hate it.
+	if day == 1:
+		Farida_Exhausted: Yes, they do.
+		Chance_Thinking: It must be a tough position to be in.
+		Farida_Stunned:... It is.
+	else:
+		Farida_Annoyed: And you.
+		Chance_Thinking: Hm?
+		Farida_Annoyed: You think I don't see you on the security cameras, running around at night?
+		Chance_Thinking:.....
+		Chance_Scared: I'm gonna go now.
+=> BBEnd
