@@ -24,5 +24,12 @@ public class CrowIdleState : StateMachineState
         s.crowAnimator.SetBool("isFlying", false);
         s.crowAnimator.SetBool("isIdle", true);
         s.crowAnimator.SetBool("isPecking", false);
+
+        if (s.crowType == CrowRestPoint.CrowTypes.TASK) s.fearInteractable.gameObject.SetActive(true);
+    }
+
+    public override void StateExited()
+    {
+        s.fearInteractable.gameObject.SetActive(false);
     }
 }

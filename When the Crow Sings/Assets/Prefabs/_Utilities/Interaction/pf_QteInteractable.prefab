@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6803497763721583419}
   - component: {fileID: 158499437496051691}
-  - component: {fileID: 1875406335147647528}
   - component: {fileID: 6165941451760414067}
+  - component: {fileID: 1875406335147647528}
   - component: {fileID: 672786577480137069}
   m_Layer: 14
   m_Name: pf_QteInteractable
@@ -52,27 +52,9 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   pfInteractArrow: {fileID: 227253322206012740}
   autoInteract: 0
---- !u!135 &1875406335147647528
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2658357030368060936}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 1.5
-  m_Center: {x: 0, y: 0, z: 0}
+  playerResponse: 1
+  interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
+    type: 2}
 --- !u!114 &6165941451760414067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +78,27 @@ MonoBehaviour:
   successSound: {fileID: 8300000, guid: 5bb0098cd61fd0146bd75379d0372bbd, type: 3}
   failSound: {fileID: 8300000, guid: 0f2f755733f71f64aa1bdfa7e9177224, type: 3}
   audioSource: {fileID: 0}
+--- !u!135 &1875406335147647528
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658357030368060936}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &672786577480137069
 AudioSource:
   m_ObjectHideFlags: 0

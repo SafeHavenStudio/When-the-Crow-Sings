@@ -10,10 +10,17 @@ public class PlayerController : StateMachineComponent, IService
     public Transform throwPosition;
     public GameObject throwTarget;
     public Animator playerAnimator;
+
+    public float timeToFear = 2f;
+
+
     [SerializeField]
     private BirdseedController pfBirdseedProjectile;
     [HideInInspector]
     public bool isCrouchingToggled = false;
+
+    [HideInInspector] public bool isInteracting = false;
+
     //[HideInInspector]
 
     //private bool _isSprinting;
@@ -71,13 +78,12 @@ public class PlayerController : StateMachineComponent, IService
 
         characterController = GetComponent<CharacterController>();
 
-        // I don't know why this line is here, so it's just commented out.
-        //speed = 8;
-
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new PlayerFrozenState(this), "PlayerFrozenState");
         stateMachine.RegisterState(new PlayerMovementState(this), "PlayerMovementState");
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
+        stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
+        stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
     }
     private void Start()
     {
@@ -87,7 +93,6 @@ public class PlayerController : StateMachineComponent, IService
 
     private void OnDestroy()
     {
-        stateMachine.RegisterState(new DestroyState(this), "DestroyState");
         stateMachine.Enter("DestroyState");
     }
 
@@ -135,14 +140,36 @@ public class PlayerController : StateMachineComponent, IService
         codexSignalTEMP.Emit();
     }
 
-    public void OnDialogueStarted(SignalArguments signalArgs)
+
+
+
+    [HideInInspector] public Interactable mostRecentInteractable;
+    public void OnInteractStarted(SignalArguments signalArgs)
     {
-        stateMachine.Enter("PlayerFrozenState");
+        mostRecentInteractable = (Interactable)signalArgs.objectArgs[0];
+
+        switch (mostRecentInteractable.playerResponse)
+        {
+            case Interactable.PlayerResponses.NONE:
+                Debug.Log("No reason to stop.");
+                break;
+            case Interactable.PlayerResponses.FREEZE:
+                isInteracting = true;
+                stateMachine.Enter("PlayerFrozenState");
+                break;
+            case Interactable.PlayerResponses.FEAR:
+                stateMachine.Enter("PlayerFearState");
+                break;
+        }
+        
     }
-    public void OnDialogueFinished()
+    public void OnInteractFinished(SignalArguments signalArgs)
     {
+        isInteracting = false;
         stateMachine.Enter("PlayerMovementState");
     }
+
+
 
     public void OnFullyLoadFinished(SignalArguments args)
     {
@@ -151,7 +178,6 @@ public class PlayerController : StateMachineComponent, IService
             stateMachine.Enter("PlayerMovementState");
         }
     }
-
     public void OnAnimationFinished(SignalArguments args)
     {
         if (args.stringArgs[0] == "Throw")
@@ -162,8 +188,6 @@ public class PlayerController : StateMachineComponent, IService
 
 
     // Ricky code
-
-    //[HideInInspector]
     public float speed;
     [HideInInspector]
     public Vector3 movementInput;

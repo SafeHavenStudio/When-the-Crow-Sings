@@ -17,6 +17,10 @@ public class BirdBrain : StateMachineComponent
     [HideInInspector]
     public CrowRestPoint restPoint;
 
+    public CrowRestPoint.CrowTypes crowType = CrowRestPoint.CrowTypes.REGULAR;
+
+    public FearInteractable fearInteractable;
+
     [HideInInspector]
     public bool idleWaitingAfterPecking; // Determines whether the idle state should be of infinite length or return to dispersal after a short wait.
 
@@ -34,6 +38,13 @@ public class BirdBrain : StateMachineComponent
     {
         stateMachine.Enter("CrowIdleState");
         controller.enabled = true;
+    }
+
+    public void Initialize(CrowHolder _crowHolder, CrowRestPoint _restPoint)
+    {
+        crowHolder = _crowHolder;
+        SetRestPoint(_restPoint);
+        crowType = _restPoint.crowType;
     }
 
     [HideInInspector]

@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Eflatun.SceneReference;
 using System.Collections;
+using UnityEngine.UI;
+using Unity.Mathematics;
 
 public class GameStateManager : MonoBehaviour, IService
 {
@@ -27,6 +29,9 @@ public class GameStateManager : MonoBehaviour, IService
 
 
     public GameObject loadScreen;
+    public Image sourceImage;
+    public List<Sprite> loadScreens;
+    public Image loadingAnim;
 
     private int targetSpawnIndex = 0;
     public bool canLoad = true;
@@ -175,6 +180,8 @@ public class GameStateManager : MonoBehaviour, IService
         float maxAlpha = .5f;
         if (fadeIn)
         {
+            randomizeScreen();
+            loadingAnim.enabled = true;
             while (loadScreen.GetComponent<CanvasGroup>().alpha < maxAlpha)
             {
                 loadScreen.GetComponent<CanvasGroup>().alpha += fadeSpeed * Time.deltaTime;
@@ -184,6 +191,7 @@ public class GameStateManager : MonoBehaviour, IService
         }
         else
         {
+            loadingAnim.enabled = false;
             while (loadScreen.GetComponent<CanvasGroup>().alpha > 0f)
             {
                 loadScreen.GetComponent<CanvasGroup>().alpha -= fadeSpeed * Time.deltaTime;
@@ -193,7 +201,19 @@ public class GameStateManager : MonoBehaviour, IService
         }
     }
 
-    
+    public void randomizeScreen()
+    {
+        if (loadScreens.Count > 0 && sourceImage != null)
+        {
+            sourceImage.sprite = loadScreens[UnityEngine.Random.Range(0, loadScreens.Count)];
+            Debug.Log("Switching loading screen");
+        }
+        else
+        {
+            Debug.Log("There are no load screens available");
+        }
+    }
+
 
     bool AsyncOperationsAreDone(List<AsyncOperation> asyncOperations)
     {
