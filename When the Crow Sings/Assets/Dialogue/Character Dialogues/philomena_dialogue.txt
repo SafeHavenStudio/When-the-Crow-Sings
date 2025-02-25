@@ -90,5 +90,182 @@ call SaveGameToDisk();
 => END
 
 ~ phil_beyond_base
-Nothing to see here folks.
-=> END
+Should I talk to <color=#813408>Phil</color> now, while she's calm?
+- Yes
+	=> phil_beyond_base_directory
+- No
+	=> END
+
+~ phil_beyond_base_directory
+if PhilBB == 0:
+	=> P0
+else:
+	No more!
+	=> END
+
+~ BBEnd
+set PhilBB += 1;
+=> ending_call
+
+~ P0
+Chance: Hey again, <color=#813408>Phil</color>. Are you still feeling okay?
+Phil: Yes. I think so.
+Chance: Is it okay if I ask you a couple questions?
+Chance_Sad: Only if you're feeling up to it, of course.
+Phil_Stare: What was your name again?
+Chance: <color=#813408>Chance</color>.
+Phil_Sigh: I can answer some questions, <color=#813408>Chance</color>.
+- The scientist's work
+	Chance: I was wondering if you could tell me more about the work that the scientist did here.
+	Phil_Sad: Ah, right.
+	Phil_Sigh: We came here to test a hypothesis around a discovery he made. An isotope that produced excess energy when exposed to some other elements. C.A.N. wanted us-
+	Phil_Sad: Him. C.A.N. wanted him to see if it was viable as an alternative energy source, a new clean energy that we could transfer over to that would alleviate the foibles of our current options.
+	Chance_Thinking: So that's the "alternate energy source" that I've heard about?
+	Phil_Stare: Correct. They found a remote area that had some pre-existing infrastructure that we could build on top of and had shown some signs of ecological recovery.
+	Phil: They built a site off base, underground to house a... modified radionuclide generator, essentially.
+	Chance_Sad: Um, right.
+	Phil_Smile: Where are you from?
+	Chance: I'm from a compound called Sweetwater Key.
+	Phil_Sigh: That probably sounded like gibberish.
+	Chance_Smile: Yeah, kinda.
+	Phil_Smile: Just imagine it's an engine. The isotope was like fire, and we would introduce other elements that would be like pouring gas into the engine.
+	Chance_Thinking: Why did it stop working?
+	Phil_Stare: It didn't.
+	Chance_Thinking: Then why the swap to solar?
+	Phil_Scared: Hck..
+	Phil_Scared: I don't want to talk about this right now.
+	Chance_Sad: Okay! Sorry, we can talk about something else.
+	Phil_Sad: What was Sweetwater Key like?
+	Chance_Sad: Oh, um..
+	Chance_Thinking: It was warm. And humid. It was an island, so there was plenty of water and we had some trees. But they were mostly brown, not really green or anything.
+	Phil_Sigh: That sounds nice..
+	Chance_Sad: Yeah, it was.
+- The compound
+	Chance: I was wondering about how the compound got established.
+	Phil: Something in particular?
+	Chance_Thinking: Er... I didn't think that far.. How about the buildings?
+	Phil_Smile: Sure. Some of the buildings are from before we moved here, and were repurposed in order to work in our favor. The lodging and recreational center are essentially the same as we found them.
+	Phil: The cold storage and greenhouse were started, but had been left far too long and were just skeletons. So they have the bones of some original buildings, but I'm not sure they'd resemble the buildings that used to be here.
+	Phil_Stare: Everything else was built by C.A.N.. The residenences, the energy head quarters, the power substation, the doctor's housing..
+	Chance: I guess it makes sense why it looks a little mismatched in there. These houses look a bit more like they belong together.
+	Phil_Smile: It is a bit of a smorgasbord, yes.
+	Chance_Thinking: A what?
+	Phil_Smile: Hehe! It's a word for when something has a lot of variety. It comes from a platter that had lots of little different types of foods, so you could try lots of new things. Cheese, meat, fruit, vegetables, jam, sauce, and so forth.
+	Chance_Excited: That sounds awesome! Have you had that?
+	Phil_Sigh: No, it's an old world word. Even where I'm from, we're not quite that extravagent about our food. Much too focused on the survival of people, over their living..
+	Chance_Sad: Oh. 
+	Chance_Smile: Well, maybe we could try it. I think we could do everything except the cheese..
+	Phil_Smile: Maybe, that would be nice.
+=> BBEnd
+
+~ P1
+Phil_Smile: You're back.
+Chance_Smile: Yeah. I was wondering if you were still in the mood for 20 questions.
+Phil_Smile: I would like that.
+- Your job
+	Chance: So I know what the scientist did, but I don't really know what your job here was..
+	Phil_Sad: Ah. <color=#813408>Farida</color>'s job, essentially. With some caveats.
+	Chance_Thinking: Caveats.. is that like caviar?
+	Phil_Smile: Heheh.. No, it means that I had some other rules around my job.
+	Chance_Annoyed: Oh.
+	Phil_Smile: Yes, not exactly as luxurious as caviar. I did the energy analysis, usage documentation, all that <color=#813408>Farida</color> does. 
+	Phil: But, I also had to assist the doctor. Make sure the gardener was growing his prefered diet, that his coffee was being brewed on time, assisted with maintenance in the power substation..
+	Chance_Annoyed: So you were like a butler?
+	Phil_Smile: You know what a butler is?
+	Chance_Thinking: There was one in this comic I read..
+	Phil_Sigh: I see. I was a glorified secretary. That's a job we still have, though I'm not sure if it existed where you're from if it wasn't a Project Hope compound. Someone who does all the little annoying things so that their boss doesn't have to.
+	Chance_Sigh: That sounds like ass.
+	Phil_Smile: It wasn't my ideal, but I was willing to do some busywork if it meant being a part of something greater.
+	Phil_Stare: And I.. would've done anything to make his job easier. He was brilliant. Making his life smoother meant that his discovery could take all of his focus, the work could change the world.
+	Chance_Thinking: But what about you?
+	Phil_Sigh: I'm just an assistant. 
+	Chance_Annoyed: You seem pretty smart to me.
+	Phil_Smile: Hehe, thank you.
+	Chance_Sigh: <size = 75%>Sounds like this jerk was taking advantage of you to me..</size>
+	Chance: Well uh, at least you get to relax now, right? That <color=#813408>Farida</color> is doing your job?
+	Phil_Stare:.. No. My work isn't done.
+	Chance_Thinking: What do you do now?
+	Phil_Scared: Um.. I-I... I don't..
+	Chance_Scared: Ah! Nevermind!
+	<i>I gotta be careful not to set her off.. We don't know each other that well yet.</i>
+	Chance_Scared: Uhh, what's your favorite type of music?
+	Phil_Sigh:.....
+	Phil_Smile: I like acoustic. We weren't permitted distractions in my field, so if I was listening to music, it was often live and in secret.
+	Chance_Smile: That sounds nice!
+	Phil_Stare: It was nice.. I'd like to hear it again. The recording you gave me is nice.. She was so sweet to make it for me.
+	Chance_Thinking: Who-
+	Chance_Sad.. Nevermind. It is nice.
+- Your life here
+	Chance: What's your life like here?
+	Phil_Stare: Quiet. I.. observe the.. I believe the colloquial term they gave was "strays".
+	Chance_Thinking: Is that why you locked yourself out here?
+	Phil_Stare:.. 
+	Phil_Sigh: It's beneficial for me to remain isolated. It deters them, sometimes. Though, behavior has been heightened as of recent, which has rendered my usual tactics useless.
+	Chance_Thinking: There's nothing inside for you? I thought <color=#813408>Farida</color> was your friend or something.
+	Phil_Sad: I do miss her.. It's.. Better for me to be out here. She doesn't need to see me like this.
+	Chance_Sad: Right.. What about before you left?
+	Phil_Sigh: I spent most of my time chasing after the doctor. Keeping his house in order, making sure his paperwork was transferred properly, assisting in all ways..
+	Chance_Sad: You didn't do anything outside of work?
+	Phil_Stare: It was rare I had time outside of work before-
+	Phil_Sigh: No, not really.
+	Phil_Smile: It wasn't until <color=#813408>Farida</color> came that I had some time to myself. And she would spend time with me, even when I wasn't training her.
+	Chance: What did you two do?
+	Phil_Sigh: Talk about the journals coming from C.A.N., discussing the people who live here, what living here would be like.
+	Phil_Smile: She would ask me about the birds and why there was so many of them.. We would sit and theorize that perhaps the reason that corvids never underwent that anthropomorphization that other animals did had to do with their heightened intelligence and tactile abilities.
+	Chance_Smile: That sounds nice..
+	Phil_Smile: When she came, she brought a guitar with her. I think she managed to convince the security that it was a religious item, so they let her bring it despite their reservations about non-academic activities.
+	Chance_Thinking: She can play guitar?
+	Phil_Sigh: Oh yes, beautifully. You heard it yourself, it's lovely.
+	Chance_Thinking: The cassette tape?
+	Phil_Smile: Correct. I had misplaced the tape at some point..
+	Phil: Since the stray that comes through has been more aggressive, he has been tossing around debris before leaving.. It must've been lost during one of his fits.
+	Chance_Thinking: His?
+	Phil_Stare: Yes, he-
+	Phil_Sigh: I don't remember his name.. but he lived here. I think he comes back because he doesn't know where else to go.. Or perhaps it is because his love is here.
+	Chance: It has a reason to be here?
+	Phil_Sad: He had a partner, I recall. They passed on from some illness, and he disappeared not long after.
+	Chance_Sad: So love is the only thing keeping him here? That's so sad.
+	Phil_Sad: He has no other reason to return here.. As far as I can tell, he doesn't eat anything, or require the water source or anything else..
+	Phil_Sigh: Love is something that often turns science on its head. People do ridiculous things, for love. Endure pain, slave away, leave, stay.. 
+	Phil_Sad: We are irrational, unpredictable creatures in the face of love. 
+	Chance_Sad:.. Have you been in love before?
+	Phil_Stare:.....
+	Chance: Um, I haven't.
+	Phil_Sigh:...
+	Phil_Smile: Don't worry, you're young. You have time. Perhaps someone here will catch your eye.
+	Chance_Sigh: No way!
+	Phil_Smile: Hehe, maybe <color=#813408>Farida</color> will accept some new resident if you pour your heart out to her about your quest for love.
+	Chance_Annoyed: Fat chance, she barely accepted me!
+	Phil_Sigh: Ah, don't take her prickly disposition at face value. She's a hopeless romantic, under all of those stiff shoulders and furrowed brows..
+=> BBEnd
+
+~ P2
+Phil_Smile: Hello again, friend.
+Chance: Friend?
+Phil: Are we not friends?
+Chance_Smile: I didn't mean it like that, I was just surprised I guess.
+Phil_Smile: Ah, good!  I think we make good friends.
+Phil: I assume you're here because you are still a curious about some things?
+Chance_Smile: I guess I should've been born a cat.
+Phil_Smile: Hehe!
+Phil_Sigh: I have a request for now, though.
+Chance_Thinking: What's up?
+Phil_Stare: Could we not talk about anything with the doctor or the power? I just have a little trouble..
+Chance_Sad: Of course, I'm sorry, I didn't mean to overwhelm you or something.
+Phil_Smile: Don't worry, I'm alright. I just need a little break from it..
+Chance: Right, no worries.
+- Hobbies
+	Chance_Thinking: Er, what do you like to do for fun? I mean like, not now probably but, in general.
+	Phil_Smile: I appreciate the clarification. I was once a fan of birding, though the species with migratory paths that come through here are few and far between.
+	Chance_Smile: Oh I love birdwatching.
+	Phil_Smile: What kind of birds are there, where you come from?
+	Chance_Thinking: All kinds. Ducks, herons, pelicans, spoonbills, cranes, jays, cardinals... Like, so many.
+	Chance_Smile: We had the non-evolved versions of <color=#813408>Theodore</color> down there too.
+	Phil_Stare: <color=#813408>Theodore</color>..
+	Chance_Thinking: Oh, do you know him? He's young caracara, so he's still brown. Super annoying, total rebellious teenager.
+	Phil_Sigh: I remember him, I think. I didn't see him often, but he came with the opossum, no?
+	Chance_Smile: Yeah, I think so.
+	Phil_Smile: He was quite small then, I'm surprised he has not come into his colors.
+	Chance_Thinking: What about where you came from? What type of birds where there?
+- Favorite things
+=> BBEnd
