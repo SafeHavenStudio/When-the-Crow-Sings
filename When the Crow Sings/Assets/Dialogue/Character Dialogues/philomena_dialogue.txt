@@ -99,6 +99,12 @@ Should I talk to <color=#813408>Phil</color> now, while she's calm?
 ~ phil_beyond_base_directory
 if PhilBB == 0:
 	=> P0
+if PhilBB == 1:
+	=> P1
+if PhilBB == 2:
+	=> P2
+if PhilBB == 3:
+	=> P3
 else:
 	No more!
 	=> END
@@ -146,13 +152,13 @@ Phil_Sigh: I can answer some questions, <color=#813408>Chance</color>.
 	Chance_Thinking: Er... I didn't think that far.. How about the buildings?
 	Phil_Smile: Sure. Some of the buildings are from before we moved here, and were repurposed in order to work in our favor. The lodging and recreational center are essentially the same as we found them.
 	Phil: The cold storage and greenhouse were started, but had been left far too long and were just skeletons. So they have the bones of some original buildings, but I'm not sure they'd resemble the buildings that used to be here.
-	Phil_Stare: Everything else was built by C.A.N.. The residenences, the energy head quarters, the power substation, the doctor's housing..
-	Chance: I guess it makes sense why it looks a little mismatched in there. These houses look a bit more like they belong together.
+	Phil_Stare: Everything else was built by C.A.N.. The residences, the energy headquarters, the power substation, the doctor's housing..
+	Chance: I guess it makes sense why it looks a little mismatched there. These houses look a bit more like they belong together.
 	Phil_Smile: It is a bit of a smorgasbord, yes.
 	Chance_Thinking: A what?
 	Phil_Smile: Hehe! It's a word for when something has a lot of variety. It comes from a platter that had lots of little different types of foods, so you could try lots of new things. Cheese, meat, fruit, vegetables, jam, sauce, and so forth.
 	Chance_Excited: That sounds awesome! Have you had that?
-	Phil_Sigh: No, it's an old world word. Even where I'm from, we're not quite that extravagent about our food. Much too focused on the survival of people, over their living..
+	Phil_Sigh: No, it's an old world word. Even where I'm from, we're not quite that extravagant about our food. Much too focused on the survival of people, over their living..
 	Chance_Sad: Oh. 
 	Chance_Smile: Well, maybe we could try it. I think we could do everything except the cheese..
 	Phil_Smile: Maybe, that would be nice.
@@ -169,7 +175,7 @@ Phil_Smile: I would like that.
 	Phil_Smile: Heheh.. No, it means that I had some other rules around my job.
 	Chance_Annoyed: Oh.
 	Phil_Smile: Yes, not exactly as luxurious as caviar. I did the energy analysis, usage documentation, all that <color=#813408>Farida</color> does. 
-	Phil: But, I also had to assist the doctor. Make sure the gardener was growing his prefered diet, that his coffee was being brewed on time, assisted with maintenance in the power substation..
+	Phil: But, I also had to assist the doctor. Make sure the gardener was growing his preferred diet, that his coffee was being brewed on time, assisted with maintenance in the power substation..
 	Chance_Annoyed: So you were like a butler?
 	Phil_Smile: You know what a butler is?
 	Chance_Thinking: There was one in this comic I read..
@@ -211,7 +217,7 @@ Phil_Smile: I would like that.
 	Phil_Smile: It wasn't until <color=#813408>Farida</color> came that I had some time to myself. And she would spend time with me, even when I wasn't training her.
 	Chance: What did you two do?
 	Phil_Sigh: Talk about the journals coming from C.A.N., discussing the people who live here, what living here would be like.
-	Phil_Smile: She would ask me about the birds and why there was so many of them.. We would sit and theorize that perhaps the reason that corvids never underwent that anthropomorphization that other animals did had to do with their heightened intelligence and tactile abilities.
+	Phil_Smile: She would ask me about the birds and why there were so many of them.. We would sit and theorize that perhaps the reason that corvids never underwent that anthropomorphization that other animals did had to do with their heightened intelligence and tactile abilities.
 	Chance_Smile: That sounds nice..
 	Phil_Smile: When she came, she brought a guitar with her. I think she managed to convince the security that it was a religious item, so they let her bring it despite their reservations about non-academic activities.
 	Chance_Thinking: She can play guitar?
@@ -245,7 +251,7 @@ Chance: Friend?
 Phil: Are we not friends?
 Chance_Smile: I didn't mean it like that, I was just surprised I guess.
 Phil_Smile: Ah, good!  I think we make good friends.
-Phil: I assume you're here because you are still a curious about some things?
+Phil: I assume you're here because you are still curious about some things?
 Chance_Smile: I guess I should've been born a cat.
 Phil_Smile: Hehe!
 Phil_Sigh: I have a request for now, though.
@@ -262,10 +268,93 @@ Chance: Right, no worries.
 	Chance_Thinking: All kinds. Ducks, herons, pelicans, spoonbills, cranes, jays, cardinals... Like, so many.
 	Chance_Smile: We had the non-evolved versions of <color=#813408>Theodore</color> down there too.
 	Phil_Stare: <color=#813408>Theodore</color>..
-	Chance_Thinking: Oh, do you know him? He's young caracara, so he's still brown. Super annoying, total rebellious teenager.
+	Chance_Thinking: Oh, do you know him? He's a young caracara, so he's still brown. Super annoying, total rebellious teenager.
 	Phil_Sigh: I remember him, I think. I didn't see him often, but he came with the opossum, no?
 	Chance_Smile: Yeah, I think so.
 	Phil_Smile: He was quite small then, I'm surprised he has not come into his colors.
-	Chance_Thinking: What about where you came from? What type of birds where there?
+	Chance_Thinking: What about where you came from? What type of birds were there?
+	Phil_Sigh: Owls, finches, some seagulls. Lots of little colorful things.. A miracle they have withstood the tribulations of our times..
+	Chance_Smile: Do you have a favorite?
+	Phil_Smile: A nightingale. I've only read about them in books, but they're such sweet little creatures. What about you?
+	Chance_Thinking: Mmm... Maybe a duck. I like the green heads on mallards.
+	Phil_Smile: Good choice.
 - Favorite things
+	Chance_Thinking: Do you have a favorite food?
+	Phil_Stare: Mm.. The food offered at the compound I was originally from was not exactly the most gastronomically sophisticated variety.
+	Chance:...
+	Phil: When that hare boy came and started cooking, I liked some of the food he made. The cook before him was ill suited to the task.. He makes these little vegetable tacos.. those are quite good.
+	Chance_Annoyed: All I've had so far is soup..
+	Phil_Smile: Well we are pushing into the winter season, he might be trying to make the most of the ingredients he has for now.
+	Chance_Annoyed: Uhuh...
+	Chance: What about a favorite drink?
+	Phil_Smile: Coffee.
+	Chance_Sigh: Isn't that stuff super bitter?
+	Phil_Sigh: It can be, if you aren't adept at brewing it. But a good bean brewed properly, with some sugar..
+	Phil: In books I've read about them adding cream to coffee, and it makes it nice and smooth apparently. I close my eyes while drinking and I try to imagine there is cream in my coffee. What it tastes like..
+	Chance_Thinking: That's like, milk, right? 
+	Phil_Smile: It's a product from the production of milk. Maybe one day we will have cows again. Or something else we can milk.
+	Chance:.. Don't we make milk?
+	Phil_Stare: Yes.. Though I'm not sure I'd be willing to use... human milk in my coffee..
+	Chance_Smile: That would be weird as hell.
+	Phil_Smile: Indeed.
+=> BBEnd
+
+~ P3
+Chance_Smile: Hey, Phil.
+Phil_Smile: Hello Chance.
+Chance: Er, is it okay if I ask some more questions about like, stuff around here?
+Phil_Sigh: Yes, that's fine.
+Chance_Sad: You sure? You seemed a little upset before.
+Phil: I'm sure, I liked our divergence from before. I can handle it.
+- Scientist leaving
+	Chance_Sad: I wanted to know about the scientist leaving, or disappearing or whatever.
+	Phil_Stare: Right.. It was a while ago now. He had become more irritable, spent most of his time in the house up in the quarry hunched over papers. He was eating less, hardly doing his work, snapping at me constantly.
+	Phil_Sad: I was very hurt by that.. I had thought we were close. His behavior was cruel, and-
+	Phil_Scared: And he-... I-..
+	Chance_Scared: Um, it's okay, don't worry about what he did! What about why he was feeling that way?
+	Phil_Stare:... He was finding something in the security footage he didn't like.. Residents were going missing, the results from the energy analysis were undesirable. There was something between them, some connection with the generator and those poor strays..
+	Chance_Thinking: The power was causing it somehow right?
+	Phil_Sad: I believe that is the conclusion he came to..
+	Chance_Thinking:.. so he just left?
+	Phil_Stare: Yes.
+	Chance_Sigh: He figured out that his invention or discovery or whatever, that that was what was causing those people to get sick so he just ran away?
+	Phil_Stare: Yes.
+	Chance_Angry: What a piece of shit! If he just owned up to it and shut it down, maybe his name wouldn't go down in history, but at least people would've been saved. How many people got hurt because of this?
+	Phil_Stare: 47.
+	Chance_Thinking: . . .
+	<i> I should probably keep my emotions in control, she looks really close to shutting down.</i>
+	Chance_Sad: Sorry. 
+	Phil_Stare: That's alright.. You have a right to be angry.
+	Chance_Thinking: Are you not angry at him?
+	Phil_Sad: Of course I am. It's.. not as simple as it should be.
+	Phil_Sad: His hubris caused the death and deformation of dozens of people. He abandoned his invention for the sake of legacy. When I tried to stop him, he-
+	Phil_Scared: . . .
+	Phil_Stare: I would like to say I hate him, that his actions unconditionally broke my respect and admiration for him...
+	Chance_Sad: But you can't.
+	Phil_Sad: Correct.
+	Chance_Thinking:.. Do you have any idea where he went?
+	Phil_Stare: No.
+- Shut it down
+	Chance_Thinking: So, after that guy left.. I mean, you were his assistant, right? If there is something wrong with the energy station or whatever couldn't you... shut it down?
+	Phil_Stare: I tried. 
+	Chance_Thinking:...
+	Phil_Sad: I didn't have administrator access. I was merely an assistant.. taking notes, running errands. I helped administer maintenance, but I never had credentials to log into the substation.
+	Phil_Stare: When I realized I couldn't possibly shut it down properly, I tried to sabotage it. I tried to break into the room with the smaller generator, the one he used to dispense elements for the main generator. I tried from the energy headquarters, but that was just a monitoring station.. no real power. When they said they were sending a new energy analyst I panicked.
+	Phil_Scared: Some part of me still wanted to fix it on my own.. to keep his name from being tainted by this.. this mistake. I smashed the gauges that read off the power substation's numbers.
+	Phil_Stare: If I had known <color=#813408>Farida</color> first.. if I had.. I could've trusted her.. Maybe she would've fixed this..
+	Chance_Thinking:.. She wouldn't have had administrator access to that substation either though, right?
+	Phil:... No. I suppose you're right, she wouldn't.
+	Chance_Annoyed: And if she wanted to, she could tell whoever her boss is what's going on here and they could come fix it, right? I mean she's not stupid, she knows something is going on.
+	Phil_Sad: She's done.. plenty of good. Nobody has died since she came.. the residents all respect their curfews.. She's doing her best.
+	Chance_Sigh: Except admitting she isn't able to deal with this.
+	Phil_Stare: Don't put so much on her. She was put into such a difficult situation.
+	Chance_Angry: And what about me? Just because I wasn't born on some fancy compound and taught science from the moment I could read, what I'm doing doesn't matter? I'm doing more to try and fix this than she has!
+	Phil_Stare:.. Perhaps.
+	<i> I need to calm down, I don't want to make her go all.. weird again.</i>
+	Chance_Sad: Sorry. 
+	Phil_Stare: That's alright.. You have a right to be angry.
+	Chance:.. I'm gonna try and fix this.
+	Phil:..
+	Phil_Smile: Thank you.
+	Chance: Yeah..
 => BBEnd
