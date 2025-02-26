@@ -320,6 +320,114 @@ Farida: What unnecessary prodding question are you going to ask now?
 	Farida_Stunned:.. Yes. That's correct.
 	Chance: So, even though the sun is gone and the power we have stored should be going away at night, this place is maintaining usage throughout the night just fine.
 	Farida: Correct.
-	Chance_Thinking: So... Either you're wrong about how much
+	Chance_Thinking: So... Either you're wrong about how much energy is being used up at night, or the energy is coming from somewhere else.
+	Farida_Annoyed: I'm not wrong about how much energy is being used.
+	Chance_Sigh: Yeah yeah..
+	Chance_Thinking: So, where is the power coming from?
+	Farida_Annoyed: Don't you think if I knew that I wouldn't have this stupid whiteboard covered in speculation?
+	Chance_Annoyed: Okay well what do you mean by vibrating pipes?
+	Farida: There are pipes that connect this building to the old power substation that hum and vibrate at night.
+	Chance_Thinking: Wouldn't that mean that the power is coming from there?
+	Farida_Exhausted: Occam's razor.. but the door is completely locked, no other way in that I could find. And the gauges that seem to correspond to the power from there are smashed to pieces, if there were energy coming in I wouldn't be able to see it on my end.
+	Chance_Thinking: And Phil doesn't know?
+	Farida_Exhausted: If she does, she won't talk about it. She only trained me on how to operate the control panels and how to get the readings from the monitors. She avoided talking about the gauges at all.
+	Chance: But like, that must be where it's coming from.
+	Farida: Right..
+	Chance_Thinking: So it's still out there after all this time, just running?
+	Farida: Presumably.
+	Chance: And you don't know how to turn it off?
+	Farida_Exhausted: Even if I got in there and hacked it to pieces, I don't think that's the part that's running. There are more pipes coming off of that, going elsewhere. If there was actually some huge generator just outside of the main compound it would be louder.
+	Farida: And if it were related to the strays, it would probably have some other side effects.
+	Chance_Thinking: I guess that makes sense..
+	Farida: So you understand now why I have all the rules in place?
+	Chance: No. I think you should just tell C.A.N. about it and get us all out of here if you think it's hurting people.
+	Farida_Annoyed: Nobody has gotten hurt since I came here. There's no reason to escalate to C.A.N. when things are under control.
+	Chance_Sigh: Yeah, that's why everyone isn't allowed out at night and that big thing stampedes around like he owns the place.
+	Farida_Annoyed: Well when you're ready for this position, gone through years of education and formal training, you can make the decisions.
+	Chance_Annoyed: Just say you don't care what I think man.
 - Monitors
+	Chance: What is it that you look at on the monitors?
+	Farida: Transmissions from C.A.N., energy readings, and security cameras.
+	Chance_Thinking: There are security cameras?
+	Farida: Yes, they're discrete but they're placed around the compound to make sure things run smoothly.
+	Chance_Thinking: So you spy on everyone?
+	Farida_Annoyed: What? No. Everyone knows they're there.
+	Chance: I didn't know they were there.
+	Farida_Annoyed: Did you actually read any of your intake forms?
+	Chance:.. That's fair.
+	Chance_Thinking: So.. You just watch that guy rampage around there?
+	Farida_Annoyed: What would you have me do? Go out and try to kill them? Attempt to persuade them with the power of song?
+	Chance: I mean..
+	Farida: They are unresponsive to audio stimuli.
+	Chance_Thinking: Wait, you've actually tried it?
+	Farida_Exhausted: I've tried everything I could think of without causing bodily harm. The cameras have speakers, I've tried using animal calls similar to the subspecies I think they are, I've tried calming music, white noise, and on and on.. Nothing has really worked.
+	Farida_Stunned: The closest I've gotten is a white tailed deer call. It only worked once, though, as the data banks I have only have one snippet of a call. They are intelligent enough to know that one sound repeating is not coming from an actual creature..
+	Chance_Sad: Mhm.. Well that sucks. At least you tried, I guess.
+	Farida_Exhausted: I've done everything I can to minimize damage to all parties involved. If everyone just stays inside at night and leaves them alone, they'll be fine!
+	Chance_Sad:.. At some point you know that things will get worse.
+	Farida_Annoyed: I don't need advice from someone who has no idea what we've been dealing with here. I've got everything under control. Nobody has been hurt since I've put restrictions in place, and I intend to keep it that way.
+	Chance_Annoyed: Right..
+=> BBEnd
+
+~F2
+Farida_Exhausted: Don't you ever get tired?
+Chance_Thinking: Nah, not really.
+- Keep yourself busy
+	Chance: There's no way that watching the energy charts takes up the whole day. Do you have anything that you do to keep yourself busy?
+	Farida: I have a few things.
+	Chance_Annoyed: And they are?
+	Farida_Annoyed: You're incredibly nosy.
+	Chance_Sigh: You're very secretive for no reason.
+	Farida_Annoyed: I read. I study. I watch films. I play music.
+	Chance_Thinking: What do you read? I don't see a whole lot of books around.
+	if JazmyneBaseCompleted == true:
+		Chance: Except maybe in the rec center.
+	Farida: Journals that C.A.N. sends with significant news or scientific updates. <color=#813408>Francisco</color> joins me to read them each week.
+	Chance: Mm.. sounds very fun.
+	Farida_Annoyed: It is. The pursuit of knowledge is entertaining to intelligent people.
+	Chance: Yeah whatever. What about playing music?
+	Farida: I play the guitar.
+	Chance_Thinking: Really? 
+	Farida_Annoyed: Is that so hard to believe?
+	Chance: I mean I guess not, just I haven't seen you do it. Do you have to write your own or do you ask for like sheet music or something?
+	Farida_Stunned: I don't read or write it, I play by ear.
+	Chance_Thinking: And you can remember how to play songs without writing it down.
+	Farida: Yes.
+	Chance_Excited: That's pretty cool.
+	Farida_Stunned: ... Thanks.
+	Chance_Thinking: Do you guys ever do group music or anything? We used to do a music circle around the fire every once in a while.
+	Farida: No, we don't.
+	Chance: You should think about it, it's pretty fun.
+	Farida_Stunned:... I'll think about it.
+- Inside all day
+	Chance: So there's no way you need to be in here the whole day, right?
+	Farida: I suppose not.
+	Chance_Thinking: So why don't you go out when you're not working?
+	Farida_Exhausted: I'm not really a "nature" person.
+	Chance: I mean it's not like there's a ton of animals out there.. besides the ones that talk. And the crows.
+	Farida: It's not the animals that bother me.
+	Chance_Thinking: Then what is it?
+	Farida_Annoyed: Why do you want to know?
+	Chance: I'm just curious.
+	Farida_Annoyed: Insects. Arachnids. Bugs.
+	Chance_Smile: You're afraid of bugs?
+	Farida_Annoyed: I am not afraid of bugs, I just don't like them.
+	Chance_Smile: But there's so many great bugs! Grasshoppers, dragonflies, bees..
+	Farida_Annoyed: And there are many terrible bugs. Mosquitos, wasps, leeches!
+	Chance_Excited: You're totally afraid of bugs.
+	Farida_Annoyed: It is completely reasonable to not like bugs. Have you seen a butterfly's  proboscis? They're disgusting!
+	Chance_Thinking: No way...
+	Chance_Excited: You're afraid of butterflies?!?! That's so stupid!
+	Farida_Annoyed: You better be careful, <color=#813408>Chance</color>. You would not like to know what pests can get into an improperly closed window at the lodging.
+	Chance_Scared: Okay okay, yeesh!
+=>BBEnd
+
+~F3
+Farda_Exhausted: If I play dead, will you go away?
+Chance_Smile: Mmm.... I feel like the scientific thing to do would be to poke your dead body to see if it reacts.
+Farida_Exhausted: Ugh..
+- Bween
+	Can't think of anything yet
+- Bwomb
+	brain empty beebp ebofibeb
 => BBEnd
