@@ -5,23 +5,57 @@ using UnityEngine.InputSystem;
 
 public class ThreeDCutscene : MonoBehaviour
 {
-    public CutsceneFinder cutsceneFinder;
-    public CanvasGroup canvasGroup;
+    //This goes on the cutscene trigger
 
-    // Start is called before the first frame update
-    void Start()
+    public CutsceneFinder cutsceneFinder;
+    public StartFishing startFishing;
+    private QTEInteractable qte;
+    public MeshRenderer[] poleParts;
+    private bool playerInTrigger;
+    bool started = false;
+
+    private void Start()
     {
-        cutsceneFinder = FindObjectOfType<CutsceneFinder>();
+        startFishing = FindObjectOfType<StartFishing>();
+        qte = GetComponentInChildren<QTEInteractable>();
+    }
+
+    private void Update()
+    {
+        if (playerInTrigger && Input.GetKeyDown(KeyCode.E) && !started)
+        {
+            started = true;
+            cutsceneFinder.fadeToBlack();
+            StartCoroutine(fadeDelay());
+            StartCoroutine(fishCatchTimer());
+        }
+    }
+
+    public IEnumerator fishCatchTimer()
+    {
+        yield return new WaitForSeconds(Random.Range(5, 20));
+        qte.EmitStartQteSignal();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button14))
-            {
-                cutsceneFinder.fadeToBlack();
-            }
+            playerInTrigger = true;
         }
+    }
+
+    private IEnumerator fadeDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        poleParts = startFishing.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer part in poleParts)
+        {
+            part.enabled = true;
+        }
+
+        cutsceneFinder.fadeOutOfBlack();
     }
 }

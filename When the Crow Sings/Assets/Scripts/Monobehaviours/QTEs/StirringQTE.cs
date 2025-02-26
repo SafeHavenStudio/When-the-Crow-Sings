@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class StirringQTE : QuickTimeEvent
 {
-
     public GameObject displayBox;
     private int currentStep = 0;
     private int RightCurrentStep = 0;
@@ -65,9 +64,12 @@ public class StirringQTE : QuickTimeEvent
 
     private void Start()
     {
-        StartCoroutine(randomizeInput());
+        StartQTEFr();
+    }
 
-        //qteInteractable = FindObjectOfType<QTEInteractable>();
+    public void StartQTEFr()
+    {
+        StartCoroutine(randomizeInput());
 
         slider = GetComponentInChildren<Slider>();
 
