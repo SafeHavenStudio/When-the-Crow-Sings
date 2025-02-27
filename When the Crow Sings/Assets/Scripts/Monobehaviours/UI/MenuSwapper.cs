@@ -33,7 +33,7 @@ public class MenuSwapper : MonoBehaviour
     public void OpenNextMenu()
     {
         int _newIndex = currentMenuIndex + 1;
-        if (_newIndex > menus.Count) _newIndex = menus.Count;
+        if (_newIndex >= menus.Count) _newIndex = menus.Count - 1;
         OpenMenu(_newIndex);
     }
     public void OpenPreviousMenu()

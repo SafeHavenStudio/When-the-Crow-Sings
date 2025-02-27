@@ -313,20 +313,40 @@ set FranciscoBB += 1;
 
 ~ F0
 Francisco: Ah, hello again! How can I help you?
-- About Caleb
-	Chance: So, you call <color=#813408>Caleb</color> tio sometimes. But he's not your actual uncle, right?
-	Francisco_Excited: Heh, no he's not.
-	Chance_Thinking: So why do you call him that?
-	Francisco: He was friends with my parents on the compound we came from. My parents just had me call him tio.
-	Chance: Oh, I get it. Where are your parents?
-	Francisco_Sad: They passed a long time ago. 
-	Chance_Sad: Oh, um. I'm sorry. 
-	Francisco_Sad: It's alright. They were young, it was a bit of a shock. But, things happen. People get sick, sometimes nothing you can do.
-	Chance_Thinking: Is that why you went into medicine?
-	Francisco: That's not how it works where we were from, but it did push me to focus on my studies, yes. 
-	Francisco_Excited: We took aptitude tests and I was set into biology when I was about ten. 
-	Chance: Guess it all kinda worked out.
-	Francisco: I suppose so.
+if CalebBaseCompleted == true:
+	- About Caleb
+		Chance: So, you call <color=#813408>Caleb</color> tio sometimes. But he's not your actual uncle, right?
+		Francisco_Excited: Heh, no he's not.
+		Chance_Thinking: So why do you call him that?
+		Francisco: He was friends with my parents on the compound we came from. My parents just had me call him tio.
+		Chance: Oh, I get it. Where are your parents?
+		Francisco_Sad: They passed a long time ago. 
+		Chance_Sad: Oh, um. I'm sorry. 
+		Francisco_Sad: It's alright. They were young, it was a bit of a shock. But, things happen. People get sick, sometimes nothing you can do.
+		Chance_Thinking: Is that why you went into medicine?
+		Francisco: That's not how it works where we were from, but it did push me to focus on my studies, yes. 
+		Francisco_Excited: We took aptitude tests and I was set into biology when I was about ten. 
+		Chance: Guess it all kinda worked out.
+		Francisco: I suppose so.
+if FaridaBaseCompleted == true:
+	- About Farida
+		Chance: So are you and <color=#813408>Farida</color> like, friends?
+		Francisco_Excited: Yes, I would say so. We chat, read the weekly journals together, look talk about the newest scientific discoveries. 
+		Francisco_Thinking: I manage to get her to watch a movie every now and then, but it takes a lot of asking. She will only come to the movie night if it's a black and white movie that the little ones aren't very intrested in.
+		Chance_Annoyed: Sounds like a riveting friendship.
+		Francisco: Eh, she comes off very prickly, but she's like... a prickly pear.
+		Chance_Thinking: A what?
+		Francisco_Excited: It's the fruit of a cactus by the same name, it has the same unpleasant spikes coming out of it.
+		Francisco: But, put in the effort, pluck out the spikes and peel it back, and the fruit inside is pleasant and sweet. 
+		Chance: So she's actually sweet under all of that? I find that hard to believe.
+		Francisco_Thinking: I wouldn't believe it either, but when she first got here I saw how she was with the doctor's assistant. 
+		Francisco_Excited: Like a crow, the assistant managed to get perched just between the spikes and got at the sweet fruit.
+		Francisco_Sad: Though, since she ran off, <color=#813408>Farida</color> has been much colder. I think perhaps the assistant's leaving jaded her in some way.
+		Chance_Sad: So she's just mean because she's lonely?
+		Francisco: Well I wouldn't say that. <color=#813408>Farida</color>'s always been a little abrasive, it just got worse after she left. 
+		Francisco_Thinking: Maybe if we could convince the assistant to come back..
+		Francisco_Sad: I don't see that happening though.. I believe she went through some kind of mental health crisis.. Perhaps it is better to let sleeping dogs lie, no?
+		Chance_Sad: Yeah, maybe.
 - About your work
 	Chance: So, do you like working in the clinic?
 	Francisco_Thinking: Well that's an interesting question..
