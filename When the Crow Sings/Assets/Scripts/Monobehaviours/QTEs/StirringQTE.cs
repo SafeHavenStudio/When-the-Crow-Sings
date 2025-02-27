@@ -20,6 +20,7 @@ public class StirringQTE : QuickTimeEvent
     private bool firstTime = true;
     [HideInInspector] public bool failed = false;
     private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
+    private CutsceneInteractable cutsceneInteractable;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -64,6 +65,9 @@ public class StirringQTE : QuickTimeEvent
 
     private void Start()
     {
+        if(type == QTETYPES.isFishing)
+        cutsceneInteractable = FindObjectOfType<CutsceneInteractable>();
+
         StartQTEFr();
     }
 
@@ -143,6 +147,11 @@ public class StirringQTE : QuickTimeEvent
         globalFinishedQteSignal.Emit(args);
         Debug.Log("QTE COMPLETE");
         firstTime = true;
+
+        if (type == QTETYPES.isFishing)
+        {
+            cutsceneInteractable.FinishCutscene();
+        }
     }
 
     private IEnumerator waitBeforeFail()
@@ -154,6 +163,11 @@ public class StirringQTE : QuickTimeEvent
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
         firstTime = true;
+
+        if (type == QTETYPES.isFishing)
+        {
+            cutsceneInteractable.FinishCutscene();
+        }
     }
 
     private void UpdateTimer(float currentTime)

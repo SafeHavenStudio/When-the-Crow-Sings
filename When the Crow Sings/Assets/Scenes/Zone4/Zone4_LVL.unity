@@ -751,8 +751,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 56.308422, y: 74.87914, z: 93.02873}
-  m_Center: {x: -0.00012130005, y: 5.514185, z: 3.4856298}
+  m_Size: {x: 56.308422, y: 31.91421, z: 93.02873}
+  m_Center: {x: -0.00012127132, y: -15.968281, z: 3.48563}
 --- !u!4 &26302618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6017698445678894528, guid: 128b9f4d203fd0e4f942819df1b7247f,
@@ -7230,6 +7230,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10.875299
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654524222143933120, guid: db33533f86c1d654cb1aea5bda1807b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442238512778675426, guid: db33533f86c1d654cb1aea5bda1807b2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6165941451760414067, guid: db33533f86c1d654cb1aea5bda1807b2,
         type: 3}
@@ -25439,7 +25449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87505938117443c49934e1b79fb01cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutscene: {fileID: 0}
+  cutscene: {fileID: 1641643591287431108}
   canvasGroup: {fileID: 0}
 --- !u!222 &1002948322
 CanvasRenderer:
@@ -50496,7 +50506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutsceneFinder: {fileID: 1002948321}
-  startFishing: {fileID: 0}
+  fishingRod: {fileID: 0}
+  player: {fileID: 0}
   poleParts: []
 --- !u!114 &1641643591287431109
 MonoBehaviour:

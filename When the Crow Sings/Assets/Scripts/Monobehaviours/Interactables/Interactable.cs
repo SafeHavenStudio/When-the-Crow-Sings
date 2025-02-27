@@ -54,6 +54,10 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
+        else if (GetComponent<CutsceneInteractable>()) //3d cutscenes not 2d
+        {
+            GetComponent<CutsceneInteractable>().startCutscene();
+        }
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
