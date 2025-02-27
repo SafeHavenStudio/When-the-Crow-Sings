@@ -14,11 +14,13 @@ public class CutsceneInteractable : MonoBehaviour
     public MeshRenderer[] poleParts;
     private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
+    private SpriteRenderer arrow;
 
     private void Start()
     {
         fishingRod = FindObjectOfType<FishingRod>();
         qte = GetComponentInChildren<QTEInteractable>();
+        arrow = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void startCutscene()
@@ -55,7 +57,17 @@ public class CutsceneInteractable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            arrow.enabled = true;
             playerInTrigger = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            arrow.enabled = false;
+            playerInTrigger = false;
         }
     }
 
