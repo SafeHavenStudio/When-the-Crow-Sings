@@ -9,6 +9,9 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public List<GameObject> cutscenes = new List<GameObject>();
     public GameObject gameOverScreen;
 
+    public MainMenuDebugLoadHolder mainMenuDebugLoadHolder;
+    public AllLevels allLevels;
+
     public enum DesiredBehavior
     {
         NONE,
@@ -36,10 +39,14 @@ public class Cinematic_SCN_Manager : MonoBehaviour
             case DesiredBehavior.CUTSCENE_0:
                 cutscenes[0].SetActive(true);
                 cutscenes[0].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
+
+                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
             case DesiredBehavior.CUTSCENE_NIGHT1:
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
+
+                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
             case DesiredBehavior.GAME_OVER:
                 gameOverScreen.SetActive(true);
