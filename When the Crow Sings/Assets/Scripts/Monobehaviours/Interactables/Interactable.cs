@@ -60,6 +60,10 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
+        else if (GetComponent<CutsceneInteractable>())
+        {
+            GetComponent<CutsceneInteractable>().OnInteraction();
+        }
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
