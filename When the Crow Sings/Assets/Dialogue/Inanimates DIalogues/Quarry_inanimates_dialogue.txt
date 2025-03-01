@@ -55,6 +55,28 @@ else:
 	I broke time again, oh no! And now there's an alien :( hes gonna get me
 => END
 
+~ spooky_flower
+if FlowerKnown == true:
+	You know, in the right light I swear the spots almost glow pink..
+	=> END
+else:
+	Woah, this flower looks crazy.. I wonder if that scientist guy was studying the plants here or something.
+	set FlowerKnown = true;
+	=> ending_call
+
+~ cairn
+Wonder who made this? Better not touch it, seems like it might mean something important..
+=> END
+
+~ explosive_container
+"DETONATORS<br>MAX CAPACITY 20,000 UNITS<br>NO SMOKING<br>RESTRICTED AREA"
+Did we really need to tell people not to smoke near explosives?.. I know humans were stupid but damn.
+=> END
+
+~ front_loader
+Shame this thing probably doesn't work, seems like it would be sick to drive around.
+=> END
+
 ~ ending_call
 call SaveGameToDisk();
 => END
