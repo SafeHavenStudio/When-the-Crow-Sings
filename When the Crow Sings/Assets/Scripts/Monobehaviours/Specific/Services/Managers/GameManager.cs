@@ -77,4 +77,8 @@ public class GameManager : MonoBehaviour, IService
     {
         Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_NIGHT1);
     }
+    public void OnCutsceneSignalEnd0()
+    {
+        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_0);
+    }
 }

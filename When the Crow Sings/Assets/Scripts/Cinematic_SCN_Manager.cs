@@ -48,6 +48,10 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 
                 mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
+            case DesiredBehavior.CUTSCENE_ENDING_0:
+                cutscenes[2].SetActive(true);
+                cutscenes[2].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartCredits);
+                break;
             case DesiredBehavior.GAME_OVER:
                 gameOverScreen.SetActive(true);
                 break;
@@ -73,5 +77,10 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public void LoadMain_SCN()
     {
         SceneManager.LoadScene(mainScene.Name);
+    }
+
+    public void StartCredits()
+    {
+        Debug.Log("Hey look we finished the game! Go us!");
     }
 }
