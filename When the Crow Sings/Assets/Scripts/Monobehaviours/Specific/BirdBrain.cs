@@ -45,6 +45,7 @@ public class BirdBrain : StateMachineComponent
         crowHolder = _crowHolder;
         SetRestPoint(_restPoint);
         crowType = _restPoint.crowType;
+        fearInteractable.GetComponent<SphereCollider>().radius = restPoint.fearRadius;
     }
 
     [HideInInspector]
