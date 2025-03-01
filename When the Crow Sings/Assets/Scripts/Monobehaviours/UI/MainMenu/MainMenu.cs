@@ -77,7 +77,7 @@ public class MainMenu : MonoBehaviour
     {
         yield return StartCoroutine(SaveDataAccess.EraseDataFromDisk());
         SaveDataAccess.ResetSaveData();
-        mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
+        //mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
         //SceneManager.LoadScene(mainScene.Name);
         Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_0);
     }

@@ -162,6 +162,12 @@ public class PlayerController : StateMachineComponent, IService
                 break;
         }
         
+        if (mostRecentInteractable.playerSnapPoint != null)
+        {
+            characterController.enabled = false;
+            transform.SetPositionAndRotation(mostRecentInteractable.playerSnapPoint.position, mostRecentInteractable.playerSnapPoint.rotation);
+            characterController.enabled = true;
+        }
     }
     public void OnInteractFinished(SignalArguments signalArgs)
     {
