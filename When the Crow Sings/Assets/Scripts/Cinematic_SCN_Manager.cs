@@ -82,5 +82,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public void StartCredits()
     {
         Debug.Log("Hey look we finished the game! Go us!");
+        Debug.Log("Pretend we started the credits.");
+        SceneManager.LoadScene("MainMenu_SCN");
     }
 }
