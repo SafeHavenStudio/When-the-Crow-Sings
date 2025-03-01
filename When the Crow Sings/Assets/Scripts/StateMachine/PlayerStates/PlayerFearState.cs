@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerFearState : StateMachineState
@@ -24,7 +25,9 @@ public class PlayerFearState : StateMachineState
     {
         s.ApplyGravity(deltaTime);
 
-        Vector3 directionToInteractable = (s.transform.position - s.mostRecentInteractable.transform.position).normalized*3;
+        Vector3 directionToInteractable = (s.transform.position - s.mostRecentInteractable.transform.position);
+        directionToInteractable.y = 0f;
+        directionToInteractable = directionToInteractable.normalized * 3;
 
         s.characterController.Move(directionToInteractable * deltaTime);
         //s.transform.Rotate(new Vector3(0, -1000, 0) * deltaTime);
