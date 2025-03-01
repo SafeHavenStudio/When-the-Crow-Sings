@@ -9,6 +9,7 @@ public class CrowRestPoint : MonoBehaviour
 
     public enum CrowTypes { REGULAR, TASK }
     public CrowTypes crowType = CrowTypes.REGULAR;
+    public float fearRadius = 2.3f;
     private void OnEnable()
     {
         ServiceLocator.Get<CrowManager>().RegisterCrowRestPoint(this);

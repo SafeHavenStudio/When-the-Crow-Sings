@@ -3,6 +3,7 @@ using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
@@ -16,12 +17,17 @@ public class Interactable : MonoBehaviour
 
     public GameSignal interactionStartedSignal;
 
+    public UnityEvent onInteractionEvent;
+
+    public Transform playerSnapPoint;
+
     public void DoInteraction()
     {
         if (virtualCamera != null)
         {
             virtualCamera.Priority = 100;
         }
+
         // Would have been better to just use some polymorphism, ah well at least it's clear enough.
         if (GetComponent<DialogueInteractable>())
         {
@@ -54,9 +60,15 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
+        else if (GetComponent<CutsceneInteractable>())
+        {
+            GetComponent<CutsceneInteractable>().OnInteraction();
+        }
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
+
+        onInteractionEvent.Invoke();
     }
 
     public void OnDialogueFinished(SignalArguments args)
@@ -77,4 +89,6 @@ public class Interactable : MonoBehaviour
         //if (interactArrow != null)
         pfInteractArrow.enabled = enabledOrDisabled;
     }
+
+    
 }
