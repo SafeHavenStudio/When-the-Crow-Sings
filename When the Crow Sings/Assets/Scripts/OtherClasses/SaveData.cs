@@ -128,6 +128,7 @@ public class SaveData
         { "SeenBrokenGauges",false },
         { "SeenDoor",false },
         { "EnergyKnown",false },
+        { "TreeKnown", false},
 
 
         //Door/loadzone relevant flags
