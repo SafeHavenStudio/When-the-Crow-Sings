@@ -142,7 +142,6 @@ public partial class DialogueParser
 
                 currentChoiceBlock.dialogueChoices.Insert(0, _i);
             }
-           
         }
         else
         {
@@ -151,28 +150,15 @@ public partial class DialogueParser
                 DialogueChoice _i = (DialogueChoice)i;
 
                 bool hasBeenSet = false;
-                
-                List<DialogueChoiceBlock> blocksWithCorrectIndentation = new List<DialogueChoiceBlock>();
                 foreach (DialogueChoiceBlock ii in currentTitleBlock.dialogueChoiceBlocks)
                 {
-                    if (ii.choiceTabCount == _i.tabCount) blocksWithCorrectIndentation.Add(ii);
+                    // Check indentation
+                    if (ii.choiceTabCount == _i.tabCount && !ii.dialogueChoices.Contains(_i))
+                    {
+                        ii.dialogueChoices.Insert(0, _i);
+                        hasBeenSet = true;
+                    }
                 }
-                if (!blocksWithCorrectIndentation.Last().dialogueChoices.Contains(_i))
-                {
-                    blocksWithCorrectIndentation.Last().dialogueChoices.Insert(0, _i);
-                    hasBeenSet = true;  
-                }
-
-                //foreach (DialogueChoiceBlock ii in currentTitleBlock.dialogueChoiceBlocks)
-                //{
-                    
-                //    // Check indentation
-                //    if (ii.choiceTabCount == _i.tabCount && !ii.dialogueChoices.Contains(_i)) // I think this is the issue, it's adding it to the FIRST one no matter what based on the tab count, even if it's later on. I think.
-                //    {
-                //        ii.dialogueChoices.Insert(0, _i);
-                //        hasBeenSet = true;
-                //    }
-                //}
 
                 if (!hasBeenSet)
                 {
