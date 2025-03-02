@@ -16,9 +16,10 @@ public class SaveData
 
         { "IntroContextSeen",false },
         { "NightIntroSeen",false },
+        { "NightCutsceneSeen",false },
 
         { "HasThrownBirdseed",false },
-        { "HasSpawnedAtLodgingNight",true },
+        { "HasSpawnedAtLodgingNight",false },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
@@ -128,6 +129,9 @@ public class SaveData
         { "SeenBrokenGauges",false },
         { "SeenDoor",false },
         { "EnergyKnown",false },
+        { "TreeKnown", false},
+        { "FlowerKnown", false},
+        { "GrillKnown", false},
 
 
         //Door/loadzone relevant flags
@@ -295,6 +299,9 @@ public class SaveData
         {"benchcounter",0 },
         {"PhilTalk", 0},
         {"theodoor", 0},
+        {"telescopeday", 0},
+        {"telescopenoon", 0},
+
 
         {"levelDataIndex", 1},
 

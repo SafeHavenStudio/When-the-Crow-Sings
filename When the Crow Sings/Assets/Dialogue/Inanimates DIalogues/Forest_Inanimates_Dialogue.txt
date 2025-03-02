@@ -4,6 +4,37 @@ There's so much green out here! And a river.. I can see why this guy chose to li
 set MFForestTag = false;
 => ending_call
 
+~ spooky_tree
+if TreeKnown == true:
+	I swear the longer I look at this, the more it feels like it's staring back...
+	=> END
+else:
+	Yeesh, this thing is creepy. I wonder if someone carved it, or if it just looks like that...
+	Maybe I don't wanna know.
+	set TreeKnown = true;
+	=> ending_call
+
+~ fallen_sign
+Oh yeah, a toppled over danger sign is definitely not a bad omen.
+=> END
+
+~ entry_door
+The door I came in through when I got here, it's locked up tight now.
+=> END
+
+~ mill
+Looks like some kind of water mill. I wonder what they're grinding up in there.
+=> END
+
+~ fish_rack
+Trout, lined up in a row, drying out. I wonder what they're going to use them for... Fish jerky can't be good.
+=> END
+
+~ firewood
+Mm! An axe, left out in the open.
+.. It won't budge. That woulda been useful..
+=> END
+
 ~ ending_call
 call SaveGameToDisk();
 => END

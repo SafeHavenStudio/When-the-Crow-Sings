@@ -10022,6 +10022,7 @@ GameObject:
   - component: {fileID: 943808689}
   - component: {fileID: 943808692}
   - component: {fileID: 943808698}
+  - component: {fileID: 943808699}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10106,6 +10107,34 @@ MonoBehaviour:
       - m_Target: {fileID: 943808689}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnCutsceneSignal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &943808699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943808687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: d5e4fc770be22df47be531463f925fd2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 943808689}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnCutsceneSignalEnd0
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29214,6 +29243,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd26da1725e75fb46a8f0a4045ed96b5, type: 2}
   - {fileID: 11400000, guid: 00cb004706c490c4f92c244fbd842e0c, type: 2}
   - {fileID: 11400000, guid: 91872991236396c40bea350b22baebea, type: 2}
+  - {fileID: 11400000, guid: d5e4fc770be22df47be531463f925fd2, type: 2}
   choiceButtonsMBHS: {fileID: 8678019367360410500}
   nextButtonMBHS: {fileID: 8678019367360410501}
 --- !u!1 &801647054323082692

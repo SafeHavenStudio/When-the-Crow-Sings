@@ -1,4 +1,5 @@
 using ScriptableObjects;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -70,6 +71,13 @@ public class PlayerController : StateMachineComponent, IService
         {
             gravityVelocity = 0; // Reset vertical velocity
         }
+    }
+
+    Transform spawnTransform;
+    public void Initialize(Transform _transform)
+    {
+        spawnTransform = _transform;
+        SnapPlayerToTransform(spawnTransform);
     }
 
     private void Awake()
@@ -162,6 +170,10 @@ public class PlayerController : StateMachineComponent, IService
                 break;
         }
         
+        if (mostRecentInteractable.playerSnapPoint != null)
+        {
+            SnapPlayerToTransform(mostRecentInteractable.playerSnapPoint);
+        }
     }
     public void OnInteractFinished(SignalArguments signalArgs)
     {
@@ -169,7 +181,12 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.Enter("PlayerMovementState");
     }
 
-
+    public void SnapPlayerToTransform(Transform _transform)
+    {
+        characterController.enabled = false;
+        transform.SetPositionAndRotation(_transform.position, _transform.rotation);
+        characterController.enabled = true;
+    }
 
     public void OnFullyLoadFinished(SignalArguments args)
     {
@@ -177,6 +194,7 @@ public class PlayerController : StateMachineComponent, IService
         {
             stateMachine.Enter("PlayerMovementState");
         }
+        //SnapPlayerToTransform(spawnTransform);
     }
     public void OnAnimationFinished(SignalArguments args)
     {
