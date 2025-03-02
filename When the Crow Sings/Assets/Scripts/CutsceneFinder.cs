@@ -6,7 +6,7 @@ public class CutsceneFinder : MonoBehaviour
 {
     //This goes on the black image canvas group
 
-    public CutsceneInteractable cutscene;
+    public Cutscene3DInteractable cutscene;
 
     [HideInInspector]
     public CanvasGroup canvasGroup;

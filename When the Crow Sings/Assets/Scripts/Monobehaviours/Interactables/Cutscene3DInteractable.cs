@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CutsceneInteractable : MonoBehaviour
+public class Cutscene3DInteractable : MonoBehaviour
 {
     //This goes on the cutscene trigger
 
     public CutsceneFinder cutsceneFinder;
-    public FishingRod fishingRod;
-    public PlayerController player;
+    [HideInInspector] public FishingRod fishingRod;
+    [HideInInspector] public PlayerController player;
     private QTEInteractable qte;
-    public MeshRenderer[] poleParts;
+    [HideInInspector] public MeshRenderer[] poleParts;
     private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
     private SpriteRenderer arrow;
@@ -49,7 +49,7 @@ public class CutsceneInteractable : MonoBehaviour
 
     public IEnumerator fishCatchTimer()
     {
-        yield return new WaitForSeconds(Random.Range(5, 20));
+        yield return new WaitForSeconds(Random.Range(4, 8));
         qte.EmitStartQteSignal();
     }
 
@@ -92,14 +92,10 @@ public class CutsceneInteractable : MonoBehaviour
         //Set player position and rotation
         if (fishingPoleParts == true)
         {
-            SetPositionRotation(new Vector3(68, 0, 331));
+            SetPositionRotation(new Vector3(73f, -1.5f, 327));
             Debug.Log("Sending chance to fish");
         }
-        else
-        {
-            SetPositionRotation(new Vector3(71.5f, -1.5f, 328));
-            Debug.Log("No more fishing for u");
-        }
+
 
         cutsceneFinder.fadeOutOfBlack();
     }
