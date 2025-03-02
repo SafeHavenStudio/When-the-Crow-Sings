@@ -187,5 +187,53 @@ call SaveGameToDisk();
 => END
 
 ~ quinn_beyond_base
-Quinn: Back for more hybrid plants? I wonder what would happen if I could splice a human with plants....
-=> END
+Should I spend time talking to <color=#813408>Quinn</color> right now?
+- Sure
+	=> quinn_beyond_base_directory
+- Nah
+	=> END
+
+~ quinn_beyond_base_directory
+if QuinnBB == 0:
+	=> Q0
+else:
+	No more byeeee
+	=> END
+
+~ BBEnd
+set QuinnBB += 1;
+=> ending_call
+
+~ Q0
+Quinn_Smile: Hey again, little dude.
+Chance_Annoyed: I'm not little.
+Quinn: Sure!
+- Birds
+	Chance: So what's with this whole fear of bird things you've got going on?
+	Quinn_Worried: Uh, they're scary? And there's a ton of them out here.
+	Chance_Thinking: Why move to someplace with a ton of crows then?
+	Quinn: Uh it's not like I had a choice. I got sent out here to help with food supply by C.A.N., don't get to choose where you go.
+	Chance: Okay.. So why are you afraid of them? Have they attacked you or something?
+	Quinn_Scared: No, they're just creepy! And they're so fast, and they can come out of nowhere..
+	Chance_Smile: That's dumb.
+	Chance_Thinking: What about EVO birds?
+	Quinn: Nah, they don't bother me.
+	Chance_Thinking: Why not?
+	Quinn_Thinking:.. I guess because they're human sized, I can always see them coming. No surprise divebombs from the sky or pecking at my fingers.
+	Chance_Excited: That's so stupid dude.
+	Quinn_Worried: Whatever man.
+- Vegetables
+	Chance: How do you decide what to grow out here?
+	Quinn: Mostly just what people ask, as long as it can grow in the soil out here.
+	Chance_Thinking: What do people ask for?
+	Quinn_Thinking: It's mostly <color=#813408>Angel</color> since he's in charge of making food for everyone. He asks for hardy vegetables like carrots, cabbage, turnips. In the summer I try to grow corn, squash, so on.
+	Chance: All seems pretty standard.
+	Quinn: Yep. I keep the coffee plants alive here too, and I take special requests.
+	Chance_Thinking: Special requests?
+	Quinn_Thinking: Oh yeah, I mean for <color=#813408>Beau</color> I-
+	Quinn_Worried: ... Nevermind.
+	Chance_Thinking: What?
+	Quinn_Worried: Don't worry about it.
+	Quinn_Smile: Some things are best left unspoken.
+	Chance_Annoyed: Then don't bring it up.
+=> BBEnd
