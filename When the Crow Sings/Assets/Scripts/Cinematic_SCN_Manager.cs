@@ -9,6 +9,9 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public List<GameObject> cutscenes = new List<GameObject>();
     public GameObject gameOverScreen;
 
+    public MainMenuDebugLoadHolder mainMenuDebugLoadHolder;
+    public AllLevels allLevels;
+
     public enum DesiredBehavior
     {
         NONE,
@@ -36,10 +39,18 @@ public class Cinematic_SCN_Manager : MonoBehaviour
             case DesiredBehavior.CUTSCENE_0:
                 cutscenes[0].SetActive(true);
                 cutscenes[0].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
+
+                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
             case DesiredBehavior.CUTSCENE_NIGHT1:
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
+
+                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
+                break;
+            case DesiredBehavior.CUTSCENE_ENDING_0:
+                cutscenes[2].SetActive(true);
+                cutscenes[2].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartCredits);
                 break;
             case DesiredBehavior.GAME_OVER:
                 gameOverScreen.SetActive(true);
@@ -66,5 +77,12 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public void LoadMain_SCN()
     {
         SceneManager.LoadScene(mainScene.Name);
+    }
+
+    public void StartCredits()
+    {
+        Debug.Log("Hey look we finished the game! Go us!");
+        Debug.Log("Pretend we started the credits.");
+        SceneManager.LoadScene("MainMenu_SCN");
     }
 }
