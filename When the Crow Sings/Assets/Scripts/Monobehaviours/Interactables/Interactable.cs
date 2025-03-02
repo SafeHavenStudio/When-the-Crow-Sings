@@ -3,6 +3,7 @@ using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Interactable : MonoBehaviour
     public PlayerResponses playerResponse = PlayerResponses.NONE;
 
     public GameSignal interactionStartedSignal;
+
+    public UnityEvent onInteractionEvent;
+
+    public Transform playerSnapPoint;
+
 
     public void DoInteraction()
     {
@@ -58,9 +64,15 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<Cutscene3DInteractable>().startCutscene();
         }
+        else if (GetComponent<CutsceneInteractable>())
+        {
+            GetComponent<CutsceneInteractable>().OnInteraction();
+        }
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
+
+        onInteractionEvent.Invoke();
     }
 
     public void OnDialogueFinished(SignalArguments args)

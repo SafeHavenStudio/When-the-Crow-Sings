@@ -8,17 +8,15 @@ public class Cutscene3DInteractable : MonoBehaviour
     //This goes on the cutscene trigger
 
     public CutsceneFinder cutsceneFinder;
-    [HideInInspector] public FishingRod fishingRod;
-    [HideInInspector] public PlayerController player;
+    public FishingRod fishingRod;
     private QTEInteractable qte;
-    [HideInInspector] public MeshRenderer[] poleParts;
+    public MeshRenderer[] poleParts;
     private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
     private SpriteRenderer arrow;
 
     private void Start()
     {
-        fishingRod = FindObjectOfType<FishingRod>();
         qte = GetComponentInChildren<QTEInteractable>();
         arrow = GetComponentInChildren<SpriteRenderer>();
     }
@@ -75,6 +73,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
+        fishingRod = FindObjectOfType<FishingRod>();
         poleParts = fishingRod.GetComponentsInChildren<MeshRenderer>();
         fishingRodOnTheGround = this.gameObject.GetComponentsInChildren<MeshRenderer>();
 
@@ -92,7 +91,7 @@ public class Cutscene3DInteractable : MonoBehaviour
         //Set player position and rotation
         if (fishingPoleParts == true)
         {
-            SetPositionRotation(new Vector3(73f, -1.5f, 327));
+            SetPositionRotation(new Vector3(54.5f, -.5f, 342.5f));
             Debug.Log("Sending chance to fish");
         }
 
