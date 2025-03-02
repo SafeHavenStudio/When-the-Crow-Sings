@@ -114,8 +114,11 @@ public class GameStateManager : MonoBehaviour, IService
         playerHolder = Instantiate(_playerPrefab);
         playerContent = playerHolder.GetComponent<PlayerHolder>().playerContent;
 
-        playerContent.transform.position = spawnPoint.transform.position;
+        //playerContent.transform.position = spawnPoint.transform.position;
+        playerContent.GetComponent<PlayerController>().Initialize(spawnPoint.transform);
+        playerHolder.GetComponent<PlayerHolder>().playerVirtualCameraFollowPoint.transform.position = spawnPoint.transform.position;
         playerContent.GetComponent<CharacterController>().enabled = true;
+        
     }
 
 

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 160703231417517345}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27982908, y: -0, z: -0, w: 0.96004987}
-  m_LocalPosition: {x: 0, y: 15.5, z: -17}
+  m_LocalPosition: {x: 0, y: 14.5, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Priority: 15
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 3409146517385565981}
+  m_Follow: {fileID: 4404150065444809601}
   m_Lens:
     FieldOfView: 50
     OrthographicSize: 10
@@ -652,6 +652,7 @@ Transform:
   - {fileID: 7746280948790589883}
   - {fileID: 3409146517385565981}
   - {fileID: 3993083259330394503}
+  - {fileID: 4404150065444809601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5535980739058539832
@@ -667,6 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerContent: {fileID: 9195737949493200412}
+  playerVirtualCameraFollowPoint: {fileID: 9135557425523168616}
 --- !u!1 &8637185622401210243
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +699,7 @@ Transform:
   m_GameObject: {fileID: 8637185622401210243}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27982908, y: -0, z: -0, w: 0.96004987}
-  m_LocalPosition: {x: 0, y: 15.5, z: -17}
+  m_LocalPosition: {x: 0, y: 14.5, z: -17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -955,6 +957,51 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!1 &9135557425523168616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4404150065444809601}
+  - component: {fileID: 1571669273512794990}
+  m_Layer: 0
+  m_Name: PlayerVirtualCameraTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4404150065444809601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135557425523168616}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6605035451907473929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571669273512794990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135557425523168616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27db9e4cb458e5b4fbe1b97827012f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3409146517385565981}
 --- !u!1 &9195737949493200412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1066,7 @@ MonoBehaviour:
   pfBirdseedProjectile: {fileID: 6028207027951552103, guid: 7ce579de01b4ca149902ac291e1b93f5,
     type: 3}
   isCrouchingToggled: 0
+  isInteracting: 0
   isSprintingButtonHeld: 0
   gravity: -9.81
   gravityMultiplier: 3

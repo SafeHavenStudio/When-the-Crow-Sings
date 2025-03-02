@@ -19,7 +19,7 @@ public class JournalNotificationManager : MonoBehaviour
     public void ShowNewNotification(SignalArguments args)
     {
         GameObject notification = Instantiate(notificationPrefab);
-        notification.transform.parent = canvas.transform;
+        notification.transform.SetParent(canvas.transform, false);
         notification.transform.localPosition = new Vector3(notification.transform.localPosition.x, verticalOffset, notification.transform.localPosition.z);
     }
 
