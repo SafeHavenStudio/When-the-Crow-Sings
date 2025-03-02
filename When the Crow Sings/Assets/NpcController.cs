@@ -20,11 +20,13 @@ public class NpcController : MonoBehaviour
     public void NpcAnimIdleStart()
     {
         Debug.Log("No i don't want to talk to you go away");
+        animator.SetBool("isTalking",false);
         state = NpcState.IDLE;
     }
     public void NpcAnimTalkStart()
     {
         Debug.Log("I am playing a talking animation now!");
+        animator.SetBool("isTalking", true);
         state = NpcState.TALKING;
     }
 
