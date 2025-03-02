@@ -27,7 +27,7 @@ public partial class DialogueParser
         {
             PrepareDialogueResource(dialogueResource.textAsset.text);
         }
-        
+
     }
 
 
@@ -45,7 +45,8 @@ public partial class DialogueParser
 
             // Check if indentation indicates the current choice block has ended.
             if (currentChoiceBlock != null &&
-                i.tabCount <= currentChoiceBlock.choiceTabCount && i is not DialogueChoice)
+                ((i.tabCount <= currentChoiceBlock.choiceTabCount && i is not DialogueChoice) ||
+                (i.tabCount < currentChoiceBlock.choiceTabCount && i is DialogueChoice)))
             {
                 currentChoiceBlock.endIndex = current_loop;
                 currentChoiceBlock = null;
@@ -142,7 +143,7 @@ public partial class DialogueParser
 
                 currentChoiceBlock.dialogueChoices.Insert(0, _i);
             }
-           
+
         }
         else
         {
@@ -151,21 +152,22 @@ public partial class DialogueParser
                 DialogueChoice _i = (DialogueChoice)i;
 
                 bool hasBeenSet = false;
-                
+
                 List<DialogueChoiceBlock> blocksWithCorrectIndentation = new List<DialogueChoiceBlock>();
                 foreach (DialogueChoiceBlock ii in currentTitleBlock.dialogueChoiceBlocks)
                 {
                     if (ii.choiceTabCount == _i.tabCount) blocksWithCorrectIndentation.Add(ii);
                 }
-                if (!blocksWithCorrectIndentation.Last().dialogueChoices.Contains(_i))
+                DialogueChoiceBlock lastBlock = blocksWithCorrectIndentation[blocksWithCorrectIndentation.Count - 1];
+                if (!lastBlock.dialogueChoices.Contains(_i))
                 {
-                    blocksWithCorrectIndentation.Last().dialogueChoices.Insert(0, _i);
-                    hasBeenSet = true;  
+                    lastBlock.dialogueChoices.Insert(0, _i);
+                    hasBeenSet = true;
                 }
 
                 //foreach (DialogueChoiceBlock ii in currentTitleBlock.dialogueChoiceBlocks)
                 //{
-                    
+
                 //    // Check indentation
                 //    if (ii.choiceTabCount == _i.tabCount && !ii.dialogueChoices.Contains(_i)) // I think this is the issue, it's adding it to the FIRST one no matter what based on the tab count, even if it's later on. I think.
                 //    {
