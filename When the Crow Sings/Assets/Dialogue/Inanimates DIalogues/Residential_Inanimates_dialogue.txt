@@ -26,7 +26,7 @@ set MFResidentialTag = false;
 => ending_call
 
 ~ bike_1
-A mangled up pink bike, with chipping paint and faded stickers. Must've belonged to a little kid..
+A mangled up bike, with chipping paint and faded stickers. Must've belonged to a little kid..
 There's a helmet nearby too, but it's got weeds growing out of it now. At least they practiced safe biking, or whatever.
 => END
 
@@ -64,7 +64,6 @@ An ice-slide? An avalanche?.. Whatever. Go penguins! Suck it, not penguins!
 => END
 
 ~ telescope_dir
-Woah, nice telescope. It's got some scribbles on the sides though, maybe some vandals got to it.
 if timeOfDay == 1:
 	=> telescope_day
 if timeOfDay == 2:
@@ -77,6 +76,7 @@ else:
 
 ~ telescope_day
 if telescopeday == 0:
+	Woah, nice telescope. It's got some scribbles on the sides though, maybe some vandals got to it.
 	I want to look into it, but I don't think I'd be able to see anything that isn't just blue at this time of day.
 	set telescopeday += 1;
 	=> ending_call
