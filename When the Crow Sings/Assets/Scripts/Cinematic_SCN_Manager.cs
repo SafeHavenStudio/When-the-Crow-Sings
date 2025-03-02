@@ -43,6 +43,8 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
             case DesiredBehavior.CUTSCENE_NIGHT1:
+                SaveDataAccess.saveData.boolFlags["NightCutsceneSeen"] = true;
+                
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
 
