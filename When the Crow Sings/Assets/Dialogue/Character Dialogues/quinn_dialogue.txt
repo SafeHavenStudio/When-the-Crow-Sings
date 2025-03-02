@@ -21,6 +21,8 @@ else:
 
 ~ quinn_first_int
 set QuinnTaskOffered = true;
+if timeOfDay == 3:
+	=> quinn_night_int
 Quinn: You must be Chance.
 Chance: Uh-huh.
 Quinn: Nice to meet you. Officially. What brings you to the <color=#5b5b1f>greenhouse</color>? 
@@ -73,6 +75,51 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 - Later.
 	Chance_Sad: Maybe later.
 		=> ending_call
+
+~ quinn_night_int
+Chance_Scared: Christ!
+Quinn: My name is <color=#813408>Quinn</color>, actually.
+Chance_Sigh: What?!
+Quinn_Thinking: Uhh, my name is <color=#813408>Quinn</color>?
+Chance_Angry: I know that! Why are you acting like nothing is going on outside? This place is literally MADE of windows and you're gonna pretend like you can't see that thing outside.
+Quinn: Uh, yeah. It's worked out so far.
+Chance_Angry: Are you insane?!
+Quinn_Thinking: I mean it doesn't really bother me.. If you respect the curfew and stay out of the stray's way, they kind of just leave you alone.
+Chance_Sigh: Do you people just play pretend like everything is okay?
+Quinn: Kinda. <color=#813408>Farida</color> set up curfew, we all stay inside, it doesn't bother anyone. Win win.
+Chance_Annoyed: And it never sees you in this giant GLASS HOUSE?
+Quinn_Thinking: It hasn't yet. Maybe because the lights are pink? Their eyes might not be made for that wavelength, especially since they only come out at night.
+Chance_Sigh: This conversation is ridiculous. I was told you might know something about that thing, and you know it's there and just ignore it. Do you know ANYTHING useful? Like how to make it go away?!
+Quinn_Thinking: Uhh... Nope. To be fair, I've never really tried. But considering how strict <color=#813408>Farida</color> is about it, I dobut she's figured it out either.
+Chance_Annoyed: Do you know anything that could help me figure out how to make it leave? Like, at all?
+Quinn_Worried: Not off the dome.
+Quinn_Thinking:... Well, I do know someone who might, though.
+Chance_Annoyed: Okay??
+Quinn: If you help me out, I could put you in contact. Tell <color=#813408>Farida</color> to set his door to automatic for a while.
+Chance_Sigh: What could you possibly need me to do?
+Quinn_Worried: I need some seed to propogate, and it's out by the <color=#5b5b1f>dining tent</color>.
+Chance_Annoyed: And you can't get them?
+Quinn_Scared: Uh, no. There's a stray out there, dude.
+Chance_Angry: BUT YOU WANT ME TO GO GET IT?
+Quinn_Thinking: Well you're the one who wants something here..
+Chance_Annoyed:...
+- Fine
+	set QuinnTaskAccepted = true;
+	set MFQuinnTag = false;
+	set MFQuinnTA = true;
+	set HFQuinnTA = true;
+	emit 1;
+	Chance_Sigh: Fine. This is bullshit, you know.
+	Quinn_Worried: No it's not manure, it's seed bags.
+	Chance_Annoyed: I am failing to see how you are so popular.
+	Quinn: Yeah whatever. Just go grab them and come back, and I'll page <color=#813408>Farida</color>.
+	=> ending_call
+- No way
+	Chance_Sigh: Absolutely not.
+	Quinn_Worried: Well if you come back later, you're just gonna have to find a way around the crows.
+	Chance_Angry: I would much rather get attacked by crows than that thing!
+	Quinn_Scared: Speak for yourself.
+	=> ending_call
 
 ~ quinn_no_task
 Quinn_Excited: Oh, you're back. Here to try my carnop?
