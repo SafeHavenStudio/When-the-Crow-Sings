@@ -130,6 +130,7 @@ public class SaveData
         { "EnergyKnown",false },
         { "TreeKnown", false},
         { "FlowerKnown", false},
+        { "GrillKnown", false},
 
 
         //Door/loadzone relevant flags
@@ -297,6 +298,9 @@ public class SaveData
         {"benchcounter",0 },
         {"PhilTalk", 0},
         {"theodoor", 0},
+        {"telescopeday", 0},
+        {"telescopenoon", 0},
+
 
         {"levelDataIndex", 1},
 

@@ -148,8 +148,6 @@ public class DialogueManager : MonoBehaviour, IService
         else if (newLine is DialogueChoice)
         {
             EnableChoiceButtons();
-
-            //activeChoiceBlock = null;
             foreach (DialogueTitleBlock i in dialogueResource.dialogueTitleBlocks)
             {
                 foreach (DialogueChoiceBlock ii in i.dialogueChoiceBlocks)
@@ -157,18 +155,12 @@ public class DialogueManager : MonoBehaviour, IService
                     if (ii.dialogueChoices.Contains(newLine))
                     {
                         activeChoiceBlock = ii;
-                        //Debug.Log("alasdhflaskgdjhklasdfh");
                         break;
                     }
                 }
-                //Debug.Log("Well, nothing in that title block.");
             }
-
-
             if (activeChoiceBlock == null) { throw new Exception("THE THING IS BLANK YOU SILLY GOOSE"); }
-
             SetChoiceButtons();
-
         }
 
         else if (newLine is DialogueCondition)
@@ -235,6 +227,7 @@ public class DialogueManager : MonoBehaviour, IService
             i.SetActive(false);
         }
         int loop = 0;
+
         foreach (DialogueChoice i in activeChoiceBlock.dialogueChoices)
         {
             dialogueChoiceButtons[loop].SetActive(true);
@@ -243,6 +236,7 @@ public class DialogueManager : MonoBehaviour, IService
             dialogueChoiceButtons[loop].GetComponent<DialogueChoiceButton>().dialogueChoice = i;
             loop++;
         }
+
         StartCoroutine(delayChoiceInputActivation());
     }
 

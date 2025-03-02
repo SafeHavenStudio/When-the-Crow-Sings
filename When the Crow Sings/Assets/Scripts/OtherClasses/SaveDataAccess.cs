@@ -58,8 +58,6 @@ public class SaveDataAccess
     }
     public static void SetFlag(string key, int value)
     {
-        if (saveData.intFlags["timeOfDay"] == 2 && value == 3) saveData.boolFlags["HasSpawnedAtLodgingNight"] = false;
-
         saveData.intFlags[key] = value;
 
         if (saveData.intFlags["timeOfDay"] > 3)
@@ -67,10 +65,11 @@ public class SaveDataAccess
             saveData.intFlags["timeOfDay"] = 1;
             saveData.intFlags["day"] += 1;
         }
-            
-        Debug.Log(key + " is now " + saveData.intFlags[key]);
 
-        if ((saveData.intFlags["timeOfDay"] == 3) && (saveData.intFlags["day"] == 3)) saveData.boolFlags["FinalSequence"] =  true;
+        if (saveData.intFlags["timeOfDay"] == 3) saveData.boolFlags["HasSpawnedAtLodgingNight"] = false;
+        if ((saveData.intFlags["timeOfDay"] == 3) && (saveData.intFlags["day"] == 3)) saveData.boolFlags["FinalSequence"] = true;
+
+        Debug.Log(key + " is now " + saveData.intFlags[key]);
     }
     public static void SetFlag(string key, string value)
     {
