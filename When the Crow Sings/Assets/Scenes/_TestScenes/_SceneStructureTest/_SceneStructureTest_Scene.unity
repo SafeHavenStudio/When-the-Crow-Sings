@@ -6506,41 +6506,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1956473815}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NpcAnimTalkStart
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NpcController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758758597944792971, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8506152448258799612, guid: 007eb9503df005144b4309a66ab28325,
         type: 3}
       propertyPath: m_Name
@@ -6599,69 +6564,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8506152448258799612, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1956473815}
-    - targetCorrespondingSourceObject: {fileID: 8506152448258799612, guid: 007eb9503df005144b4309a66ab28325,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1956473816}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007eb9503df005144b4309a66ab28325, type: 3}
---- !u!1 &1956473813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8506152448258799612, guid: 007eb9503df005144b4309a66ab28325,
-    type: 3}
-  m_PrefabInstance: {fileID: 1956473812}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1956473814 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3904152718388775210, guid: 007eb9503df005144b4309a66ab28325,
-    type: 3}
-  m_PrefabInstance: {fileID: 1956473812}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1956473815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956473813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a69eabd3c7bc163459cdcc7021e8fb47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1956473814}
---- !u!114 &1956473816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956473813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSignal: {fileID: 11400000, guid: 6ff63fe5abcb510419f49446bfcd9dca, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1956473815}
-        m_TargetAssemblyTypeName: NpcController, Assembly-CSharp
-        m_MethodName: OnDialogueEnd
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1972051855
 PrefabInstance:
   m_ObjectHideFlags: 0
