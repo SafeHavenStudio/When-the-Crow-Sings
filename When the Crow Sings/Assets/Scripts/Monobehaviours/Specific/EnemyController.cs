@@ -105,6 +105,7 @@ public class EnemyController : StateMachineComponent,IService
         if (other.GetComponent<BirdBrain>())
         {
             stateMachine.Enter("EnemyStunnedState");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.EnemyStun, this.transform.position);
         }
     }
     public void SightConeTriggerExited(Collider other)

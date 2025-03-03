@@ -2805,6 +2805,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 622986805506065694}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53be2b27f84e63842ae669e6ab9caea1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5176386569543683469}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53be2b27f84e63842ae669e6ab9caea1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9133370823642593235}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53be2b27f84e63842ae669e6ab9caea1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2904263455428982727}
   m_SourcePrefab: {fileID: 100100000, guid: 53be2b27f84e63842ae669e6ab9caea1, type: 3}
 --- !u!1 &1200761164757412704 stripped
 GameObject:
@@ -2903,7 +2915,90 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 80
+  OverrideMaxDistance: 50
+--- !u!114 &5176386569543683469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200761164757412704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bcb721ad8897174f972acc5eff54884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Sound>k__BackingField:
+    Guid:
+      Data1: 1031390276
+      Data2: 1234201317
+      Data3: -892126578
+      Data4: -567333918
+    Path: event:/SFX/FinalMonsterGrumble
+  playOnAwake: 1
+  threeDSound: 1
+--- !u!114 &9133370823642593235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200761164757412704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1031390276
+      Data2: 1234201317
+      Data3: -892126578
+      Data4: -567333918
+    Path: event:/SFX/FinalMonsterGrumble
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 40
+--- !u!114 &2904263455428982727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200761164757412704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 455222594
+      Data2: 1329086905
+      Data3: 1518001326
+      Data4: -1395126331
+    Path: event:/SFX/FinalMonsterStunSound
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 50
 --- !u!4 &2009209367542591962 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53be2b27f84e63842ae669e6ab9caea1,
