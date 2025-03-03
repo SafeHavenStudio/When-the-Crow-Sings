@@ -90,6 +90,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4765354573328601106}
+    - targetCorrespondingSourceObject: {fileID: 1871268468053657312, guid: 35c799031750c6a4f91fe0f014671e1e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3427400595816138831}
+    - targetCorrespondingSourceObject: {fileID: 1871268468053657312, guid: 35c799031750c6a4f91fe0f014671e1e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 807664650165437125}
   m_SourcePrefab: {fileID: 100100000, guid: 35c799031750c6a4f91fe0f014671e1e, type: 3}
 --- !u!1 &1711665209033160820 stripped
 GameObject:
@@ -120,6 +128,47 @@ CapsuleCollider:
   m_Height: 4.861676
   m_Direction: 1
   m_Center: {x: 0, y: 1.9308381, z: 0}
+--- !u!114 &3427400595816138831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711665209033160820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69eabd3c7bc163459cdcc7021e8fb47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5374619001600984671}
+--- !u!114 &807664650165437125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711665209033160820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: 6ff63fe5abcb510419f49446bfcd9dca, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3427400595816138831}
+        m_TargetAssemblyTypeName: NpcController, Assembly-CSharp
+        m_MethodName: OnDialogueEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2056701219751109326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1347636687136234586, guid: 35c799031750c6a4f91fe0f014671e1e,
@@ -201,6 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4ab3976106c423e4d924e75af52bb329, type: 2}
     - target: {fileID: 5866666021909216657, guid: f42793838b816024d814c27fa52fc047,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: f42793838b816024d814c27fa52fc047,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 774ccc35e860b004b9ee5393e76ee873, type: 2}
@@ -217,6 +271,12 @@ PrefabInstance:
 --- !u!4 &2050922703099010085 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f42793838b816024d814c27fa52fc047,
+    type: 3}
+  m_PrefabInstance: {fileID: 2016748590646262734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5374619001600984671 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f42793838b816024d814c27fa52fc047,
     type: 3}
   m_PrefabInstance: {fileID: 2016748590646262734}
   m_PrefabAsset: {fileID: 0}
@@ -327,6 +387,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2056701219751109326}
     m_Modifications:
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3427400595816138831}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NpcAnimTalkStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NpcController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1899001456339989022, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_LocalPosition.y
