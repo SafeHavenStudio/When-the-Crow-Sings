@@ -140,19 +140,19 @@ public class StirringQTE : QuickTimeEvent
         {
             SucceedQTE();
             updateMusic();
+        }
 
-            //Checks if the qte was started and if it drops back to 0, fail, also start decaying
-            if (score > 0)
-            {
-                aboveZero = true;
-                StartCoroutine(decayDelay());
-            }
-            else if (score <= 0 && aboveZero == true)
-            {
-                aboveZero = false;
-                FailQTE();
-                updateMusic();
-            }
+        //Checks if the qte was started and if it drops back to 0, fail, also start decaying
+        if (score > 0)
+        {
+            aboveZero = true;
+            StartCoroutine(decayDelay());
+        }
+        else if (score <= 0 && aboveZero == true)
+        {
+            aboveZero = false;
+            FailQTE();
+            updateMusic();
         }
     }
 
