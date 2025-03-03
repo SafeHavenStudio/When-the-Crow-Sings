@@ -88,40 +88,40 @@ public class ScreenSettings : MonoBehaviour
 
 
     public void setBrightness(float brightnessIndex)
+    {
+        if (liftGammaGain != null)
         {
-            if (liftGammaGain != null)
-            {
-                liftGammaGain.gain.value = new Vector4(brightnessIndex, brightnessIndex, brightnessIndex, brightnessIndex);
-                volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
-                brightnessSlider.value = brightnessIndex;
-                PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
-                PlayerPrefs.Save();
-            }
-            else
-            {
-                Debug.LogError("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
-            }
-        }
-
-        public void setResolution(int resolutionIndex)
-        {
-            Resolution resolution = resolutions[resolutionIndex];
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        }
-
-        public void setQuality(int qualityIndex)
-        {
-            PlayerPrefs.SetInt("quality", qualityIndex);
+            liftGammaGain.gain.value = new Vector4(brightnessIndex, brightnessIndex, brightnessIndex, brightnessIndex);
+            volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
+            brightnessSlider.value = brightnessIndex;
+            PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
             PlayerPrefs.Save();
-
-            QualitySettings.SetQualityLevel(qualityIndex);
-
-            qualityDropdown.value = qualityIndex;
         }
-
-        public void setFullscreen(bool isFullscreen)
+        else
         {
-            Screen.fullScreen = isFullscreen;
+            Debug.LogError("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
         }
     }
+
+    public void setResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void setQuality(int qualityIndex)
+    {
+        PlayerPrefs.SetInt("quality", qualityIndex);
+        PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(qualityIndex);
+
+        qualityDropdown.value = qualityIndex;
+    }
+
+    public void setFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+}
 
