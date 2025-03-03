@@ -21,13 +21,13 @@ public class Interactable : MonoBehaviour
 
     public Transform playerSnapPoint;
 
+
     public void DoInteraction()
     {
         if (virtualCamera != null)
         {
             virtualCamera.Priority = 100;
         }
-
         // Would have been better to just use some polymorphism, ah well at least it's clear enough.
         if (GetComponent<DialogueInteractable>())
         {
@@ -60,6 +60,10 @@ public class Interactable : MonoBehaviour
         {
             GetComponent<FlagFlipperTrigger>().FlipFlag();
         }
+        else if (GetComponent<Cutscene3DInteractable>()) //3d cutscenes not 2d
+        {
+            GetComponent<Cutscene3DInteractable>().startCutscene();
+        }
         else if (GetComponent<CutsceneInteractable>())
         {
             GetComponent<CutsceneInteractable>().OnInteraction();
@@ -89,6 +93,4 @@ public class Interactable : MonoBehaviour
         //if (interactArrow != null)
         pfInteractArrow.enabled = enabledOrDisabled;
     }
-
-    
 }

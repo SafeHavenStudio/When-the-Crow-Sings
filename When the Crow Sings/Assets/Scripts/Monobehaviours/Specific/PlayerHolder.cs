@@ -5,4 +5,5 @@ using UnityEngine;
 public class PlayerHolder : MonoBehaviour
 {
     public GameObject playerContent;
+    public GameObject playerVirtualCameraFollowPoint;
 }
