@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class StirringQTE : QuickTimeEvent
 {
@@ -51,6 +52,8 @@ public class StirringQTE : QuickTimeEvent
     //public QTEInteractable qteInteractable;
     public Slider slider;
 
+    private EventInstance FishingReelSound;
+
     public enum QTETYPES
     {
         isSoup,
@@ -65,10 +68,30 @@ public class StirringQTE : QuickTimeEvent
 
     private void Start()
     {
-        if(type == QTETYPES.isFishing)
-        cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
+        if (type == QTETYPES.isFishing)
+        {
+            FishingReelSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.FishingReel);
+            cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
+            updateMusic();
+        }
 
         StartQTEFr();
+    }
+
+    private void updateMusic()
+    {
+        PLAYBACK_STATE playbackState;
+        FishingReelSound.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            FishingReelSound.start();
+            Debug.Log("Starting main menu theme");
+        }
+        else
+        {
+            FishingReelSound.stop(STOP_MODE.ALLOWFADEOUT);
+            Debug.Log("Stopping main menu theme");
+        }
     }
 
     public void StartQTEFr()
@@ -116,6 +139,7 @@ public class StirringQTE : QuickTimeEvent
         if (score >= slider.maxValue && firstTime)
         {
             SucceedQTE();
+            updateMusic();
         }
 
         //Checks if the qte was started and if it drops back to 0, fail, also start decaying
@@ -128,6 +152,7 @@ public class StirringQTE : QuickTimeEvent
         {
             aboveZero = false;
             FailQTE();
+            updateMusic();
         }
     }
 
