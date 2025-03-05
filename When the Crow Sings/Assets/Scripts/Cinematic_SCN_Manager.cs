@@ -51,7 +51,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
 
-                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
+                mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[2];
                 break;
             case DesiredBehavior.CUTSCENE_ENDING_0:
                 cutscenes[2].SetActive(true);
