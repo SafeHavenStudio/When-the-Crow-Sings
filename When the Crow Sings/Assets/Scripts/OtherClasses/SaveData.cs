@@ -17,6 +17,7 @@ public class SaveData
         { "IntroContextSeen",false },
         { "NightIntroSeen",false },
         { "NightCutsceneSeen",false },
+        { "CutsceneTime",false },
 
         { "HasThrownBirdseed",false },
         { "HasSpawnedAtLodgingNight",false },
