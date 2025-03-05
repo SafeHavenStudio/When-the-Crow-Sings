@@ -20,11 +20,14 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference MenuClick { get; private set; }
     [field: Header("SFX")]
     [field: SerializeField] public EventReference Swirl { get; private set; }
+    [field: SerializeField] public EventReference FishingReel { get; private set; }
     [field: SerializeField] public EventReference ItemCollect { get; private set; }
     [field: SerializeField] public EventReference WoodenDoor { get; private set; }
     [field: SerializeField] public EventReference FenceGate { get; private set; }
     [field: SerializeField] public EventReference BookClose { get; private set; }
     [field: SerializeField] public EventReference PageFlip { get; private set; }
+    [field: SerializeField] public EventReference Death { get; private set; }
+    [field: SerializeField] public EventReference EnemyStun { get; private set; }
     [field: Header("Dialogue Sounds")]
     [field: SerializeField] public EventReference Blip { get; private set; }
     [field: SerializeField] public EventReference ChanceBlip { get; private set; }

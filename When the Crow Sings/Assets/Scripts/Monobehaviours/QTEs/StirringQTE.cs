@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class StirringQTE : QuickTimeEvent
 {
-
     public GameObject displayBox;
     private int currentStep = 0;
     private int RightCurrentStep = 0;
@@ -21,6 +21,7 @@ public class StirringQTE : QuickTimeEvent
     private bool firstTime = true;
     [HideInInspector] public bool failed = false;
     private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
+    private Cutscene3DInteractable cutsceneInteractable;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -51,6 +52,8 @@ public class StirringQTE : QuickTimeEvent
     //public QTEInteractable qteInteractable;
     public Slider slider;
 
+    private EventInstance FishingReelSound;
+
     public enum QTETYPES
     {
         isSoup,
@@ -65,9 +68,35 @@ public class StirringQTE : QuickTimeEvent
 
     private void Start()
     {
-        StartCoroutine(randomizeInput());
+        if (type == QTETYPES.isFishing)
+        {
+            FishingReelSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.FishingReel);
+            cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
+            updateMusic();
+        }
 
-        //qteInteractable = FindObjectOfType<QTEInteractable>();
+        StartQTEFr();
+    }
+
+    private void updateMusic()
+    {
+        PLAYBACK_STATE playbackState;
+        FishingReelSound.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            FishingReelSound.start();
+            Debug.Log("Starting main menu theme");
+        }
+        else
+        {
+            FishingReelSound.stop(STOP_MODE.ALLOWFADEOUT);
+            Debug.Log("Stopping main menu theme");
+        }
+    }
+
+    public void StartQTEFr()
+    {
+        StartCoroutine(randomizeInput());
 
         slider = GetComponentInChildren<Slider>();
 
@@ -110,6 +139,7 @@ public class StirringQTE : QuickTimeEvent
         if (score >= slider.maxValue && firstTime)
         {
             SucceedQTE();
+            updateMusic();
         }
 
         //Checks if the qte was started and if it drops back to 0, fail, also start decaying
@@ -122,6 +152,7 @@ public class StirringQTE : QuickTimeEvent
         {
             aboveZero = false;
             FailQTE();
+            updateMusic();
         }
     }
 
@@ -141,6 +172,11 @@ public class StirringQTE : QuickTimeEvent
         globalFinishedQteSignal.Emit(args);
         Debug.Log("QTE COMPLETE");
         firstTime = true;
+
+        if (type == QTETYPES.isFishing)
+        {
+            cutsceneInteractable.FinishCutscene();
+        }
     }
 
     private IEnumerator waitBeforeFail()
@@ -152,6 +188,11 @@ public class StirringQTE : QuickTimeEvent
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
         firstTime = true;
+
+        if (type == QTETYPES.isFishing)
+        {
+            cutsceneInteractable.FinishCutscene();
+        }
     }
 
     private void UpdateTimer(float currentTime)
@@ -189,7 +230,7 @@ public class StirringQTE : QuickTimeEvent
         sKey.enabled = false;
         dKey.enabled = false;
 
-        Image[] keyDirection = { wKey, aKey, sKey, dKey };
+        Image[] keyDirection = { upJoystick, rightJoystick, downJoystick, leftJoystick };
 
         foreach (var key in keyDirection)
         {
@@ -295,30 +336,19 @@ public class StirringQTE : QuickTimeEvent
         }
     }
 
-        private void CheckJoystickInput()
+    private void CheckJoystickInput()
     {
         Vector2 expectedDirection = joystickSequence[currentStep];
         Vector2 joystickInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector2 rightJoystickInput = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
         Vector2 rightJoystickHold = RightJoystickSequence[RightCurrentStep];
 
-        //Debug.Log($"Right joystick input: {rightJoystickInput})");
+        bool isRightJoystickHeld = (Vector2.Dot(rightJoystickInput.normalized, rightJoystickHold) > inputThreshold) && (rightJoystickInput.magnitude > inputThreshold);
 
-        if (Vector2.Dot(joystickInput.normalized, expectedDirection) > inputThreshold)
+        // Normal case: check left joystick input only
+        if (type != QTETYPES.isFishing)
         {
-                correctKey = true;
-                KeyPressFeedback();
-
-                if (type == QTETYPES.isSoup)
-            {
-                    soundIndex++;
-                    if (soundIndex % 22 == 0) //plays it every 22nd press
-                        AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
-                }
-        }
-        else if (type == QTETYPES.isFishing)
-        {
-            if (Vector2.Dot(rightJoystickInput.normalized, rightJoystickHold) > inputThreshold)
+            if (Vector2.Dot(joystickInput.normalized, expectedDirection) > inputThreshold)
             {
                 correctKey = true;
                 KeyPressFeedback();
@@ -326,12 +356,24 @@ public class StirringQTE : QuickTimeEvent
                 if (type == QTETYPES.isSoup)
                 {
                     soundIndex++;
-                    if (soundIndex % 22 == 0) //plays it every 22nd press
+                    if (soundIndex % 22 == 0) // Plays it every 22nd press
                         AudioManager.instance.PlayOneShot(FMODEvents.instance.Swirl);
                 }
             }
-        }  
-    }
+        }
+        else // Special case for fishing QTE
+        {
+            if (isRightJoystickHeld) // Right joystick must be held before checking left joystick input
+            {
+                if (Vector2.Dot(joystickInput.normalized, expectedDirection) > inputThreshold)
+                {
+                    correctKey = true;
+                    KeyPressFeedback();
+                }
+            }
+        }
+    }  
+    
 
     private void KeyPressFeedback()
     {

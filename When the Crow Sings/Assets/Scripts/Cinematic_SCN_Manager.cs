@@ -28,6 +28,9 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     {
         desiredBehavior = _desiredBehavior;
         Debug.Log("Load() Desired behavior is " + desiredBehavior.ToString());
+        if (desiredBehavior == DesiredBehavior.GAME_OVER)
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.Death);
+
         SceneManager.LoadScene("Cinematic_SCN"); // Not using a scenereference because it'll only ever be this one spot.
     }
 
@@ -43,6 +46,8 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
                 break;
             case DesiredBehavior.CUTSCENE_NIGHT1:
+                SaveDataAccess.saveData.boolFlags["NightCutsceneSeen"] = true;
+                
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
 

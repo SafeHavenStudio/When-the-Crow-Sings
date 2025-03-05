@@ -25,6 +25,94 @@ Yeesh, the path here was awful, all these torn down gates. How can someone live 
 set MFResidentialTag = false;
 => ending_call
 
+~ bike_1
+A mangled up bike, with chipping paint and faded stickers. Must've belonged to a little kid..
+There's a helmet nearby too, but it's got weeds growing out of it now. At least they practiced safe biking, or whatever.
+=> END
+
+~ bike_2
+This bike is totally wrecked. Half of it is in the ground, and the other half is tore up by big gnarly gauges. One of the handlebars could it'd give me tetanus just by looking at it wrong.
+=> END
+
+~ bike_3
+A half buried bike.
+I bet people liked riding around out here, before this place got closed off and that big creature started lurking around at night..
+=> END
+
+~ bike_4
+An unburied bike that doesn't look half bad.
+I wonder if whoever owned it also owned this grill.
+... I wonder if it still works.<color=#813408>Angel</color>'s soup is fine, but something like some grilled fish? That sounds amazing right now..
+=> END
+
+~ grill
+if GrillKnown == true:
+	I'm not touching that thing again. We've got enough problems around here, Zombie <color=#813408>Chance</color> doesn't need to get added to the list.
+	=> END
+else:
+	It's grillin' time, baby! Let me just..
+	Oh my god. What is that smell?
+	They must've really been out of here in a hurry, because that is the nastiest looking sausage I've ever seen.
+	I should probably close the lid before that thing turns me into a zombie or something.
+	set GrillKnown = true;
+	=> ending_call
+
+~ penguin_game
+Looks like we had a little soccer action going on here.. Soccer ball, crate goal, some numbers for the score..
+Penguins were winning a landslide of 3 to 1.
+An ice-slide? An avalanche?.. Whatever. Go penguins! Suck it, not penguins!
+=> END
+
+~ telescope_dir
+if timeOfDay == 1:
+	=> telescope_day
+if timeOfDay == 2:
+	=> telescope_afternoon
+if timeOfDay == 3:
+	=> telescope_night
+else:
+	wow you broke time again. way to go, dumbass
+	=> END
+
+~ telescope_day
+if telescopeday == 0:
+	Woah, nice telescope. It's got some scribbles on the sides though, maybe some vandals got to it.
+	I want to look into it, but I don't think I'd be able to see anything that isn't just blue at this time of day.
+	set telescopeday += 1;
+	=> ending_call
+if telescopeday == 1:
+	Well.. Maybe just a peek..
+	Looking at the sky like this is kind of relaxing. If it didn't hurt my eyes, I'd keep on doing it. But it does, so I'm gonna stop.
+	set telescopeday += 1;
+	=> ending_call
+else:
+	Yeah, I think my eyes are good on this for now.
+	=> END
+
+~ telescope_afternoon
+if telescopenoon == 0:
+	OW, THE SUN!
+	Yep, that is THE SUN.
+	Maybe I should stop looking at THE SUN through a damn TELESCOPE pointed DIRECTLY AT IT.
+	set telescopenoon += 1;
+	=> ending_call
+if telescopenoon == 1:
+	THE PAIN.
+	OH, THE MISERY!
+	WHY WOULD I DO THIS, AGAIN?!?!
+	set telescopenoon += 1;
+	=> ending_call
+else:
+	No, I can't do that again.. not right now.. maybe when it's night time. Unless I want to go blind, for some reason..
+	=> END
+
+
+~ telescope_night
+It's a little tough to make out at first due to the streetlamps, but I can make out a little constellation..
+Actually, it matches the drawing on the side of the telescope, like a little trapezoid with a tail.
+The drawing is labelled "corvus".
+=> END
+
 ~ ending_call
 call SaveGameToDisk();
 => END

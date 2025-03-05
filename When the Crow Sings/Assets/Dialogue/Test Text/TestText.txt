@@ -1,3 +1,39 @@
+~ dialogue_choice_bug_fixing
+=> dialogue_choice_bug_fixing_save_data_condition
+
+~ dialogue_choice_bug_fixing_straightforward
+Let's check things out.
+- Choice 1
+	Hey
+- Choice 2
+	Hey
+Here's some text breaking things up.
+- Choice 3
+	Hey
+- Choice 4
+	Hey
+- Choice 5
+	Hey
+=> END
+
+
+~ dialogue_choice_bug_fixing_save_data_condition
+This is it.
+if SceneStructureFlag == true:
+	- Choice 1
+		You chose 1.
+	- Choice 2
+		You chose 2.
+else:
+	- Choice 3
+		You chose 3.
+	- Choice 4
+		You chose 4.
+	- Choice 5
+		You chose 5.
+=> END
+
+
 ~ blank_portrait
 Chance: Hey, I'm talking.
 Chance_NOPORTRAIT: Hey, I'm talking where did I go?
