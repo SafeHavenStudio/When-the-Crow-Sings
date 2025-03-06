@@ -153,6 +153,7 @@ Quinn_Thinking: Uhhh, I totally asked you to do something.
 
 ~ quinn_task_fin
 set QuinnBaseCompleted = true;
+set ForestCanBeEntered = true;
 set MFYuleTag = true;
 set MFQuinnTC = false;
 set HFQuinnBC = true;
@@ -174,6 +175,7 @@ else:
 ~ curfew_check
 if timeOfDay == 2:
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	set CutsceneTime = true;
 	=> time_forward
 else:
 	=> time_forward
@@ -197,8 +199,11 @@ Should I spend time talking to <color=#813408>Quinn</color> right now?
 if QuinnBB == 0:
 	=> Q0
 else:
-	No more byeeee
-	=> END
+	set QuinnExhausted = true;
+	Quinn_Smile: I've loved our chats, dude.
+	Quinn_Worried: But I've got work to do, with winter coming up. I need some me time.
+	Quinn: You get it.
+	=> ending_call
 
 ~ BBEnd
 set QuinnBB += 1;

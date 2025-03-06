@@ -197,6 +197,19 @@ call ReloadScene(1);
 call SaveGameToDisk();
 => END
 
+~ BBEnd
+set YuleBB += 1;
+=> ending_call
+
 ~ yule_beyond_base
-This guy doesn't talk much, I'm gonna fuck off.
-=> END
+Do I want to chat with Yule some more?
+- Yeah
+	=> yule_beyond_base_directory
+- Nah
+	=> END
+
+~ yule_beyond_base_directory
+set YuleExhausted = true;
+Yule_Smile: I've really enjoyed talking with you.
+Yule_Sad: But I think I could use a nap.. Hibernation is just around the corner, you know.
+=> ending_call

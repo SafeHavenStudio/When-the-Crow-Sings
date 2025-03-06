@@ -55,6 +55,7 @@ There is the sound of hushing and fussing on the other side of the door. Best to
 
 ~ jazmyne_task_fin
 set JazmyneBaseCompleted = true;
+set QuarryCanBeEntered = true;
 set RecCenterDoorUnlocked = true;
 set WoodPileMovable = true;
 set MFTheodoreTag = true;
@@ -93,6 +94,7 @@ else:
 ~ curfew_check
 if timeOfDay == 2:
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	set CutsceneTime = true;
 	=> time_forward
 else:
 	=> time_forward
@@ -106,5 +108,17 @@ call SaveGameToDisk();
 => END
 
 ~ jazmyne_beyond_base
-Dialogue has been exhausted.
-=> END
+Do I want to Jazmyne right now?
+- Yep
+	=> jazmyne_beyond_base_directory
+- No
+	=> END
+
+~ BBEnd
+set JazmyneBB += 1;
+=> ending_call
+
+~ jazmyne_beyond_base_directory
+set JazmyneExhausted = true;
+Jazmyne_Exhausted: I appreciate your interest, but I'm very.. very tired. I'm going to rest while the little ones are out of my fur.
+=> ending_call
