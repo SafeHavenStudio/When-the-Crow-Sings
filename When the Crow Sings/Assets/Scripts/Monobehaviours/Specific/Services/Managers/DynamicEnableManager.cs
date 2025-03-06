@@ -7,6 +7,7 @@ public class DynamicEnableManager : MonoBehaviour, IService
     [HideInInspector]
     public List<DynamicEnable> dynamicEnables = new List<DynamicEnable>();
 
+    public GameStateManager gameStateManager;
 
     private void Awake()
     {
