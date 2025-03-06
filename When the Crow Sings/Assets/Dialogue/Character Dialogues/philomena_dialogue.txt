@@ -106,8 +106,9 @@ if PhilBB == 2:
 if PhilBB == 3:
 	=> P3
 else:
-	No more!
-	=> END
+	set PhilomenaExhausted = true;
+	Phil_Sigh: Thank you for talking to me so much, but I'm a bit tired of all of the chatting..
+	=> ending_call
 
 ~ BBEnd
 set PhilBB += 1;

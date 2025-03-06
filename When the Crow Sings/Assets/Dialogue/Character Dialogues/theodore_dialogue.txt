@@ -167,8 +167,9 @@ if TheodoreBB == 1:
 if TheodoreBB == 2:
 	=> T2
 else:
-	No more!
-	=> END
+	set TheodoreExhausted = true;
+	Theodore_Annoyed: Look I've had just about enough of you in my feathers. Go bother someone else.
+	=> ending_call
 
 ~ BBEnd
 set TheodoreBB += 1;

@@ -155,8 +155,10 @@ if AngelBB == 2:
 if AngelBB == 3:
 	=> A3
 else:
-	all done!
-	=> END
+	set AngelExhausted = true;
+	Angel_Worried: I've enjoyed chatting with you, but I have some things to do.
+	Angel_Smile: Maybe we can talk another time!
+	=> ending_call
 
 ~ BBend
 set AngelBB += 1;

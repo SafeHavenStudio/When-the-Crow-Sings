@@ -160,6 +160,7 @@ Farida: The clipboard I gave you is blank. Is the pen out of ink? Do you need gl
 ~ farida_task_fin
 set FaridaBaseCompleted = true;
 set ClinicDoorUnlocked = true;
+set ResidentialCanBeEntered = true;
 if FaridaTaskWhen == 3:
 	=> farida_task_fin_night
 else:
@@ -224,6 +225,7 @@ else:
 ~ curfew_check
 if timeOfDay == 2:
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
+	set CutsceneTime = true;
 	=> time_forward
 else:
 	=> time_forward
@@ -247,8 +249,10 @@ Do I want to talk to <color=#813408>Farida</color> right now?
 if FaridaBB == 0:
 	=> F0
 else:
-	All done!
-	=> END
+	set FaridaExhausted = true;
+	Farida_Annoyed: While I've loved being pestered ad nauseum, I really have work to do.
+	Farida_Exhausted: ... Go find someone else to talk to.
+	=> ending_call
 
 ~ BBEnd
 set FaridaBB += 1;

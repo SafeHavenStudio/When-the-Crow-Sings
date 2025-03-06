@@ -17,6 +17,7 @@ public class SaveData
         { "IntroContextSeen",false },
         { "NightIntroSeen",false },
         { "NightCutsceneSeen",false },
+        { "CutsceneTime",false },
 
         { "HasThrownBirdseed",false },
         { "HasSpawnedAtLodgingNight",false },
@@ -145,6 +146,10 @@ public class SaveData
         { "Zone3DoorUnlocked",false },
         { "Zone4DoorUnlocked",false },
         { "TheoPickaxe",false },
+        { "ForestCanBeEntered", false },
+        { "QuarryCanBeEntered", false },
+        { "ResidentialCanBeEntered", false },
+        { "PowerStationCanBeEntered", false },
         { "TheodoreHole",false },
         { "QuarryEntered", false},
         { "PowerStationEntered", false},
@@ -162,6 +167,18 @@ public class SaveData
         { "NeutralEnding2",false },
         { "NeutralEnding3",false },
         { "BadEnding",true },
+
+        //Codex relevant flags
+        {"AngelHasBeenHeardOf",true },
+        {"BeauHasBeenHeardOf",false },
+        {"CalebHasBeenHeardOf",false },
+        {"QuinnHasBeenHeardOf",false },
+        {"JazmyneHasBeenHeardOf",false },
+        {"FaridaHasBeenHeardOf",false },
+        {"FranciscoHasBeenHeardOf",false },
+        {"TheodoreHasBeenHeardOf",false },
+        {"PhilomenaHasBeenHeardOf",false },
+        {"YuleHasBeenHeardOf",false },
 
         //Map relevant flags
         { "MFAngelTag",true },
