@@ -46,15 +46,19 @@ public class DynamicEnableManager : MonoBehaviour, IService
                     else throw new System.Exception("Associated data key for " + i.ToString() + " is not valid!");
                     break;
             }
-            if (newValue == false
-                && i.gameObject.activeInHierarchy
-                && gameStateManager.canLoad
-                && i.playPickupSoundOnDisable)
-            {
-                AudioManager.instance.PlayOneShot(FMODEvents.instance.ItemCollect);
-                Debug.Log("Play 'pickup' sound");
-            }
+            CheckIfPickupSoundShouldPlay(i, newValue);
             i.gameObject.SetActive(newValue);
+        }
+    }
+
+    private void CheckIfPickupSoundShouldPlay(DynamicEnable i, bool newValue)
+    {
+        if (newValue == false
+            && i.gameObject.activeInHierarchy
+            && gameStateManager.canLoad
+            && i.playPickupSoundOnDisable)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.ItemCollect);
         }
     }
 }
