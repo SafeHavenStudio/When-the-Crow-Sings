@@ -1,13 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
+using System;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ScreenSettings : MonoBehaviour
 {
@@ -19,6 +16,22 @@ public class ScreenSettings : MonoBehaviour
     public LiftGammaGain liftGammaGain;
 
     private void Start()
+    {
+        CheckForNullVariables();
+        PopulateResolutions();
+        GetAndSetSavedSettings();
+    }
+
+    private void GetAndSetSavedSettings()
+    {
+        int savedQuality = PlayerPrefs.GetInt("quality", 0);
+        QualitySettings.SetQualityLevel(savedQuality);
+        qualityDropdown.value = savedQuality;
+
+        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
+    }
+
+    private void CheckForNullVariables()
     {
         volume = FindObjectOfType<Volume>();
 
@@ -44,84 +57,75 @@ public class ScreenSettings : MonoBehaviour
         {
             Debug.LogError("Failed to find LiftGammaGain. Ensure the effect is added to your Volume Profile.");
         }
-
-        populateResolutions();
-
-        int savedQuality = PlayerPrefs.GetInt("quality", 0);
-        QualitySettings.SetQualityLevel(savedQuality);
-        qualityDropdown.value = savedQuality;
-
-        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
     }
 
-    public void populateResolutions()
+    public void PopulateResolutions()
     {
-        resolutionDropdown.ClearOptions();
-        resolutions.Clear();
+        //resolutionDropdown.ClearOptions();
+        //resolutions.Clear();
 
-        Resolution[] allResolutions = Screen.resolutions;
-        List<string> options = new List<string>();
+        //Resolution[] allResolutions = Screen.resolutions;
+        //List<string> options = new List<string>();
 
-        foreach (Resolution res in allResolutions)
-        {
-            float aspectRatio = (float)res.width / res.height;
-            string resString = res.width + " x " + res.height;
+        //foreach (Resolution res in allResolutions)
+        //{
+        //    float aspectRatio = (float)res.width / res.height;
+        //    string resString = res.width + " x " + res.height;
 
-            //Only include 16:9 resolutions
-            if (Mathf.Approximately(aspectRatio, 16f / 9f))
-            {
-                resolutions.Add(res);
-                options.Add(resString);
-            }
-        }
+        //    //Only include 16:9 resolutions
+        //    if (Mathf.Approximately(aspectRatio, 16f / 9f))
+        //    {
+        //        resolutions.Add(res);
+        //        options.Add(resString);
+        //    }
+        //}
 
-        //Add all collected options at once (outside the loop)
-        resolutionDropdown.AddOptions(options);
+        ////Add all collected options at once (outside the loop)
+        //resolutionDropdown.AddOptions(options);
 
-        //Ensure the dropdown updates correctly
-        resolutionDropdown.RefreshShownValue();
+        ////Ensure the dropdown updates correctly
+        //resolutionDropdown.RefreshShownValue();
 
-        //Attach listener only once
-        resolutionDropdown.onValueChanged.RemoveAllListeners();
-        resolutionDropdown.onValueChanged.AddListener(setResolution);
+        ////Attach listener only once
+        //resolutionDropdown.onValueChanged.RemoveAllListeners();
+        //resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
 
 
-    public void setBrightness(float brightnessIndex)
+    public void SetBrightness(float _brightnessIndex)
+    {
+        if (liftGammaGain != null)
         {
-            if (liftGammaGain != null)
-            {
-                liftGammaGain.gain.value = new Vector4(brightnessIndex, brightnessIndex, brightnessIndex, brightnessIndex);
-                volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
-                brightnessSlider.value = brightnessIndex;
-                PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
-                PlayerPrefs.Save();
-            }
-            else
-            {
-                Debug.LogError("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
-            }
-        }
-
-        public void setResolution(int resolutionIndex)
-        {
-            Resolution resolution = resolutions[resolutionIndex];
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        }
-
-        public void setQuality(int qualityIndex)
-        {
-            PlayerPrefs.SetInt("quality", qualityIndex);
+            liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
+            volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
+            brightnessSlider.value = _brightnessIndex;
+            PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
             PlayerPrefs.Save();
-
-            QualitySettings.SetQualityLevel(qualityIndex);
-
-            qualityDropdown.value = qualityIndex;
         }
-
-        public void setFullscreen(bool isFullscreen)
+        else
         {
-            Screen.fullScreen = isFullscreen;
+            throw new Exception("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
         }
     }
+
+    public void SetResolution(int _resolutionIndex)
+    {
+        Resolution _resolution = resolutions[_resolutionIndex];
+        Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int _qualityIndex)
+    {
+        PlayerPrefs.SetInt("quality", _qualityIndex);
+        PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(_qualityIndex);
+        qualityDropdown.value = _qualityIndex;
+    }
+
+    public void SetFullscreen(bool _isFullscreen)
+    {
+        Screen.fullScreen = _isFullscreen;
+    }
+}
 
