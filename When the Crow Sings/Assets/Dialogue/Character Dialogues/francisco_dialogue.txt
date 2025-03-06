@@ -304,8 +304,11 @@ if FranciscoBB == 0:
 if FranciscoBB == 1:
 	=> F1
 else:
-	No more! All gone!
-	=> END
+	set FranciscoExhausted = true;
+	Francisco_Excited: I've enjoyed our discussions, Chance. 
+	Francisco: Unfortunately I do have a bit of maintenance and paperwork to do! We shall talk again later.
+	=> ending_call
+
 
 ~ BBEnd
 set FranciscoBB += 1;

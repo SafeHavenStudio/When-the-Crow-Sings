@@ -248,8 +248,10 @@ Do I want to talk to <color=#813408>Farida</color> right now?
 if FaridaBB == 0:
 	=> F0
 else:
-	All done!
-	=> END
+	set FaridaExhausted = true;
+	Farida_Annoyed: While I've loved being pestered ad nauseum, I really have work to do.
+	Farida_Exhausted: ... Go find someone else to talk to.
+	=> ending_call
 
 ~ BBEnd
 set FaridaBB += 1;

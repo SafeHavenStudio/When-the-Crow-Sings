@@ -107,5 +107,17 @@ call SaveGameToDisk();
 => END
 
 ~ jazmyne_beyond_base
-Dialogue has been exhausted.
-=> END
+Do I want to Jazmyne right now?
+- Yep
+	=> jazmyne_beyond_base_directory
+- No
+	=> END
+
+~ BBEnd
+set JazmyneBB += 1;
+=> ending_call
+
+~ jazmyne_beyond_base_directory
+set JazmyneExhausted = true;
+Jazmyne_Exhausted: I appreciate your interest, but I'm very.. very tired. I'm going to rest while the little ones are out of my fur.
+=> ending_call

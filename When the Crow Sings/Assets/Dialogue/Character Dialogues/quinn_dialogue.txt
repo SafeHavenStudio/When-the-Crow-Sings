@@ -198,8 +198,11 @@ Should I spend time talking to <color=#813408>Quinn</color> right now?
 if QuinnBB == 0:
 	=> Q0
 else:
-	No more byeeee
-	=> END
+	set QuinnExhausted = true;
+	Quinn_Smile: I've loved our chats, dude.
+	Quinn_Worried: But I've got work to do, with winter coming up. I need some me time.
+	Quinn: You get it.
+	=> ending_call
 
 ~ BBEnd
 set QuinnBB += 1;
