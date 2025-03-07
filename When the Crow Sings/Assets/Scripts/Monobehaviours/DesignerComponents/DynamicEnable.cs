@@ -20,10 +20,11 @@ public class DynamicEnable : MonoBehaviour
 
     private void Start()
     {
-        ServiceLocator.Get<DynamicEnableManager>().dynamicEnables.Add(this);
+        ServiceLocator.Get<DynamicEnableManager>().RegisterDynamicEnable(this);
+
     }
     private void OnDestroy()
     {
-        ServiceLocator.Get<DynamicEnableManager>().dynamicEnables.Remove(this);
+        ServiceLocator.Get<DynamicEnableManager>().UnregisterDynamicEnable(this);
     }
 }
