@@ -14011,8 +14011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d9420af2de3574aae05ef0a8da07a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dynamicEnables: []
-  gameStateManager: {fileID: 8806014526471703756}
   imagePopupUi: {fileID: 1513933470}
 --- !u!114 &943808692
 MonoBehaviour:
@@ -28259,6 +28257,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648808738}
   m_CullTransparentMesh: 1
+--- !u!1 &1649284041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649284042}
+  - component: {fileID: 1649284043}
+  m_Layer: 0
+  m_Name: DynamicEnableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1649284042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649284041}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1381248603434131218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649284043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649284041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9831fccffa4f5e844ba74b66e00c6213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicEnables: []
+  gameStateManager: {fileID: 8806014526471703756}
 --- !u!1001 &1663716640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36473,6 +36517,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 943808688}
+  - {fileID: 1649284042}
   - {fileID: 1310132085}
   - {fileID: 1298680168}
   - {fileID: 3371352484493669805}
