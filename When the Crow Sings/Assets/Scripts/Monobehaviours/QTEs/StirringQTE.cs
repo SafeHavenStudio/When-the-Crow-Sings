@@ -85,12 +85,10 @@ public class StirringQTE : QuickTimeEvent
         if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
         {
             FishingReelSound.start();
-            Debug.Log("Starting main menu theme");
         }
         else
         {
             FishingReelSound.stop(STOP_MODE.ALLOWFADEOUT);
-            Debug.Log("Stopping main menu theme");
         }
     }
 

@@ -44,7 +44,7 @@ public class PlayFootsteps : MonoBehaviour
                     if (material != null && material.mainTexture is Texture2D texture)
                     {
                         string textureName = texture.name.ToLower();
-                        Debug.Log("Detected Texture: " + textureName);
+                        //Debug.Log("Detected Texture: " + textureName);
                         AssignFootstepSound(textureName);
                     }
                 }
@@ -53,7 +53,7 @@ public class PlayFootsteps : MonoBehaviour
         else
         {
             Debug.DrawRay(transform.position, Vector3.down * maxDistance, Color.red);
-            Debug.Log("No texture detected, using default footsteps.");
+            //Debug.Log("No texture detected, using default footsteps.");
             SelectedFootsteps = DefaultFootsteps;
         }
     }
@@ -89,7 +89,7 @@ public class PlayFootsteps : MonoBehaviour
         if (terrainData.terrainLayers.Length > textureIndex)
         {
             string textureName = terrainData.terrainLayers[textureIndex].diffuseTexture.name.ToLower();
-            Debug.Log("Terrain texture detected: " + textureName);
+            //Debug.Log("Terrain texture detected: " + textureName);
 
             switch (textureName)
             {
@@ -118,14 +118,14 @@ public class PlayFootsteps : MonoBehaviour
                     break;
                 default:
                     SelectedFootsteps = DefaultFootsteps;
-                    Debug.Log("Unknown terrain texture, using default footsteps.");
+                    //Debug.Log("Unknown terrain texture, using default footsteps.");
                     break;
             }
         }
         else
         {
             SelectedFootsteps = DefaultFootsteps;
-            Debug.Log("Invalid texture index, using default footsteps.");
+            //Debug.Log("Invalid texture index, using default footsteps.");
         }
     }
 
@@ -158,7 +158,7 @@ public class PlayFootsteps : MonoBehaviour
                 break;
             default:
                 SelectedFootsteps = DefaultFootsteps;
-                Debug.Log("Unknown terrain texture, using default footsteps.");
+                //Debug.Log("Unknown terrain texture, using default footsteps.");
                 break;
         }
     }
