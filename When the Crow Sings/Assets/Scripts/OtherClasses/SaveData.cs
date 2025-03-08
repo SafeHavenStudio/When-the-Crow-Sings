@@ -20,7 +20,7 @@ public class SaveData
         { "CutsceneTime",false },
 
         { "HasThrownBirdseed",false },
-        { "HasSpawnedAtLodgingNight",false },
+        { "HasSpawnedAtLodgingNight",true },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
@@ -42,6 +42,7 @@ public class SaveData
         { "CalebTaskOn",false },
         { "CalebBaseCompleted",false },
         { "CalebExhausted",false },
+        { "dirtoff", false },
 
         { "FaridaIntroduction",false },
         { "FaridaTaskOffered",false },
@@ -101,6 +102,7 @@ public class SaveData
         { "PhilBatt1",false },
         { "PhilBatt2",false },
         { "PhilCasette",false },
+        { "radiooff",false },
         { "PhilomenaTaskPartCompleted",false },
         { "PhilomenaTaskCompleted",false },
         { "PhilomenaTaskOn",false },
