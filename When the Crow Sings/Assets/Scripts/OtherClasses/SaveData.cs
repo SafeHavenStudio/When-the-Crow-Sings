@@ -20,7 +20,7 @@ public class SaveData
         { "CutsceneTime",false },
 
         { "HasThrownBirdseed",false },
-        { "HasSpawnedAtLodgingNight",false },
+        { "HasSpawnedAtLodgingNight",true },
 
         { "AngelTaskOffered",false },
         { "AngelTaskAccepted",false },
