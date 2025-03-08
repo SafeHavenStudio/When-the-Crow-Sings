@@ -42,6 +42,7 @@ public class SaveData
         { "CalebTaskOn",false },
         { "CalebBaseCompleted",false },
         { "CalebExhausted",false },
+        { "dirtoff", false },
 
         { "FaridaIntroduction",false },
         { "FaridaTaskOffered",false },
