@@ -102,6 +102,7 @@ public class SaveData
         { "PhilBatt1",false },
         { "PhilBatt2",false },
         { "PhilCasette",false },
+        { "radiooff",false },
         { "PhilomenaTaskPartCompleted",false },
         { "PhilomenaTaskCompleted",false },
         { "PhilomenaTaskOn",false },
