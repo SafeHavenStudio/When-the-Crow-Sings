@@ -151,9 +151,13 @@ set IntroContextSeen = true;
 
 ~night_intro
 I need to try and steer clear of the <color=#a11bbe>big guy</color>..
-There are lot of crows out right now, maybe if he spots me I can use some of my trail mix to call them down and keep him off my tail.
+if HasThrownBirdseed == false:
+	There are a ton of crows outside right now.. maybe if I use some of bird seed stash I can get them to flock down, get in his way or something.
+else:
+	There are a ton of crows out right now.. They were super into my bird seed earlier, I bet with this many I might be able to keep him off my tail if he spots me.
 set NightCutsceneSeen = true;
 set NightIntroSeen = true;
+set CutsceneTime = false;
 => ending_call
 
  

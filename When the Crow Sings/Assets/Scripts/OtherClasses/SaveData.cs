@@ -52,6 +52,7 @@ public class SaveData
         { "FaridaBaseCompleted",false },
         { "FaridaExhausted",false },
 
+        { "QuinnNightTask",false },
         { "QuinnTaskOffered",false },
         { "QuinnTaskAccepted",false },
         { "QuinnTaskCompleted",false },

@@ -74,6 +74,16 @@ Caleb_Smile: Great!
 Caleb_Annoyed: Now listen. These damned crows are bad enough, weighing down the power lines connecting the buildings and making me do maintenance on the connectors.
 Caleb_Annoyed: Then, they started taking my wires! They've been making nests over by the <color=#5b5b1f>south-east gate</color>, near the old quarter. 
 Caleb_Smile: If you could go and grab some back for me, I'd be mighty grateful.
+if HasThrownBirdseed == false:
+		Chance_Thinking: How am I supposed to get the birds off the wires?
+		Caleb_Annoyed: Damned if I know..
+		Caleb_Thinking: Well they clearly like shiny stuff, but I'm sure if you could offer them something better they'd head for that. You got any treats or bird seed on ya?
+		Chance: Yeah, actually.
+		Caleb: Really? Why?
+		Chance_Thinking: I like to bird watch.
+		Caleb_Smile: Well there's your answer! Distract those crows with your bird seed and I'm sure you'll have free access to those wires.
+	else:
+		<i>The crows seemed to like the birdseed I threw earlier.. hopefully they like it more than they like the shiny wires.</i>
 => ending_call
 
 ~ caleb_no_task

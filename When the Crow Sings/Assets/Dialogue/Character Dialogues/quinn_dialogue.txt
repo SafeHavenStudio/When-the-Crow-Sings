@@ -71,6 +71,16 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 	emit 1;
 	Chance: Um, I guess I can.
 	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>dining tent</color>, get them and bring them in to me and I'll see what I can do for ya.
+	if HasThrownBirdseed == false:
+		Chance_Thinking: How would I get past the birds?
+		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
+		Quinn: You have a personal stash of bird seed?
+		Chance: Uh, yeah. I like bird watching, it helps bring them out.
+		Quinn_Worried: Why would you WANT the birds to come near you?!
+		Chance_Smile: I'll try throwing the bird seed to distract them from the seed bags.
+	else:
+		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
 	=> ending_call
 - Later.
 	Chance_Sad: Maybe later.
@@ -105,6 +115,7 @@ Quinn_Thinking: Well you're the one who wants something here..
 Chance_Annoyed:...
 - Fine
 	set QuinnTaskAccepted = true;
+	set QuinnNightTask = true;
 	set MFQuinnTag = false;
 	set MFQuinnTA = true;
 	set HFQuinnTA = true;
@@ -113,6 +124,14 @@ Chance_Annoyed:...
 	Quinn_Worried: No it's not manure, it's seed bags.
 	Chance_Annoyed: I am failing to see how you are so popular.
 	Quinn: Yeah whatever. Just go grab them and come back, and I'll page <color=#813408>Farida</color>.
+	if HasThrownBirdseed == false:
+		Chance_Sigh: How am I even going to get past them?
+		Quinn_Thinking: Hmm... Well they like the seed. Do you have any bird seed?
+		Chance_Annoyed: No.. I've got trail mix.
+		Quinn: I'm sure that'll do the trick. Just chuck some nearby and grab those seed bags!
+		Chance_Sigh: Yeah, you sound chipper for the person who doesn't have to do it. Whatever, I'll try.
+	else:
+		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
 	=> ending_call
 - No way
 	Chance_Sigh: Absolutely not.
@@ -132,6 +151,16 @@ Quinn_Thinking: Turnott?.. I'm workshopping it.
 	emit 1;
 	Chance: I wanted to talk to your guy who lives outside.
 	Quinn: Sure sure. Just go get those seeds for me, the bags are down by the <color=#5b5b1f>dining tent</color>. I'll page <color=#813408>Farida</color> about a delivery for <color=#813408>Yule</color> and give him a heads-up.
+	if HasThrownBirdseed == false:
+		Chance_Thinking: How would I get past the birds?
+		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
+		Quinn: You have a personal stash of bird seed?
+		Chance: Uh, yeah. I like bird watching, it helps bring them out.
+		Quinn_Worried: Why would you WANT the birds to come near you?!
+		Chance_Smile: I'll try throwing the bird seed to distract them from the seed bags.
+	else:
+		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
 	=> ending_call
 - No thanks.
 	Chance: Er, no thanks.
@@ -165,7 +194,13 @@ Quinn: I'm basically the only person he talks to other than maybe <color=#813408
 Chance: The fish?
 Quinn_Scared: The fish.
 Quinn_Smile: Thanks for your help, by the way.
-Chance_Smile: Sure, no problem.
+if QuinnNightTask = true:
+	Chance_Annoyed: Yeah, like I had a choice.
+else:
+	Chance_Smile: Sure, no problem.
+=> quinn_task_fin_cont
+
+~ quinn_task_fin_cont
 emit 1;
 if day == 1:
 	=> curfew_check
