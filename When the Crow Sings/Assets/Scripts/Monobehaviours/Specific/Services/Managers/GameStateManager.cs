@@ -243,6 +243,7 @@ public class GameStateManager : MonoBehaviour, IService
         Destroy(playerHolder);
         taskManager.AbortQTE();
         ServiceLocator.Get<CrowManager>().crowHolder.GetComponent<CrowHolder>().DestroyCrows();
+        ServiceLocator.Get<CrowManager>().birdseedManager.DestroyBirdseed();
     }
 
     void ValidateScenes()
