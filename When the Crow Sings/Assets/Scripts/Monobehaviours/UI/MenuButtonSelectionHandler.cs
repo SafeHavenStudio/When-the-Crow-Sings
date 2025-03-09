@@ -19,6 +19,7 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
     }
     public void OnPotentialEntered(MenuButton menuButton)
     {
+        if (!enabled) return;
         if (selectableButtons.Contains(menuButton))
             SetSelectedGameObject(menuButton.gameObject);
     }
