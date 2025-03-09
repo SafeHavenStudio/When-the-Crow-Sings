@@ -23,10 +23,6 @@ else:
 set QuinnTaskOffered = true;
 if timeOfDay == 3:
 	=> quinn_night_int
-else:
-	=> quinn_first_int_cont
-
-~ quinn_first_int_cont
 Quinn: You must be Chance.
 Chance: Uh-huh.
 Quinn: Nice to meet you. Officially. What brings you to the <color=#5b5b1f>greenhouse</color>? 
@@ -34,21 +30,21 @@ Quinn_Excited: Here to try my turnip-carrot hybrid?
 if ifBeauAndAngel == true:
 	- Angel sent me.
 		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about people roaming around at night.
-		=> quinn_first_int_cont_cont
+		=> quinn_first_int_cont
 	- Beau sent me.
 		Chance: <color=#813408>Beau</color> said that you know everyone around here. That you'd know if things were out of the ordinary.
-		=> quinn_first_int_cont_cont
+		=> quinn_first_int_cont
 if AngelBaseCompleted == true:
 		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about people roaming around at night.
-		=> quinn_first_int_cont_cont
+		=> quinn_first_int_cont
 if BeauBaseCompleted == true:
 		Chance: <color=#813408>Beau</color> said that you know everyone around here. That you'd know if things were out of the ordinary.
-		=> quinn_first_int_cont_cont
+		=> quinn_first_int_cont
 else:
 	Quinn: Who even invited you in here?
 	=> END
 
-~ quinn_first_int_cont_cont
+~ quinn_first_int_cont
 Quinn: Mmm. Did he?
 Quinn_Thinking: Well, I am up late and I provide something to just about everyone in some way or another. So, I guess he sent you somewhere good. What's up?
 Chance: Someone was out past curfew and banged on my window.
