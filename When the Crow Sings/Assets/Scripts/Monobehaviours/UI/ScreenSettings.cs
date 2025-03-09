@@ -9,10 +9,12 @@ using UnityEngine.UI;
 public class ScreenSettings : MonoBehaviour
 {
     private List<Resolution> resolutions = new List<Resolution>();
-    public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown qualityDropdown;
+    public TMP_Dropdown resolutionDropdown;
     public Slider brightnessSlider;
+    [HideInInspector]
     public Volume volume;
+    [HideInInspector]
     public LiftGammaGain liftGammaGain;
 
     private void Start()
@@ -61,34 +63,34 @@ public class ScreenSettings : MonoBehaviour
 
     public void PopulateResolutions()
     {
-        //resolutionDropdown.ClearOptions();
-        //resolutions.Clear();
+        resolutionDropdown.ClearOptions();
+        resolutions.Clear();
 
-        //Resolution[] allResolutions = Screen.resolutions;
-        //List<string> options = new List<string>();
+        Resolution[] allResolutions = Screen.resolutions;
+        List<string> options = new List<string>();
 
-        //foreach (Resolution res in allResolutions)
-        //{
-        //    float aspectRatio = (float)res.width / res.height;
-        //    string resString = res.width + " x " + res.height;
+        foreach (Resolution res in allResolutions)
+        {
+            float aspectRatio = (float)res.width / res.height;
+            string resString = res.width + " x " + res.height;
 
-        //    //Only include 16:9 resolutions
-        //    if (Mathf.Approximately(aspectRatio, 16f / 9f))
-        //    {
-        //        resolutions.Add(res);
-        //        options.Add(resString);
-        //    }
-        //}
+            //Only include 16:9 resolutions
+            if (Mathf.Approximately(aspectRatio, 16f / 9f))
+            {
+                resolutions.Add(res);
+                options.Add(resString);
+            }
+        }
 
-        ////Add all collected options at once (outside the loop)
-        //resolutionDropdown.AddOptions(options);
+        //Add all collected options at once (outside the loop)
+        resolutionDropdown.AddOptions(options);
 
-        ////Ensure the dropdown updates correctly
-        //resolutionDropdown.RefreshShownValue();
+        //Ensure the dropdown updates correctly
+        resolutionDropdown.RefreshShownValue();
 
-        ////Attach listener only once
-        //resolutionDropdown.onValueChanged.RemoveAllListeners();
-        //resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        //Attach listener only once
+        resolutionDropdown.onValueChanged.RemoveAllListeners();
+        resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
 
 
