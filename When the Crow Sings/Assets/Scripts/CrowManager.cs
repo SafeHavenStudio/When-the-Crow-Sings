@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrowManager : MonoBehaviour, IService
 {
     public CrowHolder crowHolder;
+    public BirdseedManager birdseedManager;
 
     public void RegisterSelfAsService() {ServiceLocator.Register<CrowManager>(this);}
 

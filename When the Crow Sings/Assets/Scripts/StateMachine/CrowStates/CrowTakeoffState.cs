@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class CrowTakeoffState : StateMachineState
@@ -24,11 +25,18 @@ public class CrowTakeoffState : StateMachineState
         //float range = 20f;
         //s.destination = new Vector3(Random.Range(-range,range), Random.Range(range, range), Random.Range(-range, range));
 
-        s.crowAnimator.SetBool("isFlying", true);
-        s.crowAnimator.SetBool("isIdle", false);
-        s.crowAnimator.SetBool("isPecking", false);
+        if (s.stateMachine.previousState == s.stateMachine.states["CrowTargetState"])
+        {
+            s.stateMachine.Enter("CrowTargetState");
+        }
+        else
+        {
+            s.crowAnimator.SetBool("isFlying", true);
+            s.crowAnimator.SetBool("isIdle", false);
+            s.crowAnimator.SetBool("isPecking", false);
 
-        s.StartCoroutine(WaitThenEnterTargetState());
+            s.StartCoroutine(WaitThenEnterTargetState());
+        }        
     }
 
     IEnumerator WaitThenEnterTargetState()

@@ -7,7 +7,7 @@ using System.Reflection;
 public class StateMachine
 {
     public StateMachineState currentState;
-    StateMachineState previousState;
+    public StateMachineState previousState;
     public Dictionary<String,StateMachineState> states = new Dictionary<String, StateMachineState>();
 
 

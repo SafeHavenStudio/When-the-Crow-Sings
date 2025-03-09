@@ -33,4 +33,10 @@ public class BirdseedManager : MonoBehaviour
         targetObject = Instantiate(targetPrefab, transform);
         targetObject.transform.position = birdseedController.transform.position;
     }
+
+
+    public void DestroyBirdseed()
+    {
+        if (targetObject != null) Destroy(targetObject);
+    }
 }

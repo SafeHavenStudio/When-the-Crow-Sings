@@ -63,6 +63,14 @@ public class BirdBrain : StateMachineComponent
     {
         // if raycast detects surface AND that surface is NOT the destination, then navigate away.
 
+        if (target == null)
+        {
+            //approachPoint = restPoint.approachPoint.position;
+            //stateMachine.Enter("CrowTargetState");
+            StartFlyingTowardRestPoint();
+            return;
+        }
+
         if ((transform.position - approachPoint).magnitude < 1)
         {
             crowAnimator.SetBool("isFlying", false);
@@ -128,5 +136,13 @@ public class BirdBrain : StateMachineComponent
             other.GetComponent<CrowTarget>().StartActingAsObstacle(secondsToPeck);
             stateMachine.Enter("CrowPeckState");
         }
+    }
+
+    public float CalculateTimeToTarget() // TODO: Move this to be a delay before it takes off.
+    {
+        float distanceToSeed = (transform.position - approachPoint).magnitude;
+        float timeItWouldTakeToReachSeed = -((distanceToSeed / flyingSpeed) / 60) + timeAllowedToReachBirdseed;
+
+        return timeItWouldTakeToReachSeed;
     }
 }
