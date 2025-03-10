@@ -131,7 +131,7 @@ public class GameStateManager : MonoBehaviour, IService
     IEnumerator UnloadAndLoad(LevelDataResource levelDataResource)
     {
         DestroyActors();
-        yield return StartCoroutine(FadeLoadingScreen(true));
+        yield return StartCoroutine(FadeLoadingScreen(true,0f));
 
         // Unload previous scenes.
         yield return StartCoroutine(UnloadLoadedScenesAsync());
@@ -140,6 +140,7 @@ public class GameStateManager : MonoBehaviour, IService
         yield return StartCoroutine(LoadScenesAsync(GetScenesToLoad(levelDataResource)));
 
         yield return StartCoroutine(FadeLoadingScreen(false));
+        
         fullyFinishedLoadSignal.Emit();
 
         SaveDataAccess.SetFlag("levelDataIndex", allLevels.levelDataResources.IndexOf(levelDataResource));
@@ -177,10 +178,12 @@ public class GameStateManager : MonoBehaviour, IService
         }
     }
 
-    IEnumerator FadeLoadingScreen(bool fadeIn)
+    IEnumerator FadeLoadingScreen(bool fadeIn, float _delay = .25f)
     {
+        yield return new WaitForSeconds(_delay);
+
         float fadeSpeed = 1f;
-        float maxAlpha = .5f;
+        float maxAlpha = 1f;
         if (fadeIn)
         {
             randomizeScreen();
