@@ -8,8 +8,8 @@ public class AmbientSound : MonoBehaviour
 {
     [field: SerializeField] public EventReference Sound { get; private set; }
 
-    private float minInterval = 5f;  //Minimum time between sounds
-    private float maxInterval = 15f; //Maximum time between sounds
+    private float minInterval = 7f;  //Minimum time between sounds
+    private float maxInterval = 18f; //Maximum time between sounds
     public bool playOnAwake = true;
     public bool threeDSound;
     //private Vector3 transform;
