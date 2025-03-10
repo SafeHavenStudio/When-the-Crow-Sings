@@ -77,7 +77,7 @@ public class FMODEvents : MonoBehaviour
     }
 
    //Dynamic assignment of music and ambience based off the areamusic object that sits under the leveldata object in each scene
-    public void SetDynamicAssignment(EventReference music, EventReference ambience)
+    public void SetDynamicAssignment(EventReference music, EventReference ambience, List<StudioEventEmitter> emitters)
     {
         AreaMusic = music;
         Ambience = ambience;

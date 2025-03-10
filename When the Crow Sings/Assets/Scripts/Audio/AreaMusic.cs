@@ -14,6 +14,9 @@ public class AreaMusic : MonoBehaviour
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference Ambience { get; private set; }
 
+    public List<StudioEventEmitter> emitters;
+    StudioEventEmitter pickedSong;
+
     [HideInInspector] public EventInstance areaMusicInstance;
     [HideInInspector] public EventInstance ambienceInstance;
 
@@ -26,13 +29,15 @@ public class AreaMusic : MonoBehaviour
         }
 
         //Dynamically assign to FMODEvents
-        FMODEvents.instance.SetDynamicAssignment(Music, Ambience);
+        FMODEvents.instance.SetDynamicAssignment(Music, Ambience, emitters);
 
         if (!Music.IsNull) areaMusicInstance = AudioManager.instance.CreateEventInstance(FMODEvents.instance.AreaMusic);
         if (!Ambience.IsNull) ambienceInstance = AudioManager.instance.CreateEventInstance(FMODEvents.instance.Ambience);
 
+
         PlayMusic();
         PlayAmbience();
+        PlayRandomSong();
     }
 
     public void SetParameter(string parameterName, float parameterValue)
@@ -54,7 +59,6 @@ public class AreaMusic : MonoBehaviour
                 Debug.LogError("Area music instance is invalid.");
             }
         }
-        
     }
 
     private void PlayAmbience()
@@ -74,6 +78,21 @@ public class AreaMusic : MonoBehaviour
         
     }
 
+    private void PlayRandomSong()
+    {
+        int i = Random.Range(0, emitters.Count);
+
+        pickedSong = emitters[i];
+
+        if (pickedSong != null)
+        {
+            pickedSong.Play();
+            Debug.Log("Playing" + pickedSong);
+        }
+    }
+
+    
+
     private void OnDestroy()
     {
         if (areaMusicInstance.isValid())
@@ -86,6 +105,11 @@ public class AreaMusic : MonoBehaviour
         {
             ambienceInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             ambienceInstance.release();
+        }
+
+        if (emitters != null)
+        {
+            pickedSong.Stop();
         }
     }
 }
