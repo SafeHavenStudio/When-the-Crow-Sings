@@ -545,7 +545,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3384389503469019461, guid: 6fc9a0bac7810e24e9e1adec58a66d38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 18327483}
   m_SourcePrefab: {fileID: 100100000, guid: 6fc9a0bac7810e24e9e1adec58a66d38, type: 3}
 --- !u!4 &18327481 stripped
 Transform:
@@ -553,6 +557,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 18327480}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &18327482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3384389503469019461, guid: 6fc9a0bac7810e24e9e1adec58a66d38,
+    type: 3}
+  m_PrefabInstance: {fileID: 18327480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &18327483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18327482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -397359104
+      Data2: 1259745936
+      Data3: 452666796
+      Data4: 1159729997
+    Path: event:/Ambience/FinalCreakingWoodAmbiance
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 30
 --- !u!1001 &21850762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9333,7 +9374,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 40
+  OverrideMaxDistance: 60
 --- !u!4 &327111228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4025150118574437018, guid: a801a97ca2b944d4c8c93f0b9884c0fc,
