@@ -80,20 +80,23 @@ public class AreaMusic : MonoBehaviour
 
     private void PlayRandomSong()
     {
-        int i = Random.Range(0, emitters.Count);
-
-        pickedSong = emitters[i];
-
-        if (pickedSong != null)
+        if (emitters.Count > 0)
         {
-            pickedSong.Play();
-            Debug.Log("Playing" + pickedSong);
+            int i = Random.Range(0, emitters.Count);
+
+            pickedSong = emitters[i];
+
+            if (pickedSong != null)
+            {
+                pickedSong.Play();
+                Debug.Log("Playing" + pickedSong);
+            }
         }
     }
 
-    
 
-    private void OnDestroy()
+
+        private void OnDestroy()
     {
         if (areaMusicInstance.isValid())
         {
