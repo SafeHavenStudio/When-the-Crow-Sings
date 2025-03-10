@@ -1448,17 +1448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c4ebb0ca212efdc428accb1ae9581966, type: 2}
+      objectReference: {fileID: 9100000, guid: 2d912733ad61549439c4362aa7de3b6b, type: 2}
     - target: {fileID: 5866666021909216657, guid: 5369de5d2085be94f979d9044dd4382b,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Hips'\n\tTransform 'index.L.001'\n\tTransform
-        'thigh.L'\n\tTransform 'bicep.R'\n\tTransform 'thumb.L.001'\n\tTransform
-        'wrist.L'\n\tTransform 'ring.L.000'\n\tTransform 'middle.L.002'\n\tTransform
-        'shoulder.L'\n\tTransform 'index.L.000'\n\tand more ...\n\tFrom animation
-        clip 'A_beautalk'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6104470216086186484, guid: 5369de5d2085be94f979d9044dd4382b,
         type: 3}
@@ -1898,6 +1892,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3377796902979559567}
     m_Modifications:
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7212715354998625880}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NpcAnimTalkStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NpcController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1899001456339989022, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1961,9 +1990,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6524167202376471602}
     - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -1976,8 +2015,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDialogueFinished
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: NpcAnimTalkStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Interactable, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
@@ -2075,6 +2124,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6393253188940231641}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6524167202376471602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6393253188940231641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e8d5457f9a4244fbf7d34244741865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8586385958346368336
 PrefabInstance:
   m_ObjectHideFlags: 0
