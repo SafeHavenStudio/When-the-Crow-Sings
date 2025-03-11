@@ -140,9 +140,11 @@ set HFTheodoreBC = true;
 set timeOfDay += 1;
 Theodore_Stunned: . . .
 Theodore_Excited: That's all I know. Now give that thing to me.
+Item_Scared: Ack!
 Chance_Angry: Hey!
 Chance: Well what about the other stuff?
 Theodore_Annoyed: What about it? Do you think I'm up here filing paperwork? Do you see a computer? I don't care, keep it.
+Item_Thinking: Guess it could be useful.
 Chance_Excited: Fine. See you, <color=#813408>Teddy</color>.
 Theodore_Angry: IT'S <color=#813408>THEODORE</color>!
 emit 1;
@@ -198,7 +200,7 @@ Theodore_Stunned: Who called me Theo?
 Chance: <color=#813408>Angel</color> did. Said you might've been the one banging on my window, that you "love a good prank".
 Theodore: That's cool of him... I guess..
 Chance_Thinking: Are you guys friends or..?
-Theodore_Excited: I wouldn't say we're friends, though he probably would.
+Theodore_Excited: I wouldn't say we're friends, but he probably would.
 Chance_Sigh: Yeah I'm sure you've got plenty already.
 Theodore_Annoyed: It's not like that it's just weird. He's older than me and I don't want to him to give me his big brother crap.
 Theodore_Angry: The last thing I need is another person thinking they need to take care of me because they feel bad for me.
@@ -284,6 +286,7 @@ Chance_Excited: And miss out on the yelling? No way.
 	Theodore_Excited: I've made it out into the forest and the old residential area, but I avoid the old power station.
 	Theodore: I'm not getting closer to that purple stuff during the day, it's hard enough to avoid at night nowadays.
 	Chance_Thinking: So you know about the stuff coming out of the ground from there, and you just avoid it? Pretend it's not happening?
+	set FaridaHasBeenHeardOf = true;
 	Theodore_Excited: What else can I do? All <color=#813408>Farida</color> has done about it is set a curfew and tell us not to go outside. If she can't do anything about it, maybe there's nothing to be done.
 	<i>What a cheery thought.</i>
 	Chance:... Well what did you find in the other places.

@@ -113,6 +113,7 @@ set ClinicDoorUnlocked = true;
 set RecCenterDoorUnlocked = true;
 Caleb_Smile: You survived the crows!
 Caleb_Smile: Alrighty, kid, I yield. You did good. Wires don't look like they're in too bad of shape either.
+set FaridaHasBeenHeardOf = true;
 Caleb_Thinking: If you want to know more about <color=#a11bbe>the old energy source</color>, for whatever reason, you would probably want to talk with <color=#813408>Farida</color>.
 Caleb_Annoyed: But I don't think you should have me sending you.. Not that we don't get along! It's just..
 if FaridaTaskOffered == true:
@@ -131,9 +132,11 @@ if FaridaTaskOffered == true:
 	=> caleb_task_fin_cont
 
 ~ caleb_task_fin_cont
+set FranciscoHasBeenHeardOf = true;
 Caleb: You should probably go to <color=#813408>Francisco</color>. They're science buddies, and he's one of the smartest people I know. And he actually moved here first, a long while before me or the solar panels came. 
 if FranciscoTaskOffered == false:
 	set MFFranciscoTag = true;
+set JazmyneHasBeenHeardOf = true;
 Caleb_Smile: Or, if you wanted something less sciency, there's <color=#813408>Jazmyne</color>. She watches my little princess <color=#813408>Calliope</color>.
 => caleb_task_fin_cont_2
 
@@ -282,6 +285,7 @@ Caleb: Chance, Fate, Destiny, whatever you'd like to call it.
 	Caleb_Annoyed: No, she doesn't.
 	Chance: I'm sorry, I didn't mean to ask something touchy.
 	Caleb_Annoyed: It ain't your fault kid. The work program on the compound I come from applies to everyone, and when you get sent out that doesn't necessarily mean your partner gets sent with you.
+	set PhilomenaHasBeenHeardOf = true;
 	Caleb_Annoyed: When I was chosen to become the electrician here, my wife's role was already accounted for by someone named <color=#813408>Philomena</color>. And then, when she couldn't do the job anymore, they sent <color=#813408>Farida</color> instead.
 	Chance_Thinking: Is that why you two don't get along?
 	Caleb_Annoyed: Let's not talk about this anymore, kid.
@@ -322,7 +326,7 @@ Chance_Annoyed: I'm sure you can figure out which one.
 	Caleb_Thinking: It was hard at first. To move from an area so focused on a singular goal of training and learning, to somewhere that is a lot more focused on just living.
 	Caleb: It's a lot more relaxed, but also sometimes I get that itch for a little bit more routine..
 	Chance: Did you get a choice about moving?
-	Caleb: Nah, not how things work up there. We are raised to be the rejuvenating force that brings education and craft back to the country. They hope that with those skills spread out, we might all be able to reconnect one day.
+	Caleb: Naw, not how things work up there. We are raised to be the rejuvenating force that brings education and craft back to the country. They hope that with those skills spread out, we might all be able to reconnect one day.
 	Caleb_Smile: Besides, as long as I'm with my <color=#813408>Calli</color> I'll survive.
 - What's with the goggles
 	Chance_Thinking: So why are you wearing big goggles right now?

@@ -173,8 +173,8 @@ public class SaveData
 
         //Codex relevant flags
         {"AngelHasBeenHeardOf",true },
-        {"BeauHasBeenHeardOf",false },
-        {"CalebHasBeenHeardOf",false },
+        {"BeauHasBeenHeardOf",true },
+        {"CalebHasBeenHeardOf",true },
         {"QuinnHasBeenHeardOf",false },
         {"JazmyneHasBeenHeardOf",false },
         {"FaridaHasBeenHeardOf",false },
