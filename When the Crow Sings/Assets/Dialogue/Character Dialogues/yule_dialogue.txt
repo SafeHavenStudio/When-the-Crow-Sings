@@ -119,8 +119,6 @@ Yule_Thinking: Why?
 	=> END
 
 ~ yule_task_part_fin
-set YuleTaskTwoOn = true;
-set YuleFishingrod = true;
 set MFYuleTPC = false;
 set MFYuleTNC = true;
 set HFYuleTNC = true;
@@ -132,6 +130,9 @@ Chance: Uh, isn't it for you?
 Yule_Thinking: Yes. But I don't know if it works.
 Chance: ... So you want me to see if it works?
 Yule: Yes.
+Item_Sad: I mean.. it looks okay.
+set YuleTaskTwoOn = true;
+set YuleFishingrod = true;
 Chance: Uh, okay.
 emit 1;
 => ending_call
@@ -162,6 +163,7 @@ Yule_Sad: But there was <color=#813408>a scientist</color> and <color=#813408>hi
 Yule: Well, not around it physically. 'Far as I know it's a ways off, to the north. But that's why we were brought here. Me and a smattering of other folks. Families, friends. This was shortly after a few other collapses but, it was a while ago. Don't remember the names.
 Yule_Stare: Things were fine at first, but pretty quick some folk started going backwards. You know what I mean.
 I do.
+set FranciscoHasBeenHeardOf = true;
 Yule_Sad: Well they sent us that boy <color=#813408>Francisco</color> and they thought they could keep a handle on it. But people started to slip so far back that they couldn't handle it anymore. Started to get wild. Usually they just ran off before anything happened, but every once in a while something was.. <color=#a11bbe>wrong</color>.
 Yule: See, that syndrome us EVOs get usually just backslides you down the evolutionary line, but these people didn't do that. They got <color=#a11bbe>different</color>. 
 Yule_Stare: Grew new bits, started hacking up this awful purple pink slime.  After a new batch of people came, that <color=#813408>scientist</color> ran off.
@@ -184,6 +186,7 @@ Chance_Sad: I lost my last home. I don't want it to happen again.
 Yule_Sad: . . .
 Chance: . . .
 Yule_Thinking: His name was <color=#a11bbe>Simon</color>. The scientist. <color=#a11bbe>Simon Petrova</color>. 
+Item_Smile: I should write that down..
 Chance: Yeah?
 Yule_Angry: Yes. Wherever he ran off to, I hope he doesn't get a good night's sleep for the rest of his life.
 Chance: Yeah...

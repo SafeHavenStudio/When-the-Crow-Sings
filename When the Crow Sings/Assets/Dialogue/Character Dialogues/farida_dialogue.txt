@@ -169,19 +169,21 @@ else:
 ~ farida_task_fin_day
 Farida_Stunned: This looks.. good. Thank you.
 if FranciscoBaseCompleted == false:
+	set FranciscoHasBeenHeardOf = true;
 	Farida: About your question, I suppose you could always talk to <color=#813408>Francisco</color> about it. He works at the <color=#5b5b1f>clinic</color>, and lived here before I got sent here, meaning he probably remembers something about it.
 	Farida_Annoyed: <size=75%>Though I doubt he'd be too knowledgeable, he's more organically minded..
 	set MFFranciscoTag = true;
 set MFFaridaTC = false;
 set HFFaridaBC = true;
 set MFPhilomenaTag = true;
+set PhilomenaHasBeenHeardOf = true;
 Farida: There's also.. someone you might want to talk to. She was the person who trained me, tried to get me settled in after I got moved here. She worked on the <color=#a11bbe>old power system</color>.
 Farida_Exhausted: She lives in the <color=#5b5b1f>residential area</color> to the <color=#5b5b1f>south-east</color>, she left the <color=#5b5b1f>lodging</color> a little while after we met. I guess she just couldn't take it in here anymore...
 Farida: The ones who wander around at night used to come through that gate sometimes. She locked herself on the other side of it. She might know more about them, or about what happened here. More than she told me, anyway..
 Farida_Exhausted: Just be gentle with her, please. Her mind is not what it used to be, and causing her grief won't do you any good.
 Chance_Sad: Okay, I'll try.
 Farida: ... Here.
-It's a small brass key. The brand name has been rubbed off.
+Item: It's a small brass key. The brand name has been rubbed off.
 Farida: This will open the padlock to the <color=#5b5b1f>residential area's</color> gate. I go to check on her sometimes.
 Chance: What do I call her?
 Farida_Exhausted:... <color=#813408>Phil</color>. 
