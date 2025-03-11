@@ -72,7 +72,6 @@ set NoMoreIconForAMonth = false;
 set KeyInformation3 = true;
 set PhilomenaBaseCompleted = true;
 set HFPhilomenaBC = true;
-set timeOfDay += 1;
 Phil_Sigh: I like that song. I haven't heard it in a while. Not for a long while.
 Phil_Sigh: . . .
 Chance_Sad: Are you okay?
@@ -82,6 +81,7 @@ Phil_Sigh: Mm..
 It's a birthday card.
 "Doctor, a year older. Thank you so much for all of the opportunities you've given me. I hope for another year making history with you! Happy Birthday, <color=#813408>Philomena</color>"
 There is a date scribbled up in the top right corner. <color=#a11bbe>O3/15</color>.
+set timeOfDay += 1;
 emit 1;
 call ReloadScene(1);
 => ending_call
@@ -189,7 +189,7 @@ Phil_Smile: I would like that.
 	Phil_Sigh: I'm just an assistant. 
 	Chance_Annoyed: You seem pretty smart to me.
 	Phil_Smile: Hehe, thank you.
-	Chance_Sigh: <size = 75%>Sounds like this jerk was taking advantage of you to me..</size>
+	Chance_Sigh: <size=75%>Sounds like this jerk was taking advantage of you to me..</size>
 	Chance: Well uh, at least you get to relax now, right? That <color=#813408>Farida</color> is doing your job?
 	Phil_Stare:.. No. My work isn't done.
 	Chance_Thinking: What do you do now?
@@ -202,7 +202,7 @@ Phil_Smile: I would like that.
 	Chance_Smile: That sounds nice!
 	Phil_Stare: It was nice.. I'd like to hear it again. The recording you gave me is nice.. She was so sweet to make it for me.
 	Chance_Thinking: Who-
-	Chance_Sad.. Nevermind. It is nice.
+	Chance_Sad:.. Nevermind. It is nice.
 - Your life here
 	Chance: What's your life like here?
 	Phil_Stare: Quiet. I.. observe the.. I believe the colloquial term they gave was "strays".
@@ -268,6 +268,7 @@ Chance: Right, no worries.
 	Chance_Smile: Oh I love birdwatching.
 	Phil_Smile: What kind of birds are there, where you come from?
 	Chance_Thinking: All kinds. Ducks, herons, pelicans, spoonbills, cranes, jays, cardinals... Like, so many.
+	set TheodoreHasBeenHeardOf = true;
 	Chance_Smile: We had the non-evolved versions of <color=#813408>Theodore</color> down there too.
 	Phil_Stare: <color=#813408>Theodore</color>..
 	Chance_Thinking: Oh, do you know him? He's a young caracara, so he's still brown. Super annoying, total rebellious teenager.
@@ -294,7 +295,7 @@ Chance: Right, no worries.
 	Phil_Sigh: It can be, if you aren't adept at brewing it. But a good bean brewed properly, with some sugar..
 	Phil: In books I've read about them adding cream to coffee, and it makes it nice and smooth apparently. I close my eyes while drinking and I try to imagine there is cream in my coffee. What it tastes like..
 	Chance_Thinking: That's like, milk, right? 
-	Phil_Smile: It's a product from the production of milk. Maybe one day we will have cows again. Or something else we can milk.
+	Phil_Smile: It's a byproduct from the production of milk. Maybe one day we will have cows again. Or something else we can milk.
 	Chance:.. Don't we make milk?
 	Phil_Stare: Yes.. Though I'm not sure I'd be willing to use... human milk in my coffee..
 	Chance_Smile: That would be weird as hell.
@@ -341,7 +342,8 @@ Phil: I'm sure, I liked our divergence from before. I can handle it.
 	Phil_Stare: I tried. 
 	Chance_Thinking:...
 	Phil_Sad: I didn't have administrator access. I was merely an assistant.. taking notes, running errands. I helped administer maintenance, but I never had credentials to log into the substation.
-	Phil_Stare: When I realized I couldn't possibly shut it down properly, I tried to sabotage it. I tried to break into the room with the smaller generator, the one he used to dispense elements for the main generator. I tried from the energy headquarters, but that was just a monitoring station.. no real power. When they said they were sending a new energy analyst I panicked.
+	Phil_Stare: When I realized I couldn't possibly shut it down properly, I tried to sabotage it. I tried to break into the room with the smaller generator, the one he used to dispense elements for the main generator. 
+	Phil_Stare: I tried from the energy headquarters, but that was just a monitoring station.. no real power. When they said they were sending a new energy analyst I panicked.
 	Phil_Scared: Some part of me still wanted to fix it on my own.. to keep his name from being tainted by this.. this mistake. I smashed the gauges that read off the power substation's numbers.
 	Phil_Stare: If I had known <color=#813408>Farida</color> first.. if I had.. I could've trusted her.. Maybe she would've fixed this..
 	Chance_Thinking:.. She wouldn't have had administrator access to that substation either though, right?

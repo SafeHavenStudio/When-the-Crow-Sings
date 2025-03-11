@@ -98,6 +98,7 @@ Beau: You're back.
 Beau_Awkward: With no veggies. Did something happen, or?
 	- I forgot.
 		Chance_Sad: I forgot where to go.
+		set QuinnHasBeenHeardOf = true;
 		Beau_Teasing: Oh no worries bud. I'm a little absent-minded myself, I get it. Just trot on over to <color=#813408>Quinn</color>'s and scoop up that veggie delivery, then bring it back.
 		Chance: Okay, got it.
 		=> END
@@ -107,6 +108,7 @@ Beau_Awkward: With no veggies. Did something happen, or?
 		=> END
 
 ~ beau_task_fin
+set QuinnHasBeenHeardOf = true;
 Beau_Smile: Ah! Lookin' good! <color=#813408>Quinn</color> sure knows how to grow 'em. Thanks for your help.
 Beau: Bud, look. I can tell you're having some trouble settling in here. You did me a solid, so let me give you a little advice.
 Chance: Hm?
@@ -125,6 +127,7 @@ else:
 	=> beau_task_fin_cont
 
 ~ beau_task_fin_cont
+set FaridaHasBeenHeardOf = true;
 Beau: There's also <color=#813408>Farida</color>. She's our security 'round here. She's always in the <color=#5b5b1f>Energy HQ</color> watching the cameras, she woulda been the one that buzzed you in.
 if FaridaTaskOffered == true:
 	- Met Farida.
@@ -300,5 +303,6 @@ Chance: You could say that, yeah.
 	Chance: People spoke a different language where I'm from too. Not everyone though, so I didn't really learn it. 
 	Beau: What's that, eh?
 	Chance: Spanish.
+	set FranciscoHasBeenHeardOf = true;
 	Beau_Smile: Ohh, so maybe you'll be able to understand some of the stuff <color=#813408>Francisco</color> mutters under his breath during my checkups!
 => BBEnd
