@@ -166,7 +166,7 @@ public class PlayFootsteps : MonoBehaviour
 
     public void PlayOneShot()
     {
-        if (!string.IsNullOrEmpty(SelectedFootsteps.Path))
+        if (SelectedFootsteps.Guid != System.Guid.Empty)
         {
             RuntimeManager.PlayOneShot(SelectedFootsteps, transform.position);
         }
