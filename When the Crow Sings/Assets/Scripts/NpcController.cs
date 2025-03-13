@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NpcController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class NpcController : MonoBehaviour
     void Start()
     {
         if (animator == null) animator = GetComponent<Animator>();
+        GetComponent<NavMeshAgent>().radius = GetComponent<CapsuleCollider>().radius;
+        GetComponent<NavMeshAgent>().height = GetComponent<CapsuleCollider>().height;
     }
 
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
