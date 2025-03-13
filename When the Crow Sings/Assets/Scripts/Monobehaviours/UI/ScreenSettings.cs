@@ -69,14 +69,17 @@ public class ScreenSettings : MonoBehaviour
         Resolution[] allResolutions = Screen.resolutions;
         List<string> options = new List<string>();
 
+        HashSet<string> uniqueResolutions = new HashSet<string>();
+
         foreach (Resolution res in allResolutions)
         {
             float aspectRatio = (float)res.width / res.height;
             string resString = res.width + " x " + res.height;
 
-            //Only include 16:9 resolutions
-            if (Mathf.Approximately(aspectRatio, 16f / 9f))
+            //Only include 16:9 resolutions and skip duplicates
+            if (Mathf.Approximately(aspectRatio, 16f / 9f) && !uniqueResolutions.Contains(resString))
             {
+                uniqueResolutions.Add(resString);
                 resolutions.Add(res);
                 options.Add(resString);
             }
