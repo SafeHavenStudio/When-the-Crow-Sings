@@ -155,8 +155,10 @@ else:
 	=> time_forward
 ~ curfew_check
 if timeOfDay == 2:
+	set timeOfDay += 1;
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
-	=> time_forward
+	emit 2;
+	=> ending_call
 else:
 	=> time_forward
 
