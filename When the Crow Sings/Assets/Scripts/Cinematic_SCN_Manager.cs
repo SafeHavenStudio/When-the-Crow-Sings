@@ -18,6 +18,8 @@ public class Cinematic_SCN_Manager : MonoBehaviour
         CUTSCENE_0,
         CUTSCENE_NIGHT1,
         CUTSCENE_ENDING_0,
+        CUTSCENE_ENDING_1,
+        CUTSCENE_ENDING_2,
         GAME_OVER
     }
     static DesiredBehavior desiredBehavior = DesiredBehavior.CUTSCENE_0;
@@ -56,6 +58,14 @@ public class Cinematic_SCN_Manager : MonoBehaviour
             case DesiredBehavior.CUTSCENE_ENDING_0:
                 cutscenes[2].SetActive(true);
                 cutscenes[2].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartCredits);
+                break;
+            case DesiredBehavior.CUTSCENE_ENDING_1:
+                cutscenes[3].SetActive(true);
+                cutscenes[3].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartCredits);
+                break;
+            case DesiredBehavior.CUTSCENE_ENDING_2:
+                cutscenes[4].SetActive(true);
+                cutscenes[4].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartCredits);
                 break;
             case DesiredBehavior.GAME_OVER:
                 gameOverScreen.SetActive(true);
