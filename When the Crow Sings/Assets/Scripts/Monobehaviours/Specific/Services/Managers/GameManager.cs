@@ -31,8 +31,20 @@ public class GameManager : MonoBehaviour, IService
     {
         Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_NIGHT1);
     }
-    public void OnCutsceneSignalEnd0()
+    public void OnCutsceneSignalEnd(int _whichEnding)
     {
-        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_0);
+        switch (_whichEnding)
+        {
+            case 0:
+                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_0);
+                break;
+            case 1:
+                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_1);
+                break;
+            case 2:
+                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_2);
+                break;
+        }
+        
     }
 }
