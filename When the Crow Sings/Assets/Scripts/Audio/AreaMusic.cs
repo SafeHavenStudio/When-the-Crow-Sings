@@ -96,7 +96,7 @@ public class AreaMusic : MonoBehaviour
 
 
 
-        private void OnDestroy()
+    private void OnDestroy()
     {
         if (areaMusicInstance.isValid())
         {
@@ -110,7 +110,7 @@ public class AreaMusic : MonoBehaviour
             ambienceInstance.release();
         }
 
-        if (emitters != null)
+        if (emitters.Count > 0)
         {
             pickedSong.Stop();
         }
