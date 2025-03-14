@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemyWaypointsHolder : MonoBehaviour
+public class WaypointsHolder : MonoBehaviour
 {
     [HideInInspector]
-    public List<EnemyWaypoint> waypoints;
+    public List<Waypoint> waypoints;
 
     public bool randomizeOrder = false;
 
 
     private void Awake()
     {
-        waypoints = GetComponentsInChildren<EnemyWaypoint>().ToList();
+        waypoints = GetComponentsInChildren<Waypoint>().ToList();
         //Debug.Log("Waypoints are " + waypoints);
     }
     private void Start()
@@ -22,7 +22,7 @@ public class EnemyWaypointsHolder : MonoBehaviour
         //Debug.Log("Waypoints are "+waypoints);
     }
 
-    public EnemyWaypoint GetNextWaypoint(EnemyWaypoint currentWaypoint)
+    public Waypoint GetNextWaypoint(Waypoint currentWaypoint)
     {
         if (randomizeOrder)
         {

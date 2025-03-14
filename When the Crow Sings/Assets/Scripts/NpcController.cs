@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NpcController : MonoBehaviour
+public class NpcController : NpcControllerBase
 {
     public Animator animator;
 

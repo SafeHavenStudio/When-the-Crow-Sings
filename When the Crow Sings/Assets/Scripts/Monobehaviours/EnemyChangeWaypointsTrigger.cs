@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyChangeWaypointsTrigger : MonoBehaviour
 {
-    public EnemyWaypointsHolder newWaypointHolder;
+    public WaypointsHolder newWaypointHolder;
     public EnemyController enemyToAffect;
 
     public GameSignal enemyChangeWaypointSignal;
