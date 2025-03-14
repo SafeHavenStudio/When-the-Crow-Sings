@@ -236,6 +236,8 @@ Should I spend time talking to <color=#813408>Quinn</color> right now?
 ~ quinn_beyond_base_directory
 if QuinnBB == 0:
 	=> Q0
+if QuinnBB == 1:
+	=> Q1
 else:
 	set QuinnExhausted = true;
 	Quinn_Smile: I've loved our chats, dude.
@@ -336,5 +338,42 @@ Chance_Annoyed: Right...
 ~Q2
 Quinn: Sup, dude?
 - Your hair
+	Chance_Thinking: So your hair probably has to get done pretty often since it's short on the sides, right?
+	Quinn: Yup.
+	Chance: Who does your hair around here?
+	Quinn_Smile: My sweet little buddy, Calliope.
+	Quinn: Caleb's daughter, if you don't know her. 
+	Chance_Thinking: His daughter is old enough to cut hair?
+	Quinn: Well Caleb helps out, but yeah she does a lot of it. He helps section the hair, she does the clipping and the cutting and the buzzing. Ya know, standard stuff.
+	Quinn_Thinking: Did you not have anyone like that where you're from?
+	Chance_Annoyed: What's that supposed to mean?
+	Quinn: I'm just asking. I mean, look at your hair. Looks like it hasn't been cut for a long while. And it's all different lengths.
+	Quinn_Thinking: Did you cut it yourself?
+	Chance_Angry: No!
+	Chance_Sigh: Even if I did, it would be a fine haircut. I like my hair.
+	Quinn: Yeah, sure dude.
+	Quinn_Thinking: I can get you set up with Calliope, I'm sure she could even you out.
+	Quinn: Get that hair out of your face, even it out in the back.
+	Quinn_Scared: I don't even want to think about how it looks under that hat of yours.. When's the last time you took it off?
+	Chance_Annoyed: I'm leaving.
 - Your glasses
+	Chance_Thinking: So what do you need your glasses for? They're pretty big.
+	Quinn: The bigness doesn't do anything. I'm near sighted.
+	Chance_Thinking: Uh, what does that mean?
+	Quinn: It means I can only see stuff without my glasses if it's real close. Not like.. super close, but close.
+	Chance_Thinking:... Oh. You can't just like, squint?
+	Quinn: I mean, I can, but it's not super effective.
+	Chance: I just squint.
+	Quinn_Thinking: Do you have trouble seeing stuff far away?
+	Chance_Annoyed: No.
+	Quinn: What's the symbol on the far wall there?
+	Chance:....
+	Chance_Sigh: My eyes are fine.
+	Quinn_Smile: You totally need glasses dude.
+	Chance_Annoyed: No I do not.
+	Quinn: It's not a big deal, do you wanna try mine?
+	Chance_Sigh: No! I see just fine!
+	Quinn_Thinking: Have you tried moving that hair out of your face? Maybe that would help.
+	Chance_Angry: Maybe you need new glasses, since you can't see that I definitely don't.
+	Quinn: Totally.
 => BBEnd
