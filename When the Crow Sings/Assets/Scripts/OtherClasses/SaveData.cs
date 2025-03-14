@@ -184,6 +184,9 @@ public class SaveData
         {"TheodoreHasBeenHeardOf",false },
         {"PhilomenaHasBeenHeardOf",false },
         {"YuleHasBeenHeardOf",false },
+        {"MonsterHasBeenHeardOf",true },
+        {"MonsterKnown",false },
+        {"IKnowMyself", true },
 
         //Map relevant flags
         { "MFAngelTag",true },
