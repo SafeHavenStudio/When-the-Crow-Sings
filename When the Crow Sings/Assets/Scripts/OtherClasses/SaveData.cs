@@ -18,6 +18,8 @@ public class SaveData
         { "NightIntroSeen",false },
         { "NightCutsceneSeen",false },
         { "CutsceneTime",false },
+        { "SeenControls",false },
+        { "ComicFlipFlop",false },
 
         { "HasThrownBirdseed",false },
         { "HasSpawnedAtLodgingNight",true },

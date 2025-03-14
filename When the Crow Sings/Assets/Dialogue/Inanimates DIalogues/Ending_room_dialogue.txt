@@ -245,11 +245,11 @@ Chance_Angry: Of course. We're screwed!
 TEMPORARY OVERRIDE ACCESS AVAILABLE
 Chance_Thinking: . . .
 Chance_Sigh: Okay, well that's better than nothing.
-: TEMPORARY OVERRIDE INITIATED<br>ISOTOPE GENERATOR SHUTDOWN INITIATED<br>ISOTOPE GENERATOR WILL RETURN TO SPECIFIED ROUTINE IN : 24 HOURS<br>STABILITY WILL BE REACHED IN : 4 HOURS
+: TEMPORARY OVERRIDE INITIATED<br>ISOTOPE GENERATOR SHUTDOWN INITIATED<br>ISOTOPE GENERATOR WILL RETURN<br>TO SPECIFIED ROUTINE IN : 24 HOURS<br>STABILITY WILL BE REACHED IN : 4 HOURS
 Chance_Annoyed: 24 hours is not a lot of time
 Chance_Sigh: Let's hope I got on with everyone enough that they'll believe me and get out of here before this place blows
 Chance_Scared: Even less time cause I have to wait for that thing to leave.. Best to wait it out in here.
-emit 3;
+emit 4;
 => END
 
 ~ bad_ending
@@ -258,5 +258,5 @@ ADMINISTRATOR ACCESS CANNOT BE GRANTED
 Chance_Angry: What am I supposed to do now!?
 : COMPLETE DEGRADATION WILL BE REACHED IN : 2 HOURS
 Chance_Scared: I gotta get out of here!
-emit 3;
+emit 5;
 => END
