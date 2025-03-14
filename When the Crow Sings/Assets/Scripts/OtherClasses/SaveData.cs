@@ -7,6 +7,9 @@ public class SaveData
     public int saveDataVersion = 1;
     public Dictionary<string, bool> boolFlags = new Dictionary<string, bool>()
     {
+        { "AlwaysFalse",false }, // Use this flag if the value should never be true.
+        { "AlwaysTrue",true }, // Use this flag is the value should never be false.
+
         //Dialogue and task related flags
         { "TestingFlag1",false },
         { "TestingFlag2",true },
