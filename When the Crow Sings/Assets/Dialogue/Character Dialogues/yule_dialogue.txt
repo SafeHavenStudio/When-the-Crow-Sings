@@ -212,7 +212,87 @@ Do I want to chat with Yule some more?
 	=> END
 
 ~ yule_beyond_base_directory
-set YuleExhausted = true;
-Yule_Smile: I've really enjoyed talking with you.
-Yule_Sad: But I think I could use a nap.. Hibernation is just around the corner, you know.
-=> ending_call
+if YuleBB == 0:
+	=> Y0
+else:
+	set YuleExhausted = true;
+	Yule_Smile: I've really enjoyed talking with you.
+	Yule_Sad: But I think I could use a nap.. Hibernation is just around the corner, you know.
+	=> ending_call
+	
+~ Y0 
+Yule: Hello.
+Chance_Thinking: Uh, hey.. Would it be cool if we chatted a little?
+Yule:.. Yes. I'd like that.
+- Talking to fish
+	Chance: Quinn told me you talk to the fish sometimes.
+	Yule_Stare: Yes.
+	Chance_Thinking: Uh.. Why do you do that?
+	Yule: The fish.. They die for us to survive. I think that if it were me, you know, dying.. I would like to be talked to a little bit before I went.
+	Yule_Thinking: They deserve some respect for helping us live.
+	Chance_Thinking: I guess that makes sense.
+	Yule_Stare: For a long time, my kind were known for eating fish. Standing in rivers, grabbing them as they hopped out of the water.
+	Yule_Sad: None of the sophistication of a hook and line..
+	Chance_Thinking: Uh.. Right. So.. You talk to them because you feel bad that they were uh.. just eaten by your ancestors straight up?
+	Yule: Mhm.
+	Chance: Do you feel this way about.. other things?
+	Yule_Thinking: Well... Berries and roots don't exactly have brains or hearts to be stopped.
+	Chance_Thinking: Right.. Right..
+	Chance: You're kind of an eccentric guy.
+	Yule_Stare: Maybe you're the eccentric one.
+	Chance_Thinking: Uh.. yeah maybe, I guess so.
+- Prepping fish
+	Chance: So what do you dry the fish out for?
+	Yule: For eating.
+	Chance_Thinking: You eat them dry?
+	Yule_Thinking: Yes. Sometimes. Sometimes they get added to the soup, so they rehydrate a little.
+	Chance: There's no way the fish stays good that long out of water.
+	Yule_Stare: It is fairly dry here. I believe our fish stay good dry for a long time.
+	Chance: Where I'm from, if they stay out of the water they dry up a little but not completely, and then they smell horribly. We usually eat them right away.
+	Yule_Thinking: Oh.. Maybe it was too humid there? Too much moisture in the air?
+	Chance_Thinking:... Oh yeah. That makes sense. And you guys have that cold storage so that probably keeps it dry..
+	Yule: Yes, it does. 
+	Chance_Thinking:.. Right.
+=> BBEnd
+
+~ Y1
+Yule: Hello.
+Chance: Hey big guy.
+- See anything out here
+	Chance_Thinking: So, you don't ever see the things that hang out in the compound at night, right?
+	Yule_Stare: That's right.
+	Chance: Do you ever see anything else?
+	Yule_Thinking: I mentioned the plants.
+	Chance: Yeah.. Like, other than that.
+	Yule_Stare: Sometimes the fish come out a bit funny.. But related to the purple things, I don't think so.
+	Yule_Smile: Oh! I used to see that bird boy, now and again. Near the mill. 
+	Yule_Stare: Though he hasn't been by in a while.
+	Chance_Thinking: Why's that?
+	Yule_Thinking: I'm not sure. The last time he was here, I tried to get his attention. I thought maybe he wanted to fish with me.
+	Yule_Sad: Haven't seen him since. 
+	Chance_Sad: Oh..
+	Chance_Thinking: Wait, how did he get out here? The gate is locked and only you and Quinn are allowed through usually, right?
+	Yule_Thinking: I'm not sure. 
+	Chance_Thinking: Wonder what he wanted out here..
+	Yule_Stare: Your guess is as good as mine.. It's mostly just fish out here.
+- What you do out here
+	Chance: So what exactly do you do out here? Do you have a job like everyone else?
+	Yule_Thinking: I used to be the one in charge of the cold storage and food preservation. My role was.. dissolved, unofficially. 
+	Yule_Stare: I provide the fish because I ought to, not because I have to anymore.
+	Yule_Sad: I wouldn't want anyone to go hungry due to my leaving the main compound.
+	Chance_Thinking: That's gotta be nice, to not have any rules.
+	Yule_Angry: Life's about more than rules. Rules are part of what got us into this mess..
+	Yule_Sad: If it weren't for those compound heads and their egos, we might've gotten that mess with the sick fellas taken care of.
+	Yule_Angry: But everyone, just like that damn doctor, they all wanna be some savior. Can't just admit when they've mucked somethin' up. 
+	Chance_Thinking: It's always been that way? Even when Farida got here?
+	Yule_Thinking: I left 'round the time she showed up. If things got better, I ain't seen it. Those things still stomp around, the plants stay sick, the people are gone.. Far as I'm concerned, until all that stops, it's their fault.
+	Yule_Sad: Farida included.. She might think she's doin' the right thing, but she's a damn fool. Closing up all the gates didn't stop anything, just gave them more obstacles.
+	Chance_Sad: Do they ever come bother you?
+	Yule_Thinking: No, I don't think it wants anything where I am.. I think it's lookin' for something. May never find it.
+	Chance_Sad: What do you think happens if it does stop? All the sickly stuff goes away, what do you think happens to them?
+	Yule_Sad: I'm not sure.. I dobut somethin' like that can just go back to normal. Maybe it would stay, maybe it'd get mad.. Maybe it'd wander off.
+	Yule_Stare: Hopefully whatever happens, if you stop this like you said, it ain't in too much pain.
+	Yule_Sad: Was one of us, back then.. I feel ashamed I don't remember their name. Their face..
+	Chance_Sad: It's been a long time.. It's not your fault.
+	Yule_Stare: Well.. it's somebodies.
+=> BBEnd

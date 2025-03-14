@@ -250,6 +250,10 @@ Do I want to talk to <color=#813408>Farida</color> right now?
 ~ farida_beyond_base_directory
 if FaridaBB == 0:
 	=> F0
+if FaridaBB == 1:
+	=> F1
+if FaridaBB == 2:
+	=> F2
 else:
 	set FaridaExhausted = true;
 	Farida_Annoyed: While I've loved being pestered ad nauseum, I really have work to do.

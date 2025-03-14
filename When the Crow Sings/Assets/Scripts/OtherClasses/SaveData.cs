@@ -18,6 +18,8 @@ public class SaveData
         { "NightIntroSeen",false },
         { "NightCutsceneSeen",false },
         { "CutsceneTime",false },
+        { "SeenControls",false },
+        { "ComicFlipFlop",false },
 
         { "HasThrownBirdseed",false },
         { "HasSpawnedAtLodgingNight",true },
@@ -182,6 +184,9 @@ public class SaveData
         {"TheodoreHasBeenHeardOf",false },
         {"PhilomenaHasBeenHeardOf",false },
         {"YuleHasBeenHeardOf",false },
+        {"MonsterHasBeenHeardOf",true },
+        {"MonsterKnown",false },
+        {"IKnowMyself", true },
 
         //Map relevant flags
         { "MFAngelTag",true },
