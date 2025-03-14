@@ -71,7 +71,6 @@ Jazmyne_Exhausted: One cries, wakes another, like screaming dominoes...
 Jazmyne_Sigh: But, um, <color=#813408>Teddy</color>... He does sneak through that fence to <color=#5b5b1f>the quarry</color> to the <color=#5b5b1f>north-east</color>. He's been so rebellious since we had to move here. I mean I know it was difficult but-
 Jazmyne_Exhausted: I'm not sure what he's looking for out there exactly, but lately he's there almost every day. He's probably still out there now. Maybe you can get more out of him than I can.. 
 Jazmyne_Annoyed: I don't even know how he gets out there! I mean, the door is broken.
-Jazmyne_Stunned: Do you think he can actually fly?
 Chance: Uh... Thanks for the info. I appreciate it.
 Jazmyne: Of course! You know... if you're used to little ones, I could always use a hand. Oh! We all get together for movies on Wednesdays! If you're interested?
 Jazmyne_Sigh: Though, we are running a little low on movies...
@@ -120,6 +119,147 @@ set JazmyneBB += 1;
 => ending_call
 
 ~ jazmyne_beyond_base_directory
+if JazmyneBB == 0:
+	=> J0
+if JazmyneBB == 1:
+	=> J1
+if JazmyneBB == 2:
+	=> J2
+else:
 set JazmyneExhausted = true;
 Jazmyne_Exhausted: I appreciate your interest, but I'm very.. very tired. I'm going to rest while the little ones are out of my fur.
 => ending_call
+
+~ J0
+Jazmyne: Hello! How can I help you?
+Chance: Oh, I just wanted to ask you a few things.
+Jazmyne_Exhausted: Ah, okay. Ask away.
+- Kids
+	Chance_Thinking: So, you watch the kids all day right?
+	Jazmyne_Sigh: Yes, I do.
+	Chance_Thinking: Are any of them yours?
+	Jazmyne_Stunned: Oh! Yes, they are, actually. The younger ones.
+	Jazmyne_Exhausted: They are the ones who wake up and cry so much.. The older kids also find it funny to jostle them while they're napping.
+	Chance_Annoyed: I'm sorry, that sounds rough.
+	Jazmyne_Sigh: It's tough but.. I'm glad to have them.
+	Jazmyne: They're going to grow up to be great little possums! Just like their father.
+	Chance_Thinking: Is he around here somewhere?
+	Jazmyne_Worried: Ah.. No.
+	Jazmyne_Sigh: When we had to leave our compound.. I'm sure you understand.
+	Chance_Sad: Oh. Right.
+	Jazmyne: It's okay. I'm sorry to drop that on you, I didn't know how else to answer the question.
+	Chance: No, it's fine.. I'm the one asking nosy questions.
+	Jazmyne_Sigh: It's good to be curious!
+	Chance_Thinking: How many of them do you have?
+	Jazmyne_Exhausted: Eight.
+	Chance_Scared: Holy crap!
+	Jazmyne_Exhausted: Yeah...
+	Chance_Sad: I'll just uh.. Let you rest.
+- Your ear
+	Chance: So why are you missing some chunks out of your ear?
+	Jazmyne_Stunned: Oh! Hah!
+	Jazmyne_Sigh: Well, when we had to leave our compound it wasn't exactly a peaceful exit. Someone ah-.. Well.. Took a bite!
+	Chance_Scared: Oh jeez, I'm sorry!
+	Jazmyne_Sigh: It's alright! You didn't know or anything. It's just a fact of life, it happens.
+	Chance_Sad: Right.. Luckily I didn't get any scrapes or scars when I got out..
+	Jazmyne_Worried: Oh, I didn't know you had gone through something similar.
+	Chance_Sad: Yeah.. Most of our guys were um.. pretty big. Most everyone..
+	Jazmyne_Sigh: I'm so sorry..
+	Chance_Sad: It's okay, like you said... Fact of life.
+	Jazmyne_Sigh: Well.. You're here now. Maybe we can look out for each other? Make sure that sort of thing doesn't happen again.
+	Chance:.. Yeah, I'd like that. I'm doing my best to stop anything bad from happening.
+	Jazmyne: You're already a great team player. If you ever need anything, let me know! I'll always do my best to help.
+	Chance_Smile: Yeah, sure.
+=> BBEnd
+
+~ J1
+Jazmyne: Hello again!
+- Nocturnal
+	Chance: So you're nocturnal, right?
+	Jazmyne_Exhausted: Yes, unfortunately.
+	Chance_Thinking: So isn't being up during the day like, weird for you?
+	Jazmyne_Sigh: It's not the best, but I have to make do.
+	Chance_Thinking: When do you actually sleep?
+	Jazmyne_Exhausted: When the kids do, usually. I get enough, but it can be quite hard.
+	Chance: And nobody else helps?
+	Jazmyne_Sigh: Well, when Angel gets home from working the dining tent he usually takes his siblings upstairs, and when Caleb is finished with his work he comes and collects Calliope.
+	Jazmyne_Exhausted: That still leaves me with eight little ones to take care of on my own..
+	Jazmyne_Sigh: Sometimes Teddy helps me out.. 
+	Jazmyne_Annoyed: He gets annoyed with them so easily, though. The moment anyone pulls on a feather or touches his jacket, he gets all huffy and leaves.
+	Chance_Thinking: His jacket?
+	Jazmyne_Annoyed: Yes, it's his prized posession these days..
+	Jazmyne_Sigh: They gave him the jacket as we were transferring.. He has a star on the sleeve, he cut it out of an old baby blanket he had.
+	Jazmyne_Annoyed: He sewed it on terribly and wouldn't let me fix it for the longest time. I managed to finally fix it up once when he left it lying around. Gave it a good wash too! The thing stank like hot garbage.
+	Chance_Thinking: I guess I can see why he'd be uspet..
+	Jazmyne_Sigh: Yes, it's.. Difficult, to draw a line with him. I know why he's so upset, but he can't take it out on my little ones.
+	Chance: Right, yeah. Obviously.
+	Jazmyne_Exhausted: I wish he would just talk with me about it.. Maybe he'd stop all this sneaking around and just settle down..
+	Jazmyne_Worried: Soon he will be old enough to not be in my care, and will get placed into a job on the compound.
+	Jazmyne_Exhausted: The last thing anyone here needs is him being moody and doing his job wrong.
+	Chance_Sad: I'm sure he'll come around eventually. Leaving behind your family and home..
+	Jazmyne_Sigh: Yes, you're right. I'm sure he will.
+	Jazmyne: Thank you, Chance.
+	Chance_Smile: Yeah.
+- Childcare
+	Chance: So were you like... trained, to take care of kids?
+	Jazmyne_Exhausted: Huh?
+	Chance_Thinking: Like.. Like I'm gonna get a job based on my skills I have from my compound, right. Did that happen with you?
+	Jazmyne_Sigh: Oh, uh.. Not exactly. This compound is a little more formal than my previous one, there I just sort of informally cared for all of the children.
+	Jazmyne: When I got here I was assigned the role officially by the compound head, but it wasn't really much different.
+	Chance_Thinking: So you didn't get any training? You just know how to do it?
+	Jazmyne: Well, I just sort of had a knack for it. Even before I had my own, I was always drawn to helping out with the little ones. It just came natural to me.
+	Jazmyne_Sigh: Children are always a bit of a handful.. But some people are more resilient to it than others. 
+	Chance_Thinking: Mmm I guess that makes sense. 
+	Chance: I just helped take of my siblings, but not anyone else's kids.
+	Jazmyne: That's still a big job. I'm sure your parents were grateful for the help.
+	Chance_Smile: Yeah I think they were. Besides they weren't super annoying or anything.. It was mostly just playing in the water, showing them how to catch crawfish and keep the iguanas away.
+	Jazmyne_Stunned: Iguanas?!
+	Chance_Thinking: Yeah?
+	Jazmyne: We had iguanas where we were from too! Resilient little guys! Though I can see why you would want them to leave you be, they are a bit handsy with food. 
+	Chance_Smile: Oh, that's cool. Did you have crawfish too?
+	Jazmyne: No, I have no idea what that is.
+=> BBEnd
+
+~ J2
+Jazmyne: Hello!
+Chance_Smile: Hey.
+- Kid's drawings
+	Chance_Thinking: So those drawings you had me pick up, who did all of those?
+	Jazmyne: Well, some of them were done by Angelo and Angelica, some were by Calliope. Mine are still too little to draw..
+	Jazmyne_Exhausted: And I'm grateful for that.. I've scrubbed enough drawings off the baseboards for a lifetime..
+	Chance_Smile: I guess that makes sense, they were mostly focused on bunnies or people. Only other person was you.
+	Jazmyne: Was it?.. I didn't actually look at them. 
+	Jazmyne_Sigh: You'd be surprised just how many drawings these kids can pump out.
+	Jazmyne_Exhausted: Sometimes, C.A.N. won't send us new paper because we've exceeded the limit, so I have to take the paper and recycle it myself.
+	Chance_Thinking: How do you do that?
+	Jazmyne_Annoyed: It's a whole process.. You take the paper and break it down, rip it into little shreds. Usually I let the kids help with that part, keeps em busy.
+	Jazmyne_Exhausted: Then, we put it in a big tub of water and wash it to make sure it's clean, and then we dump it out and fill it with water again.
+	Jazmyne: Then we take a screen and use it to make an even layer of the water pulp! Hang it to dry, and you've got a new piece of drawing paper to mangled in a day or two.
+	Chance: That sounds like a lot of work just for some drawing.
+	Jazmyne_Exhausted: There's not a whole lot else for them to do around here.. Other than their education, they've read every book C.A.N. sends a dozen times over.
+	Chance_Thinking: You teach them too?
+	Jazmyne_Sigh: Yes, I do. 
+	Jazmyne: I'm.. a possum of many talents.
+	Chance: Sounds like you've got your work cut out for you.
+	Jazmyne_Exhausted: That I do.
+	Chance: I'll uh.. leave you to that.
+- Movies
+	Chance_Thinking: You mentioned a movie night?
+	Jazmyne: Yes! Were you thinking of joining us sometime?
+	Chance: Well.. Maybe. I've never really seen many movies, the ones we had where I am from we just kinda watched on repeat.
+	Jazmyne: What were those like?
+	Chance_Thinking: They were like.. lots of cartoons. Singing, talking animals.. But like ones on four legs, not two... Unless you count birds I guess.
+	Jazmyne: Oh! That sounds nice.
+	Jazmyne_Sigh: Not all of the movies we get sent in are the most interesting for the little ones.. We haven't gotten a new cartoon in a long time.
+	Jazmyne_Exhausted: Farida might be doing it to spite me.. But they've mostly been sending documentaries or old movies. 
+	Jazmyne_Annoyed: Some aren't even in color! The kids can barely keep up with those, I'm better off just giving them leaves and telling them to sort them.
+	Chance: Oh, uh..
+	Jazmyne_Worried: Oh! But you should still come watch them!
+	Jazmyne_Exhausted: The little ones love when more people come to watch the movies.
+	Chance_Thinking: Does not everyone come?
+	Jazmyne_Annoyed: No. Usually it's just Caleb and Angel, and Angel's parents.
+	Jazmyne_Sigh: Francisco sometimes comes, but he's usually trying to get Farida to come. And if it's not an educational movie, in black and white, the most boring thing left on this planet! She won't come.
+	Chance_Sad: That's.. Unfortunate. I'll come around.. probably. Can we start with the more fun stuff?
+	Jazmyne: Of course! since you're the newest edition to the compound, you'd have first pick the next movie night.
+	Chance_Smile: Oh, sick.
+=> BBEnd

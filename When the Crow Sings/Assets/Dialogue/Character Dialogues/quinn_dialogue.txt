@@ -236,6 +236,8 @@ Should I spend time talking to <color=#813408>Quinn</color> right now?
 ~ quinn_beyond_base_directory
 if QuinnBB == 0:
 	=> Q0
+if QuinnBB == 1:
+	=> Q1
 else:
 	set QuinnExhausted = true;
 	Quinn_Smile: I've loved our chats, dude.
@@ -279,4 +281,99 @@ Quinn: Sure!
 	Quinn_Worried: Don't worry about it.
 	Quinn_Smile: Some things are best left unspoken.
 	Chance_Annoyed: Then don't bring it up.
+=> BBEnd
+
+~Q1
+Quinn_Smile: Hello again my dude. Here for more knowledge drops?
+Chance: Is that what you call these conversations?
+Quinn: Uh, yeah. Duh. 
+Chance_Annoyed: Right...
+- What do you do in here all day
+	Chance_Thinking: So what is it you do in here all day?
+	Quinn: Gardening stuff.
+	Chance_Annoyed: Obviously. I meant like, specifics.
+	Quinn_Thinking: Ohhh, right, right.. Well, obviously I tend to the plants that are already growing. Organize all the stuff that's ready to go out. I germinate new seeds and plant them if it's the right time of season.
+	Quinn_Excited: If I've got an extra specimen, I love to do some splicing.
+	Chance_Thinking: Splicing?
+	Quinn_Excited: Yeah dude. Two plants with a similar vascular systems, chop off a limb from one and graft on a limb from the other. If everything's just right, boom! Hybrid.
+	Chance: So like, Frankenstein?
+	Quinn_Thinking: Franken-what?
+	Chance: He's like, a doctor that used bunch of people's limbs and organs and stuff to make one working body.
+	Quinn_Worried:....
+	Quinn_Excited: How have I never heard of that before? That sounds awesome!
+	Chance_Thinking: You've never heard of Frankenstein before?
+	Quinn: Nope. What's it from?
+	Chance_Thinking: Uh, I read it in a comic but I think it was a book a long time ago.
+	Quinn_Excited: Comics? Do you have any with you?
+	Chance_Smile: Yeah I managed to bring a few with me on my way here.
+	Chance_Excited: There's this one about this guy who is trying to win a competition to gain freedom from an evil corporation, this guy who dresses up as a bat and kicks people's asses, and monster ones like Frankenstein.
+	Quinn_Worried: A guy who dresses up as a bat?!
+	Chance_Thinking: Uh, yeah?
+	Quinn_Worried: What kind of freaks wrote that? Why would they dress up as an EVO?
+	Chance:... I think it was before that.
+	Quinn_Scared: That's even worse!!!
+- Boombox
+	Chance_Thinking: So how do you have a working uh... music, thing?
+	Quinn: Music thing?
+	Chance: Yeah, the thing in the corner playing music.
+	Quinn_Smile: Ahh, Bessie, my boombox.
+	Chance_Thinking: Weired name for a music player.
+	Quinn_Thinking: That's just the name on the bottom of it. Boombox. Cause it plays some.. booms?
+	Chance_Smile: Heheh... booms...
+	Chance: But where did you get it?
+	Quinn: Ah, I found it when I moved here. I think someone left it behind in the residential area.
+	Chance_Thinking: Isn't that place locked up?
+	Quinn_Smile: Don't sweat the details, dude.
+	Quinn: Anyway, I found it out there along with some CDs for it, and I was able to convince Caleb to get it to run without batteries.
+	Chance_Thinking: What's a CD?
+	Quinn_Thinking: Uh.. It's the thing the music is on.. It's a.. circular.. Disk? CD?.. I dunno, it said CD on the cover, and then had a name written in pen.
+	Chance: That's cool I guess. 
+	Quinn_Worried: It would be more cool if C.A.N. ever agreed to send me more CDs.. They care about us making the world better, think that music is a distraction. But it totally helps me get in the zone!
+	Chance_Thinking: Can you make your own?
+	Quinn: I would have literally no idea how to do that. I'm all about the organic stuff.
+	Chance:.. Well it's cool.
+	Quinn_Smile: It sure is.
+=> BBEnd
+
+~Q2
+Quinn: Sup, dude?
+- Your hair
+	Chance_Thinking: So your hair probably has to get done pretty often since it's short on the sides, right?
+	Quinn: Yup.
+	Chance: Who does your hair around here?
+	Quinn_Smile: My sweet little buddy, Calliope.
+	Quinn: Caleb's daughter, if you don't know her. 
+	Chance_Thinking: His daughter is old enough to cut hair?
+	Quinn: Well Caleb helps out, but yeah she does a lot of it. He helps section the hair, she does the clipping and the cutting and the buzzing. Ya know, standard stuff.
+	Quinn_Thinking: Did you not have anyone like that where you're from?
+	Chance_Annoyed: What's that supposed to mean?
+	Quinn: I'm just asking. I mean, look at your hair. Looks like it hasn't been cut for a long while. And it's all different lengths.
+	Quinn_Thinking: Did you cut it yourself?
+	Chance_Angry: No!
+	Chance_Sigh: Even if I did, it would be a fine haircut. I like my hair.
+	Quinn: Yeah, sure dude.
+	Quinn_Thinking: I can get you set up with Calliope, I'm sure she could even you out.
+	Quinn: Get that hair out of your face, even it out in the back.
+	Quinn_Scared: I don't even want to think about how it looks under that hat of yours.. When's the last time you took it off?
+	Chance_Annoyed: I'm leaving.
+- Your glasses
+	Chance_Thinking: So what do you need your glasses for? They're pretty big.
+	Quinn: The bigness doesn't do anything. I'm near sighted.
+	Chance_Thinking: Uh, what does that mean?
+	Quinn: It means I can only see stuff without my glasses if it's real close. Not like.. super close, but close.
+	Chance_Thinking:... Oh. You can't just like, squint?
+	Quinn: I mean, I can, but it's not super effective.
+	Chance: I just squint.
+	Quinn_Thinking: Do you have trouble seeing stuff far away?
+	Chance_Annoyed: No.
+	Quinn: What's the symbol on the far wall there?
+	Chance:....
+	Chance_Sigh: My eyes are fine.
+	Quinn_Smile: You totally need glasses dude.
+	Chance_Annoyed: No I do not.
+	Quinn: It's not a big deal, do you wanna try mine?
+	Chance_Sigh: No! I see just fine!
+	Quinn_Thinking: Have you tried moving that hair out of your face? Maybe that would help.
+	Chance_Angry: Maybe you need new glasses, since you can't see that I definitely don't.
+	Quinn: Totally.
 => BBEnd
