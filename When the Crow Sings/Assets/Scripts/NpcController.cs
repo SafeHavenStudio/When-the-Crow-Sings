@@ -12,7 +12,14 @@ public class NpcController : NpcControllerBase
     NpcState state = NpcState.IDLE;
 
     [HideInInspector]
-    public bool canWander = false;
+    public bool canWander
+    {
+        get
+        {
+            return SaveDataAccess.saveData.boolFlags[flagToEnableWandering];
+        } 
+    }
+    public string flagToEnableWandering = "AlwaysFalse";
 
 
     public float walkSpeed = 1.0f;

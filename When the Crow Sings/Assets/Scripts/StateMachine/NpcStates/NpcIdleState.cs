@@ -17,7 +17,11 @@ public class NpcIdleState : NpcState
     {
         s.animator.SetBool("animIsIdle", true);
 
-        if (s.WaypointsHolders.Count > 0) s.StartCoroutine(exitStateAfterTime());
+        if (s.canWander)
+        {
+            if (s.WaypointsHolders.Count > 0) s.StartCoroutine(exitStateAfterTime());
+            else throw new System.Exception(s.name + " is supposed to wander, but has no WaypointHolders!");
+        }   
     }
     public override void StateExited()
     {
