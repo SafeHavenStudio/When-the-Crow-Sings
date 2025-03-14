@@ -319,15 +319,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d80d6d7a5de3a4493e188f3358aad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWaypointsHolders:
+  WaypointsHolders:
   - {fileID: 0}
+  currentWaypoint: {fileID: 0}
+  currentWaypointHolder: {fileID: 0}
+  timeToWaitBetweenWander: 5
+  navMeshAgent: {fileID: 0}
   patrolSpeed: 4.5
   pursuitSpeed: 13
-  currentWaypoint: {fileID: 0}
   enemyAnimator: {fileID: 5549008216811023264}
-  navMeshAgent: {fileID: 0}
-  timeToWanderIfNoWaypoint: 4
-  timeToWaitBetweenWander: 5
   timeToBeStunned: 2
   lookAtHeight: 2.5
   canSeePlayer: 0
@@ -336,7 +336,6 @@ MonoBehaviour:
   lineRenderers:
   - {fileID: 8561991176446238206}
   - {fileID: 5861232039299990190}
-  currentWaypointHolder: {fileID: 0}
   bufferBeforeSeesPlayer: 0.1
   IsChasingPlayer: 0
 --- !u!195 &6927032940599626117

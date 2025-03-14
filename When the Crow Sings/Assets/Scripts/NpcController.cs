@@ -11,12 +11,27 @@ public class NpcController : NpcControllerBase
     enum NpcState { IDLE, TALKING }
     NpcState state = NpcState.IDLE;
 
+    [HideInInspector]
+    public bool canWander = false;
+
+
+    public float walkSpeed = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         if (animator == null) animator = GetComponent<Animator>();
+        if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
         GetComponent<NavMeshAgent>().radius = GetComponent<CapsuleCollider>().radius;
         GetComponent<NavMeshAgent>().height = GetComponent<CapsuleCollider>().height;
+        navMeshAgent.speed = walkSpeed;
+
+        SetUpWaypointsOnStart();
+
+        stateMachine = new StateMachine(this);
+        stateMachine.RegisterState(new NpcIdleState(this), "NpcIdleState");
+        stateMachine.RegisterState(new NpcPatrolState(this), "NpcPatrolState");
+        stateMachine.Enter("NpcIdleState");
     }
 
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.

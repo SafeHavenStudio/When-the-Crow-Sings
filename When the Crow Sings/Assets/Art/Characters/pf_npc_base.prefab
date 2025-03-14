@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2053429486432233474}
   - component: {fileID: 3291438220563399179}
   - component: {fileID: 7764040582633163}
+  - component: {fileID: 5340269627348009014}
   m_Layer: 0
   m_Name: pf_npc_base
   m_TagString: Untagged
@@ -47,7 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69eabd3c7bc163459cdcc7021e8fb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaypointsHolders: []
+  currentWaypoint: {fileID: 0}
+  currentWaypointHolder: {fileID: 0}
+  timeToWaitBetweenWander: 2
+  navMeshAgent: {fileID: 0}
   animator: {fileID: 0}
+  canWander: 0
+  walkSpeed: 1
 --- !u!114 &2053429486432233474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +129,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5340269627348009014
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163397890752162378}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
