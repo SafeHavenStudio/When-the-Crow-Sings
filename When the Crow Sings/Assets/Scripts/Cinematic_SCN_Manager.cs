@@ -83,10 +83,18 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     }
 
 
-    public void OnGameOverButtonPressed()
+    public void OnGameOverButtonPressed(bool _yesOrNo)
     {
         //SaveDataAccess.ReadDataFromDisk();
-        LoadMain_SCN();
+        if (_yesOrNo)
+        {
+            LoadMain_SCN();
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu_SCN");
+        }
+        
     }
 
     public void LoadMain_SCN()
