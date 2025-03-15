@@ -43,21 +43,18 @@ Phil_Scared: <color=#813408>The doctor</color>! It was his. <color=#a11bbe>His d
 if YuleBaseCompleted == true:
 	That guy <color=#813408>Yule</color> mentioned..
 Phil_Scared: And I have to stop it. Have to. I have to. They come, and they DRIp DriP drip <i>DrIp</i> drip DriP dRiP dRIp drIp DRip DrIp DRiP Drip DRiP driP drIp dRip <u>DRIp</u> dRip Drip DRIp drIp drip driP dRIp DRIp dRIP <b>dRiP</b> drIp drip DRip Drip DrIp dRip drip DRiP DriP drIp driP DRIP DriP drIP DrIP dRIP <u>DriP</u> DRip DRip DRIp dRiP driP drip dRIp drIp Drip dRip dRIP <b>drip</b> DRip drIP dRiP DRIp DrIp DriP DrIP DRip dRIp DRIP DrIp DriP drIp <i>dRIp</i> DRIp DriP Drip drip driP DriP DRIP dRIP DriP dRip DRip driP dRip dRip dRIp DrIP drIp DRip DrIp DrIP dRip dRiP DriP dRIp DRIP DrIp drIp dRiP dRiP DriP drip driP driP drip driP DRIp drip dRip DRiP DRIp DriP dRiP 
-She seems to have become catatonic. Her lips stop moving, and she starts to hum shakily.
+She's kinda... freaking out. She's humming something, I think, but it's all shaky..
 emit 1;
 => ending_call
 
 ~ phil_cat
 if PhilTalk == 1:
-	She doesn't seem to be responsive. Her finger tips are tapping together, a rhythm that seems in time with her humming.
+	She isn't responsive. She's tapping her fingers together a lot, for some reason.
 if PhilTalk == 2:
 	Chance: Uh, hello?
-	She doesn't react at all. The hand that isn't tapping the rhythm is clenching on repeat, her knuckles clicking in a smooth cycle.
+	She's not reacting at all.
 if PhilTalk == 3:
-	Her feet shuffle a little bit against the floor as she readjusts. 
-	She stares off into nothing. She's still humming.
-if PhilTalk == 4:
-	All of the sounds her movements make synchronize, almost like a sad song. Her lip trembles while she hums.
+	She's staring off into nothing, but she's still humming.
 else:
 	Nothing is going to change. Best to leave her alone until I can figure out how to help.
 set PhilTalk += 1;
@@ -267,7 +264,7 @@ Chance: Right, no worries.
 	Chance_Thinking: Er, what do you like to do for fun? I mean like, not now probably but, in general.
 	Phil_Smile: I appreciate the clarification. I was once a fan of birding, though the species with migratory paths that come through here are few and far between.
 	Chance_Smile: Oh I love birdwatching.
-	Phil_Smile: What kind of birds are there, where you come from?
+	Phil_Smile: What kind of birds are there where you come from?
 	Chance_Thinking: All kinds. Ducks, herons, pelicans, spoonbills, cranes, jays, cardinals... Like, so many.
 	set TheodoreHasBeenHeardOf = true;
 	Chance_Smile: We had the non-evolved versions of <color=#813408>Theodore</color> down there too.
