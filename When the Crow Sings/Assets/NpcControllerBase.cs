@@ -21,9 +21,10 @@ abstract public class NpcControllerBase : StateMachineComponent
 
     protected void SetUpWaypointsOnStart()
     {
-        if (WaypointsHolders == null)
+        if (WaypointsHolders.Count < 1)
         {
-            throw new System.Exception("No waypoint holder assigned!");
+            //throw new System.Exception("No waypoint holder assigned!");
+            Debug.Log("No waypoint holder assigned");
         }
         else
         {
