@@ -11,8 +11,7 @@ public class NpcBespokeDestinationState : NpcState
         if (other.GetComponent<Waypoint>() == s.currentWaypoint)
         {
             // Flip flag. May need more robust solution later.
-            SaveDataAccess.saveData.boolFlags[s.GetComponent<DynamicEnable>().associatedDataKey] =
-                !SaveDataAccess.saveData.boolFlags[s.GetComponent<DynamicEnable>().associatedDataKey];
+            SaveDataAccess.SetFlag(s.GetComponent<DynamicEnable>().associatedDataKey, !s.GetComponent<DynamicEnable>().boolValue);
             s.stateMachine.Enter("NpcIdleState");
         }
     }

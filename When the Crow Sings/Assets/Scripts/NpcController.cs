@@ -42,6 +42,7 @@ public class NpcController : NpcControllerBase
         stateMachine.RegisterState(new NpcIdleState(this), "NpcIdleState");
         stateMachine.RegisterState(new NpcPatrolState(this), "NpcPatrolState");
         stateMachine.RegisterState(new NpcBespokeDestinationState(this), "NpcBespokeDestinationState");
+        stateMachine.RegisterState(new NpcReturnToOriginalPositionState(this), "NpcReturnToOriginalPositionState");
         stateMachine.Enter("NpcIdleState");
 
         originalPosition = transform.position;
@@ -83,5 +84,31 @@ public class NpcController : NpcControllerBase
         {
             throw new Exception("Signal emitted for NPC to walk, but there's no destination for dialogue-triggered movement!");
         }
+    }
+
+
+    bool shouldReturnToPosition = false;
+    private void OnEnable()
+    {
+        if (shouldReturnToPosition) enterNewState();
+        shouldReturnToPosition = false;
+
+        void enterNewState()
+        {
+            if (destinationForDialogueTriggeredMovement != null)
+            {
+                stateMachine.Enter("NpcReturnToOriginalPositionState");
+            }
+            else
+            {
+                throw new Exception("Signal emitted for NPC to walk, but there's no destination for dialogue-triggered movement!");
+            }
+        }
+    }
+    public void OnNpcWalkSignal2(SignalArguments args)
+    {
+        Debug.Log("Returning!");
+        shouldReturnToPosition = true;
+        SaveDataAccess.SetFlag(GetComponent<DynamicEnable>().associatedDataKey, GetComponent<DynamicEnable>().boolValue);
     }
 }
