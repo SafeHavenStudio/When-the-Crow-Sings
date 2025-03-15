@@ -54,6 +54,7 @@ public class NpcController : NpcControllerBase
         Debug.Log("No i don't want to talk to you go away");
         if (animator != null) animator.SetBool("isTalking",false);
         state = NpcState.IDLE;
+        stateMachine.Enter("NpcIdleState");
     }
     public void NpcAnimTalkStart()
     {

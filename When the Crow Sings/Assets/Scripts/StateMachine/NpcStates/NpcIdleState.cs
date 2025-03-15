@@ -17,6 +17,8 @@ public class NpcIdleState : NpcState
     {
         s.animator.SetBool("animIsIdle", true);
 
+        s.navMeshAgent.destination = s.transform.position;
+
         if (s.canWander)
         {
             if (s.WaypointsHolders.Count > 0) s.StartCoroutine(exitStateAfterTime());

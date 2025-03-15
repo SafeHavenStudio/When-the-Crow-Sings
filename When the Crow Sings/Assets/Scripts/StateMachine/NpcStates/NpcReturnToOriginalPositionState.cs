@@ -23,6 +23,7 @@ public class NpcReturnToOriginalPositionState : NpcState
     public override void StateExited()
     {
         Debug.Log("Made it back safely.");
+        s.transform.rotation = Quaternion.Euler(0,180,0);
         s.animator.SetBool("animIsWalking", false);
     }
 }
