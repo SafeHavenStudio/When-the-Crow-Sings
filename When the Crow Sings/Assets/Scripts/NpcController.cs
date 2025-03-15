@@ -33,8 +33,8 @@ public class NpcController : NpcControllerBase
     {
         if (animator == null) animator = GetComponent<Animator>();
         if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
-        GetComponent<NavMeshAgent>().radius = GetComponent<CapsuleCollider>().radius;
-        GetComponent<NavMeshAgent>().height = GetComponent<CapsuleCollider>().height;
+        navMeshAgent.radius = GetComponent<CapsuleCollider>().radius;
+        navMeshAgent.height = GetComponent<CapsuleCollider>().height;
         navMeshAgent.speed = walkSpeed;
 
         SetUpWaypointsOnStart();
