@@ -33,8 +33,8 @@ public class NpcController : NpcControllerBase
     {
         if (animator == null) animator = GetComponent<Animator>();
         if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
-        GetComponent<NavMeshAgent>().radius = GetComponent<CapsuleCollider>().radius;
-        GetComponent<NavMeshAgent>().height = GetComponent<CapsuleCollider>().height;
+        navMeshAgent.radius = GetComponent<CapsuleCollider>().radius;
+        navMeshAgent.height = GetComponent<CapsuleCollider>().height;
         navMeshAgent.speed = walkSpeed;
 
         SetUpWaypointsOnStart();
@@ -63,7 +63,9 @@ public class NpcController : NpcControllerBase
     }
     public void NpcAnimTalkStart()
     {
-        transform.rotation = Quaternion.LookRotation((ServiceLocator.Get<PlayerController>().transform.position - transform.position), Vector3.up);
+        Vector3 direction = ServiceLocator.Get<PlayerController>().transform.position - transform.position;
+        direction.y = 0;
+        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
         Debug.Log("I am playing a talking animation now!");
         if (animator != null)  animator.SetBool("isTalking", true);
