@@ -24,6 +24,10 @@ public class NpcController : NpcControllerBase
 
     public float walkSpeed = 1.0f;
 
+    public Waypoint destinationForDialogueTriggeredMovement;
+    [HideInInspector] public Vector3 originalPosition;
+    [HideInInspector] public Quaternion originalRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +42,12 @@ public class NpcController : NpcControllerBase
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new NpcIdleState(this), "NpcIdleState");
         stateMachine.RegisterState(new NpcPatrolState(this), "NpcPatrolState");
+        stateMachine.RegisterState(new NpcBespokeDestinationState(this), "NpcBespokeDestinationState");
+        stateMachine.RegisterState(new NpcReturnToOriginalPositionState(this), "NpcReturnToOriginalPositionState");
         stateMachine.Enter("NpcIdleState");
+
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
@@ -47,9 +56,15 @@ public class NpcController : NpcControllerBase
         Debug.Log("No i don't want to talk to you go away");
         if (animator != null) animator.SetBool("isTalking",false);
         state = NpcState.IDLE;
+
+        transform.rotation = originalRotation;
+
+        stateMachine.Enter("NpcIdleState");
     }
     public void NpcAnimTalkStart()
     {
+        transform.rotation = Quaternion.LookRotation((ServiceLocator.Get<PlayerController>().transform.position - transform.position), Vector3.up);
+
         Debug.Log("I am playing a talking animation now!");
         if (animator != null)  animator.SetBool("isTalking", true);
         state = NpcState.TALKING;
@@ -65,5 +80,43 @@ public class NpcController : NpcControllerBase
                 NpcAnimIdleStart();
                 break;
         }
+    }
+
+    public void OnNpcWalkSignal(SignalArguments args)
+    {
+        if (destinationForDialogueTriggeredMovement != null)
+        {
+            stateMachine.Enter("NpcBespokeDestinationState");
+        }
+        else
+        {
+            throw new Exception("Signal emitted for NPC to walk, but there's no destination for dialogue-triggered movement!");
+        }
+    }
+
+
+    bool shouldReturnToPosition = false;
+    private void OnEnable()
+    {
+        if (shouldReturnToPosition) enterNewState();
+        shouldReturnToPosition = false;
+
+        void enterNewState()
+        {
+            if (destinationForDialogueTriggeredMovement != null)
+            {
+                stateMachine.Enter("NpcReturnToOriginalPositionState");
+            }
+            else
+            {
+                throw new Exception("Signal emitted for NPC to walk, but there's no destination for dialogue-triggered movement!");
+            }
+        }
+    }
+    public void OnNpcWalkSignal2(SignalArguments args)
+    {
+        Debug.Log("Returning!");
+        shouldReturnToPosition = true;
+        SaveDataAccess.SetFlag(GetComponent<DynamicEnable>().associatedDataKey, GetComponent<DynamicEnable>().boolValue);
     }
 }
