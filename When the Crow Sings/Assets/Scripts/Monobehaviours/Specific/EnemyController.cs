@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
-public class EnemyController : StateMachineComponent,IService
+public class EnemyController : NpcControllerBase,IService
 {
-    public List<EnemyWaypointsHolder> enemyWaypointsHolders;
     public float patrolSpeed = 4.5f;
     public float pursuitSpeed = 13.0f;
 
-    [HideInInspector]
-    public EnemyWaypoint currentWaypoint;
-
     public Animator enemyAnimator;
 
-    [HideInInspector]
-    public NavMeshAgent navMeshAgent;
-
-    public float timeToWanderIfNoWaypoint = 4.0f;
-    public float timeToWaitBetweenWander = 2.0f;
+    //public float timeToWanderIfNoWaypoint = 4.0f; // I don't think this is being used.
+    
     public float timeToBeStunned = 2.0f;
     public float lookAtHeight = 2.5f;
 
@@ -31,8 +25,6 @@ public class EnemyController : StateMachineComponent,IService
     public EnemySightCone enemySightCone;
     public Transform raycastStart;
     public List<LineRenderer>  lineRenderers;
-
-    [HideInInspector] public EnemyWaypointsHolder currentWaypointHolder;
 
     bool isWaitingToCheckCanSeePlayer = false;
     public float bufferBeforeSeesPlayer = .2f;
@@ -62,16 +54,8 @@ public class EnemyController : StateMachineComponent,IService
     }
     private void Start()
     {
-        if (enemyWaypointsHolders == null)
-        {
-            throw new System.Exception("No enemy waypoint holder assigned!");
-        }
-        else
-        {
-            currentWaypointHolder = enemyWaypointsHolders[0];
-            currentWaypoint = currentWaypointHolder.waypoints[0];
-        }
-        
+        SetUpWaypointsOnStart();
+
     }
 
     public void OnSpotPlayerRegardlessTriggerEntered(Collider other)
@@ -193,19 +177,6 @@ public class EnemyController : StateMachineComponent,IService
             foreach (LineRenderer i in lineRenderers)
             {
                 i.enabled = false;
-            }
-        }
-        
-        
-    }
-
-    public void OnChangeWaypointsTriggered(SignalArguments args)
-    {
-        if (args.objectArgs[0] == this)
-        {
-            if (enemyWaypointsHolders.Contains((EnemyWaypointsHolder)args.objectArgs[1]))
-            {
-                currentWaypointHolder = (EnemyWaypointsHolder)args.objectArgs[1];
             }
         }
     }

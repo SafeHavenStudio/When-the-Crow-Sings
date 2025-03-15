@@ -11,7 +11,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     public FishingRod fishingRod;
     private QTEInteractable qte;
     public MeshRenderer[] poleParts;
-    private bool playerInTrigger;
+    //private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
     private SpriteRenderer arrow;
     public ParticleSystem rippleEffect;
@@ -59,7 +59,7 @@ public class Cutscene3DInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             arrow.enabled = true;
-            playerInTrigger = true;
+            //playerInTrigger = true;
         }
     }
 
@@ -68,7 +68,7 @@ public class Cutscene3DInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             arrow.enabled = false;
-            playerInTrigger = false;
+            //playerInTrigger = false;
         }
     }
 

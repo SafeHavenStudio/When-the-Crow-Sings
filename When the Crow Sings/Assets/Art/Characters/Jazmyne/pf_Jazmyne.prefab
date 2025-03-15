@@ -110,17 +110,17 @@ PrefabInstance:
     - target: {fileID: 399671171280927328, guid: b5f8242a87cb047419b4cf20ef6758c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.962498
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 399671171280927328, guid: b5f8242a87cb047419b4cf20ef6758c3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.5613127
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 399671171280927328, guid: b5f8242a87cb047419b4cf20ef6758c3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.614532
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 399671171280927328, guid: b5f8242a87cb047419b4cf20ef6758c3,
         type: 3}
@@ -162,6 +162,21 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2782666835554421037}
+    - target: {fileID: 1894296169997604208, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894296169997604208, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      propertyPath: flagToEnableWandering
+      value: AlwaysFalse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894296169997604208, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      propertyPath: WaypointsHolders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6163397890752162378, guid: b5f8242a87cb047419b4cf20ef6758c3,
         type: 3}
       propertyPath: m_Name
@@ -195,6 +210,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3439089359423451619}
+    - targetCorrespondingSourceObject: {fileID: 6163397890752162378, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8425274053076676434}
   m_SourcePrefab: {fileID: 100100000, guid: b5f8242a87cb047419b4cf20ef6758c3, type: 3}
 --- !u!4 &750069685517361191 stripped
 Transform:
@@ -266,6 +285,34 @@ MonoBehaviour:
   intValue: 0
   stringValue: 
   playPickupSoundOnDisable: 0
+--- !u!114 &8425274053076676434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515559732802514957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f2792aa4e5a841805d6ab219c0209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSignal: {fileID: 11400000, guid: 2046dbe4b7f973b4b86b86d85b9f2634, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1561278899855544119}
+        m_TargetAssemblyTypeName: NpcController, Assembly-CSharp
+        m_MethodName: OnNpcWalkSignal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3005123334880789038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,7 +335,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1561278899855544119}
     - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -340,6 +387,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 94035f2ff1ff93140b7105cddea708c2,
         type: 2}
+    - target: {fileID: 5919980309890196096, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6803497763721583419, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -616,27 +668,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.04054247
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000007113442
+      value: 0.00017452026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9991779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00017511845
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37497ff6f3d3c6a49ad8e2f593c0719d,
         type: 3}

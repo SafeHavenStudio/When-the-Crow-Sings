@@ -20,10 +20,10 @@ public class EnemyPatrolState : EnemyState
     {
         //Debug.Log("I SEE YOU THERE IS NO LIFE IN THE VOID DIE NOW");
         //s.stateMachine.Enter("EnemyChaseState");
-        if (other.GetComponent<EnemyWaypoint>() == s.currentWaypoint)
+        if (other.GetComponent<Waypoint>() == s.currentWaypoint)
         {
             //Debug.Log("Reached the next waypoint!");
-            s.timeToWaitBetweenWander = other.GetComponent<EnemyWaypoint>().timeToWait;
+            s.timeToWaitBetweenWander = other.GetComponent<Waypoint>().timeToWait;
             if (s.timeToWaitBetweenWander > 0)
                 s.stateMachine.Enter("EnemyIdleState");
             else setNextPoint();
