@@ -30,6 +30,10 @@ public class ScreenSettings : MonoBehaviour
         QualitySettings.SetQualityLevel(savedQuality);
         qualityDropdown.value = savedQuality;
 
+        int savedResolution = PlayerPrefs.GetInt("resolution", 0);
+        SetResolution(savedResolution);
+        resolutionDropdown.value = savedResolution;
+
         brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
     }
 
@@ -115,6 +119,9 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetResolution(int _resolutionIndex)
     {
+        PlayerPrefs.SetInt("resolution", _resolutionIndex);
+        PlayerPrefs.Save();
+
         Resolution _resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
     }

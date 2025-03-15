@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class TimingMeterQTE : QuickTimeEvent
 {
     public Slider sliderMeter;
-    public float speed = 2f;
+    public int speed = 2;
     public float targetMin; //Range for successful hit
     public float targetMax;
     public Image background;
     //public float targetValue;
     public Animator timingMeterAnimator;
+
+    public GameSettings gameSettings;
 
     public RectTransform targetMinMarker;  
     public RectTransform targetMaxMarker;
@@ -80,7 +82,7 @@ public class TimingMeterQTE : QuickTimeEvent
     {
         if (movingRight)
         {
-            sliderMeter.value += Time.deltaTime * speed;
+            sliderMeter.value += Time.deltaTime * gameSettings.speed;
             if (sliderMeter.value >= 1f)
             {
                 movingRight = false;
@@ -88,7 +90,7 @@ public class TimingMeterQTE : QuickTimeEvent
         }
         else
         {
-            sliderMeter.value -= Time.deltaTime * speed;
+            sliderMeter.value -= Time.deltaTime * gameSettings.speed;
             if (sliderMeter.value <= 0f)
             {
                 movingRight = true;
@@ -119,7 +121,7 @@ public class TimingMeterQTE : QuickTimeEvent
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
 
                 isFinished = true;
-                speed = 0;
+                gameSettings.speed = 0;
                 background.color = Color.green;
                 StartCoroutine(waitForSuccess());
                 //SucceedQTE();
