@@ -63,7 +63,9 @@ public class NpcController : NpcControllerBase
     }
     public void NpcAnimTalkStart()
     {
-        transform.rotation = Quaternion.LookRotation((ServiceLocator.Get<PlayerController>().transform.position - transform.position), Vector3.up);
+        Vector3 direction = ServiceLocator.Get<PlayerController>().transform.position - transform.position;
+        direction.y = 0;
+        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
         Debug.Log("I am playing a talking animation now!");
         if (animator != null)  animator.SetBool("isTalking", true);
