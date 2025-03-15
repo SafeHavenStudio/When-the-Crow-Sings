@@ -24,6 +24,9 @@ public class NpcController : NpcControllerBase
 
     public float walkSpeed = 1.0f;
 
+    public Waypoint destinationForDialogueTriggeredMovement;
+    [HideInInspector] public Vector3 originalPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +41,10 @@ public class NpcController : NpcControllerBase
         stateMachine = new StateMachine(this);
         stateMachine.RegisterState(new NpcIdleState(this), "NpcIdleState");
         stateMachine.RegisterState(new NpcPatrolState(this), "NpcPatrolState");
+        stateMachine.RegisterState(new NpcBespokeDestinationState(this), "NpcBespokeDestinationState");
         stateMachine.Enter("NpcIdleState");
+
+        originalPosition = transform.position;
     }
 
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
@@ -64,6 +70,18 @@ public class NpcController : NpcControllerBase
             case NpcState.TALKING:
                 NpcAnimIdleStart();
                 break;
+        }
+    }
+
+    public void OnNpcWalkSignal(SignalArguments args)
+    {
+        if (destinationForDialogueTriggeredMovement != null)
+        {
+            stateMachine.Enter("NpcBespokeDestinationState");
+        }
+        else
+        {
+            throw new Exception("Signal emitted for NPC to walk, but there's no destination for dialogue-triggered movement!");
         }
     }
 }
