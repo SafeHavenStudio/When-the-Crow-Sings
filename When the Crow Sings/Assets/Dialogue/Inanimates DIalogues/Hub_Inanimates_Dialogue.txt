@@ -8,7 +8,7 @@ They're probably just inside, or off working somewhere.
 => END
 
 ~ cafeteria_serving_station
-Coffee, water, fruits, vegetables. A nice spread.
+Trays, plates, cups, utensils.. pretty standard stuff.
 => END
 
 ~ wood_pile_unmoved
@@ -29,19 +29,9 @@ else:
 	Good soup.
 	=> END
 
-~ pipsissewa
-if day == 1:
-	A pretty pink flower. Its leaves look thorny. Better not touch it. 
-	=> END
-if day == 2:
-	A vibrant pink flower. It almost looks like it's glowing.
-	=> END
-if day == 3:
-	A glowing pink flower. It's dripping some luminous mucus type substance.
-	=> END
-else:
-	Uhoh! You escaped time!!
-	=> END
+~ banjo
+Someone in here plays banjo?.. Huh.
+=> END
 
 ~ shiny_dirt
 if CalebTaskCompleted == true:
@@ -113,10 +103,6 @@ Lined up solar panels, recently wiped down and clear of dust.
 => END
 
 
-~ energy_hq_sign
-"Energy Regulation Head Quarters"
-=> END
-
 ~ bench
 if benchcounter == 0:
 	A sturdy bench. Looks comfortable... I don't have time to lounge around right now.
@@ -135,12 +121,8 @@ set benchcounter += 1;
 => ending_call
 
 
-~ ground_crack
-That.. can't be normal.
-=> END
-
 ~ fountain
-An old fountain that looks like it stopped functioning a while ago. The reservoir has been filled in with soil and flowers.
+An old fountain that looks like it stopped working a while ago. The bottom pool has been filled in with flowers.
 => END
 
 ~intro
