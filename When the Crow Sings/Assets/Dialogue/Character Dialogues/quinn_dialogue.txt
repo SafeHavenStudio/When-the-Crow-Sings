@@ -88,28 +88,28 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 		=> ending_call
 
 ~ quinn_night_int
-Chance_Scared: Christ!
-Quinn: My name is <color=#813408>Quinn</color>, actually.
+Chance_Scared: Motherfucker!
+Quinn: I've never met your mother.
 Chance_Sigh: What?!
-Quinn_Thinking: Uhh, my name is <color=#813408>Quinn</color>?
+Quinn_Thinking: Well if I've never met your mother, how could I-
 Chance_Angry: I know that! Why are you acting like nothing is going on outside? This place is literally MADE of windows and you're gonna pretend like you can't see that thing outside.
 Quinn: Uh, yeah. It's worked out so far.
 Chance_Angry: Are you insane?!
 Quinn_Thinking: I mean it doesn't really bother me.. If you respect the curfew and stay out of the stray's way, they kind of just leave you alone.
 Chance_Sigh: Do you people just play pretend like everything is okay?
 set FaridaHasBeenHeardOf = true;
-Quinn: Kinda. <color=#813408>Farida</color> set up curfew, we all stay inside, it doesn't bother anyone. Win win.
+Quinn: Kinda. <color=#813408>Farida</color> set up a curfew, we all stay inside, it doesn't bother anyone. Win win.
 Chance_Annoyed: And it never sees you in this giant GLASS HOUSE?
 Quinn_Thinking: It hasn't yet. Maybe because the lights are pink? Their eyes might not be made for that wavelength, especially since they only come out at night.
 Chance_Sigh: This conversation is ridiculous. I was told you might know something about that thing, and you know it's there and just ignore it. Do you know ANYTHING useful? Like how to make it go away?!
-Quinn_Thinking: Uhh... Nope. To be fair, I've never really tried. But considering how strict <color=#813408>Farida</color> is about it, I dobut she's figured it out either.
+Quinn_Thinking: Uhh... Nope. To be fair, I've never really tried. But considering how strict <color=#813408>Farida</color> is about it, I doubt she's figured it out either.
 Chance_Annoyed: Do you know anything that could help me figure out how to make it leave? Like, at all?
 Quinn_Worried: Not off the dome.
 Quinn_Thinking:... Well, I do know someone who might, though.
 Chance_Annoyed: Okay??
 Quinn: If you help me out, I could put you in contact. Tell <color=#813408>Farida</color> to set his door to automatic for a while.
 Chance_Sigh: What could you possibly need me to do?
-Quinn_Worried: I need some seed to propogate, and it's out by the <color=#5b5b1f>dining tent</color>.
+Quinn_Worried: I need some seed to propagate, and it's out by the <color=#5b5b1f>dining tent</color>.
 Chance_Annoyed: And you can't get them?
 Quinn_Scared: Uh, no. There's a stray out there, dude.
 Chance_Angry: BUT YOU WANT ME TO GO GET IT?
@@ -143,6 +143,8 @@ Chance_Annoyed:...
 	=> ending_call
 
 ~ quinn_no_task
+if QuinnNightTask == true:
+	=> quinn_no_task_night
 Quinn_Excited: Oh, you're back. Here to try my carnop?
 Quinn_Thinking: Turnott?.. I'm workshopping it.
 - Guy outside.
@@ -167,6 +169,22 @@ Quinn_Thinking: Turnott?.. I'm workshopping it.
 - No thanks.
 	Chance: Er, no thanks.
 	Quinn: Pff. Suit yourself.
+	=> END
+
+~ quinn_no_task_night
+Quinn: Change your mind about helping me?
+- Yes
+	set MFQuinnTag = false;
+	set QuinnTaskAccepted = true;
+	set MFQuinnTA = true;
+	set HFQuinnTA = true;
+	emit 1;
+	Chance_Sigh: I don't have much of a choice if I want to talk to your guy out there.
+	Quinn: Nope, guess not.
+	Quinn_Worried: Just head down to the <color=#5b5b1f>dining tent</color> and grab those seeds. Try not to die while you do it.
+	Chance_Annoyed: Right, yeah. Thanks, jerk.
+	=> ending_call
+- No way
 	=> END
 
 ~ quinn_task_unfin
@@ -271,7 +289,7 @@ Quinn: Sure!
 	Chance: How do you decide what to grow out here?
 	Quinn: Mostly just what people ask, as long as it can grow in the soil out here.
 	Chance_Thinking: What do people ask for?
-	Quinn_Thinking: It's mostly <color=#813408>Angel</color> since he's in charge of making food for everyone. He asks for hardy vegetables like carrots, cabbage, turnips. In the summer I try to grow corn, squash, so on.
+	Quinn_Thinking: It's mostly <color=#813408>Angel</color> since he's in charge of making food for everyone. He asks for hardy vegetables like carrots, cabbage, turnips. In the summer I try to grow corn, squash, and so on.
 	Chance: All seems pretty standard.
 	Quinn: Yep. I keep the coffee plants alive here too, and I take special requests.
 	Chance_Thinking: Special requests?
@@ -295,10 +313,10 @@ Chance_Annoyed: Right...
 	Quinn_Thinking: Ohhh, right, right.. Well, obviously I tend to the plants that are already growing. Organize all the stuff that's ready to go out. I germinate new seeds and plant them if it's the right time of season.
 	Quinn_Excited: If I've got an extra specimen, I love to do some splicing.
 	Chance_Thinking: Splicing?
-	Quinn_Excited: Yeah dude. Two plants with a similar vascular systems, chop off a limb from one and graft on a limb from the other. If everything's just right, boom! Hybrid.
-	Chance: So like, Frankenstein?
+	Quinn_Excited: Yeah dude. Two plants with similar vascular systems, chop off a limb from one and graft on a limb from the other. If everything's just right, boom! Hybrid.
+	Chance: So like Frankenstein?
 	Quinn_Thinking: Franken-what?
-	Chance: He's like, a doctor that used bunch of people's limbs and organs and stuff to make one working body.
+	Chance: He's like.. a doctor that used a bunch of people's limbs and organs and stuff to make one working body.
 	Quinn_Worried:....
 	Quinn_Excited: How have I never heard of that before? That sounds awesome!
 	Chance_Thinking: You've never heard of Frankenstein before?
@@ -317,7 +335,7 @@ Chance_Annoyed: Right...
 	Quinn: Music thing?
 	Chance: Yeah, the thing in the corner playing music.
 	Quinn_Smile: Ahh, Bessie, my boombox.
-	Chance_Thinking: Weired name for a music player.
+	Chance_Thinking: Weird name for a music player.
 	Quinn_Thinking: That's just the name on the bottom of it. Boombox. Cause it plays some.. booms?
 	Chance_Smile: Heheh... booms...
 	Chance: But where did you get it?
