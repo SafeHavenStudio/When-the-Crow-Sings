@@ -48,12 +48,12 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     {
         Debug.Log("Awake() Desired behavior is " + desiredBehavior.ToString());
 
-        foreach (GameObject i in cutscenes)
-        {
-            i.SetActive(false);
-        }
-        gameOverScreen.SetActive(false);
-        theEndScreen.SetActive(false);
+        //foreach (GameObject i in cutscenes)
+        //{
+        //    i.SetActive(false);
+        //}
+        //gameOverScreen.SetActive(false);
+        //theEndScreen.SetActive(false);
 
         switch (desiredBehavior)
         {
@@ -129,12 +129,12 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     {
         //Debug.Log("Hey look we finished the game! Go us!");
         //Debug.Log("Pretend we started the credits.");
-        desiredBehavior = DesiredBehavior.CREDITS;
-        LoadCinematic();
+        //LoadCinematic();
+        LoadCinematicScene(DesiredBehavior.CREDITS);
     }
     public void StartTheEndScreen()
     {
-        desiredBehavior = DesiredBehavior.THE_END;
-        LoadCinematic();
+        LoadCinematicScene(DesiredBehavior.THE_END);
+        //LoadCinematic();
     }
 }
