@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_Farida
       objectReference: {fileID: 0}
+    - target: {fileID: 8092654590004025470, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3117b3aa3c7a635449d7ab956fc42d01, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -95,6 +100,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1144796902427253319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1561278899855544119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1894296169997604208, guid: b5f8242a87cb047419b4cf20ef6758c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144796902427253319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69eabd3c7bc163459cdcc7021e8fb47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4697300528875473749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,6 +220,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 750069685517361191}
     m_Modifications:
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1561278899855544119}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NpcAnimTalkStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NpcController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 158499437496051691, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: onInteractionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1899001456339989022, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,6 +281,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d8fd95e4b2e087d4fb42c3509700a428,
         type: 2}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1561278899855544119}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NpcAnimTalkStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: NpcController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567623960314235791, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5919980309890196096, guid: 8bf4c190bd1ead649bc051cf88ff48b4,
         type: 3}
       propertyPath: m_Enabled
