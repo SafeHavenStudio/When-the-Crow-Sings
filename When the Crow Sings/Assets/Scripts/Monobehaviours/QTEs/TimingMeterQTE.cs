@@ -22,8 +22,6 @@ public class TimingMeterQTE : QuickTimeEvent
     public Image spacebar;
     public Image bKey;
 
-    public QTEInteractable qteInteractable;
-
     [HideInInspector]
     public int winCount;
     public int winCounter;
@@ -34,8 +32,6 @@ public class TimingMeterQTE : QuickTimeEvent
 
     private void Start()
     {
-        qteInteractable = FindObjectOfType<QTEInteractable>();
-
         if (InputManager.IsControllerConnected)
         {
             bKey.enabled = true;
@@ -82,7 +78,7 @@ public class TimingMeterQTE : QuickTimeEvent
     {
         if (movingRight)
         {
-            sliderMeter.value += Time.deltaTime * gameSettings.speed;
+            sliderMeter.value += Time.deltaTime * speed;
             if (sliderMeter.value >= 1f)
             {
                 movingRight = false;
@@ -90,7 +86,7 @@ public class TimingMeterQTE : QuickTimeEvent
         }
         else
         {
-            sliderMeter.value -= Time.deltaTime * gameSettings.speed;
+            sliderMeter.value -= Time.deltaTime * speed;
             if (sliderMeter.value <= 0f)
             {
                 movingRight = true;
