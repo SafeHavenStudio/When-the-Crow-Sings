@@ -117,7 +117,7 @@ public class TimingMeterQTE : QuickTimeEvent
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
 
                 isFinished = true;
-                gameSettings.speed = 0;
+                speed = 0;
                 background.color = Color.green;
                 StartCoroutine(waitForSuccess());
                 //SucceedQTE();
