@@ -7,6 +7,8 @@ public class MonobehaviorLifecycleEvents : MonoBehaviour
 {
     public UnityEvent onEnableEvent;
     public UnityEvent onDisableEvent;
+    public UnityEvent<Collider> OnTriggerEnterEvent;
+    public UnityEvent<Collider> OnTriggerExitEvent;
     private void OnEnable()
     {
         onEnableEvent.Invoke();
@@ -14,5 +16,14 @@ public class MonobehaviorLifecycleEvents : MonoBehaviour
     private void OnDisable()
     {
         onDisableEvent.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        OnTriggerEnterEvent.Invoke(other);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        OnTriggerExitEvent.Invoke(other);
     }
 }

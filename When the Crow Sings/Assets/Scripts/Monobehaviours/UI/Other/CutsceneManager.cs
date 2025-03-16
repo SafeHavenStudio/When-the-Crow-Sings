@@ -63,10 +63,17 @@ public class CutsceneManager : MonoBehaviour
                 i.Priority = 0;
             }
             virtualCameras[loop].Priority = 10;
+            virtualCameras[loop].GetComponent<CutsceneVirtualCamera>().triggered.Invoke();
             loop++;
 
             StartCoroutine(DelayNextArrow());
         }   
+    }
+
+
+    public void PrintExampleMessage()
+    {
+        Debug.Log("An example message has been printed. Weep and despair.");
     }
 
 }
