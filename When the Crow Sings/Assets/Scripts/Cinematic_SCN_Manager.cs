@@ -8,6 +8,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 {
     public List<GameObject> cutscenes = new List<GameObject>();
     public GameObject gameOverScreen;
+    public GameObject theEndScreen;
 
     public MainMenuDebugLoadHolder mainMenuDebugLoadHolder;
     public AllLevels allLevels;
@@ -20,7 +21,9 @@ public class Cinematic_SCN_Manager : MonoBehaviour
         CUTSCENE_ENDING_0,
         CUTSCENE_ENDING_1,
         CUTSCENE_ENDING_2,
-        GAME_OVER
+        GAME_OVER,
+        CREDITS,
+        THE_END
     }
     static DesiredBehavior desiredBehavior = DesiredBehavior.CUTSCENE_0;
 
@@ -38,7 +41,20 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 
     private void Start()
     {
+        LoadCinematic();
+    }
+
+    private void LoadCinematic()
+    {
         Debug.Log("Awake() Desired behavior is " + desiredBehavior.ToString());
+
+        //foreach (GameObject i in cutscenes)
+        //{
+        //    i.SetActive(false);
+        //}
+        //gameOverScreen.SetActive(false);
+        //theEndScreen.SetActive(false);
+
         switch (desiredBehavior)
         {
             case DesiredBehavior.CUTSCENE_0:
@@ -49,7 +65,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 break;
             case DesiredBehavior.CUTSCENE_NIGHT1:
                 SaveDataAccess.saveData.boolFlags["NightCutsceneSeen"] = true;
-                
+
                 cutscenes[1].SetActive(true);
                 cutscenes[1].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(LoadMain_SCN);
 
@@ -70,6 +86,13 @@ public class Cinematic_SCN_Manager : MonoBehaviour
             case DesiredBehavior.GAME_OVER:
                 gameOverScreen.SetActive(true);
                 break;
+            case DesiredBehavior.CREDITS:
+                cutscenes[5].SetActive(true);
+                cutscenes[5].GetComponent<CutsceneManager>().cutsceneFinished.AddListener(StartTheEndScreen);
+                break;
+            case DesiredBehavior.THE_END:
+                theEndScreen.SetActive(true);
+                break;
             default: // This should include DesiredBehavior.NONE
                 throw new System.Exception("Cinematic_SCN WAS NOT CORRECTLY LOADED, PLEASE USE LoadCinematicScene() AND PASS A VALID DesiredBehavior.");
                 break;
@@ -83,10 +106,18 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     }
 
 
-    public void OnGameOverButtonPressed()
+    public void OnGameOverButtonPressed(bool _yesOrNo)
     {
         //SaveDataAccess.ReadDataFromDisk();
-        LoadMain_SCN();
+        if (_yesOrNo)
+        {
+            LoadMain_SCN();
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu_SCN");
+        }
+        
     }
 
     public void LoadMain_SCN()
@@ -96,8 +127,14 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 
     public void StartCredits()
     {
-        Debug.Log("Hey look we finished the game! Go us!");
-        Debug.Log("Pretend we started the credits.");
-        SceneManager.LoadScene("MainMenu_SCN");
+        //Debug.Log("Hey look we finished the game! Go us!");
+        //Debug.Log("Pretend we started the credits.");
+        //LoadCinematic();
+        LoadCinematicScene(DesiredBehavior.CREDITS);
+    }
+    public void StartTheEndScreen()
+    {
+        LoadCinematicScene(DesiredBehavior.THE_END);
+        //LoadCinematic();
     }
 }
