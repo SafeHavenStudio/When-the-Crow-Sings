@@ -7,20 +7,20 @@ using UnityEngine.UI;
 public class TimingMeterQTE : QuickTimeEvent
 {
     public Slider sliderMeter;
-    public float speed = 2f;
+    public int speed = 2;
     public float targetMin; //Range for successful hit
     public float targetMax;
     public Image background;
     //public float targetValue;
     public Animator timingMeterAnimator;
 
+    public GameSettings gameSettings;
+
     public RectTransform targetMinMarker;  
     public RectTransform targetMaxMarker;
     public RectTransform targetRangeHighlight;
     public Image spacebar;
     public Image bKey;
-
-    public QTEInteractable qteInteractable;
 
     [HideInInspector]
     public int winCount;
@@ -32,8 +32,6 @@ public class TimingMeterQTE : QuickTimeEvent
 
     private void Start()
     {
-        qteInteractable = FindObjectOfType<QTEInteractable>();
-
         if (InputManager.IsControllerConnected)
         {
             bKey.enabled = true;

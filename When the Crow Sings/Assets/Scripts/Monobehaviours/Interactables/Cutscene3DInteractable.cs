@@ -9,18 +9,12 @@ public class Cutscene3DInteractable : MonoBehaviour
 
     public CutsceneFinder cutsceneFinder;
     public FishingRod fishingRod;
-    private QTEInteractable qte;
+    public QTEInteractable qte;
     public MeshRenderer[] poleParts;
     //private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
-    private SpriteRenderer arrow;
+    public SpriteRenderer arrow;
     public ParticleSystem rippleEffect;
-
-    private void Start()
-    {
-        qte = GetComponentInChildren<QTEInteractable>();
-        arrow = GetComponentInChildren<SpriteRenderer>();
-    }
 
     public void startCutscene()
     {
