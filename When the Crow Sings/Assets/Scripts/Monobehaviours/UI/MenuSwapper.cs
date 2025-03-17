@@ -11,7 +11,7 @@ public class MenuSwapper : MonoBehaviour
 
     public UnityEvent playSound;
 
-    public void OpenMenu(int whichMenu)
+    public virtual void OpenMenu(int whichMenu)
     {
         int currentLoop = 0;
         currentMenuIndex = whichMenu;
@@ -22,13 +22,13 @@ public class MenuSwapper : MonoBehaviour
                 menu.SetActive(true);
             else menu.SetActive(false);
 
-            AdditionalMenuLogic(whichMenu);
+            //AdditionalMenuLogic(whichMenu);
 
             currentLoop++;
         }
     }
 
-    protected virtual void AdditionalMenuLogic(int whichMenu) { return; }
+    //protected virtual void AdditionalMenuLogic(int whichMenu) { return; }
 
     public void OpenNextMenu()
     {
