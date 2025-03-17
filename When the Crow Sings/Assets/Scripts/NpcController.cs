@@ -50,7 +50,8 @@ public class NpcController : NpcControllerBase
         originalRotation = transform.rotation;
     }
 
-    // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
+    // Being
+    // explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
     public void NpcAnimIdleStart()
     {
         Debug.Log("No i don't want to talk to you go away");

@@ -13,6 +13,7 @@ public class MenuSwapper : MonoBehaviour
 
     public virtual void OpenMenu(int whichMenu)
     {
+        // "for loop" would have been better here.
         int currentLoop = 0;
         currentMenuIndex = whichMenu;
         playSound.Invoke();
