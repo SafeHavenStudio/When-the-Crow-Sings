@@ -46,6 +46,8 @@ public class MenuSwapperJournal : MenuSwapper
         
         playSound.Invoke();
 
+        pageFlipper.TempUpdateImages();
+
         yield return new WaitForSecondsRealtime(1f);
 
         currentMenuIndex = whichMenu;
