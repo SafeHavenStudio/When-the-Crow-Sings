@@ -40,7 +40,9 @@ public class PageFlipper : MonoBehaviour
         screenshotProcessed.Apply();
         Destroy(screenshotRaw);
 
-        Sprite screenshotSprite = Sprite.Create(screenshotProcessed, new Rect(-image1.rectTransform.anchoredPosition.x, -image1.rectTransform.anchoredPosition.y,
+        Sprite screenshotSprite = Sprite.Create(screenshotProcessed, new Rect(
+            -image1.rectTransform.anchoredPosition.x + 6.0f,
+            -image1.rectTransform.anchoredPosition.y + 21.0f,
             (int)image1.rectTransform.sizeDelta.x, (int)image1.rectTransform.sizeDelta.y), new Vector2(0.5f, 0.5f));
 
         return screenshotSprite;
