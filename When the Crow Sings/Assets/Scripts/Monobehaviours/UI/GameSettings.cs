@@ -6,19 +6,31 @@ using UnityEngine.UI;
 public class GameSettings : MonoBehaviour
 {
     //Keep between 1 and 3
-    public int speed;
     public Slider qteSpeedSlider;
+    public TimingMeterQTE[] qtes;
 
     private void Start()
     {
-        speed = (int)qteSpeedSlider.value;
+        int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 1);
+        qteSpeedSlider.value = savedSpeed;
+
+        foreach (var qte in qtes)
+            qte.speed = savedSpeed;
+
+        //Handle slider changes
+        qteSpeedSlider.onValueChanged.AddListener(delegate { TimingMeterSpeed(); });
     }
 
-    public void TimingMeterSpeed(int _speedIndex)
+    public void TimingMeterSpeed()
     {
-        PlayerPrefs.SetInt("qteSpeed", _speedIndex);
+        int newSpeed = (int)qteSpeedSlider.value;
+
+        foreach(var qte in qtes)
+            qte.speed = (int)qteSpeedSlider.value;
+
+        PlayerPrefs.SetInt("qteSpeed", newSpeed);
         PlayerPrefs.Save();
 
-        _speedIndex = speed; 
+        Debug.Log("QTE Speed set to " + newSpeed);
     }
 }

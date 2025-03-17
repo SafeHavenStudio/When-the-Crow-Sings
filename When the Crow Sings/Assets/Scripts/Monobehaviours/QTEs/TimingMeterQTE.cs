@@ -7,14 +7,11 @@ using UnityEngine.UI;
 public class TimingMeterQTE : QuickTimeEvent
 {
     public Slider sliderMeter;
-    public int speed = 2;
     public float targetMin; //Range for successful hit
     public float targetMax;
     public Image background;
     //public float targetValue;
     public Animator timingMeterAnimator;
-
-    public GameSettings gameSettings;
 
     public RectTransform targetMinMarker;  
     public RectTransform targetMaxMarker;
@@ -43,6 +40,7 @@ public class TimingMeterQTE : QuickTimeEvent
             bKey.enabled = false;
         }
 
+        gameSettings = FindObjectOfType<GameSettings>();
         SetTargetRangeMarkers();
         RandomizeMeter();
         //leave out when implementation added
@@ -78,7 +76,7 @@ public class TimingMeterQTE : QuickTimeEvent
     {
         if (movingRight)
         {
-            sliderMeter.value += Time.deltaTime * speed;
+            sliderMeter.value += Time.deltaTime * speed/2;
             if (sliderMeter.value >= 1f)
             {
                 movingRight = false;
@@ -86,7 +84,7 @@ public class TimingMeterQTE : QuickTimeEvent
         }
         else
         {
-            sliderMeter.value -= Time.deltaTime * speed;
+            sliderMeter.value -= Time.deltaTime * speed/2;
             if (sliderMeter.value <= 0f)
             {
                 movingRight = true;
