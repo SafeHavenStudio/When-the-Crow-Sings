@@ -42,11 +42,13 @@ public class MenuSwapperJournal : MenuSwapper
     {
         isFlippingCurrently = true;
 
+        pageFlipper.TempUpdateImages();
+
         menus[currentMenuIndex].SetActive(false);
         
         playSound.Invoke();
 
-        pageFlipper.TempUpdateImages();
+        
 
         yield return new WaitForSecondsRealtime(1f);
 

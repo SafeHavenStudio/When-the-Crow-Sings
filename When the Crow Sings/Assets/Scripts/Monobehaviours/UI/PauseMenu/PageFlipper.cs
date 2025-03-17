@@ -19,7 +19,7 @@ public class PageFlipper : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
-            image1.sprite = ScreenshotToSprite();
+            image1.sprite = ScreenshotToSprite(image1);
         }
     }
 
@@ -32,18 +32,22 @@ public class PageFlipper : MonoBehaviour
 
     }
 
-    public Sprite ScreenshotToSprite()
+    public Sprite ScreenshotToSprite(Image _image)
     {
+        _image.enabled = false;
+
         Texture2D screenshotRaw = ScreenCapture.CaptureScreenshotAsTexture();
         Texture2D screenshotProcessed = new Texture2D(screenshotRaw.width, screenshotRaw.height, TextureFormat.RGB24, false);
         screenshotProcessed.SetPixels(screenshotRaw.GetPixels());
         screenshotProcessed.Apply();
         Destroy(screenshotRaw);
 
+        _image.enabled = true;
+
         Sprite screenshotSprite = Sprite.Create(screenshotProcessed, new Rect(
-            -image1.rectTransform.anchoredPosition.x + 6.0f,
-            -image1.rectTransform.anchoredPosition.y + 21.0f,
-            (int)image1.rectTransform.sizeDelta.x, (int)image1.rectTransform.sizeDelta.y), new Vector2(0.5f, 0.5f));
+            -_image.rectTransform.anchoredPosition.x + 6.0f,
+            -_image.rectTransform.anchoredPosition.y + 21.0f,
+            (int)_image.rectTransform.sizeDelta.x, (int)_image.rectTransform.sizeDelta.y), new Vector2(0.5f, 0.5f));
 
         return screenshotSprite;
     }
