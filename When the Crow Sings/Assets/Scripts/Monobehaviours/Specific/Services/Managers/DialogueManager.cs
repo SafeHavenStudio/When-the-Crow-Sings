@@ -30,7 +30,6 @@ public class DialogueManager : MonoBehaviour, IService
     public DialoguePortraits dialoguePortraits;
 
     [Header("Settings")]
-    public float textSpeed = .03f;
     public float secondsBetweenAudioPlays = .05f;
     public float pauseMultiplier = 10f;
     public float secondsToDelayChoiceInput = .1f;
@@ -38,6 +37,8 @@ public class DialogueManager : MonoBehaviour, IService
 
     DialogueChoiceBlock activeChoiceBlock = null;
     DialogueConditionBlock activeConditionBlock = null;
+
+    public GameSettings gameSettings;
 
     #region StartMethods()
     private void Awake()
@@ -53,7 +54,7 @@ public class DialogueManager : MonoBehaviour, IService
 
     void Start()
     {
-        if (PlayerPrefs.HasKey("textSpeed")) textSpeed = PlayerPrefs.GetFloat("textSpeed");
+        if (PlayerPrefs.HasKey("textSpeed")) gameSettings.textSpeed = PlayerPrefs.GetFloat("textSpeed");
     }
     #endregion
 
@@ -295,7 +296,7 @@ public class DialogueManager : MonoBehaviour, IService
             }
             else
             {
-                float pauseBetweenChars = textSpeed;
+                float pauseBetweenChars = gameSettings.textSpeed;
                 int characterIndex = Mathf.Clamp(textMesh.maxVisibleCharacters - 1, 0, textMesh.text.Length);
                 char character = textMesh.text[characterIndex];
                 //char previousCharacter = 'x';
