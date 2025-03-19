@@ -9,6 +9,7 @@ public class GameSettings : MonoBehaviour
     //Keep between 1 and 3
     public Slider qteSpeedSlider;
     public Slider textSpeedSlider;
+    public ReverseSlider reverseSlider;
     public TimingMeterQTE[] qtes;
 
     public MenuDropdown textSizeDropdown;
@@ -52,10 +53,11 @@ public class GameSettings : MonoBehaviour
         qteSpeedSlider.onValueChanged.AddListener(delegate { TimingMeterSpeed(); });
 
         float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
-        textSpeedSlider.value = savedTextSpeed;
-        textSpeed = savedSpeed;
+        reverseSlider.invertedValue = savedTextSpeed;
+        textSpeed = savedTextSpeed;
 
-        textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+        //textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
     }
 
     public void TimingMeterSpeed()
@@ -86,12 +88,14 @@ public class GameSettings : MonoBehaviour
 
     public void ChangeTextSpeed()
     {
-        float newTextSpeed = textSpeedSlider.value;
+        float newTextSpeed = reverseSlider.invertedValue;
 
-        PlayerPrefs.SetFloat("textSpeed", + textSpeed);
+        PlayerPrefs.SetFloat("textSpeed", + newTextSpeed);
         PlayerPrefs.Save();
 
-        Debug.Log("Text Speed set to " + textSpeed);
+        Debug.Log("Text Speed set to " + newTextSpeed);
+
+        textSpeed = newTextSpeed;
     }
 
     private void OnTextStyleChanged(int index)

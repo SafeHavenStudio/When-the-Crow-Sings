@@ -543,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: -6.300001, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &480381455929479180
@@ -766,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.3, y: -11.3}
+  m_AnchoredPosition: {x: 64.8, y: -11.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5106505147552660698
@@ -1357,7 +1357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.79999924, y: 0}
+  m_AnchoredPosition: {x: -0.5, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1207817343924188248
@@ -1985,7 +1985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.20000076, y: 0}
+  m_AnchoredPosition: {x: 0.20000076, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3374546146889825386
@@ -6608,7 +6608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -4.5, y: 0.13000488}
+  m_AnchoredPosition: {x: 7, y: 0.13000488}
   m_SizeDelta: {x: 25.2505, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5589655807556703940
@@ -7005,6 +7005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qteSpeedSlider: {fileID: 2331201650539522727}
+  textSpeedSlider: {fileID: 3759861490254972336}
+  reverseSlider: {fileID: 4368563937478936152}
   qtes:
   - {fileID: 8367738766257831160, guid: 58d5c767dc6328e4584b6febc3044761, type: 3}
   - {fileID: 1625270581603179634, guid: e97b7adb92c284142aa83cc20cedf833, type: 3}
@@ -7017,8 +7019,8 @@ MonoBehaviour:
   textStyles:
   - fontSize: 38
     lineSpacing: -7.3
-  - fontSize: 48
-    lineSpacing: -17.3
+  - fontSize: 44
+    lineSpacing: -22
 --- !u!1 &6998300331403532506
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +7489,7 @@ GameObject:
   - component: {fileID: 3712854115302003333}
   - component: {fileID: 3759861490254972336}
   - component: {fileID: 6194751187487008034}
+  - component: {fileID: 4368563937478936152}
   m_Layer: 0
   m_Name: TextSpeed
   m_TagString: Untagged
@@ -7561,16 +7564,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1453424832626658882}
   m_HandleRect: {fileID: 4950559834936496390}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 0.7
+  m_MinValue: 0.02
+  m_MaxValue: 0.1
   m_WholeNumbers: 0
-  m_Value: 0.7
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
-        m_MethodName: OnSliderValueChanged
+      - m_Target: {fileID: 5229841921760558657}
+        m_TargetAssemblyTypeName: GameSettings, Assembly-CSharp
+        m_MethodName: ChangeTextSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7593,6 +7596,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuButtonHighlightSelector: {fileID: 0}
+--- !u!114 &4368563937478936152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094704490041550465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae371e0e63246164095ae0b7a73df45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reversedSlider: {fileID: 3759861490254972336}
+  minValue: 0.02
+  maxValue: 0.1
+  invertedValue: 0
+  gameSettings: {fileID: 5229841921760558657}
 --- !u!1 &8276423417331221357
 GameObject:
   m_ObjectHideFlags: 0
@@ -9166,6 +9186,11 @@ PrefabInstance:
       propertyPath: menuButtonSelectionHandlerToSuspendWhileActive
       value: 
       objectReference: {fileID: 2741954397208465148}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
