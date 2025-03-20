@@ -8,10 +8,15 @@ public class GameSettings : MonoBehaviour
 {
     //Keep between 1 and 3
     public Slider qteSpeedSlider;
+    public Slider textSpeedSlider;
+    public ReverseSlider reverseSlider;
     public TimingMeterQTE[] qtes;
 
     public MenuDropdown textSizeDropdown;
     public TextMeshProUGUI[] dialogueText;
+
+    [HideInInspector]
+    public float textSpeed = 0.3f;
 
     [System.Serializable]
     public struct TextStyleSetting
@@ -46,6 +51,13 @@ public class GameSettings : MonoBehaviour
 
         //Handle slider changes
         qteSpeedSlider.onValueChanged.AddListener(delegate { TimingMeterSpeed(); });
+
+        float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
+        reverseSlider.invertedValue = savedTextSpeed;
+        textSpeed = savedTextSpeed;
+
+        //textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
     }
 
     public void TimingMeterSpeed()
@@ -65,14 +77,25 @@ public class GameSettings : MonoBehaviour
     {
         textSizeDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
-
-        for (int i = 0; i < textStyles.Count; i++)
+        List<string> options = new List<string>()
         {
-            var style = textStyles[i];
-            options.Add($"Size {style.fontSize} / Spacing {style.lineSpacing}");
-        }
+            "Default",
+            "Large"
+        };
+
         textSizeDropdown.AddOptions(options);
+    }
+
+    public void ChangeTextSpeed()
+    {
+        float newTextSpeed = reverseSlider.invertedValue;
+
+        PlayerPrefs.SetFloat("textSpeed", + newTextSpeed);
+        PlayerPrefs.Save();
+
+        Debug.Log("Text Speed set to " + newTextSpeed);
+
+        textSpeed = newTextSpeed;
     }
 
     private void OnTextStyleChanged(int index)
