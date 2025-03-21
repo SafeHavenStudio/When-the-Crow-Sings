@@ -42,9 +42,9 @@ Caleb: Well, I'm just a little busy working on the panels here, but I can talk.
 Chance_Smile: Where I lived before ran off solar too, and some hydropower.
 Caleb_Smile: Oh, hydro! This place used to run off <color=#a11bbe>something else</color> too, but at some point that stopped working. Shipped me and the panels in, and now it's all we've got.
 Caleb: It's not the most efficient, and <color=#813408>Farida</color> will be sure to let you know all about it.
- <i>. . . ?</i>
+. . . ?
+There's no big water sources out here. No wind turbines..
 Chance_Thinking: Something else?
-<i>There's no big water sources out here. No wind turbines..</i>
 Caleb: Hm?
 Chance: You said that this place used to run off something other than solar panels?
 Caleb: Oooh yeah. I don't know a whole lot about it but..
@@ -72,7 +72,7 @@ emit 1;
 set MFCalebTA = true;
 Caleb_Smile: Great!
 Caleb_Annoyed: Now listen. These damned crows are bad enough, weighing down the power lines connecting the buildings and making me do maintenance on the connectors.
-Caleb_Annoyed: Then, they started taking my wires! They've been making nests over by the <color=#5b5b1f>south-east gate</color>, near the old quarter. 
+Caleb_Annoyed: Then, they started taking my wires! They've been making nests over by the <color=#5b5b1f>south-east gate</color>, near the <color=#5b5b1f>old residential quarter</color>. 
 Caleb_Smile: If you could go and grab some back for me, I'd be mighty grateful.
 if HasThrownBirdseed == false:
 		Chance_Thinking: How am I supposed to get the birds off the wires?
@@ -81,13 +81,13 @@ if HasThrownBirdseed == false:
 		Chance: Yeah, actually.
 		Caleb: Really? Why?
 		Chance_Thinking: I like to bird watch.
-		Caleb_Smile: Well there's your answer! Distract those crows with your bird seed and I'm sure you'll have free access to those wires.
+		Caleb_Smile: Well there's your answer! Distract those crows with your bird seed and I'm sure you'll get free access to those wires.
 else:
-		<i>The crows seemed to like the birdseed I threw earlier.. hopefully they like it more than they like the shiny wires.</i>
+		The crows seemed to like the birdseed I threw earlier.. hopefully they like it more than they like the shiny wires.
 => ending_call
 
 ~ caleb_no_task
-Caleb_Smile: Decide to take a <i>chance</i> on helping me out?
+Caleb_Smile: Decide to take a <b>chance</b> on helping me out?
 - I guess.
 	Chance_Annoyed: I guess so.
 	=> caleb_first_cont_2
@@ -112,7 +112,7 @@ set CalebBaseCompleted = true;
 set ClinicDoorUnlocked = true;
 set RecCenterDoorUnlocked = true;
 Caleb_Smile: You survived the crows!
-Caleb_Smile: Alrighty, kid, I yield. You did good. Wires don't look like they're in too bad of shape either.
+Caleb_Smile: Alrighty, kid, I yield. You did good! Wires don't look like they're in too bad of shape either.
 set FaridaHasBeenHeardOf = true;
 Caleb_Thinking: If you want to know more about <color=#a11bbe>the old energy source</color>, for whatever reason, you would probably want to talk with <color=#813408>Farida</color>.
 Caleb_Annoyed: But I don't think you should have me sending you.. Not that we don't get along! It's just..
@@ -128,7 +128,7 @@ if FaridaTaskOffered == true:
 	=> caleb_task_fin_cont
 - It's that bad?
 	Caleb_Smile: Now hey I didn't say that!
-	Caleb_Annoyed: Trust me, if you knew her, you'd understand. And if you want to talk to her about this, well..
+	Caleb_Annoyed: Trust me. If you knew her, you'd understand. And if you want to talk to her about this, well..
 	=> caleb_task_fin_cont
 
 ~ caleb_task_fin_cont
@@ -196,9 +196,9 @@ if CalebBB == 3:
 	=> C3
 else:
 	set CalebExhausted = true;
-	Caleb_Smile: I've loved our chats, Vance-
+	Caleb_Smile: I've loved our chats, Chase-
 	Chance_Sigh: Chance.
-	Caleb_Smile: Uhuh. Well anyway, I've got work to do! So run along, I'm sure you've got a whole roster of people to talk to.
+	Caleb_Smile: Uh-huh. Well anyway, I've got work to do! So run along, I'm sure you've got a whole roster of people to talk to.
 	=> END
 
 ~ BBEnd
@@ -231,7 +231,7 @@ Caleb: Yeah? What about 'em?
 	Chance: Why not just leave it outside?
 	Caleb_Annoyed: Because <b>someone</b> kept taking the ladder and using it to get over the fences into the closed areas. And <color=#813408>Farida</color> makes me keep it locked away now.
 	Chance_Annoyed: Oh.
-	<i>Man it would be nice if they just left it outside still.. Would make looking around a lot easier.</i>
+	Man it would be nice if they just left it outside still.. Would make looking around a lot easier.
 	Caleb: I guess it isn't the biggest deal, ones up there don't seem to have as many issues or require repairs.
 	Caleb_Annoyed: Trust me, <color=#813408>Farida</color> doesn't let me hear the end of it when they go out.
 	Chance_Thinking: Why do the ones down here need more repair than the ones on the roofs? 
@@ -242,7 +242,7 @@ Caleb: Yeah? What about 'em?
 
 ~ C1
 Caleb_Smile: Hello again. Looks like you and are gettin' real buddy buddy.
-Chance_Annoyed: Uhuh.
+Chance_Annoyed: Uh-huh.
 - Other than solar panels
 	Chance: Do you do work on things other than the solar panels?
 	Caleb: Sure, I do just about anything electrical around here. I can also do a good bit of work on mechanical things, I fix up the mower when it needs it.
@@ -253,17 +253,18 @@ Chance_Annoyed: Uhuh.
 	Caleb: Sure is.
 	Chance: And you just don't say anything about it?
 	Caleb_Thinking: Well I'm of the belief that what don't kill ya builds character!
-	Caleb_Smile: Besides, I love knowing someone is breaking Farida's rules.
+	Caleb_Smile: Besides, I love knowing someone is breaking <color=#813408>Farida</color>'s rules.
+	Caleb_Annoyed: Even if it means I have to lug my tools all the way inside when I'm done..
 - Line of work
 	Chance_Thinking: How exactly did you get into electrical work? Did they have like, electric school or something where you're from?
 	Caleb_Smile: Ehh, something like that, yeah!
-	Caleb: The compound I'm from originally is based around the idea of providing workers with knowledge to the other compounds. There are a few like that, much bigger than this little place.
+	Caleb: The compound I'm from is based around the idea of providing workers with knowledge to the other compounds. There are a few like that, much bigger than this little place.
 	Caleb_Thinking: Well as you get older they sort of do little tests and assessments and all that, and then encourage you down a career path they think you'll like. I got placed into the electrician line when I was sixteen, and the rest is history.
 	Chance: And you liked it?
 	Caleb: Well I didn't know much else, and I like workin' with my hands. It was nice to give back to my community, and know that one day I'd bring that somewhere else and spread the knowledge.
 	Caleb_Smile: And one day <color=#813408>Calli</color> will pick it up too, and maybe she'll move or pass it on to her own kids!
 	Chance_Thinking: What if she doesn't want to be an electrician?
-	Caleb_Thinking: I'm not sure, I haven't thought too much about it. She'll pick something up here, she loves <color=#813408>Francisco</color> so maybe it'll be biology or something.
+	Caleb_Thinking: I'm not sure, I haven't thought too much about it. She'll pick something up here, she loves <color=#813408>Francisco</color> so maybe it'll be biology or somethin'.
 	Caleb_Smile: As long as she's happy, I don't mind a bit.
 	Caleb: But giving back to your community is important! It's what keeps all this workin', keeps us all alive.
 	Caleb_Thinking: What are you going to do 'round here anyway? 
@@ -296,15 +297,15 @@ Caleb: Chance, Fate, Destiny, whatever you'd like to call it.
 	Chance: Does your whole family live here?
 	Caleb: Nope, just me, <color=#813408>Calliope</color>, and <color=#813408>Francisco</color>.
 	if FranciscoTaskOffered == true:
-		Chance_Thinking: Is that why Francisco calls you uncle?
+		Chance_Thinking: Is that why <color=#813408>Francisco</color> calls you uncle?
 	else:
 		Chance_Thinking: Is that why you recommended me to him?
-	Caleb_Smile: You could say that yeah.
+	Caleb_Smile: You could say that, yeah.
 	Chance: You don't look related.
 	Caleb_Annoyed: What's that supposed to mean?
 	Chance_Thinking: Uh-
 	Caleb_Smile: I'm just messing with you kid! No, he's not my biological nephew. I was friends with his parents back on our home compound.
-	Chance_Annoyed: Uh huh.
+	Chance_Annoyed: Uh-huh.
 	Caleb: We just got lucky when we got sent to the same compound. <color=#813408>Calliope</color> is elated to have her cousin <color=#813408>Francisco</color> here.
 	Chance_Smile: It must've made it easier to transition into living here, having a familiar face.
 	Caleb_Smile: It sure did.

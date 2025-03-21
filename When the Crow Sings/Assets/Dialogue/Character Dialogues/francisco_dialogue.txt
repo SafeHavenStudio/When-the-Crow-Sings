@@ -27,7 +27,7 @@ if ifFaridaAndCaleb == true:
 	- Caleb sent me.
 		Chance: <color=#813408>Caleb</color> said you might know something about <color=#a11bbe>the old energy source</color> here, whatever was used before the solar panels.
 		Francisco: Oh? <color=#813408>Tio</color>-
-		Francisco_Excited: I mean <color=#813408>Caleb</color>! He sent you to me? Why not <color=#813408>Farida</color>?
+		Francisco_Excited: I mean, <color=#813408>Caleb</color>. He sent you to me? Why not <color=#813408>Farida</color>?
 		=> francisco_caleb
 	- Farida said..
 		Chance: <color=#813408>Farida</color> said you might know something about the energy grid that she wouldn't, since she was sent here after the solar panels got installed. Something about an <color=#a11bbe>alternative energy source</color>?
@@ -35,7 +35,7 @@ if ifFaridaAndCaleb == true:
 if CalebBaseCompleted == true:
 		Chance: <color=#813408>Caleb</color> said you might know something about <color=#a11bbe>the old energy source</color> here, whatever was used before the solar panels.
 		Francisco: Oh? <color=#813408>Tio</color>-
-		Francisco_Excited: I mean <color=#813408>Caleb</color>! He sent you to me? Why not <color=#813408>Farida</color>?
+		Francisco_Excited: I mean, <color=#813408>Caleb</color>. He sent you to me? Why not <color=#813408>Farida</color>?
 		=> francisco_caleb
 if FaridaBaseCompleted == true:
 		Chance: <color=#813408>Farida</color> said you might know something about the energy grid that she wouldn't, since she was sent here after the solar panels got installed. Something about an <color=#a11bbe>alternative energy source</color>?
@@ -43,11 +43,11 @@ if FaridaBaseCompleted == true:
 
 ~ francisco_caleb
 - Don't get along
-	Chance: It didn't really seem like they got along well.
+	Chance: It didn't really seem like they got along.
 	Francisco_Excited: Well they're just two very different types of people! <color=#813408>Farida</color> takes her job very seriously, but <color=#813408>tio</color> is more relaxed.
 	=> francisco_first_int_cont
 - You'd know
-	Chance: I guess it seemed like you'd know more, he mentioned that you lived here before the solar panels were installed.
+	Chance: I guess it seemed like you'd know more. He mentioned that you lived here before the solar panels were installed.
 	Francisco_Excited: Oh, I see!
 	=> francisco_first_int_cont
 if FaridaBaseCompleted == true:
@@ -56,7 +56,7 @@ if FaridaBaseCompleted == true:
 	=> francisco_first_int_cont
 
 ~ francisco_first_int_cont
-Francisco_Thinking: <color=#a11bbe>The old energy source</color>, huh? That spooky purple stuff.. Yeah, I lived here before the <color=#813408>old scientist</color>...
+Francisco_Thinking: <color=#a11bbe>The old energy source</color>, huh? That spooky purple stuff.. Yes, I lived here before the <color=#813408>old scientist</color>...
 Francisco_Scared: Disappeared? It sounds bad but I don't know if anyone really figured out where he went. He was just gone one day.
 Francisco_Sad: After that-
 Francisco_Scared: AY!
@@ -79,7 +79,7 @@ Francisco_Excited: Ah! Yes! You want something, I need something. I need to get 
 	set MFFranciscoTA = true;
 	Chance: I guess so. What do you need?
 	Francisco: There is this little pink flower you may have seen around, pipsissewa they call it. The leaves help with some of the discomfort. 
-	Francisco_Excited: They're a little spiky though, so be careful while picking them. Three plants worth will do. If I remember right, there's still a good amount by the <color=#5b5b1f>north-west fence</color> where the kids play.
+	Francisco_Excited: They're a little spiky though, so be careful while picking them. Three plants worth will do. If I remember right, there's still a good amount by the <color=#5b5b1f>north-west</color> fence where the kids play.
 	Chance: Alright, I'll be back.
 	=> ending_call
 - Maybe later.
@@ -88,7 +88,7 @@ Francisco_Excited: Ah! Yes! You want something, I need something. I need to get 
 
 ~ francisco_night_intro
 set FranciscoTaskWhen = 3;
-Chance_Scared:<b>Jesus!</b>
+Chance_Scared:<b>Jeez!</b>
 Francisco_Scared: Ay! What's with the commotion?
 Chance_Scared: Are you kidding me?! There's no way you don't know about that thing stomping around out there!
 Francisco_Scared: Um..
@@ -145,7 +145,7 @@ Francisco: I'm sorry but I really can't chat until I get this done. Did you stil
 Francisco: Oh you're back! You've got what I asked for?
 - What to get?
 	Chance_Sad: No, I forgot what you said to get.
-	Francisco_Excited: Ah! No worries, friend. Just collect me the leaves from three flowers near the <color=#5b5b1f>north-west outer fence</color>.
+	Francisco_Excited: Ah! No worries, friend. Just collect me the leaves from three flowers near the <color=#5b5b1f>north-west</color> fence.
 	=> END
 - No, not yet.
 	Chance: No, not yet.
@@ -343,32 +343,33 @@ if CalebBaseCompleted == true:
 		Francisco_Sad: On the other, anything other than a checkup usually means something bad happened. Someone is sick, or having ERS symptoms. When a sickness comes in that I can't identify from my studies, that is the worst..
 		Chance_Thinking: The purple stuff you mentioned earlier?
 		Francisco_Scared: Yes, that's one of them. I've never heard of the symptoms, so I've had no way to deal with it. I used to try and write to the C.A.N. scientific board about it, but they never really helped and then <color=#813408>Farida</color>...
-		Francisco_Sad: I never figured it out. Nothing I could do to help them and they just sort of left. I see them sometimes, through the gate into the residential area. But they don't hang around, usually.
+		Francisco_Sad: I never figured it out. Nothing I could do to help them and they just sort of left. I see them sometimes, through the gate into the <color=#5b5b1f>residential area</color>. But they don't hang around, usually.
 		Francisco: Ah, but it stopped happening so much after <color=#813408>Farida</color> took over, so I suppose whatever conclusion she came to must've helped.
 		Chance_Thinking: They stopped getting purple sick after she came? What could she have done?
 		Francisco_Thinking: I'm not sure. Maybe environmental changes? Something with the power?
 		Francisco_Excited: I'm not overly concerned with why, as long as I don't need to see people hacking up that awful sludge anymore. 
+		Chance_Annoyed: How scientific, to not care about the why..
 if FaridaBaseCompleted == true:
 	- About Farida
 		Chance: So are you and <color=#813408>Farida</color> like, friends?
-		Francisco_Excited: Yes, I would say so. We chat, read the weekly journals together, look talk about the newest scientific discoveries. 
+		Francisco_Excited: Yes, I would say so. We chat, read the weekly journals together, talk about the newest scientific discoveries. 
 		Francisco_Thinking: I manage to get her to watch a movie every now and then, but it takes a lot of asking. She will only come to the movie night if it's a black and white movie that the little ones aren't very intrested in.
 		Chance_Annoyed: Sounds like a riveting friendship.
 		Francisco: Eh, she comes off very prickly, but she's like... a prickly pear.
 		Chance_Thinking: A what?
 		Francisco_Excited: It's the fruit of a cactus by the same name, it has the same unpleasant spikes coming out of it.
-		Francisco: But, put in the effort, pluck out the spikes and peel it back, and the fruit inside is pleasant and sweet. 
+		Francisco: But, put in the effort, pluck out the spikes and peel back the rough exterior, and the fruit inside is pleasant and sweet. 
 		Chance: So she's actually sweet under all of that? I find that hard to believe.
-		Francisco_Thinking: I wouldn't believe it either, but when she first got here I saw how she was with the doctor's assistant. 
-		Francisco_Excited: Like a crow, the assistant managed to get perched just between the spikes and got at the sweet fruit.
-		Francisco_Sad: Though, since she ran off, <color=#813408>Farida</color> has been much colder. I think perhaps the assistant's leaving jaded her in some way.
+		Francisco_Thinking: I wouldn't believe it either, but when she first got here I saw how she was with the <color=#813408>doctor's assistant</color>. 
+		Francisco_Excited: Like a crow, the <color=#813408>assistant</color> managed to get perched just between the spikes and got at the sweet fruit.
+		Francisco_Sad: Though, since she ran off, <color=#813408>Farida</color> has been much colder. I think perhaps the <color=#813408>assistant</color>'s leaving jaded her in some way.
 		Chance_Sad: So she's just mean because she's lonely?
 		Francisco: Well I wouldn't say that. <color=#813408>Farida</color>'s always been a little abrasive, it just got worse after she left. 
-		Francisco_Thinking: Maybe if we could convince the assistant to come back..
+		Francisco_Thinking: Maybe if we could convince the <color=#813408>assistant</color> to come back..
 		Francisco_Sad: I don't see that happening though.. I believe she went through some kind of mental health crisis.. Perhaps it is better to let sleeping dogs lie, no?
 		Chance_Sad: Yeah, maybe.
 	- About your work
-		Chance: So, do you like working in the clinic?
+		Chance: So, do you like working in the <color=#5b5b1f>clinic</color>?
 		Francisco_Thinking: Well that's an interesting question..
 		Francisco_Excited: On the one hand, I enjoy helping people and putting my education to work. It's also very quiet here, with the limited number of residents we have.
 		Francisco_Sad: On the other, anything other than a checkup usually means something bad happened. Someone is sick, or having ERS symptoms. When a sickness comes in that I can't identify from my studies, that is the worst..
@@ -379,6 +380,7 @@ if FaridaBaseCompleted == true:
 		Chance_Thinking: They stopped getting purple sick after she came? What could she have done?
 		Francisco_Thinking: I'm not sure. Maybe environmental changes? Something with the power?
 		Francisco_Excited: I'm not overly concerned with why, as long as I don't need to see people hacking up that awful sludge anymore. 
+		Chance_Annoyed: How scientific, to not care about the why..
 => BBEnd
 
 ~ F1
@@ -386,7 +388,7 @@ Francisco: Still curious about something?
 - Your hair
 	Chance: So, do you guys have a salon out here or something?
 	Francisco: Hmm?
-	Chance_Thinking: Your hair just looks really nice, like you do more than just wash it normally.
+	Chance_Thinking: Your hair just looks really nice, like you do more than just wash it.
 	Francisco: <color=#813408>Calliope</color> helps me with my hair, her mother taught her before she came here and it can be easier with some help.
 	Chance: What does she do to get those light strands in your hair?
 	Francisco_Scared: Sorry?
