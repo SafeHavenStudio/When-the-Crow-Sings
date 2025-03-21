@@ -23,7 +23,7 @@ else:
 
 ~ calebs_door
 if CalebBaseCompleted == true:
-	This must be Caleb's room, the hammer his name written on it. The toy machine must be his daughter's.
+	This must be <color=#813408>Caleb</color>'s room, the hammer his name written on it. The toy machine must be his daughter's.
 else:
 	Someone needs to clean up their stuff and put it away..
 => END
@@ -33,8 +33,12 @@ Woah, someone's got a little scene set up here.. A dinosaur stalking through the
 => END
 
 ~ table
-Sure hope Angel isn't missing these dishes.. and that the kids aren't tall enough to reach that bottle of pills.
-=> END
+if AngelTaskOffered == true:
+	Sure hope <color=#813408>Angel</color> isn't missing these dishes.. and that the kids aren't tall enough to reach that bottle of pills.
+	=> END
+else:
+	What a mess.. Let's hope the kids here aren't interested in pill bottles.
+	=> END
 
 ~ bathroom_sign
 Why would they need to specify all species? Did we not always share bathrooms?..

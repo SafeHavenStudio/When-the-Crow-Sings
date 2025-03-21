@@ -37,7 +37,7 @@ Chance: Um, <color=#813408>Quinn</color> sent me?
 Yule_Stare: I know.
 Chance: Right, um. Did they tell you what I wanted to talk about?
 Yule: Pagers have a short message limit.
-Chance_Sad: Oh. Er, okay. Well, I wanted to ask about the people who roam around at night, in the center. Do you know anything about that?
+Chance_Sad: Oh. Er, okay. Well, I wanted to ask about the.. <color=#a11bbe>thing</color> that roams around at night, in the inner compound. Do you know anything about that?
 Yule_Thinking: Yes, I know about it.
 Chance: . . . Could you tell me about it?
 Yule: Sure, I can. Not right now, though. I'm busy.
@@ -151,7 +151,7 @@ set MFYuleTC = false;
 set HFYuleBC = true;
 Yule_Smile: That's a nice looking fish. Came up easy, too. It's a good rod.
 Chance: Yeah, it is.
-Felt like when I used to fish at home.
+Feels like when I used to fish at home.
 Yule_Sad: So, you wanted to know about the ones that walk around in the compound at night.
 Chance: Yeah, if you could tell me. 
 Yule_Thinking: I don't really know much about them.
@@ -160,10 +160,11 @@ Yule: I can. Just not about one, specifically. But I know where they come from.
 Yule_Stare: When this compound was established, it was based around <color=#a11bbe>a discovery</color> that had been made. I couldn't tell you what, I don't know much about isotopes or elements or anything like that.
 Yule_Sad: But there was <color=#813408>a scientist</color> and <color=#813408>his assistant</color>. They were the reason it was set up, he had discovered this <color=#a11bbe>energy producing anomaly</color> so they built the compound around it.
 Yule: Well, not around it physically. 'Far as I know it's a ways off, to the north. But that's why we were brought here. Me and a smattering of other folks. Families, friends. This was shortly after a few other collapses but, it was a while ago. Don't remember the names.
-Yule_Stare: Things were fine at first, but pretty quick some folk started going backwards. You know what I mean.
-I do.
+Yule_Stare: Things were fine at first, but pretty quick some folk started going... backwards. You know what I mean.
+Chance_Thinking: ERS..
 set FranciscoHasBeenHeardOf = true;
-Yule_Sad: Well they sent us that boy <color=#813408>Francisco</color> and they thought they could keep a handle on it. But people started to slip so far back that they couldn't handle it anymore. Started to get wild. Usually they just ran off before anything happened, but every once in a while something was.. <color=#a11bbe>wrong</color>.
+Yule_Sad: Mhm.. Well they sent us that boy <color=#813408>Francisco</color> and they thought they could keep a handle on it. But people started to slip so far back that they couldn't handle it anymore.
+Yule_Thinking: Started to get wild. Usually they just ran off before anything happened, but every once in a while something was.. <color=#a11bbe>wrong</color>.
 Yule: See, that syndrome us EVOs get usually just backslides you down the evolutionary line, but these people didn't do that. They got <color=#a11bbe>different</color>. 
 Yule_Stare: Grew new bits, started hacking up this awful purple pink slime.  After a new batch of people came, that <color=#813408>scientist</color> ran off.
 if PhilomenaBaseCompleted == true:
@@ -171,7 +172,7 @@ if PhilomenaBaseCompleted == true:
 	Yule_Sad: I suppose he did... Poor woman.
 Yule_Stare: That day, the power went out and that grid stopped workin'. Coalition sent out new parts, new people, and everything was getting better. Haven't seen much of the purple ones since. Well, till now.
 Yule: And that thing still kicks on at night, humming and glowing. And the plants to the north got that sickly color to 'em.
-Yule_Angry: Somehow I feel like it's that bastard's fault this all happened. I don't quite know, but I think that <color=#a11bbe>energy source</color> got into 'em. Maybe they woulda backslid, but they'd be normal. 
+Yule_Angry: Somehow I feel like it's that bastard's fault this all happened. I don't quite know, but I think that <color=#a11bbe>energy</color> got into 'em. Maybe they woulda backslid, but they'd be normal. 
 Chance: Wow.
 Chance: You sure talk a lot once you get the chance.
 Yule_Smile: Hah! Well, you know what they say about bears.
@@ -240,7 +241,7 @@ Yule:.. Yes. I'd like that.
 	Chance_Thinking: Right.. Right..
 	Chance: You're kind of an eccentric guy.
 	Yule_Stare: Maybe you're the eccentric one.
-	Chance_Thinking: Uh.. yeah maybe, I guess so.
+	Chance_Thinking: Uh.. yeah maybe.
 - Prepping fish
 	Chance: So what do you dry the fish out for?
 	Yule: For eating.
@@ -248,7 +249,7 @@ Yule:.. Yes. I'd like that.
 	Yule_Thinking: Yes. Sometimes. Sometimes they get added to the soup, so they rehydrate a little.
 	Chance: There's no way the fish stays good that long out of water.
 	Yule_Stare: It is fairly dry here. I believe our fish stay good dry for a long time.
-	Chance: Where I'm from, if they stay out of the water they dry up a little but not completely, and then they smell horribly. We usually eat them right away.
+	Chance: Where I'm from, if they stay out of the water they dry up a little but not completely, and then they smell nasty. We usually eat them right away.
 	Yule_Thinking: Oh.. Maybe it was too humid there? Too much moisture in the air?
 	Chance_Thinking:... Oh yeah. That makes sense. And you guys have that cold storage so that probably keeps it dry..
 	Yule: Yes, it does. 
@@ -277,16 +278,16 @@ Chance: Hey big guy.
 	Yule_Stare: Your guess is as good as mine.. It's mostly just fish out here.
 - What you do out here
 	Chance: So what exactly do you do out here? Do you have a job like everyone else?
-	Yule_Thinking: I used to be the one in charge of the cold storage and food preservation. My role was.. dissolved, unofficially. 
+	Yule_Thinking: I used to be the one in charge of the <color=#5b5b1f>cold storage</color> and food preservation. My role was.. dissolved, unofficially. 
 	Yule_Stare: I provide the fish because I ought to, not because I have to anymore.
 	Yule_Sad: I wouldn't want anyone to go hungry due to my leaving the main compound.
 	Chance_Thinking: That's gotta be nice, to not have any rules.
 	Yule_Angry: Life's about more than rules. Rules are part of what got us into this mess..
 	Yule_Sad: If it weren't for those compound heads and their egos, we might've gotten that mess with the sick fellas taken care of.
-	Yule_Angry: But everyone, just like that damn doctor, they all wanna be some savior. Can't just admit when they've mucked somethin' up. 
-	Chance_Thinking: It's always been that way? Even when Farida got here?
+	Yule_Angry: But everyone, just like that damn <color=#813408>doctor</color>, they all wanna be some savior and have their name written in gold. Can't just admit when they've mucked somethin' up. 
+	Chance_Thinking: It's always been that way? Even when <color=#813408>Farida</color> got here?
 	Yule_Thinking: I left 'round the time she showed up. If things got better, I ain't seen it. Those things still stomp around, the plants stay sick, the people are gone.. Far as I'm concerned, until all that stops, it's their fault.
-	Yule_Sad: Farida included.. She might think she's doin' the right thing, but she's a damn fool. Closing up all the gates didn't stop anything, just gave them more obstacles.
+	Yule_Sad: <color=#813408>Farida</color> included.. She might think she's doin' the right thing, but she's a damn fool. Closing up all the gates didn't stop anything, just gave them more obstacles.
 	Chance_Sad: Do they ever bother you?
 	Yule_Thinking: No, I don't think it wants anything where I am.. I think it's lookin' for something. May never find it.
 	Chance_Sad: What do you think happens if it does stop? All the sickly stuff goes away, what do you think happens to them?
