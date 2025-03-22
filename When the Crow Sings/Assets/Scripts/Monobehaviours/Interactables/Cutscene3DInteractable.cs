@@ -15,6 +15,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     private MeshRenderer[] fishingRodOnTheGround;
     public SpriteRenderer arrow;
     public ParticleSystem rippleEffect;
+    public Animator animator;
 
     public void startCutscene()
     {
@@ -34,6 +35,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     public void SetPositionRotation(Vector3 targetCoordinates)
     {
         Transform playerTransform = fishingRod.GetComponentInParent<PlayerController>().gameObject.transform;
+        animator = playerTransform.GetComponentInChildren<Animator>();
         CharacterController characterController = fishingRod.GetComponentInParent<CharacterController>();
         characterController.enabled = false;
         playerTransform.SetPositionAndRotation((targetCoordinates), (Quaternion.Euler(0, 32, 0)));
@@ -45,6 +47,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     public IEnumerator fishCatchTimer()
     {
         yield return new WaitForSeconds(Random.Range(4, 8));
+        animator.SetBool("animIsFishing", true); 
         qte.EmitStartQteSignal();
     }
 
@@ -91,11 +94,12 @@ public class Cutscene3DInteractable : MonoBehaviour
         {
             SetPositionRotation(new Vector3(54.5f, -.5f, 342.5f));
             Debug.Log("Sending chance to fish");
-            rippleEffect = fishingRod.GetComponentInChildren<ParticleSystem>();
+            rippleEffect = animator.GetComponentInChildren<ParticleSystem>();
             rippleEffect.Play();
         }
 
         cutsceneFinder.fadeOutOfBlack();
+        animator.SetBool("animIsFishing", false);
     }
 
 }
