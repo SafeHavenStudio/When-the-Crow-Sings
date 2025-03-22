@@ -43,6 +43,12 @@ public class CutsceneManager : MonoBehaviour
         // Doesn't actually seem like it'll be necessary unless designers want unique lengths for motion...
     }
 
+    public void SendToMainMenu()
+    {
+        Progress();
+        SceneManager.LoadScene("MainMenu_SCN");
+    }
+
     public void OnNextButtonPressed()
     {
         nextButton.SetActive(false); // A little redundant but good to be safe.
