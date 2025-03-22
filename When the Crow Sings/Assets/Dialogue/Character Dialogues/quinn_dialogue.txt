@@ -29,13 +29,13 @@ Quinn: Nice to meet you. Officially. What brings you to the <color=#5b5b1f>green
 Quinn_Excited: Here to try my turnip-carrot hybrid?
 if ifBeauAndAngel == true:
 	- Angel sent me.
-		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about people roaming around at night.
+		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about someone or something roaming around at night.
 		=> quinn_first_int_cont
 	- Beau sent me.
 		Chance: <color=#813408>Beau</color> said that you know everyone around here. That you'd know if things were out of the ordinary.
 		=> quinn_first_int_cont
 if AngelBaseCompleted == true:
-		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about people roaming around at night.
+		Chance: <color=#813408>Angel</color> said you're up late, and that you might know something about someone or something roaming around at night.
 		=> quinn_first_int_cont
 if BeauBaseCompleted == true:
 		Chance: <color=#813408>Beau</color> said that you know everyone around here. That you'd know if things were out of the ordinary.
@@ -47,7 +47,7 @@ else:
 ~ quinn_first_int_cont
 Quinn: Mmm. Did he?
 Quinn_Thinking: Well, I am up late and I provide something to just about everyone in some way or another. So, I guess he sent you somewhere good. What's up?
-Chance: Someone was out past curfew and banged on my window.
+Chance: Something was out past curfew and banged on my window.
 Quinn_Worried: Ah, yep.
 Chance_Scared: Yep?
 Quinn: I've noticed some <color=#a11bbe>strays</color> around lately. Never saw them banging on any windows. They look a little funny but they just sort of roam around.
@@ -74,14 +74,14 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>dining tent</color>, get them and bring them in to me and I'll see what I can do for ya.
 	if HasThrownBirdseed == false:
 		Chance_Thinking: How would I get past the birds?
-		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they from <color=#813408>Caleb</color> like shiny things too. Do you have anything like that?
 		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
 		Quinn: You have a personal stash of bird seed?
 		Chance: Uh, yeah. I like bird watching, it helps bring them out.
 		Quinn_Worried: Why would you WANT the birds to come near you?!
 		Chance_Smile: I'll try throwing the bird seed to distract them from the seed bags.
 	else:
-		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
+		Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.
 	=> ending_call
 - Later.
 	Chance_Sad: Maybe later.
@@ -98,7 +98,7 @@ Chance_Angry: Are you insane?!
 Quinn_Thinking: I mean it doesn't really bother me.. If you respect the curfew and stay out of the stray's way, they kind of just leave you alone.
 Chance_Sigh: Do you people just play pretend like everything is okay?
 set FaridaHasBeenHeardOf = true;
-Quinn: Kinda. <color=#813408>Farida</color> set up a curfew, we all stay inside, it doesn't bother anyone. Win win.
+Quinn: Kinda, yeah. <color=#813408>Farida</color> set up a curfew, we all stay inside, it doesn't bother anyone. Win win.
 Chance_Annoyed: And it never sees you in this giant GLASS HOUSE?
 Quinn_Thinking: It hasn't yet. Maybe because the lights are pink? Their eyes might not be made for that wavelength, especially since they only come out at night.
 Chance_Sigh: This conversation is ridiculous. I was told you might know something about that thing, and you know it's there and just ignore it. Do you know ANYTHING useful? Like how to make it go away?!
@@ -133,7 +133,7 @@ Chance_Annoyed:...
 		Quinn: I'm sure that'll do the trick. Just chuck some nearby and grab those seed bags!
 		Chance_Sigh: Yeah, you sound chipper for the person who doesn't have to do it. Whatever, I'll try.
 	else:
-		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
+		Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.
 	=> ending_call
 - No way
 	Chance_Sigh: Absolutely not.
@@ -164,7 +164,7 @@ Quinn_Thinking: Turnott?.. I'm workshopping it.
 		Quinn_Worried: Why would you WANT the birds to come near you?!
 		Chance_Smile: I'll try throwing the bird seed to distract them from the seed bags.
 	else:
-		<i>Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.</i>
+		Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.
 	=> ending_call
 - No thanks.
 	Chance: Er, no thanks.
@@ -181,13 +181,27 @@ Quinn: Change your mind about helping me?
 	emit 1;
 	Chance_Sigh: I don't have much of a choice if I want to talk to your guy out there.
 	Quinn: Nope, guess not.
-	Quinn_Worried: Just head down to the <color=#5b5b1f>dining tent</color> and grab those seeds. Try not to die while you do it.
+	Quinn: Just head down to the <color=#5b5b1f>dining tent</color> and grab those seeds. 
+	Quinn_Worried: Try not to die while you do it.
 	Chance_Annoyed: Right, yeah. Thanks, jerk.
+	if HasThrownBirdseed == false:
+		Chance_Thinking: How would I get past the birds?
+		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
+		Quinn: You have a personal stash of bird seed?
+		Chance: Uh, yeah. I like bird watching, it helps bring them out.
+		Quinn_Worried: Why would you WANT the birds to come near you?!
+		Chance_Smile: I'll try throwing the bird seed to distract them from the seed bags.
+	else:
+		Those birds seemed really into my bird seed stash earlier.. guess I'll have to waste some more to get them off those bags.
 	=> ending_call
 - No way
 	=> END
 
 ~ quinn_task_unfin
+if QuinnTaskNight == true:
+	Quinn: I have no idea why you would be back in here without that birdseed. Go get it from the <color=#5b5b1f>dining tent</color>, dude.
+	=> END
 Quinn_Worried: Really dude?
 Chance: What?
 Quinn_Thinking: Uhhh, I totally asked you to do something.
@@ -208,7 +222,7 @@ set MFQuinnTC = false;
 set HFQuinnBC = true;
 set YuleHasBeenHeardOf = true;
 Quinn_Excited: Hey there, just in time!
-Quinn: I let <color=#813408>Farida</color> know I've got <color=#813408>Yule</color> bringing in some irregular deliveries, due to the season change coming up. Sooo, You should be alright just to come and go through the <color=#5b5b1f>south-west gate</color> when you buzz it now.
+Quinn: I let <color=#813408>Farida</color> know I've got <color=#813408>Yule</color> bringing in some irregular deliveries, due to the season change coming up. Sooo, you should be alright just to come and go through the <color=#5b5b1f>south-west gate</color> when you buzz it now.
 Quinn_Smile: About <color=#813408>the big guy</color>? Be patient. He's old and quiet. Been here a long time, not the most social. I'm sure he'll tell you what you wanna know, but he's a little quirky. Moves to his own rhythm, you know?
 Chance: Uh, sure.
 Quinn: I'm basically the only person he talks to other than maybe <color=#813408>Beau</color> once in a while. Or the fish.
@@ -290,8 +304,7 @@ Quinn: Sure!
 	Quinn: Mostly just what people ask, as long as it can grow in the soil out here.
 	Chance_Thinking: What do people ask for?
 	Quinn_Thinking: It's mostly <color=#813408>Angel</color> since he's in charge of making food for everyone. He asks for hardy vegetables like carrots, cabbage, turnips. In the summer I try to grow corn, squash, and so on.
-	Chance: All seems pretty standard.
-	Quinn: Yep. I keep the coffee plants alive here too, and I take special requests.
+	Quinn: I keep the coffee plants alive here too, and I take special requests.
 	Chance_Thinking: Special requests?
 	Quinn_Thinking: Oh yeah, I mean for <color=#813408>Beau</color> I-
 	Quinn_Worried: ... Nevermind.
@@ -339,12 +352,12 @@ Chance_Annoyed: Right...
 	Quinn_Thinking: That's just the name on the bottom of it. Boombox. Cause it plays some.. booms?
 	Chance_Smile: Heheh... booms...
 	Chance: But where did you get it?
-	Quinn: Ah, I found it when I moved here. I think someone left it behind in the residential area.
+	Quinn: Ah, I found it when I moved here. I think someone left it behind in the <color=#5b5b1f>residential area</color>.
 	Chance_Thinking: Isn't that place locked up?
 	Quinn_Smile: Don't sweat the details, dude.
-	Quinn: Anyway, I found it out there along with some CDs for it, and I was able to convince Caleb to get it to run without batteries.
+	Quinn: Anyway, I found it out there along with some CDs for it, and I was able to convince <color=#813408>Caleb</color> to get it to run without batteries.
 	Chance_Thinking: What's a CD?
-	Quinn_Thinking: Uh.. It's the thing the music is on.. It's a.. circular.. Disk? CD?.. I dunno, it said CD on the cover, and then had a name written in pen.
+	Quinn_Thinking: Uh.. It's the thing the music is on.. It's a.. circular.. Disk? CD?.. I dunno, it said CD on the cover, and then had a name written in pen. It was uh.. Oh, "sick elevator beats to chill to".
 	Chance: That's cool I guess. 
 	Quinn_Worried: It would be more cool if C.A.N. ever agreed to send me more CDs.. They care about us making the world better, think that music is a distraction. But it totally helps me get in the zone!
 	Chance_Thinking: Can you make your own?
@@ -354,23 +367,23 @@ Chance_Annoyed: Right...
 => BBEnd
 
 ~Q2
-Quinn: Sup, dude?
+Quinn: 'Sup, dude?
 - Your hair
 	Chance_Thinking: So your hair probably has to get done pretty often since it's short on the sides, right?
 	Quinn: Yup.
 	Chance: Who does your hair around here?
-	Quinn_Smile: My sweet little buddy, Calliope.
-	Quinn: Caleb's daughter, if you don't know her. 
+	Quinn_Smile: My sweet little buddy, <color=#813408>Calliope</color>.
+	Quinn: <color=#813408>Caleb</color>'s daughter, if you don't know her. 
 	Chance_Thinking: His daughter is old enough to cut hair?
-	Quinn: Well Caleb helps out, but yeah she does a lot of it. He helps section the hair, she does the clipping and the cutting and the buzzing. Ya know, standard stuff.
-	Quinn_Thinking: Did you not have anyone like that where you're from?
+	Quinn: Well <color=#813408>Caleb</color> helps out, but yeah she does a lot of it. He helps section the hair, she does the clipping and the cutting and the buzzing. Ya know, standard stuff.
+	Quinn_Thinking: Didn't have anyone like that where you're from?
 	Chance_Annoyed: What's that supposed to mean?
 	Quinn: I'm just asking. I mean, look at your hair. Looks like it hasn't been cut for a long while. And it's all different lengths.
 	Quinn_Thinking: Did you cut it yourself?
 	Chance_Angry: No!
 	Chance_Sigh: Even if I did, it would be a fine haircut. I like my hair.
 	Quinn: Yeah, sure dude.
-	Quinn_Thinking: I can get you set up with Calliope, I'm sure she could even you out.
+	Quinn_Thinking: I can get you set up with <color=#813408>Calliope</color>, I'm sure she could even you out.
 	Quinn: Get that hair out of your face, even it out in the back.
 	Quinn_Scared: I don't even want to think about how it looks under that hat of yours.. When's the last time you took it off?
 	Chance_Annoyed: I'm leaving.

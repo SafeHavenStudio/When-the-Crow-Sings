@@ -23,26 +23,27 @@ if timeOfDay == 1:
 	Angel_Smile: Good morning, are you settling in alright?
 if timeOfDay == 2:
 	Angel_Smile: Good afternoon, are you settling in alright?
-Chance_Thinking: Uh.. Not sure I'd say that.
-Angel_Worried: Oh! Well..
+Chance_Thinking: Not sure I'd say that...
+Angel_Worried: Oh! Well, um..
 - Past curfew?
 	=> angel_past_curfew
 - My window.
 	=> angel_window
 
 ~ angel_past_curfew
-Chance_Annoyed: Are there normally people out at night? Past curfew? Maybe, harassing new people?
+Chance_Annoyed: Are there normally people out at night? Past curfew? Maybe, harassing new people, banging on windows?
 => angel_first_int_cont
 
 ~ angel_window
-Chance_Sigh: Someone came banging on my window in the middle of the night while I was putting my things away. Scared the hell out of me.
+Chance_Sigh: Some.. thing came banging on my window in the middle of the night while I was putting my things away. Scared the hell out of me.
 => angel_first_int_cont
 
 ~ angel_first_int_cont
 set AngelTaskOffered = true;
 Angel_Stare: . . .
-Angel_Smile: Well, I wouldn't know anything about that! Everything is great around here, if you ask me.
-Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of things, and I could always use an extra hand!
+Angel_Smile: Well, I wouldn't know anything about that! Everything is great around here, if you ask me. Never had any problems.
+Angel_Thinking: I do live on the second floor though so it might be hard to bang on those windows...
+Angel_Smile: Did you want to help me in the kitchen? Might take your mind off of things, and I could always use some help. I'm the only chef around here!
 - Sure.
 	set MFAngelTag = false;
 	set MFAngelTA = true;
@@ -103,15 +104,16 @@ if JazmyneTaskAccepted == false:
 if QuinnTaskAccepted == false:
 	set MFQuinnTag = true;
 set QuinnHasBeenHeardOf = true;
-Angel_Smile: Thanks so much! Gave me time to prep.
+Angel_Smile: Thanks so much! Gave me a little time to prep.
 Angel_Thinking: . . .
 set JazmyneHasBeenHeardOf = true;
-Angel_Worried: Um.. If you're worried about, whatever, maybe you could talk to <color=#813408>Miss Jazmyne</color> at the <color=#5b5b1f>rec center</color>?
-Angel: She's up at all hours taking care of the little ones, and she's got an older kid that stays out late.
-Angel_Smile: <color=#813408>Theo</color> does love a good prank! Maybe he was harassing you!
+Angel_Worried: Um.. If you're worried about... whatever, maybe you could talk to <color=#813408>Miss Jazmyne</color> at the <color=#5b5b1f>rec center</color>?
+Angel: She's up at all hours taking care of the little ones, and she's got <color=#813408>Theo</color>, an older kid that stays out late.
+Angel_Smile: He does love a good prank! Maybe he was the one harassing you?
 set TheodoreHasBeenHeardOf = true;
-Angel_Thinking: There's also <color=#813408>Quinn</color>! They're always up taking care of the night blooms in the <color=#5b5b1f>greenhouse</color>, so if someone was wandering around, they'd know.
-Chance: Thanks, I appreciate it.
+Angel_Thinking: There's also <color=#813408>Quinn</color>! They're always up taking care of the night blooms in the <color=#5b5b1f>greenhouse</color>, so if someone was wandering around, they'd know. 
+Angel_Thinking: I mean, the thing is made of glass! ... They do need glasses though so maybe not.
+Chance: Thanks for the tips, I appreciate it.
 Angel_Smile: No problem! Don't be a stranger!
 Angel_Stare: I mean, I'll see you at mealtime anyway, but. . .
 Angel_Smile: Bye!
@@ -184,7 +186,7 @@ Angel_Smile: Anyway! Did you want to talk about something?
 		Chance_Thinking: Even though the power went out for a while?
 	else:
 		Chance_Thinking: Wonder how they managed that.
-	Angel_Smile: They said that whenever the power went out or the weather got rough they would put the lid on and bury it with charcoal that they'd keep hot to keep it up to temperature.
+	Angel_Smile: They said that whenever the power went out or the weather got rough they would put the lid on and bury it with charcoal so that it'd keep up to temperature.
 	Angel_Smile: Isn't that cool!?!
 	Chance_Smile: Yeah that's pretty neat. 
 - About the prepping
@@ -200,7 +202,7 @@ Angel_Smile: Anyway! Did you want to talk about something?
 	Angel_Smile: Well, yeah! Can't be picky out here!
 	Angel_Thinking: What did you do where you're from?
 	Chance_Sad: Er, well..
-	Chance: I lived on an island before, and we ate lots of fish. Fish doesn't really store well, so we just made a variety of stuff. 
+	Chance: I lived on an island before, and we ate lots of fish. Fish doesn't really store well in the humidity out there, so we just made a variety of stuff. 
 	Chance_Smile: It got boring sometimes, but in the summer there were these limes that we could use on our food and they really added a lot to it.
 	Angel_Thinking: Limes! What are those like?
 	Chance_Smile: They're really sour, and kind of refreshing. It's kind of like a lemon, have you had those?
@@ -258,7 +260,7 @@ Angel_Smile: Hey!
 	Angel_Smile: Yep! They're still little kids. They barely come up to my chest, including ears.
 	Chance_Smile: Including ears..
 	Chance: They're the same age?
-	Angel: Uhuh, they're twins. They were born before we came here, before our old compound dissolved.
+	Angel: Uh-huh, they're twins. They were born before we came here, before our old compound dissolved.
 	Chance_Sad: Oh, right. What happened?
 	Angel_Thinking: Well, it just kind of happened. It was a lot hotter there, water was harder to come by, some of the predator EVOs went through ERS...
 	Angel_Worried: Not everyone made it out. <color=#813408>Theo's</color> parents, some whole families..
@@ -274,10 +276,10 @@ Angel_Smile: Hey!
 	Angel_Worried: Right..
 	Chance_Thinking: Don't worry about it. I'm glad you all got here safely.
 	Angel_Smile: I'm glad you got here safely too.
-	Chance_Smile: Thanks. Me too.
+	Chance_Smile: Thanks.
 - Your parents
 	Chance: Do your parents live here with you too?
-	Angel: Uhuh.
+	Angel: Uh-huh.
 	Chance_Thinking: I don't see them around, do they do something indoors or?
 	Angel: Ehh, no not exactly. I mean.. Yes! 
 	Angel_Worried: My dad is sick. When he was younger, there were lots of dust storms around where we were from, and he had to work outside a lot. I guess he breathed a lot of it in, and it kind of caught up with him.
@@ -286,7 +288,7 @@ Angel_Smile: Hey!
 	Chance_Thinking: You and <color=#813408>Jazmyne</color> are from the same place?
 	Angel_Stare: Yep. Us, <color=#813408>Jazmyne</color>, and <color=#813408>Theo</color> all came from the same compound. It's a few days' bus drive to the..... West?
 	Angel_Thinking: Never Eat Soggy Waffles.. Sun sets in the west...
-	<i> What are waffles? </i>
+	Waffles?
 	Angel_Smile: Yeah, the west.
 	Chance_Smile: Right. Well, nice you could all stay together.
 	Angel_Smile: I think so!
@@ -295,6 +297,7 @@ Angel_Smile: Hey!
 	Angel_Worried: Yeah.
 	Chance_Thinking: So maybe you guys just remind him of before, and that makes him sad.
 	Angel_Stare: Maybe..
+	Chance_Sad: I'm sure he'll come around.
 => BBend
 
 ~ A3
@@ -322,16 +325,16 @@ if JazmyneBaseCompleted == true:
 		Angel_Smile: Oh! Yes!
 		Angel_Thinking: I like watching movies, playing with my siblings, helping <color=#813408>Quinn</color> in the garden, organizing stuff in the <color=#5b5b1f>Cold Storage</color>, talking with my parents, talking to <color=#813408>Jazmyne</color>, talking to <color=#813408>Caleb</color>, talking to <color=#813408>Beau</color>-
 		Chance: Seems like you like talking.
-		Angel_Stare: Uhuh.
+		Angel_Stare: Uh-huh.
 		Chance_Smile: I can tell.
 else:
 	- Things to do around here
 		Chance: Is there anything to do around here?
 		Angel: Like just to do?
 		Chance_Sad: Well I'm not going to be assigned a job for a minute, the C.A.N. kind of encouraged me to relax. 
-		<i>As much as I can, with that big thing roaming around at night.. Might still be a good idea if I manage to get it to go away.</i>
+		Not like I can, with that big thing roaming around at night..
 		Angel_Thinking: Oh! Right. Well, we have movie nights on Wednesdays, there's a play set... You might be a bit too big for that.
-		<i>No shit.</i>
+		No shit.
 		Angel_Stare: There's not a whole lot of like, fun stuff to do unless you're a little kid.
 		Chance_Annoyed: Great.
 		Angel_Thinking: If you like reading we have some books you might not have read, but other than that you might be out of luck.

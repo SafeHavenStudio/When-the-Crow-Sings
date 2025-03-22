@@ -19,9 +19,9 @@ else:
 	=> beau_task_fin
 
 ~ beau_first_int
-Beau: Ey! Don't suppose you brought any Timmies?
+Beau: Eh! Don't suppose you brought any Timmies?
 Chance: Any what?
-Beau_Smile: Timmies! Coffee! It's what my parents always called it.
+Beau_Smile: Timmies! Coffee! Sorry, it's what my parents always called it.
 Beau: I sure could use some, monitoring the <color=#5b5b1f>cold storage</color> is boring work.
 Beau: My name is <color=#813408>Beau</color>! You must be the newest addition to our lovely gated compound.
 - . . .
@@ -57,13 +57,13 @@ Beau: Sorry to have your first night so disturbed. It's not always like that aro
 => beau_first_int_cont_2
 
 ~ beau_first_int_sleep
-Chance_Sad: I haven't been getting much sleep lately.
-Beau_Awkward: Oh, well, that's no good bud.
+Chance_Sad: I haven't been getting much sleep lately. Something has been keeping me up..
+Beau_Awkward: Oh, well.. That's no good bud.
 => beau_first_int_cont_2
 
 ~ beau_first_int_cont_2
 set BeauTaskOffered = true;
-Beau: Listen, would you do me a solid and pick up some food from the <color=#5b5b1f>greenhouse</color>? Seems like you could use something to keep yourself busy.
+Beau: Listen, would you do me a solid and pick up some food from the <color=#5b5b1f>greenhouse</color>? Seems like you could use something to keep busy, eh?
 Beau_Smile: I've got to swap out some stock for <color=#813408>Angel</color>, put the new food in the freezer and give him the wiltier stuff. 
 - Sure.
 	set MFBeauTag = false;
@@ -72,7 +72,7 @@ Beau_Smile: I've got to swap out some stock for <color=#813408>Angel</color>, pu
 	emit 1;
 	set MFBeauTA = true;
 	Chance: Yeah, sure.
-	Beau_Smile: Thanks bud, I'll owe ya one.
+	Beau_Smile: Thanks bud, I owe ya.
 	=> ending_call
 - Not now.
 	Chance_Sad: Um, not right now.
@@ -87,7 +87,7 @@ Beau_Teasing: Back for more <color=#813408>Beau</color>?
 	emit 1;
 	set MFBeauTA = true;
 	Chance_Smile: Yeah, I'm free to help now.
-	Beau_Smile: Thanks bud, I owe ya one.
+	Beau_Smile: Thanks bud, I owe ya.
 	=> ending_call
 - No.
 	Chance: . . . No.
@@ -95,7 +95,7 @@ Beau_Teasing: Back for more <color=#813408>Beau</color>?
 
 ~ beau_task_unfin
 Beau: You're back.
-Beau_Awkward: With no veggies. Did something happen, or?
+Beau_Awkward: With no veggies. Did something happen, or-?
 	- I forgot.
 		Chance_Sad: I forgot where to go.
 		set QuinnHasBeenHeardOf = true;
@@ -104,7 +104,7 @@ Beau_Awkward: With no veggies. Did something happen, or?
 		=> END
 	- No!
 		Chance_Angry: No! I just wasn't ready to do it yet!
-		Beau_Awkward: Riiiiiight. Whatever you say bud.
+		Beau_Awkward: Riiiiiight. Whatever you say, bud.
 		=> END
 
 ~ beau_task_fin
@@ -112,15 +112,15 @@ set QuinnHasBeenHeardOf = true;
 Beau_Smile: Ah! Lookin' good! <color=#813408>Quinn</color> sure knows how to grow 'em. Thanks for your help.
 Beau: Bud, look. I can tell you're having some trouble settling in here. You did me a solid, so let me give you a little advice.
 Chance: Hm?
-Beau_Smile: Things get a little weird around here, but it's harmless! Least since I've been here.
+Beau_Smile: Things get a little weird around here, but it's harmless! At least since I've been here.
 Beau: If you want some reassurance? Go talk to <color=#813408>Quinn</color>, the gardener you just grabbed that delivery from.
 Beau_Smile: They might be able to help explain things. 
 if QuinnTaskOffered == true:
 	- Met Quinn.
 		Chance: I already met <color=#813408>Quinn</color>.
 		Beau_Smile: Oh yeah? And did they talk ya down?
-		Chance_Sad: Not exactly. They're nice, though.
-		Beau_Awkward: Yeah, they sure are. Hm..
+		Chance_Sad: Not exactly..
+		Beau_Awkward: Darn. Hmm...
 		=> beau_task_fin_cont
 else:
 	set MFQuinnTag = true;
@@ -128,7 +128,7 @@ else:
 
 ~ beau_task_fin_cont
 set FaridaHasBeenHeardOf = true;
-Beau: There's also <color=#813408>Farida</color>. She's our security 'round here. She's always in the <color=#5b5b1f>Energy HQ</color> watching the cameras, she woulda been the one that buzzed you in.
+Beau: There's also <color=#813408>Farida</color>. She's our security 'round here, head of the compound. She's always in the <color=#5b5b1f>Energy HQ</color> watching the cameras, she woulda been the one that buzzed you in.
 if FaridaTaskOffered == true:
 	- Met Farida.
 		Chance_Sad: I've met <color=#813408>Farida</color>. She's uh...
@@ -146,7 +146,7 @@ set EnergyHQDoorUnlocked = true;
 set MFBeauTC = false;
 set HFBeauBC = true;
 Chance: I'll look into it. Thanks.
-Beau_Teasing: No problem, ey? Not to be a keener but, wouldn't want you to be uncomfortable livin' here.
+Beau_Teasing: No problem, eh? Not to be a keener but, wouldn't want you to be uncomfortable livin' here.
 Beau_Awkward: <size=75%> Not like you got anywhere else to go.
 emit 1;
 if day == 1:
@@ -201,13 +201,13 @@ set BeauBB += 1;
 ~ B0
 Beau_Smile: Hello again lil bud. 
 Chance_Annoyed: I'm not little, you're just a literal moose.
-Beau_Teasing: Eh you might be right there.
-Beau: What brings you back to my lovely mound of dirt?
+Beau_Teasing: Eh, you might be right there.
+Beau: What brings you back to my lovely mound of cold dirt?
 - Cold storage
 	Chance_Thinking: What exactly is the <color=#5b5b1f>cold storage</color>? It's not like a fridge, right?
-	Beau: Kind of, it uses the power of geothermal gradients or something.
+	Beau: Kind of is, it uses the power of geothermal gradients or something.
 	Chance: What?
-	Beau_Awkward: I don't really know the science part of it. You put things underground, they stay cool.
+	Beau_Awkward: I don't really know the proper science words for it. You put things underground, they stay cool.
 	Chance_Thinking: Is it really underground if it's um... Above ground?
 	Beau: It goes down a little bit when you get inside, there's stairs to go further underground. It's still cooler at the top, but it gets cooler when you go down.
 	Chance: Oooh. So did you build the dirt mound or did you dig a hole in a hill
@@ -215,24 +215,24 @@ Beau: What brings you back to my lovely mound of dirt?
 	Chance_Thinking: What is an igloo?
 	Beau: It's this thing that people make out of ice and snow to sleep in on the tundra. It's like a big ball and you hollow out the middle.
 	Chance: And you've made one of those?
-	Beau_Smile: Nah, I learned about it in books my parents used to have. I don't think there's enough snow around anymore for that, even where they were from. It just kinda looks like one, I guess.
+	Beau_Smile: Nah, I learned about it in books my parents had. I don't think there's enough snow around anymore for that, even where they were from. It just kinda looks like one, I guess.
 	Beau: When I was building it, I pretended I was making one and it passed the time easier.
 	Chance_Sad: Oh.
 - Why are you standing guard
 	Chance: Is there a reason you stand out here all day? Do you guys have a like.. thief problem?
 	Beau_Teasing: No, are you planning on stealing something?
 	Beau_Smile: I'm not on guard or anything, I just sit and monitor a thermometer to make sure that everything is nice and cool. Also gotta watch the humidity.
-	Chance_Thinking: That makes more sense. You have to watch it all day?
+	Chance_Thinking: Oh, that makes more sense... You have to watch it all day?
 	Beau: I mean I don't <b>have</b> to. But I don't really have a lot else to do around here, and I like being out of the lodging. Rooms are kinda small.
 	Chance: What do you do if something's wrong on the thermometer?
 	Beau_Worried: Talk to <color=#813408>Farida</color> to get permission to turn on the cooler we have down there.
 	Chance_Thinking: Uh, does she not like you?
-	Beau_Awkward: Well I don't know if I'd say that. She hates using excess power because of the usage at night, so she wants me to only turn it on if absolutely necessary.
+	Beau_Awkward: Well I don't know if I'd say that.. She hates using excess power because of the usage at night, so she wants me to only turn it on if absolutely necessary. So when I have to ask.. She's not the happiest.
 	Chance_Annoyed: That must be kind of annoying to deal with. You can't just turn it on yourself?
 	Beau: The system is controlled through that big thing of buttons in her office. 
 	Beau_Teasing: I'm not even sure which button she presses to turn it on.
 	Beau: It's alright though, it only really happens during the summer or when I have to do the long hauls of swapping old food with new food. Doors stay open for too long and we gotta blast the cooling a little, that one really gets on her nerves.
-	<i>She must be really serious about energy usage.</i>
+	She must be really serious about energy usage.
 => BBEnd
 
 ~ B1
@@ -286,7 +286,7 @@ Chance: You could say that, yeah.
 	Beau_Awkward: Well, my mom passed a long while before I ever moved here. My dad came with me, but he was on his way out too. 
 	Beau: He's buried out in the forest area, by the river. I figured it was the closest we could get to the ocean.
 	Chance_Thinking: The ocean?
-	Beau_Smile: Yeah, it's tradition where he was from to put your dead out to see. I went for second best, buried him by the water and made him a little rock alter, the way my mom would've wanted.
+	Beau_Smile: Yeah, it's tradition where he was from to put your dead out to see. I went for second best, buried him by the water and made him a little rock alter. It's the way my mom would've wanted.
 	Chance: They had different traditions?
 	Beau_Smile: You betcha. They both came from different groups up north as they migrated down here, and I guess it was real different up there.
 	Beau: What about where you're from? Any special rituals or traditions.

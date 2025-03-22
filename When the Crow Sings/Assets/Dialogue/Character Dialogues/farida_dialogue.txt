@@ -38,7 +38,7 @@ else:
 ~ farida_francisco
 Chance: <color=#813408>Francisco</color> sent me.
 Farida_Annoyed: Okay. And?
-Chance_Scared: . . . Uh, he said that you might be able to tell me about the old system you guys had.
+Chance_Scared: ...Uh, he said that you might be able to tell me about the old system you guys had.
 - Curious
 	Chance: I was curious about it.
 - Back home
@@ -49,6 +49,7 @@ Farida_Exhausted: The solar was already up and running. Why do you even want to 
 Chance_Sad: Things just seem. . . I don't know, weird, around here. Especially at night, with that humming sound. 
 if day == 2:
 	Chance: And the <color=#a11bbe>glow</color>. 
+Chance_Thinking: There's no way you haven't seen-
 Farida_Annoyed: Well they're not! 
 Farida: Weird, I mean. Okay?
 => farida_sec_int_cont 
@@ -56,9 +57,9 @@ Farida: Weird, I mean. Okay?
 ~ farida_beau
 	Chance: <color=#813408>Beau</color> sent me.
 	Farida_Annoyed: Okay. And?
-	Chance_Scared: . . . Someone banged on my window. <color=#813408>Beau</color> said you might know about security here. 
-	Farida_Stunned: What? . . .
-	Farida_Exhausted: Look. I am aware there are a few. . . <color=#a11bbe>disturbances</color> around the compound, but everything is under control. You don't need to worry about it.
+	Chance_Scared: ...Someone, or something, came banging on my window. <color=#813408>Beau</color> said you might know about security here. 
+	Farida_Stunned: What?...
+	Farida_Exhausted: Look. I am aware there are a few...<color=#a11bbe>disturbances</color> around the compound, but everything is under control. You don't need to worry about it.
 	=> farida_sec_int_cont 
 
 ~ farida_sec_int_cont 
@@ -66,11 +67,11 @@ set FaridaTaskOffered = true;
 Chance_Sad: . . .
 Farida: What?
 Chance: I was just hoping to learn more.
-Farida_Annoyed: Why.
+Farida_Annoyed: Why?
 Chance_Angry: You read my application, didn't you? You approved my placement here?
 Chance_Sad: I just don't want something like that to happen again.
 Farida_Stunned: . . .
-Farida_Exhausted: I'm.. busy, right now. Look, why don't you make yourself useful. Sit and take some readings, and, <i>maybe</i> while you're doing that I can think of something to make you feel.. better.
+Farida_Exhausted: I'm.. busy, right now. Look, why don't you make yourself useful. Sit and take some readings, and <b>maybe</b> while you're doing that I can think of something to make you feel.. better.
 - Okay.
 	set FaridaTaskAccepted = true;
 	set MFFaridaTag = false;
@@ -90,15 +91,15 @@ set FaridaTaskOffered = true;
 Chance_Scared: <b>Shit!</b> Do you not see that thing outside?
 Farida: Do you think I don't have eyes?
 Chance_Angry: What so you know that thing is out there and you just don't care?
-Farida_Annoyed: They're not a <b>thing</b>. Going out at night is the only thing causing a problem, they don't <b>do</b> anything if you just leave them alone. There is a curfew for a reason, you know.
+Farida_Annoyed: They're not a <b>thing</b>. Going out at night is the only problem here, they don't <b>do</b> anything if you just leave them alone. There is a curfew for a reason, you know.
 Chance_Sigh: They?!
 Farida: Is there something you needed, or are you just in here to break rules and then scream about the consequences of it?
 Chance_Annoyed: I-
 Farida_Annoyed: Well?
 if CalebBaseCompleted == true:
-	<i>Deep breaths. I can see why Caleb has issues with this lady.</i>
+	Deep breaths. I can see why Caleb has issues with this lady.
 else:
-	<i>Deep breaths.</i>
+	Deep breaths.
 Chance_Sigh: I wanted to know about why that thing is out there. It came banging on my window, it just was stomping around out there, that can't be normal!
 Farida_Annoyed: You just got here, and you think you're entitled to know everything? You can't just follow the rules and live a quiet life?!
 Chance_Angry: You read my file! You had to in order to accept me, right?!? You know where I'm from, you know what happened! If you just let whatever is causing this keep happening, this place is going to end up just like my home! 
@@ -184,7 +185,7 @@ Farida_Exhausted: Just be gentle with her, please. Her mind is not what it used 
 Chance_Sad: Okay, I'll try.
 Farida: ... Here.
 Item: It's a small brass key. The brand name has been rubbed off.
-Farida: This will open the padlock to the <color=#5b5b1f>residential area's</color> gate. I go to check on her sometimes.
+Farida: This will open the padlock to the <color=#5b5b1f>residential area</color>'s gate. I go to check on her sometimes.
 Chance: What do I call her?
 Farida_Exhausted:... <color=#813408>Phil</color>. 
 Chance_Smile: Thank you, <color=#813408>Farida</color>.
@@ -211,7 +212,7 @@ Farida_Exhausted:... If anyone here were to know, it would be her. She has been 
 Chance_Sad: ... Please. I can't let something happen here. I don't know where we'd even go.
 Farida_Stunned:...
 Farida_Exhausted: Here.
-It's a small brass key. The brand name has been rubbed off.
+Item: It's a small brass key. The brand name has been rubbed off.
 Farida: This will open the padlock to the <color=#5b5b1f>residential area's</color> gate to the <color=#5b5b1f>south-east</color>. I go to check on her sometimes.
 Chance_Sad: Thank you, <color=#813408>Farida</color>.
 Farida_Exhausted: Right...
@@ -336,10 +337,10 @@ Farida: What unnecessary prodding question are you going to ask now?
 	Chance_Thinking: So, where is the power coming from?
 	Farida_Annoyed: Don't you think if I knew that I wouldn't have this stupid whiteboard covered in speculation?
 	Chance_Annoyed: Okay well what do you mean by vibrating pipes?
-	Farida: There are pipes that connect this building to the old power substation that hum and vibrate at night.
+	Farida: There are pipes that connect this building to the <color=#5b5b1f>old power substation</color> that hum and vibrate at night.
 	Chance_Thinking: Wouldn't that mean that the power is coming from there?
 	Farida_Exhausted: Occam's razor.. but the door is completely locked, no other way in that I could find. And the gauges that seem to correspond to the power from there are smashed to pieces, if there were energy coming in I wouldn't be able to see it on my end.
-	Chance_Thinking: And Phil doesn't know?
+	Chance_Thinking: And <color=#813408>Phil</color> doesn't know?
 	Farida_Exhausted: If she does, she won't talk about it. She only trained me on how to operate the control panels and how to get the readings from the monitors. She avoided talking about the gauges at all.
 	Chance: But like, that must be where it's coming from.
 	Farida: Right..
@@ -352,9 +353,9 @@ Farida: What unnecessary prodding question are you going to ask now?
 	Farida: So you understand now why I have all the rules in place?
 	Chance: No. I think you should just tell C.A.N. about it and get us all out of here if you think it's hurting people.
 	Farida_Annoyed: Nobody has gotten hurt since I came here. There's no reason to escalate to C.A.N. when things are under control.
-	Chance_Sigh: Yeah, that's why everyone isn't allowed out at night and that big thing stampedes around like he owns the place.
+	Chance_Sigh: Yeah, that's why everyone isn't allowed out at night and that big thing stampedes around like it owns the place.
 	Farida_Annoyed: Well when you're ready for this position, gone through years of education and formal training, you can make the decisions.
-	Chance_Annoyed: Just say you don't care what I think man.
+	Chance_Annoyed: Just say you don't care what I think, man.
 - Monitors
 	Chance: What is it that you look at on the monitors?
 	Farida: Transmissions from C.A.N., energy readings, and security cameras.
@@ -365,7 +366,7 @@ Farida: What unnecessary prodding question are you going to ask now?
 	Chance: I didn't know they were there.
 	Farida_Annoyed: Did you actually read any of your intake forms?
 	Chance:.. That's fair.
-	Chance_Thinking: So.. You just watch that guy rampage around there?
+	Chance_Thinking: So.. You just watch that thing rampage around there?
 	Farida_Annoyed: What would you have me do? Go out and try to kill them? Attempt to persuade them with the power of song?
 	Chance: I mean..
 	Farida: They are unresponsive to audio stimuli.
@@ -401,7 +402,7 @@ Chance_Thinking: Nah, not really.
 	Farida_Annoyed: Is that so hard to believe?
 	Chance: I mean I guess not, just I haven't seen you do it. Do you have to write your own or do you ask for like sheet music or something?
 	Farida_Stunned: I don't read or write it, I play by ear.
-	Chance_Thinking: And you can remember how to play songs without writing it down.
+	Chance_Thinking: And you can remember how to play songs without writing it down?
 	Farida: Yes.
 	Chance_Excited: That's pretty cool.
 	Farida_Stunned: ... Thanks.
@@ -425,7 +426,7 @@ Chance_Thinking: Nah, not really.
 	Chance_Smile: But there's so many great bugs! Grasshoppers, dragonflies, bees..
 	Farida_Annoyed: And there are many terrible bugs. Mosquitos, wasps, leeches!
 	Chance_Excited: You're totally afraid of bugs.
-	Farida_Annoyed: It is completely reasonable to not like bugs. Have you seen a butterfly's  proboscis? They're disgusting!
+	Farida_Annoyed: It is completely reasonable to not like bugs. Have you seen a butterfly's proboscis? They're disgusting!
 	Chance_Thinking: No way...
 	Chance_Excited: You're afraid of butterflies?!?! That's so stupid!
 	Farida_Annoyed: You better be careful, <color=#813408>Chance</color>. You would not like to know what pests can get into an improperly closed window at the lodging.
