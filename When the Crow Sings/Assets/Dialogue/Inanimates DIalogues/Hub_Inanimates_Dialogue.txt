@@ -8,7 +8,7 @@ They're probably just inside, or off working somewhere.
 => END
 
 ~ cafeteria_serving_station
-Trays, plates, cups, utensils.. pretty standard stuff.
+Trays, plates, cups, utensils..
 => END
 
 ~ wood_pile_unmoved
@@ -30,12 +30,14 @@ else:
 	=> END
 
 ~ banjo
-Someone in here plays banjo?.. Huh.
+Mm.. Banjo. Love me some banjo.
 => END
 
 ~ shiny_dirt
 if CalebTaskCompleted == true:
-	No more shinies for the crows. Bet they're pissed. I'd be pissed.
+	No more shinies for the crows. 
+	Bet they're pissed.
+	I'd be pissed.
 	=> END
 if CalebTaskAccepted == true:
 	Whew, time to snatch these wires while the crows are distracted.
@@ -60,7 +62,7 @@ if BeauTaskAccepted == true:
 	emit 1;
 	=> ending_call
 else:
-	A basket of fresh vegetables. Wonder why it's out here.
+	A basket of fresh vegetables. Why leave it out here? Are they not afraid of bugs eating their precious vegetables?
 	=> END
 
 ~ seed_bags
@@ -73,18 +75,18 @@ if QuinnTaskAccepted == true:
 	emit 1;
 	=> ending_call
 else:
-	Big burlap sacks filled to the brim with seed. The crows are definitely enjoying this careless placement.
+	Big burlap sacks filled with some kind of seed. The crows are definitely enjoying this careless placement.
 	=> END
 
 ~ utility_pole
 if day == 1:
-	A utility pole. Seems like the local fauna really gravitate towards the power lines.
+	A utility pole. Seems like the local crows really gravitate towards the power lines.
 	=> END
 if day == 2:
-	The power lines seem taut on the utility pole. Must be more weight than they're used to.
+	The power lines seem taut. Must be more weight than they're used to.
 	=> END
 if day == 3:
-	It's starting to look like the poles are leaning from the weight of all the crows. Let's hope they leave soon..
+	Looks like the poles are leaning from the weight of all the crows. Let's hope they leave soon..
 	=> END
 else:
 	You have escaped time. Oops.
@@ -99,7 +101,7 @@ A sturdy playset made of nicely treated wood. Lucky kids, all I had back home wa
 => END
 
 ~ solar_panel
-Lined up solar panels, recently wiped down and clear of dust.
+Neat solar panels, nice and clean.
 => END
 
 
@@ -122,7 +124,8 @@ set benchcounter += 1;
 
 
 ~ fountain
-An old fountain that looks like it stopped working a while ago. The bottom pool has been filled in with flowers.
+An old fountain that looks like it stopped working a while ago. The bottom pool has been filled in with flowers and dirt.
+It's kinda cute.
 => END
 
 ~intro
@@ -201,7 +204,7 @@ if timeOfDay == 3:
 	Come on, come on!
 	Ah! It opened!
 else:
-	Pressing on the intercom button, the door lock releases after a few seconds and swings freely.
+	Let's just give this a press and... Open sesame.
 set Zone4DoorUnlocked = true;
 => ending_call
 
@@ -238,13 +241,6 @@ else:
 if timeOfDay == 3:
 	The door is shut fast.
 else:
-	I don't have a reason to go in there. I don't think I've ever felt a temperature below 22 celsius.
+	I don't have a reason to go in there. I don't think I've ever felt a temperature below 22.
 	... I wonder what the winters here are like.
-=> END
-
-~ lodging_door
-if timeOfDay == 3:
-	I can't go back in, I need to use all the time I have.
-else:
-	I'm not gonna waste my time sitting around in my room. Who knows what will happen if that <color=#a11bbe>thing</color> roams around unchecked.
 => END
