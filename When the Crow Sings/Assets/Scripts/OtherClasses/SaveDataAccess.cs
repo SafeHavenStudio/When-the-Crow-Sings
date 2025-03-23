@@ -55,6 +55,12 @@ public class SaveDataAccess
 
         if(saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
 
+
+        if ((saveData.boolFlags["AngelBaseCompleted"] ? 1 : 0) + 
+            (saveData.boolFlags["BeauBaseCompleted"] ? 1 : 0) +
+            (saveData.boolFlags["CalebBaseCompleted"] ? 1 : 0)
+            == 1) 
+                saveData.boolFlags["SoftlockCheckFlag1"] = true;
     }
     public static void SetFlag(string key, int value)
     {

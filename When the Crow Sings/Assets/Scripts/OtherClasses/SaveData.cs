@@ -304,6 +304,8 @@ public class SaveData
         { "HFPhilomenaTC",false },
         { "HFPhilomenaBC",false },
 
+        { "SoftlockCheckFlag1", false }
+
     };
 
     public Dictionary<string, int> intFlags = new Dictionary<string, int>()
