@@ -32,7 +32,12 @@ public class NpcPatrolState : NpcState
     {
         if (s.currentWaypoint != null)
         {
-            s.currentWaypoint = s.currentWaypointHolder.GetNextWaypoint(s.currentWaypoint);
+            Waypoint newWaypoint = s.currentWaypointHolder.GetNextWaypoint(s.currentWaypoint);
+            while (s.currentWaypoint == newWaypoint)
+            {
+                newWaypoint = s.currentWaypointHolder.GetNextWaypoint(s.currentWaypoint);
+            }
+            s.currentWaypoint = newWaypoint;
             s.navMeshAgent.destination = s.currentWaypoint.transform.position;
         }
         else
