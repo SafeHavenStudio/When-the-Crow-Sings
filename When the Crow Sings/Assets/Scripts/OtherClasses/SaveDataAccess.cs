@@ -14,7 +14,7 @@ public class SaveDataAccess
     public static void SetFlag(string key, bool value)
     {
         saveData.boolFlags[key] = value;
-        Debug.Log(key + " is now "+ saveData.boolFlags[key]);
+        Debug.Log(key + " is now " + saveData.boolFlags[key]);
 
         // Flags related to completing Francisco's task
         if (saveData.boolFlags["FlowerOne"] && saveData.boolFlags["FlowerTwo"] && saveData.boolFlags["FlowerThree"]) saveData.boolFlags["FranciscoTaskCompleted"] = true;
@@ -46,22 +46,37 @@ public class SaveDataAccess
         if (saveData.boolFlags["BeauBaseCompleted"] && saveData.boolFlags["AngelBaseCompleted"]) saveData.boolFlags["ifBeauAndAngel"] = true;
         if (saveData.boolFlags["FaridaBaseCompleted"] && saveData.boolFlags["CalebBaseCompleted"]) saveData.boolFlags["ifFaridaAndCaleb"] = true;
         if (saveData.boolFlags["CalebBaseCompleted"] && saveData.boolFlags["AngelBaseCompleted"]) saveData.boolFlags["ifCalebAndAngel"] = true;
-        
+
         // Flags related to combinations for endings
         if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["GoodEnding"] = true;
         if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation2"]) saveData.boolFlags["NeutralEnding1"] = true;
         if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding2"] = true;
         if (saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding3"] = true;
 
-        if(saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
-
-
-        if ((saveData.boolFlags["AngelBaseCompleted"] ? 1 : 0) + 
-            (saveData.boolFlags["BeauBaseCompleted"] ? 1 : 0) +
-            (saveData.boolFlags["CalebBaseCompleted"] ? 1 : 0)
-            == 1) 
-                saveData.boolFlags["SoftlockCheckFlag1"] = true;
+        if (saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
+        CheckSoftlocks();
     }
+
+    private static void CheckSoftlocks()
+    {
+        if (
+
+                    (saveData.intFlags["timeOfDay"] == 3)
+                    &&
+                    (saveData.intFlags["day"] == 2)
+                    &&
+                    ((saveData.boolFlags["AngelBaseCompleted"] ? 1 : 0) +
+                    (saveData.boolFlags["BeauBaseCompleted"] ? 1 : 0) +
+                    (saveData.boolFlags["CalebBaseCompleted"] ? 1 : 0)
+                    == 1)
+                    )
+        { saveData.boolFlags["SoftlockCheckFlag1"] = true; }
+        else
+        {
+            saveData.boolFlags["SoftlockCheckFlag1"] = false;
+        }
+    }
+
     public static void SetFlag(string key, int value)
     {
         if (saveData.intFlags["timeOfDay"] == 2 && key == "timeOfDay" && value == 3) saveData.boolFlags["HasSpawnedAtLodgingNight"] = false;
@@ -76,6 +91,8 @@ public class SaveDataAccess
         if ((saveData.intFlags["timeOfDay"] == 3) && (saveData.intFlags["day"] == 3)) saveData.boolFlags["FinalSequence"] = true;
 
         Debug.Log(key + " is now " + saveData.intFlags[key]);
+
+        CheckSoftlocks();
     }
     public static void SetFlag(string key, string value)
     {
@@ -86,6 +103,8 @@ public class SaveDataAccess
         {
             popupUpdateMessageSignal.Emit();
         }
+
+        CheckSoftlocks();
     }
 
     //public static bool GetFlag<Bool>(string key)
