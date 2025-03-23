@@ -689,8 +689,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 303220214489128999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.4, y: 0}
+  m_AnchorMax: {x: 0.4, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 25.2505, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.4
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6015,13 +6015,13 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3445026961840470255}
         m_TargetAssemblyTypeName: ScreenSettings, Assembly-CSharp
-        m_MethodName: setBrightness
+        m_MethodName: SetBrightness
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8812,6 +8812,31 @@ PrefabInstance:
       propertyPath: menuButtonSelectionHandlerToSuspendWhileActive
       value: 
       objectReference: {fileID: 2741954397208465148}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3445026961840470255}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScreenSettings, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642047426198358681, guid: b98a663401f1c51449f9b1e9919ffc53,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4565556821972658423, guid: b98a663401f1c51449f9b1e9919ffc53,
         type: 3}
       propertyPath: m_RaycastPadding.w
