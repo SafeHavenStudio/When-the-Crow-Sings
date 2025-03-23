@@ -26,7 +26,9 @@ public class WaypointsHolder : MonoBehaviour
     {
         if (randomizeOrder)
         {
-            return waypoints[Random.Range(0, waypoints.Count-1)];
+            Waypoint _randomWaypoint;
+            _randomWaypoint = returnNewRandomWaypoint(currentWaypoint);
+            return _randomWaypoint;
         }
         else
         {
@@ -43,5 +45,13 @@ public class WaypointsHolder : MonoBehaviour
             return waypoints[currentIndex];
         }
         
+    }
+
+    Waypoint returnNewRandomWaypoint(Waypoint currentWaypoint)
+    {
+        List<Waypoint> validWaypoints = new List<Waypoint>(waypoints);
+
+        if (validWaypoints.Count > 1) validWaypoints.Remove(currentWaypoint);
+        return validWaypoints[Random.Range(0, validWaypoints.Count - 1)];
     }
 }
