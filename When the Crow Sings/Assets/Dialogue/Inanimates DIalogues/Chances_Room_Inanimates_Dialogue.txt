@@ -3,6 +3,19 @@ A comic book I brought with me. It's one of my favorites.
 set ComicFlipFlop = false;
 => END
 
+~ softlock_check_spawn
+I don't think I have anywhere else I can go right now. Maybe I should stay in tonight?
+=> END
+
+~ softlock_check_bed
+Since I don't have anything else to do, I might as well get some sleep.
+- Sleep
+    set timeOfDay += 1;
+    call ReloadScene();
+    => ending_call
+- Stay up
+    => END
+
 ~ ending_call
 call SaveGameToDisk();
 => END
