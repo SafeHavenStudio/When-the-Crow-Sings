@@ -9,6 +9,7 @@ public class NpcController : NpcControllerBase
     public Animator animator;
 
     public enum NpcState { IDLE, TALKING }
+    [HideInInspector]
     public NpcState talkingState = NpcState.IDLE;
 
     [HideInInspector]
