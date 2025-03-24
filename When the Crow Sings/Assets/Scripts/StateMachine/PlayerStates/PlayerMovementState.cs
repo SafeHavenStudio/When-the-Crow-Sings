@@ -93,8 +93,12 @@ public class PlayerMovementState : StateMachineState
         // move!!
         Vector3 movement = new Vector3(s.movementInput.x, 0, s.movementInput.y).normalized * s.speed;
 
+        movement = AdjustMovementToSlope(movement);
+
         // gravity!!
-        movement.y = s.gravityVelocity;
+        movement.y += s.gravityVelocity;
+
+        
 
         // Move the character using the CharacterController
         s.characterController.Move(movement * deltaTime);
@@ -195,5 +199,23 @@ public class PlayerMovementState : StateMachineState
             //s.qteInteract.ActivateTimingMeter();
             //}
        //}
+    }
+
+    Vector3 AdjustMovementToSlope(Vector3 movement)
+    {
+        Ray ray = new Ray(s.transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 1.6f))
+        {
+            Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            Vector3 adjustedMovement = slopeRotation * movement;
+
+            if (adjustedMovement.y < 0)
+            {
+                return adjustedMovement;
+            }
+        }
+
+        return movement;
     }
 }

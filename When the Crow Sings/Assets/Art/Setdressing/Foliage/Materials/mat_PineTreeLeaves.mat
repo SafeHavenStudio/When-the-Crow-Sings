@@ -8,22 +8,34 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_PineTreeLeaves
-  m_Shader: {fileID: -6465566751694194690, guid: 943869bd206b59646b02b93bb99eb0f6,
+  m_Shader: {fileID: -6465566751694194690, guid: fe867ff6495fc06469e5c5c756284aee,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Main_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_aa5a87a37c0745c09a4974a773fe9134_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: cd438e6d5f106ab41842d4450593494a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2D:
         m_Texture: {fileID: 2800000, guid: f487f1fa4d2dd0541b2e0fefe29a3887, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -42,13 +54,36 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 1
+    - _AlphaThreshold: 0.497
+    - _AlphaToMask: 0
+    - _Alpha_Threshold: 0.5
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 1
+    - _Cull: 0
+    - _DstBlend: 10
+    - _Intensity: 0
+    - _NoiseIntensity: 200
+    - _Opacity: 2
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _Scale: 0.1
+    - _Size: 0
     - _Smoothness: 0
     - _Speed: 1
+    - _SrcBlend: 1
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _PlayerPos: {r: 0.5, g: 0.4, b: 0, a: 0}
+    - _Position: {r: 0.49640682, g: 0.35384476, b: 22.245611, a: 0}
+    - _Tint: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4856803311301930131
 MonoBehaviour:

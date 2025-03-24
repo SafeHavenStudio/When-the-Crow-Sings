@@ -22,7 +22,7 @@ public class PlayerInteractionArea : MonoBehaviour
     {
         get
         {
-            return interactablesInRange.Count > 0;
+            return (interactablesInRange.Count > 0) && !dialogueCooldownActive;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -80,8 +80,22 @@ public class PlayerInteractionArea : MonoBehaviour
         {
             interactablesInRange.Remove(i);
         }
-        
     }
+
+    public void StartCooldown()
+    {
+        dialogueCooldownActive = true;
+        StartCoroutine(CooldownWait());
+    }
+
+    IEnumerator CooldownWait()
+    {
+        yield return new WaitForSeconds(dialogueCooldownTime);
+        dialogueCooldownActive = false;
+    }
+
+    bool dialogueCooldownActive = false;
+    float dialogueCooldownTime = .25f;
 
     //private void Start()
     //{
