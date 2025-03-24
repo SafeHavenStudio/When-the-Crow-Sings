@@ -18,6 +18,7 @@ public class SeeThruWall : MonoBehaviour
     public static int SizeID = Shader.PropertyToID("_Size");
 
     public string seeThruWalls = "Shader Graphs/SeeThruWalls"; //Shader name to search for
+    public string seeThruWind = "Shader Graphs/shader_SeeThruWind";
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class SeeThruWall : MonoBehaviour
     private void Start()
     {
         FindMaterialsWithShader(seeThruWalls);
+        FindMaterialsWithShader(seeThruWind);
     }
 
     void Update()
