@@ -24,7 +24,7 @@ public class AreaMusic : MonoBehaviour
     {
         if (FMODEvents.instance == null)
         {
-            Debug.LogError("FMODEvents is not initialized. Ensure FMODEvents is present in the scene.");
+            Debug.Log("FMODEvents is not initialized. Ensure FMODEvents is present in the scene.");
             return;
         }
 
@@ -45,7 +45,7 @@ public class AreaMusic : MonoBehaviour
         ambienceInstance.setParameterByName(parameterName, parameterValue);
     }
 
-    private void PlayMusic()
+    public void PlayMusic()
     {
         if (!Music.IsNull)
         {
@@ -61,7 +61,7 @@ public class AreaMusic : MonoBehaviour
         }
     }
 
-    private void PlayAmbience()
+    public void PlayAmbience()
     {
         if (!Ambience.IsNull)
         {
@@ -96,7 +96,7 @@ public class AreaMusic : MonoBehaviour
 
 
 
-    private void OnDestroy()
+    public void OnDestroy()
     {
         if (areaMusicInstance.isValid())
         {
