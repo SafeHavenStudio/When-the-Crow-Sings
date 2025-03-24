@@ -175,9 +175,12 @@ public class PlayerController : StateMachineComponent, IService
             SnapPlayerToTransform(mostRecentInteractable.playerSnapPoint);
         }
     }
+
+    [SerializeField] PlayerInteractionArea playerInteractionArea;
     public void OnInteractFinished(SignalArguments signalArgs)
     {
         isInteracting = false;
+        playerInteractionArea.StartCooldown();
         stateMachine.Enter("PlayerMovementState");
     }
 
