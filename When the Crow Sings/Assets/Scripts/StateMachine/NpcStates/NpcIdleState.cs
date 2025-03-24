@@ -10,7 +10,15 @@ public class NpcIdleState : NpcState
     {
         s.navMeshAgent.destination = s.transform.position;
         yield return new WaitForSeconds(s.timeToWaitBetweenWander);
-        s.stateMachine.Enter("NpcPatrolState");
+        if (s.talkingState == NpcController.NpcState.TALKING)
+        {
+            s.StartCoroutine(exitStateAfterTime());
+        }
+        else
+        {
+            s.stateMachine.Enter("NpcPatrolState");
+        }
+        
     }
 
     public override void StateEntered()
