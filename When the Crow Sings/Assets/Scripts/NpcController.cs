@@ -8,8 +8,8 @@ public class NpcController : NpcControllerBase
 {
     public Animator animator;
 
-    enum NpcState { IDLE, TALKING }
-    NpcState state = NpcState.IDLE;
+    public enum NpcState { IDLE, TALKING }
+    public NpcState talkingState = NpcState.IDLE;
 
     [HideInInspector]
     public bool canWander
@@ -55,7 +55,7 @@ public class NpcController : NpcControllerBase
     {
         Debug.Log("No i don't want to talk to you go away");
         if (animator != null) animator.SetBool("isTalking",false);
-        state = NpcState.IDLE;
+        talkingState = NpcState.IDLE;
 
         transform.rotation = originalRotation;
 
@@ -69,12 +69,15 @@ public class NpcController : NpcControllerBase
 
         Debug.Log("I am playing a talking animation now!");
         if (animator != null)  animator.SetBool("isTalking", true);
-        state = NpcState.TALKING;
+
+        talkingState = NpcState.TALKING;
+
+        stateMachine.Enter("NpcIdleState");
     }
 
     public void OnDialogueEnd(SignalArguments args)
     {
-        switch (state)
+        switch (talkingState)
         {
             case NpcState.IDLE:
                 break;
