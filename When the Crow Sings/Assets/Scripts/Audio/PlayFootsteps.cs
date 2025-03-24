@@ -52,7 +52,7 @@ public class PlayFootsteps : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, Vector3.down * maxDistance, Color.red);
+            //Debug.DrawRay(transform.position, Vector3.down * maxDistance, Color.red);
             //Debug.Log("No texture detected, using default footsteps.");
             SelectedFootsteps = DefaultFootsteps;
         }
@@ -114,6 +114,7 @@ public class PlayFootsteps : MonoBehaviour
                     SelectedFootsteps = GravelFootsteps;
                     break;
                 case "tex_grass":
+                case "tex_grass_dead":
                     SelectedFootsteps = GrassFootsteps;
                     break;
                 default:
@@ -154,6 +155,7 @@ public class PlayFootsteps : MonoBehaviour
                 SelectedFootsteps = GravelFootsteps;
                 break;
             case "tex_grass":
+            case "tex_deadGrass":
                 SelectedFootsteps = GrassFootsteps;
                 break;
             default:
