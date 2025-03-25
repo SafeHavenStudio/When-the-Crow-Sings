@@ -30,11 +30,11 @@ public class ScreenSettings : MonoBehaviour
         QualitySettings.SetQualityLevel(savedQuality);
         qualityDropdown.value = savedQuality;
 
-        int savedResolution = PlayerPrefs.GetInt("resolution", 0);
+        int savedResolution = PlayerPrefs.GetInt("resolution", 1);
         SetResolution(savedResolution);
         resolutionDropdown.value = savedResolution;
 
-        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0f);
+        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0.4f);
     }
 
     private void CheckForNullVariables()
@@ -137,7 +137,7 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetFullscreen(bool _isFullscreen)
     {
-        if (_isFullscreen) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        if (!_isFullscreen) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         else Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 }
