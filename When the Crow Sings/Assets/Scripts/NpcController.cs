@@ -54,13 +54,16 @@ public class NpcController : NpcControllerBase
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
     public void NpcAnimIdleStart()
     {
-        Debug.Log("No i don't want to talk to you go away");
-        if (animator != null) animator.SetBool("isTalking",false);
-        talkingState = NpcState.IDLE;
+        if(stateMachine.currentState != stateMachine.states["NpcBespokeDestinationState"])
+        {
+            Debug.Log("No i don't want to talk to you go away");
+            if (animator != null) animator.SetBool("isTalking", false);
+            talkingState = NpcState.IDLE;
 
-        transform.rotation = originalRotation;
+            transform.rotation = originalRotation;
 
-        stateMachine.Enter("NpcIdleState");
+            stateMachine.Enter("NpcIdleState");
+        }
     }
     public void NpcAnimTalkStart()
     {
