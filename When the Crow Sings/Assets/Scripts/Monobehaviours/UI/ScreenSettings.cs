@@ -137,7 +137,7 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetFullscreen(bool _isFullscreen)
     {
-        if (!_isFullscreen) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        if (_isFullscreen) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         else Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 }

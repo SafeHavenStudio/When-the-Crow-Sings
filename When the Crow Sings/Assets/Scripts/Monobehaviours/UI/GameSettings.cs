@@ -17,7 +17,6 @@ public class GameSettings : MonoBehaviour
 
     [HideInInspector]
     public float textSpeed = 0.3f;
-    int savedSpeed = 4;
 
     [System.Serializable]
     public struct TextStyleSetting
@@ -44,7 +43,7 @@ public class GameSettings : MonoBehaviour
         PopulateDropdown();
         textSizeDropdown.onValueChanged.AddListener(OnTextStyleChanged);
 
-        savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
+        int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
 
         foreach (var qte in qtes)
