@@ -66,9 +66,10 @@ public class SaveDataAccess
                     (saveData.intFlags["day"] == 2)
                     &&
                     ((saveData.boolFlags["AngelBaseCompleted"] ? 1 : 0) +
-                    (saveData.boolFlags["BeauBaseCompleted"] ? 1 : 0) +
-                    (saveData.boolFlags["CalebBaseCompleted"] ? 1 : 0)
-                    == 1)
+                        (saveData.boolFlags["BeauBaseCompleted"] ? 1 : 0) +
+                        (saveData.boolFlags["CalebBaseCompleted"] ? 1 : 0)
+                        == 1)
+                    && (saveData.boolFlags["FaridaBaseCompleted"] == false)
                     )
         { saveData.boolFlags["SoftlockCheckFlag1"] = true; }
         else
