@@ -43,7 +43,7 @@ public class GameSettings : MonoBehaviour
         PopulateDropdown();
         textSizeDropdown.onValueChanged.AddListener(OnTextStyleChanged);
 
-        int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 1);
+        int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
 
         foreach (var qte in qtes)
