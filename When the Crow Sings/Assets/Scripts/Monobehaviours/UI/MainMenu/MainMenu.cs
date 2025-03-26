@@ -84,6 +84,7 @@ public class MainMenu : MonoBehaviour
 
     public void quitGame()
     {
+        Debug.Log("Why would u quit the game please don't do this");
         Application.Quit();
     }
 
