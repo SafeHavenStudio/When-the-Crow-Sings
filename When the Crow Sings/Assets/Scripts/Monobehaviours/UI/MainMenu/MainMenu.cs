@@ -23,6 +23,9 @@ public class MainMenu : MonoBehaviour
     public GameObject newGameButtons;
     public GameObject mainMenuPage;
 
+
+    public MenuSwapper realMainMenu_MenuSwapper;
+
     private EventInstance MainMenuTheme;
 
     private void Awake()
@@ -52,6 +55,19 @@ public class MainMenu : MonoBehaviour
         mainMenuDebugLoadHolder.resourceToLoad = levelDataResource;
         SceneManager.LoadScene(mainScene.Name);
         updateMusic();
+    }
+
+    public void OnFirstNewGameButtonPressed()
+    {
+        if (SaveDataAccess.SavedDataExistsOnDisk())
+        {
+            realMainMenu_MenuSwapper.OpenMenu(5);
+        }
+        else
+        {
+            OnNewGameButtonPressed();
+        }
+            
     }
 
     public void OnNewGameButtonPressed()
