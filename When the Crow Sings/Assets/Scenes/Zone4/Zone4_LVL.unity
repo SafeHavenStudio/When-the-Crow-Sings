@@ -3141,7 +3141,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6655753785233795401, guid: 76eb3a0c636158e4d9b70323eb723e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64988789}
+    - targetCorrespondingSourceObject: {fileID: 6655753785233795401, guid: 76eb3a0c636158e4d9b70323eb723e80,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64988788}
   m_SourcePrefab: {fileID: 100100000, guid: 76eb3a0c636158e4d9b70323eb723e80, type: 3}
 --- !u!4 &64988786 stripped
 Transform:
@@ -3149,6 +3157,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 64988785}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &64988787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6655753785233795401, guid: 76eb3a0c636158e4d9b70323eb723e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 64988785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &64988788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64988787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89361650d08531a4fa3c7f4d9dc8b3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Sound>k__BackingField:
+    Guid:
+      Data1: 2024798914
+      Data2: 1232264737
+      Data3: 1495810729
+      Data4: 1155157325
+    Path: event:/FireCracklingSoundEffect
+  playOnAwake: 1
+--- !u!114 &64988789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64988787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2024798914
+      Data2: 1232264737
+      Data3: 1495810729
+      Data4: 1155157325
+    Path: event:/FireCracklingSoundEffect
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 4
 --- !u!1001 &67045872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31489,13 +31554,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.499
       objectReference: {fileID: 0}
     - target: {fileID: 1085046948282167880, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.877
+      value: -0.579
       objectReference: {fileID: 0}
     - target: {fileID: 2607802357089630781, guid: 563373b2797e31e48917c3aa9779f6bb,
         type: 3}

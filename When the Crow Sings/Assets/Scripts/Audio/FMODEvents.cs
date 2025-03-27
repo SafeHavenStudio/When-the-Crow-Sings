@@ -28,6 +28,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference PageFlip { get; private set; }
     [field: SerializeField] public EventReference Death { get; private set; }
     [field: SerializeField] public EventReference EnemyStun { get; private set; }
+    [field: SerializeField] public EventReference WoodenPlank { get; private set; }
     [field: Header("Dialogue Sounds")]
     [field: SerializeField] public EventReference Blip { get; private set; }
     [field: SerializeField] public EventReference ChanceBlip { get; private set; }
