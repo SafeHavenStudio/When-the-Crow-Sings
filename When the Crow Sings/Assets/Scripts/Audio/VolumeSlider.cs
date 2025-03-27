@@ -47,7 +47,7 @@ public class VolumeSlider : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(OnSliderValueChanged);
     }
 
-    private void OnSliderValueChanged(float value)
+    public void OnSliderValueChanged(float value)
     {
         switch (volumeType)
         {

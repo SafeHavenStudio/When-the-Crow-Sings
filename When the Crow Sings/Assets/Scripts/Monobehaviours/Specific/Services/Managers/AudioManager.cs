@@ -14,19 +14,19 @@ public class AudioManager : MonoBehaviour
     public AreaMusic areaMusic { get; private set; }
 
     [Range(0, 1)]
-    public float masterVolume = .7f;
+    public float masterVolume = 0.5f;
 
     [Range(0, 1)]
-    public float musicVolume = .7f;
+    public float musicVolume = 0.5f;
 
     [Range(0, 1)]
-    public float ambienceVolume = .7f;
+    public float ambienceVolume = 0.5f;
 
     [Range(0, 1)]
-    public float soundFXVolume = .7f;
+    public float soundFXVolume = 0.5f;
 
     [Range(0, 1)]
-    public float talkingSoundVolume = .7f;
+    public float talkingSoundVolume = 0.5f;
 
     public bool penClickSound = true;
     public Toggle penClickToggle;
@@ -55,11 +55,11 @@ public class AudioManager : MonoBehaviour
         soundFXBus = RuntimeManager.GetBus("bus:/SoundFX");
         talkingSoundBus = RuntimeManager.GetBus("bus:/TalkingSound");
 
-        masterVolume = PlayerPrefs.GetFloat("masterVolume", 1f);
-        musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
-        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 1f);
-        soundFXVolume = PlayerPrefs.GetFloat("soundFXVolume", 1f);
-        talkingSoundVolume = PlayerPrefs.GetFloat("talkingSoundVolume", 1f);
+        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.5f);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
+        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.5f);
+        soundFXVolume = PlayerPrefs.GetFloat("soundFXVolume", 0.5f);
+        talkingSoundVolume = PlayerPrefs.GetFloat("talkingSoundVolume", 0.5f);
 
         penClickSound = PlayerPrefs.GetInt("PenClick", 1) != 0;
 
