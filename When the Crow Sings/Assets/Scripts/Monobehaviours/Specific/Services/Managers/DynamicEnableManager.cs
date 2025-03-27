@@ -75,5 +75,12 @@ public class DynamicEnableManager : MonoBehaviour, IService
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.ItemCollect);
         }
+        else if (newValue == false
+            && i.gameObject.activeInHierarchy
+            && gameStateManager.canLoad
+            && i.playWoodSoundOnDisable)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.WoodenPlank);
+        }
     }
 }

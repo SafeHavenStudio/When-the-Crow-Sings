@@ -17,6 +17,7 @@ public class DynamicEnable : MonoBehaviour
     public string stringValue;
 
     public bool playPickupSoundOnDisable = false;
+    public bool playWoodSoundOnDisable = false;
 
     private void Start()
     {
