@@ -23,6 +23,9 @@ public class NpcReturnToOriginalPositionState : NpcState
     public override void StateExited()
     {
         Debug.Log("Made it back safely.");
+
+        SaveDataAccess.SetFlag("JazmyneIsWalking", false);
+        
         s.transform.rotation = s.originalRotation;
         s.animator.SetBool("animIsWalking", false);
     }

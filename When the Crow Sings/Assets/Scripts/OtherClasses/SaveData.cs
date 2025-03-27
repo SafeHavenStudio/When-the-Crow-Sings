@@ -74,6 +74,7 @@ public class SaveData
         { "QTEOn",false },
         { "JazmyneBaseCompleted",false },
         { "JazmyneExhausted",false },
+        { "JazmyneIsWalking",false },
 
         { "FranciscoTaskOffered",false },
         { "FranciscoTaskAccepted",false },
