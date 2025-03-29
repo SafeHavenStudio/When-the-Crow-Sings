@@ -20,26 +20,28 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'rig|loop_idle' has import animation warnings
-      that might lower retargeting quality:\n\t'DEF-spine' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'DEF-spine.001'
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'DEF-spine.001' has scale animation that
+      will be discarded.\n\t'DEF-spine.002' has scale animation that will be discarded.\n\t'DEF-spine.003'
+      has scale animation that will be discarded.\n\t'DEF-spine.004' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-thigh.L'
+      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
+      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-foot.R'
+      has scale animation that will be discarded.\n\nClip 'rig|loop_OLDidle' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'DEF-spine.001'
       has scale animation that will be discarded.\n\t'DEF-spine.002' has scale animation
       that will be discarded.\n\t'DEF-spine.003' has scale animation that will be
       discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms and has rotation
       animation that will be discarded.\n\t'DEF-thigh.L' has scale animation that
       will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
       has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\nClip 'rig|loop_OLDidle' has import animation warnings
-      that might lower retargeting quality:\n\t'DEF-spine' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'DEF-spine.001'
-      has scale animation that will be discarded.\n\t'DEF-spine.002' has scale animation
-      that will be discarded.\n\t'DEF-spine.003' has scale animation that will be
-      discarded.\n\t'DEF-spine.004' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'DEF-thigh.L' has scale animation that
-      will be discarded.\n\t'DEF-foot.L' has scale animation that will be discarded.\n\t'DEF-thigh.R'
-      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
-      that will be discarded.\n\nClip 'rig|loop_talk' has import animation warnings
-      that might lower retargeting quality:\n\t'DEF-spine' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'DEF-spine.004'
+      that will be discarded.\n\nClip 'rig|loop_sit&read' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'DEF-spine.004' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\nClip 'rig|loop_talk'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'DEF-spine.004'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-thigh.L'
       has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
       that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-foot.R'
@@ -143,6 +145,35 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|loop_sit&read
+      takeName: rig|loop_sit&read
+      internalID: -6652981498429632287
+      firstFrame: 0
+      lastFrame: 403
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -193,7 +224,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human:
-    - boneName: root
+    - boneName: DEF-spine
       humanName: Hips
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -435,11 +466,6 @@ ModelImporter:
       position: {x: -0, y: 0.0013921079, z: 7.4505804e-11}
       rotation: {x: -0.093711995, y: -0, z: -0, w: 0.9955994}
       scale: {x: 1, y: 1.0000002, z: 1}
-    - name: DEF-head_end
-      parentName: DEF-head
-      position: {x: -0, y: 0.0044027017, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: DEF-shoulder.L
       parentName: DEF-spine.003
       position: {x: -0.00040630097, y: 0.0030594992, z: 0.0012864455}
@@ -460,11 +486,6 @@ ModelImporter:
       position: {x: 0.0000000010803342, y: 0.0070634717, z: 7.45058e-10}
       rotation: {x: -0.010854823, y: 0.00022245848, z: 0.020500544, w: 0.9997309}
       scale: {x: 1.0000005, y: 1.0000014, z: 0.9999998}
-    - name: DEF-hand.L_end
-      parentName: DEF-hand.L
-      position: {x: -0, y: 0.0025154876, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: DEF-shoulder.R
       parentName: DEF-spine.003
       position: {x: 0.00040630097, y: 0.0030594992, z: 0.0012864455}
@@ -485,11 +506,6 @@ ModelImporter:
       position: {x: -0.0000000010803342, y: 0.0070634717, z: 7.45058e-10}
       rotation: {x: -0.010854823, y: -0.00022245848, z: -0.020500544, w: 0.9997309}
       scale: {x: 1.0000005, y: 1.0000014, z: 0.9999998}
-    - name: DEF-hand.R_end
-      parentName: DEF-hand.R
-      position: {x: -0, y: 0.0025154876, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: DEF-thigh.L
       parentName: DEF-spine
       position: {x: -0.0021758191, y: 0.0015723313, z: 0.0005759761}
@@ -510,11 +526,6 @@ ModelImporter:
       position: {x: 2.592067e-11, y: 0.0033348228, z: -1.44355e-10}
       rotation: {x: -0.029272094, y: 0.9758477, z: -0.21638477, w: -0.0064913034}
       scale: {x: 1.0000008, y: 1.0000008, z: 1.000001}
-    - name: DEF-toe.L_end
-      parentName: DEF-toe.L
-      position: {x: -0, y: 0.0014919906, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: DEF-thigh.R
       parentName: DEF-spine
       position: {x: 0.0021758191, y: 0.0015723313, z: 0.0005759761}
@@ -535,11 +546,6 @@ ModelImporter:
       position: {x: -2.592067e-11, y: 0.0033348228, z: -1.44355e-10}
       rotation: {x: 0.029272094, y: 0.9758477, z: -0.21638477, w: 0.0064913034}
       scale: {x: 1.0000008, y: 1.0000008, z: 1.000001}
-    - name: DEF-toe.R_end
-      parentName: DEF-toe.R
-      position: {x: -0, y: 0.0014919906, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
