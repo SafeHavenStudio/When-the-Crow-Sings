@@ -157,7 +157,7 @@ public class StirringQTE : QuickTimeEvent
     private IEnumerator decayDelay()
     {
         yield return new WaitForSeconds(1.5f);
-        score -= 0.01f;
+        score -= 0.03f;
     }
 
     private IEnumerator waitBeforeCompletion()

@@ -8637,6 +8637,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1812253569}
   - {fileID: 804798524}
   - {fileID: 1760884947}
   m_Father: {fileID: 0}
@@ -12468,6 +12469,69 @@ Transform:
   - {fileID: 1833871000}
   m_Father: {fileID: 1483662299}
   m_LocalEulerAnglesHint: {x: 0, y: 28.465, z: 0}
+--- !u!1 &1812253568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812253569}
+  - component: {fileID: 1812253570}
+  m_Layer: 0
+  m_Name: AlarmAmbience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812253569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812253568}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.38192576, z: -0, w: 0.9241931}
+  m_LocalPosition: {x: -46.15, y: 4.99, z: 5.92}
+  m_LocalScale: {x: 2.9603424, y: 2.9603422, z: 2.9603424}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1128826954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812253570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812253568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 153878825
+      Data2: 1272851448
+      Data3: 201403040
+      Data4: -1790290261
+    Path: event:/Ambience/ScienceLabAlarmSound3D
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 60
 --- !u!1001 &1819907795
 PrefabInstance:
   m_ObjectHideFlags: 0
