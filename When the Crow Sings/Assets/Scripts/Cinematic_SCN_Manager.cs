@@ -95,7 +95,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 break;
             default: // This should include DesiredBehavior.NONE
                 throw new System.Exception("Cinematic_SCN WAS NOT CORRECTLY LOADED, PLEASE USE LoadCinematicScene() AND PASS A VALID DesiredBehavior.");
-                break;
+                //break;
         }
         desiredBehavior = DesiredBehavior.NONE;
     }

@@ -25,6 +25,7 @@ public class PlayerController : StateMachineComponent, IService
     //[HideInInspector]
 
     //private bool _isSprinting;
+    [HideInInspector]
     public bool isSprintingButtonHeld;
     //{
     //    set
@@ -56,6 +57,8 @@ public class PlayerController : StateMachineComponent, IService
     public CharacterController characterController;
 
     public GameObject trajectoryLine;
+
+    public LayerMask SlopeLayerMask;
 
     public GameSignal pauseSignalTEMP;
     public GameSignal mapSignalTEMP;
@@ -174,6 +177,10 @@ public class PlayerController : StateMachineComponent, IService
         {
             SnapPlayerToTransform(mostRecentInteractable.playerSnapPoint);
         }
+        else if (mostRecentInteractable.playerFacesInteractable)
+        {
+            SnapPlayerToTransform(mostRecentInteractable.transform, true);
+        }
     }
 
     [SerializeField] PlayerInteractionArea playerInteractionArea;
@@ -184,10 +191,17 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.Enter("PlayerMovementState");
     }
 
-    public void SnapPlayerToTransform(Transform _transform)
+    public void SnapPlayerToTransform(Transform _transform, bool onlyRotation = false)
     {
         characterController.enabled = false;
-        transform.SetPositionAndRotation(_transform.position, _transform.rotation);
+        if (onlyRotation)
+        {
+            Vector3 direction = _transform.position - transform.position;
+            direction.y = 0;
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            //transform.SetPositionAndRotation(transform.position, _transform.rotation);
+        }
+        else transform.SetPositionAndRotation(_transform.position, _transform.rotation);
         characterController.enabled = true;
     }
 

@@ -12,14 +12,18 @@ public class Interactable : MonoBehaviour
 
     public bool autoInteract = false;
 
-    public enum PlayerResponses { NONE, FREEZE, FEAR}
+    public enum PlayerResponses { NONE, FREEZE, FEAR, FREEZE_AND_TALK }
     public PlayerResponses playerResponse = PlayerResponses.NONE;
+
+    public bool playerFacesInteractable = false;
 
     public GameSignal interactionStartedSignal;
 
     public UnityEvent onInteractionEvent;
 
     public Transform playerSnapPoint;
+
+    
 
 
     public void DoInteraction()
