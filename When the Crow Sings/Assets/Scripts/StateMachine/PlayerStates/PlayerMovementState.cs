@@ -209,6 +209,8 @@ public class PlayerMovementState : StateMachineState
         {
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
             Vector3 adjustedMovement = slopeRotation * movement;
+            adjustedMovement.x = movement.x;
+            adjustedMovement.z = movement.z;
 
             if (adjustedMovement.y < 0)
             {
