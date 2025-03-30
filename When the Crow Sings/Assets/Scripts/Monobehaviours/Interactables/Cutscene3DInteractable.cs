@@ -98,8 +98,8 @@ public class Cutscene3DInteractable : MonoBehaviour
             rippleEffect.Play();
         }
 
-        cutsceneFinder.fadeOutOfBlack();
         animator.SetBool("animIsFishing", false);
+        cutsceneFinder.fadeOutOfBlack();
     }
 
 }
