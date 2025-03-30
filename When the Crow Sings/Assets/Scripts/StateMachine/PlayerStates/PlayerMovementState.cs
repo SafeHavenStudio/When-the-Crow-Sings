@@ -205,7 +205,7 @@ public class PlayerMovementState : StateMachineState
     {
         Ray ray = new Ray(s.transform.position, Vector3.down);
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 1.6f))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 1.6f, s.SlopeLayerMask))
         {
             Quaternion slopeRotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
             Vector3 adjustedMovement = slopeRotation * movement;

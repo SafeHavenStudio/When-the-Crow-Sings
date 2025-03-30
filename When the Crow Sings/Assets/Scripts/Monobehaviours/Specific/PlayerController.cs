@@ -25,6 +25,7 @@ public class PlayerController : StateMachineComponent, IService
     //[HideInInspector]
 
     //private bool _isSprinting;
+    [HideInInspector]
     public bool isSprintingButtonHeld;
     //{
     //    set
@@ -56,6 +57,8 @@ public class PlayerController : StateMachineComponent, IService
     public CharacterController characterController;
 
     public GameObject trajectoryLine;
+
+    public LayerMask SlopeLayerMask;
 
     public GameSignal pauseSignalTEMP;
     public GameSignal mapSignalTEMP;
