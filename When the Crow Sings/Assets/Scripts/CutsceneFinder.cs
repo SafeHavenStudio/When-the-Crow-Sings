@@ -33,7 +33,7 @@ public class CutsceneFinder : MonoBehaviour
 
     private IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha)
     {
-        float fadeSpeed = 1f;
+        float fadeSpeed = 2f;
         while (!Mathf.Approximately(canvasGroup.alpha, targetAlpha))
         {
             canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, targetAlpha, fadeSpeed * Time.deltaTime);
