@@ -252,7 +252,7 @@ else:
 set MFFaridaTag = true;
 	- Would she be mad?
 		Chance: Would she get mad if she found out I went?
-		Francisco_Thinking: I mean... Maybe. I can't guarantee anything, she's has a little bit of a temper.
+		Francisco_Thinking: I mean... Maybe. I can't guarantee anything, she has a little bit of a temper.
 		Francisco_Excited: Just a little one. What she doesn't know wouldn't hurt her, eh?
 		=> francisco_task_fin_cont_3
 	- How do I get in?
@@ -332,7 +332,7 @@ if CalebBaseCompleted == true:
 		Chance: Oh, I get it. Where are your parents?
 		Francisco_Sad: They passed a long time ago. 
 		Chance_Sad: Oh, um. I'm sorry. 
-		Francisco_Sad: It's alright. They were young, it was a bit of a shock. But, things happen. People get sick, sometimes nothing you can do.
+		Francisco_Sad: It's alright. They were young, it was a bit of a shock. But, things happen. People get sick, sometimes there is nothing you can do.
 		Chance_Thinking: Is that why you went into medicine?
 		Francisco: That's not how it works where we were from, but it did push me to focus on my studies, yes. 
 		Francisco_Excited: We took aptitude tests and I was set into biology when I was about ten. 
@@ -354,8 +354,8 @@ if CalebBaseCompleted == true:
 if FaridaBaseCompleted == true:
 	- About Farida
 		Chance: So are you and <color=#813408>Farida</color> like, friends?
-		Francisco_Excited: Yes, I would say so. We chat, read the weekly journals together, talk about the newest scientific discoveries. 
-		Francisco_Thinking: I manage to get her to watch a movie every now and then, but it takes a lot of asking. She will only come to the movie night if it's a black and white movie that the little ones aren't very intrested in.
+		Francisco_Excited: Yes, I would say so. We chat and read the weekly journals together, then talk about the newest scientific discoveries. 
+		Francisco_Thinking: I manage to get her to watch a movie every now and then, but it takes a lot of asking. She will only come to the movie night if it's a black and white movie that the little ones aren't very interested in.
 		Chance_Annoyed: Sounds like a riveting friendship.
 		Francisco: Eh, she comes off very prickly, but she's like... a prickly pear.
 		Chance_Thinking: A what?
@@ -412,4 +412,77 @@ Francisco: Still curious about something?
 	Chance: Right. 
 	Francisco_Thinking: And really I don't ask for them that often! I've only gone over the restriction once, so it really isn't that big of a deal, right?
 	Chance_Annoyed: I dunno man.
+=> BBEnd
+
+~ F2
+Francisco_Excited: Hello again! What will we talk about this time?
+- EVOs
+	Chance_Thinking: You're a biologist or whatever, right?
+	Francisco_Thinking: Er, something like that, yes.
+	Chance: So when you were in school, did you learn why they call them EVOs?
+	Francisco: I mean I don't think I needed to go to school to learn that.. It's just short for evolved animals.
+	Chance_Annoyed: Oh.. Yeah that uh... makes sense.. I guess I never..
+	Chance: Anyway! Did they teach you about how it happened? Or why it's some and not others?
+	Francisco_Thinking: Well, it's not something we know a lot of exact details about. After the great collapse, most technologies were at least partially lost.
+	Francisco_Excited: Between rebuilding and learning how to live in this new world, unfortunately not as much time could be dedicated to the study of EVOs.
+	Chance_Annoyed: So we don't know a lot about it?
+	Francisco_Thinking: It's a matter of perspective, but.. yes. We do know birds are less likely to undergo intelligent evolution, though we assume it's simply because they can travel more and need less resources.
+	Francisco: Though clearly not all, or we wouldn't have our rascal <color=#813408>Theodore</color>.
+	Chance: So it's just about whether or not they could survive after things changed?
+	Francisco_Excited: Essentially. Those that could not survive either evolved, left, or died off.
+	Chance_Thinking: What happens if we get everything back to the way it was before?
+	Francisco_Thinking: I'm not sure.. Maybe they'll stay the same. Maybe they'll go back to the way they used to be.. I just don't know.
+	Francisco_Sad: I hope that it's not something bad...
+	Francisco: Though, it is not something we'll likely learn in our lifetime.
+	Chance: I guess not.. Well, thanks.
+	Francisco_Excited: My pleasure.
+- E.R.S.
+	Chance_Thinking: You're a biologist or whatever, right?
+	Francisco_Thinking: Er, something like that, yes.
+	Chance: Did you ever learn what causes E.R.S.?
+	Francisco: Well, as our establishments are relatively new, we don't know the most about it.. Though, we are of the belief that it is mostly due to environmental factors.
+	Francisco_Excited: As the evolution was caused by the environment, if the surrounding area becomes too volatile..
+	Chance_Thinking: That's it?
+	Francisco_Scared: In order to know, you'd have to witness it. That either means.. living through an E.R.S. attack, or forcing someone to undergo it in controlled circumstances..
+	Francisco_Sad: As much as we'd like to know, I think it's for the best that we don't turn to such methods. And there are not often survivors from such events that would be able to report on them sufficiently.
+	Chance_Sad: That makes sense.. I don't think there's anything of value I could've told you about what happened to me.
+	Francisco_Sad: Most people wouldn't.. Even those trained for such events are often not capable of studying in that moment.. they would need to be very apathetic.
+	Francisco: You made it out alive, that is what matters, yes?
+	Chance_Sad: Yeah, I guess so. 
+=> BBEnd
+
+~ F3
+Francisco: Hello!
+- Your clothes
+	Chance_Thinking: Did you plan on seeing any patients today?
+	Francisco_Thinking: Er, no, why?
+	Chance: Well you're in your doctor getup. If you were just hanging around the clinic and not going to have any patients in, why bother dressing up?
+	Francisco_Excited: Because it is proper to do so!
+	Chance_Thinking: So you just wear that thing every day?
+	Francisco_Thinking: Just about.
+	Chance_Annoyed: That must smell terrible!
+	Francisco_Scared: I wash it, of course! I mean, I have more than one medical jacket, <color=#813408>Chance</color>, please!
+	Francisco_Excited: Really, what a ridiculous notion. I just think that I should be ready and dress appropriately for my occupation.
+	Chance_Thinking: I don't know if I buy that.
+	Francisco_Scared: What? I do not smell!
+	Francisco: Here, come closer, you can see for yourself!
+	Chance_Scared: Woah dude, back off!
+- Your glasses
+	Chance: Did you make your glasses or were they made for you?
+	Francisco_Excited: These? They were made for me when I lived on my compound before.
+	Chance_Thinking: How did you know you needed glasses?
+	Francisco_Thinking: Hmm.. I don't remember. It must've been something one of my parents noticed. I've had them for as long as I can remember.
+	Francisco_Excited: I remember being very little and staring at the lights outside at night and thinking they were so beautiful. And then, I had glasses, and they just looked like.. well, lights.
+	Chance_Thinking: And you still need them?
+	Francisco: As far as I can tell, yes.
+	Chance: Well what happens if you break them?
+	Francisco_Scared: Let's hope that never happens!
+	Francisco_Excited: Though I imagine I would simply need to have <color=#813408>Farida</color> write into the C.A.N. and ask for another pair of what is listed on my file.
+	Francisco_Thinking: Why are you so curious?
+	Chance: Nobody where I was from had glasses or anything like that. We lived on an island, and we didn't really communicate with C.A.N. very often.
+	Francisco: That must not have been fun.. surely someone needed them and just made do without them, no?
+	Chance_Thinking: It sounds like we had to make do without a lot. 
+	Francisco_Thinking: I suppose so.. Living on a smaller compound must be very different.. Though, we're both here now. So, we must not be that different.
+	Chance: Yeah, I guess so. But I'm sure having glasses if you need them is nice.
+	Francisco_Excited: It is indeed.
 => BBEnd
