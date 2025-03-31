@@ -6,8 +6,10 @@ using static UnityEngine.Rendering.DebugUI;
 [RequireComponent(typeof(Animator))]
 public class NpcInverseKinematicsHandler : MonoBehaviour
 {
+    [HideInInspector]
     public bool playerInSightCone = false;
 
+    [HideInInspector]
     public Animator animator;
 
     GameObject playerHeadPosition;
