@@ -5,7 +5,7 @@
 			<value>SingleCrowCaw</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{16b75654-d48c-458e-b4a1-ebc2b4d1ba8e}</destination>
@@ -76,6 +76,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{1dbb5410-e05f-4202-9f9b-85373ea7d286}">
+		<property name="volume">
+			<value>-12</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{57c86a10-d220-4276-9ec2-8f0d13346931}</destination>
 		</relationship>
@@ -100,7 +103,6 @@
 	<object class="MixerBusEffectChain" id="{57c86a10-d220-4276-9ec2-8f0d13346931}">
 		<relationship name="effects">
 			<destination>{d410e468-b820-401f-ad1c-d5933912a7ec}</destination>
-			<destination>{03c33249-794c-42a7-9619-49783b64519e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{162f4ac8-7503-4862-8bdd-efa250379c19}" />
@@ -111,5 +113,4 @@
 	</object>
 	<object class="MixerBusFader" id="{27a2d2e6-69b2-42c5-a240-f5dbda47faa5}" />
 	<object class="MixerBusFader" id="{d410e468-b820-401f-ad1c-d5933912a7ec}" />
-	<object class="SpatialiserEffect" id="{03c33249-794c-42a7-9619-49783b64519e}" />
 </objects>

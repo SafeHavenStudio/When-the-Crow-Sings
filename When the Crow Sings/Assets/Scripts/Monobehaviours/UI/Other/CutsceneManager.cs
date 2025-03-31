@@ -1,5 +1,7 @@
 using Cinemachine;
 using Eflatun.SceneReference;
+using FMOD.Studio;
+using FMODUnity;
 using ScriptableObjects;
 using System;
 using System.Collections;
@@ -16,6 +18,8 @@ public class CutsceneManager : MonoBehaviour
     public GameObject virtualCameraHolder;
     public GameSignal cameraMovementFinishedSignal;
     public GameObject nextButton;
+    public EventReference[] eventReferences;
+    private int i = 0;
 
     [HideInInspector]
     public List<CinemachineVirtualCamera> virtualCameras = new List<CinemachineVirtualCamera>();
@@ -53,6 +57,9 @@ public class CutsceneManager : MonoBehaviour
     {
         nextButton.SetActive(false); // A little redundant but good to be safe.
         Progress();
+        
+        RuntimeManager.PlayOneShot(eventReferences[i]);
+        i++;
     }
 
     int loop = 0;
