@@ -107,6 +107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69eabd3c7bc163459cdcc7021e8fb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2814961125347962345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2950951276239845294, guid: b5f8242a87cb047419b4cf20ef6758c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144796902427253319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533bafbfca9a55140b16299a9d83031b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3370965870746375567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,14 +456,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6727058815961215507, guid: 4230ba67e7529ae4eb5c2231ced938d4,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: d8c58259548ffff49bab40926ac7524e, type: 3}
+    - target: {fileID: 6727058815961215507, guid: 4230ba67e7529ae4eb5c2231ced938d4,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'D_Hips'\n\tTransform 'D_wrist.R'\n\tTransform
+        'D_Hips'\n\tTransform 'D_lowerleg.R'\n\tTransform 'D_middle.L.001'\n\tTransform
+        'D_wrist.L'\n\tTransform 'D_index.R.002'\n\tTransform 'D_middle.L.002'\n\tTransform
+        'D_Chest'\n\tTransform 'D_index.R.001'\n\tand more ...\n\tFrom animation
+        clip 'A_theoIdle'\n\tFrom animation clip 'A_theoTalk'"
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6560745913204231086, guid: 4230ba67e7529ae4eb5c2231ced938d4, type: 3}
     - {fileID: 3881797016726048299, guid: 4230ba67e7529ae4eb5c2231ced938d4, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2506397095346780818, guid: 4230ba67e7529ae4eb5c2231ced938d4, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5787750426239911448, guid: 4230ba67e7529ae4eb5c2231ced938d4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 383572393925772708}
   m_SourcePrefab: {fileID: 100100000, guid: 4230ba67e7529ae4eb5c2231ced938d4, type: 3}
+--- !u!1 &3475902774115956100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5787750426239911448, guid: 4230ba67e7529ae4eb5c2231ced938d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6948732553999987612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &383572393925772708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475902774115956100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20cf7adc4b448d49ba6c6bcd787605a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcIKHandler: {fileID: 2814961125347962345}
 --- !u!4 &4284950215553298238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6564534073351806114, guid: 4230ba67e7529ae4eb5c2231ced938d4,
