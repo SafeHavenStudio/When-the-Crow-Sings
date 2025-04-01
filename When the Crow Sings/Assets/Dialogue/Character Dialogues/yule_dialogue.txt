@@ -215,6 +215,12 @@ Do I want to chat with Yule some more?
 ~ yule_beyond_base_directory
 if YuleBB == 0:
 	=> Y0
+if YuleBB == 1:
+	=> Y1
+if YuleBB == 2:
+	=> Y2
+if YuleBB == 3:
+	=> Y3
 else:
 	set YuleExhausted = true;
 	Yule_Smile: I've really enjoyed talking with you.
