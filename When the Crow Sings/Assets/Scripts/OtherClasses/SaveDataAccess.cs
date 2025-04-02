@@ -9,6 +9,7 @@ public class SaveDataAccess
 {
     static public SaveData saveData = new SaveData();
     static public List<string> keysToTriggerPopup = new List<string> { "TestingFlag1" };
+    public static GameSignal dataSavedSignal;
 
     static public GameSignal popupUpdateMessageSignal;
     public static void SetFlag(string key, bool value)
@@ -128,6 +129,8 @@ public class SaveDataAccess
 
     public static void WriteDataToDisk()
     {
+        dataSavedSignal.Emit();
+
         switch (saveData.saveDataVersion)
         {
             case 0:

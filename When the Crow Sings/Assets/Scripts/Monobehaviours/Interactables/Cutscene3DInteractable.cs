@@ -11,6 +11,7 @@ public class Cutscene3DInteractable : MonoBehaviour
     public FishingRod fishingRod;
     public QTEInteractable qte;
     public MeshRenderer[] poleParts;
+    public SkinnedMeshRenderer[] polePartsSkinned;
     //private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
     public SpriteRenderer arrow;
@@ -75,12 +76,19 @@ public class Cutscene3DInteractable : MonoBehaviour
 
         fishingRod = FindObjectOfType<FishingRod>();
         poleParts = fishingRod.GetComponentsInChildren<MeshRenderer>();
+        polePartsSkinned = fishingRod.GetComponentsInChildren<SkinnedMeshRenderer>();
         fishingRodOnTheGround = this.gameObject.GetComponentsInChildren<MeshRenderer>();
 
         foreach (MeshRenderer part in poleParts)
         {
             part.enabled = fishingPoleParts;
             Debug.Log("Setting the fishing rod in hand active");
+        }
+
+        foreach (SkinnedMeshRenderer part in polePartsSkinned)
+        {
+            part.enabled = fishingPoleParts;
+            Debug.Log("Setting the line and hook active");
         }
 
         foreach (MeshRenderer part in fishingRodOnTheGround)
