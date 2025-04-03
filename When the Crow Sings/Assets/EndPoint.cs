@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingRod : MonoBehaviour
+public class EndPoint : MonoBehaviour
 {
 
 }
