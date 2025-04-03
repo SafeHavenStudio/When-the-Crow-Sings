@@ -12,7 +12,10 @@ public class LineController : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        endPoint = FindObjectOfType<EndPoint>(); 
+
+        if (endPoint == null)
+            endPoint = FindObjectOfType<EndPoint>();
+        else return;
 
         //Set lineRenderer to always have 2 points (start & end)
         lineRenderer.positionCount = 2;
@@ -20,9 +23,17 @@ public class LineController : MonoBehaviour
 
     void Update()
     {
-        //Ensure the line renderer updates the correct positions each frame
-        lineRenderer.SetPosition(0, start.position); 
-        lineRenderer.SetPosition(1, endPoint.transform.position);
+        SetLineRendererPosition();
+    }
+
+    void SetLineRendererPosition()
+    {
+        if (endPoint != null)
+        {
+            //Ensure the line renderer updates the correct positions each frame
+            lineRenderer.SetPosition(0, start.position);
+            lineRenderer.SetPosition(1, endPoint.transform.position);
+        }
     }
 }
 
