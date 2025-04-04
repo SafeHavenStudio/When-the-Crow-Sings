@@ -144,6 +144,8 @@ public class StirringQTE : QuickTimeEvent
         if (score > 0)
         {
             aboveZero = true;
+
+            if(isDecaying)
             StartCoroutine(decayDelay());
         }
         else if (score <= 0 && aboveZero == true)

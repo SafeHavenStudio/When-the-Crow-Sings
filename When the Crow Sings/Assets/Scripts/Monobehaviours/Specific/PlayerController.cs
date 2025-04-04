@@ -13,6 +13,7 @@ public class PlayerController : StateMachineComponent, IService
     public Animator playerAnimator;
 
     public float timeToFear = 2f;
+    public GameSettings gameSettings;
 
 
     [SerializeField]
@@ -27,6 +28,10 @@ public class PlayerController : StateMachineComponent, IService
     //private bool _isSprinting;
     [HideInInspector]
     public bool isSprintingButtonHeld;
+
+    [HideInInspector]
+    public bool isAlwaysSprinting = false;
+
     //{
     //    set
     //    {
@@ -67,12 +72,12 @@ public class PlayerController : StateMachineComponent, IService
 
     public void ApplyGravity(float deltaTime)
     {
-        // Apply gravity to velocity
+        //Apply gravity to velocity
         gravityVelocity += gravity * gravityMultiplier * deltaTime;
 
         if (characterController.isGrounded && gravityVelocity < 0)
         {
-            gravityVelocity = 0; // Reset vertical velocity
+            gravityVelocity = 0; //Reset vertical velocity
         }
     }
 
@@ -95,6 +100,9 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
         stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
+
+        gameSettings = FindObjectOfType<GameSettings>(true);
+        gameSettings.FindPlayerController();
     }
     private void Start()
     {
