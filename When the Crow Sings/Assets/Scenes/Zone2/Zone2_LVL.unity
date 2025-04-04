@@ -96,7 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000004, guid: 9fa2fe8fc1e979145aaac2ac035fe960,
+    type: 2}
   m_LightingSettings: {fileID: 1092442875}
 --- !u!196 &4
 NavMeshSettings:
@@ -25247,7 +25248,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1847d124861baac43a1f02adc44545be,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1122081950}
+      addedObject: {fileID: 1122081952}
   m_SourcePrefab: {fileID: 100100000, guid: 1847d124861baac43a1f02adc44545be, type: 3}
 --- !u!1 &1122081949 stripped
 GameObject:
@@ -25255,8 +25256,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1122081948}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1122081950
-BoxCollider:
+--- !u!4 &1122081951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1847d124861baac43a1f02adc44545be,
+    type: 3}
+  m_PrefabInstance: {fileID: 1122081948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1122081952
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -25274,14 +25281,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 546.47296, y: 585.93414, z: 507.4032}
-  m_Center: {x: 14.127733, y: 32.18356, z: 49.956562}
---- !u!4 &1122081951 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1847d124861baac43a1f02adc44545be,
-    type: 3}
-  m_PrefabInstance: {fileID: 1122081948}
-  m_PrefabAsset: {fileID: 0}
+  m_Radius: 292.96707
+  m_Center: {x: 14.127733, y: 32.183895, z: 49.956482}
 --- !u!4 &1122822968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8264172004614834343, guid: 281359f3be560fd45a8d4453faeefa1c,
@@ -29722,6 +29723,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9195e775333981744a1c2abc06fb40a0, type: 2}
+    - target: {fileID: 6367211108933193758, guid: cd1e3ce5d85bcf841917768df0517f55,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 439.484
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367211108933193758, guid: cd1e3ce5d85bcf841917768df0517f55,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.000027387085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367211108933193758, guid: cd1e3ce5d85bcf841917768df0517f55,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -33.213642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6367211108933193758, guid: cd1e3ce5d85bcf841917768df0517f55,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000095395656
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
