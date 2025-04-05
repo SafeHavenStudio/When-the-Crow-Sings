@@ -16,12 +16,15 @@ public class ScreenSettings : MonoBehaviour
     public Volume volume;
     [HideInInspector]
     public LiftGammaGain liftGammaGain;
+    public AspectRatioBorders arb;
 
     private void Start()
     {
         CheckForNullVariables();
         PopulateResolutions();
         GetAndSetSavedSettings();
+
+        arb = FindObjectOfType<AspectRatioBorders>();
     }
 
     private void GetAndSetSavedSettings()
@@ -98,6 +101,8 @@ public class ScreenSettings : MonoBehaviour
         //Attach listener only once
         resolutionDropdown.onValueChanged.RemoveAllListeners();
         resolutionDropdown.onValueChanged.AddListener(SetResolution);
+
+        arb.AdjustAspectRatio(); //might be redundant but eh
     }
 
 
@@ -124,6 +129,8 @@ public class ScreenSettings : MonoBehaviour
 
         Resolution _resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
+
+        arb.AdjustAspectRatio();
     }
 
     public void SetQuality(int _qualityIndex)
@@ -139,6 +146,8 @@ public class ScreenSettings : MonoBehaviour
     {
         if (_isFullscreen) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         else Screen.fullScreenMode = FullScreenMode.Windowed;
+
+        arb.AdjustAspectRatio();
     }
 }
 

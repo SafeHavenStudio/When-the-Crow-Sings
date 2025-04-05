@@ -443,9 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040cc3d2cb437714692ec3e3287a653b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transforms:
-  - {fileID: 4845228638071056838}
-  - {fileID: 590643158593479243}
   start: {fileID: 4845228638071056838}
   endPoint: {fileID: 0}
 --- !u!1 &2724703316650063492
@@ -490,6 +487,7 @@ GameObject:
   - component: {fileID: 8156856160969713471}
   - component: {fileID: 2348163975770991681}
   - component: {fileID: 4836570539168063361}
+  - component: {fileID: 5371795971160899955}
   m_Layer: 0
   m_Name: UIOverlayCam
   m_TagString: Untagged
@@ -607,6 +605,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &5371795971160899955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965030436457636918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41645e3fdf7ee714383051d105ee4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3539002645212544121
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +973,7 @@ GameObject:
   - component: {fileID: 4784588010691627685}
   - component: {fileID: 7068606129059179537}
   - component: {fileID: 6421555057252623838}
+  - component: {fileID: 7169533972530067301}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -995,7 +1006,7 @@ Camera:
   m_GameObject: {fileID: 8637185622401210243}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1142,6 +1153,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 1
   attenuationObject: {fileID: 9195737949493200412}
+--- !u!114 &7169533972530067301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8637185622401210243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41645e3fdf7ee714383051d105ee4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8977922548124621506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,11 +1368,13 @@ MonoBehaviour:
   throwTarget: {fileID: 261162267532544375}
   playerAnimator: {fileID: 6581866930302715867}
   timeToFear: 1
+  gameSettings: {fileID: 0}
   pfBirdseedProjectile: {fileID: 6028207027951552103, guid: 7ce579de01b4ca149902ac291e1b93f5,
     type: 3}
   isCrouchingToggled: 0
   isInteracting: 0
   isSprintingButtonHeld: 0
+  isAlwaysSprinting: 0
   gravity: -9.81
   gravityMultiplier: 3
   gravityVelocity: 0
