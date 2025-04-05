@@ -76,7 +76,7 @@ public class ScreenSettings : MonoBehaviour
         Resolution[] allResolutions = Screen.resolutions;
         List<string> options = new List<string>();
 
-        HashSet<string> uniqueResolutions = new HashSet<string>();
+        HashSet<string> uniqueResolutions = new HashSet<string>(); //ensures no duplicates are allowed
 
         foreach (Resolution res in allResolutions)
         {
@@ -92,6 +92,8 @@ public class ScreenSettings : MonoBehaviour
             }
         }
 
+        options.Reverse();
+
         //Add all collected options at once (outside the loop)
         resolutionDropdown.AddOptions(options);
 
@@ -103,6 +105,11 @@ public class ScreenSettings : MonoBehaviour
         resolutionDropdown.onValueChanged.AddListener(SetResolution);
 
         arb.AdjustAspectRatio(); //might be redundant but eh
+
+        if (options.Count <= 0)
+        {
+            resolutionDropdown.enabled = false;
+        }
     }
 
 
