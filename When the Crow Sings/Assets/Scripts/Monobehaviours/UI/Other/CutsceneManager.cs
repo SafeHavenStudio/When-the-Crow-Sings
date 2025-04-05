@@ -57,12 +57,15 @@ public class CutsceneManager : MonoBehaviour
     {
         nextButton.SetActive(false); // A little redundant but good to be safe.
         Progress();
-        
-        RuntimeManager.PlayOneShot(eventReferences[i]);
-        i++;
+
+        if (i < eventReferences.Length)
+        {
+            RuntimeManager.PlayOneShot(eventReferences[i]);
+            i++;
+        }
     }
 
-    int loop = 0;
+        int loop = 0;
     void Progress()
     {
         if (loop >= virtualCameras.Count)
