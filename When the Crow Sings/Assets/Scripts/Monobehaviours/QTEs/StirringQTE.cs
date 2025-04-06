@@ -175,6 +175,7 @@ public class StirringQTE : QuickTimeEvent
 
         if (type == QTETYPES.isFishing)
         {
+            cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
             cutsceneInteractable.FinishCutscene();
         }
     }
