@@ -8,7 +8,6 @@ public class LoadZone : MonoBehaviour
     
     public int targetSpawnPointIndex = 0;
     public LevelDataResource levelDataResource;
-    private AspectRatioBorders[] arbs;
 
     public bool isDoor;
     public bool isFence;
@@ -31,12 +30,6 @@ public class LoadZone : MonoBehaviour
             this.gameObject.SetActive(false);
 
             startLoadSignal.Emit(args);
-
-            arbs = FindObjectsOfType<AspectRatioBorders>();
-            foreach (AspectRatioBorders arb in arbs)
-            {
-                arb.AdjustAspectRatio();
-            }
         }
     }
 }
