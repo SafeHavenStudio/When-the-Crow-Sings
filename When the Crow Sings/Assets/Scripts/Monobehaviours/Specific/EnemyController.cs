@@ -133,7 +133,7 @@ public class EnemyController : NpcControllerBase,IService
         
 
         Vector3 direction = (targetPosition - raycastStart.position).normalized;
-        if (Physics.Raycast(raycastStart.position, direction, out hit, 1000, ~LayerMask.GetMask("Enemy","Interactable","Player")))
+        if (Physics.Raycast(raycastStart.position, direction, out hit, 30, ~LayerMask.GetMask("Enemy","Interactable","Player")))
         {
             if (DebugManager.showCollidersAndTriggers)
             {
