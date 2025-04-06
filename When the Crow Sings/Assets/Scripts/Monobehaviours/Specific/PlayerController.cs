@@ -65,6 +65,8 @@ public class PlayerController : StateMachineComponent, IService
 
     public LayerMask SlopeLayerMask;
 
+    public Transform playerLookAtTransform;
+
     public GameSignal pauseSignalTEMP;
     public GameSignal mapSignalTEMP;
     public GameSignal historySignalTEMP;

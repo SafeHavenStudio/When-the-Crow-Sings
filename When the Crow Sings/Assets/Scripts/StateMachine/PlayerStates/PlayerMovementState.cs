@@ -85,9 +85,9 @@ public class PlayerMovementState : StateMachineState
         {
             s.playerAnimator.SetBool("animIsSprinting", false);
         }
-        
-       
-        s.speed = Mathf.Clamp(inputMagnitude * stateSpeed,stateClamp,stateSpeed);
+
+
+        s.speed = Mathf.Clamp(inputMagnitude * stateSpeed, stateClamp, stateSpeed);
         SetWalkAnimSpeed(s.speed, slideSpeedCorrection);
 
         // move!!
@@ -98,7 +98,7 @@ public class PlayerMovementState : StateMachineState
         // gravity!!
         movement.y += s.gravityVelocity;
 
-        
+
 
         // Move the character using the CharacterController
         s.characterController.Move(movement * deltaTime);
@@ -111,7 +111,7 @@ public class PlayerMovementState : StateMachineState
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z));
             float turnLerpSpeed = 75f;
             s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 1000 * deltaTime), turnLerpSpeed * deltaTime);
-            
+
 
             s.playerAnimator.SetBool("animIsMoving", true);
         }
@@ -120,16 +120,31 @@ public class PlayerMovementState : StateMachineState
 
             s.playerAnimator.SetBool("animIsMoving", false);
         }
+        MoveLookAtPointToMovementDirection(GetTurnAmount(deltaTime, oldRotation));
+    }
 
-        float rotationDelta;
-        rotationDelta = Mathf.DeltaAngle(oldRotation, s.transform.rotation.eulerAngles.y);
-        float turnAmount = s.playerAnimator.GetFloat("currentTurnDelta");
+    private float GetTurnAmount(float deltaTime, float oldRotation)
+    {
+        float rotationDelta = Mathf.DeltaAngle(oldRotation, s.transform.rotation.eulerAngles.y);
+        
+        float turnAmount = 0f;
+        //turnAmount = s.playerAnimator.GetFloat("currentTurnDelta");
+        
         float turnSpeed = 10f;
-        if (rotationDelta > 0) turnAmount = Mathf.Lerp(turnAmount, 1, turnSpeed * deltaTime);
-        else if (rotationDelta < 0) turnAmount = Mathf.Lerp(turnAmount, -1, turnSpeed * deltaTime);
-        else turnAmount = Mathf.Lerp(turnAmount, 0, turnSpeed * deltaTime);
-        s.playerAnimator.SetFloat("currentTurnDelta", turnAmount);
 
+        if (rotationDelta > 0.1) turnAmount = Mathf.Lerp(turnAmount, 1, turnSpeed * deltaTime);
+        else if (rotationDelta < -0.1) turnAmount = Mathf.Lerp(turnAmount, -1, turnSpeed * deltaTime);
+        else turnAmount = Mathf.Lerp(turnAmount, 0, turnSpeed * deltaTime);
+        
+        //s.playerAnimator.SetFloat("currentTurnDelta", turnAmount);
+        return turnAmount;
+    }
+
+    void MoveLookAtPointToMovementDirection(float turnAmount)
+    {
+        Vector3 newPostion = s.playerLookAtTransform.localPosition;
+        newPostion.x = Mathf.Lerp(newPostion.x, turnAmount*50, Time.deltaTime * 10);
+        s.playerLookAtTransform.localPosition = newPostion;
     }
 
     private void SetWalkAnimSpeed(float inputMagnitude, float slideSpeedCorrection)
