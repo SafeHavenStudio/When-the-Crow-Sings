@@ -128,12 +128,14 @@ public class EnemyController : NpcControllerBase,IService
         }
         stateMachine.FixedUpdate();
     }
+
+    public float enemySightRange = 30;
     private void RaycastCheck(Vector3 targetPosition)
     {
         
 
         Vector3 direction = (targetPosition - raycastStart.position).normalized;
-        if (Physics.Raycast(raycastStart.position, direction, out hit, 30, ~LayerMask.GetMask("Enemy","Interactable","Player")))
+        if (Physics.Raycast(raycastStart.position, direction, out hit, enemySightRange, ~LayerMask.GetMask("Enemy","Interactable","Player")))
         {
             if (DebugManager.showCollidersAndTriggers)
             {
