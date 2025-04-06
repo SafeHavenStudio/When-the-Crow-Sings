@@ -1456,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 7738104651884743607, guid: d1e24ee7425266f4b84ee8e0990341c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.110268
+      value: -37.525
       objectReference: {fileID: 0}
     - target: {fileID: 7738104651884743607, guid: d1e24ee7425266f4b84ee8e0990341c8,
         type: 3}
@@ -1466,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 7738104651884743607, guid: d1e24ee7425266f4b84ee8e0990341c8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -263.4543
+      value: -262.48
       objectReference: {fileID: 0}
     - target: {fileID: 7738104651884743607, guid: d1e24ee7425266f4b84ee8e0990341c8,
         type: 3}
@@ -1738,6 +1738,59 @@ Transform:
   - {fileID: 419288177}
   - {fileID: 1426936214}
   - {fileID: 1435495183}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1289465412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289465414}
+  - component: {fileID: 1289465413}
+  m_Layer: 0
+  m_Name: No dirt get lost haha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1289465413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289465412}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7575971, y: 1.8947161, z: 3.2036116}
+  m_Center: {x: 0.37879702, y: 0.4473558, z: -0.1612401}
+--- !u!4 &1289465414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289465412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 109.67, y: -0.12, z: 23.92}
+  m_LocalScale: {x: 1.9369, y: 1.9369, z: 1.9369}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1398214482
@@ -3273,6 +3326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_DirtPile
       objectReference: {fileID: 0}
+    - target: {fileID: 3495405391455689624, guid: 20ee778b0d6b65b498cb8259baf15a68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4827364027693691127, guid: 20ee778b0d6b65b498cb8259baf15a68,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3641,3 +3699,4 @@ SceneRoots:
   - {fileID: 144129565}
   - {fileID: 1712480709}
   - {fileID: 93582441}
+  - {fileID: 1289465414}
