@@ -31,6 +31,8 @@ public class PlayerMovementState : StateMachineState
         InputManager.playerInputActions.Player.Sprint.performed += OnSprint;
         InputManager.playerInputActions.Player.Sprint.canceled += OnSprint;
         InputManager.playerInputActions.Player.Crouch.performed += OnCrouched;
+
+        s.playerAnimator.SetLookAtWeight(1.0f);
     }
 
     public override void StateExited()
@@ -53,6 +55,8 @@ public class PlayerMovementState : StateMachineState
         s.playerAnimator.SetBool("animIsMoving", false);
         s.isSprintingButtonHeld = false;
         s.speed = 8;
+
+        s.playerAnimator.SetLookAtWeight(0.0f);
     }
     public override void Update(float deltaTime)
     {
@@ -113,7 +117,8 @@ public class PlayerMovementState : StateMachineState
             s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), turnLerpSpeed * deltaTime);
 
 
-            s.playerLookAtTransformHolder.rotation = Quaternion.RotateTowards(s.transform.rotation, toRotation, 180);
+            //s.playerLookAtTransformHolder.rotation = Quaternion.RotateTowards(s.transform.rotation, toRotation, 180);
+            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), 50 * deltaTime);
 
 
             s.playerAnimator.SetBool("animIsMoving", true);
@@ -123,8 +128,8 @@ public class PlayerMovementState : StateMachineState
 
             s.playerAnimator.SetBool("animIsMoving", false);
         }
-        
 
+        
     }
 
     private float GetTurnAmount(float deltaTime, float oldRotation)
