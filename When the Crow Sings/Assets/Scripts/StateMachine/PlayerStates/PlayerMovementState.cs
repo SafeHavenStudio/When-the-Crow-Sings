@@ -109,8 +109,11 @@ public class PlayerMovementState : StateMachineState
         if (movement.x != 0 || movement.z != 0)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z));
-            float turnLerpSpeed = 75f;
-            s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 1000 * deltaTime), turnLerpSpeed * deltaTime);
+            float turnLerpSpeed = 10f;//75f;
+            s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), turnLerpSpeed * deltaTime);
+
+
+            s.playerLookAtTransformHolder.rotation = Quaternion.RotateTowards(s.transform.rotation, toRotation, 180);
 
 
             s.playerAnimator.SetBool("animIsMoving", true);
@@ -120,7 +123,8 @@ public class PlayerMovementState : StateMachineState
 
             s.playerAnimator.SetBool("animIsMoving", false);
         }
-        MoveLookAtPointToMovementDirection(GetTurnAmount(deltaTime, oldRotation));
+        
+
     }
 
     private float GetTurnAmount(float deltaTime, float oldRotation)
@@ -140,7 +144,7 @@ public class PlayerMovementState : StateMachineState
         return turnAmount;
     }
 
-    void MoveLookAtPointToMovementDirection(float turnAmount)
+    void LerpLookAtPointToMovementDirection(float turnAmount)
     {
         Vector3 newPostion = s.playerLookAtTransform.localPosition;
         newPostion.x = Mathf.Lerp(newPostion.x, turnAmount*50, Time.deltaTime * 10);
