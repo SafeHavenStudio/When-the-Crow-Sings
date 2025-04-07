@@ -96,7 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000004, guid: cca00b03fd217fa4795622162e4c09fb,
+    type: 2}
   m_LightingSettings: {fileID: 1092442875}
 --- !u!196 &4
 NavMeshSettings:
@@ -1329,8 +1330,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3530691755643981010, guid: 47927968a28f4ac488cf12f227241b29,
         type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530691755643981010, guid: 47927968a28f4ac488cf12f227241b29,
+        type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 322
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530691755643981010, guid: 47927968a28f4ac488cf12f227241b29,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 4756494854743706235, guid: 47927968a28f4ac488cf12f227241b29,
         type: 3}
@@ -24497,7 +24508,7 @@ LightingSettings:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
