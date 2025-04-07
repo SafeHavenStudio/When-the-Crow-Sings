@@ -31,6 +31,8 @@ public class PlayerMovementState : StateMachineState
         InputManager.playerInputActions.Player.Sprint.performed += OnSprint;
         InputManager.playerInputActions.Player.Sprint.canceled += OnSprint;
         InputManager.playerInputActions.Player.Crouch.performed += OnCrouched;
+
+        s.playerLookAtTransformHolder.rotation = s.transform.rotation;
     }
 
     public override void StateExited()
@@ -53,6 +55,9 @@ public class PlayerMovementState : StateMachineState
         s.playerAnimator.SetBool("animIsMoving", false);
         s.isSprintingButtonHeld = false;
         s.speed = 8;
+
+        s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(1);
+
     }
     public override void Update(float deltaTime)
     {
@@ -73,6 +78,8 @@ public class PlayerMovementState : StateMachineState
             stateClamp = s.minSprintSpeed;
             stateSpeed = s.maxSprintSpeed;
             slideSpeedCorrection = s.sprintSlideSpeedCorrection;
+
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(0);
         }
         else if (s.isCrouchingToggled)
         {
@@ -80,14 +87,17 @@ public class PlayerMovementState : StateMachineState
             stateClamp = s.minCrouchSpeed;
             stateSpeed = s.maxCrouchSpeed;
             slideSpeedCorrection = s.crouchSlideSpeedCorrection;
+
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(1);
         }
         else
         {
             s.playerAnimator.SetBool("animIsSprinting", false);
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(0);
         }
-        
-       
-        s.speed = Mathf.Clamp(inputMagnitude * stateSpeed,stateClamp,stateSpeed);
+
+
+        s.speed = Mathf.Clamp(inputMagnitude * stateSpeed, stateClamp, stateSpeed);
         SetWalkAnimSpeed(s.speed, slideSpeedCorrection);
 
         // move!!
@@ -98,7 +108,7 @@ public class PlayerMovementState : StateMachineState
         // gravity!!
         movement.y += s.gravityVelocity;
 
-        
+
 
         // Move the character using the CharacterController
         s.characterController.Move(movement * deltaTime);
@@ -109,27 +119,47 @@ public class PlayerMovementState : StateMachineState
         if (movement.x != 0 || movement.z != 0)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z));
-            float turnLerpSpeed = 75f;
-            s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 1000 * deltaTime), turnLerpSpeed * deltaTime);
-            
+            float turnLerpSpeed = 10f;//75f;
+            s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), turnLerpSpeed * deltaTime);
+
+
+            //s.playerLookAtTransformHolder.rotation = Quaternion.RotateTowards(s.transform.rotation, toRotation, 180);
+            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), 70 * deltaTime);
+
 
             s.playerAnimator.SetBool("animIsMoving", true);
         }
         else
         {
-
+            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.playerLookAtTransformHolder.rotation, s.transform.rotation, 100 * deltaTime);
             s.playerAnimator.SetBool("animIsMoving", false);
         }
 
-        float rotationDelta;
-        rotationDelta = Mathf.DeltaAngle(oldRotation, s.transform.rotation.eulerAngles.y);
-        float turnAmount = s.playerAnimator.GetFloat("currentTurnDelta");
-        float turnSpeed = 10f;
-        if (rotationDelta > 0) turnAmount = Mathf.Lerp(turnAmount, 1, turnSpeed * deltaTime);
-        else if (rotationDelta < 0) turnAmount = Mathf.Lerp(turnAmount, -1, turnSpeed * deltaTime);
-        else turnAmount = Mathf.Lerp(turnAmount, 0, turnSpeed * deltaTime);
-        s.playerAnimator.SetFloat("currentTurnDelta", turnAmount);
+        
+    }
 
+    private float GetTurnAmount(float deltaTime, float oldRotation)
+    {
+        float rotationDelta = Mathf.DeltaAngle(oldRotation, s.transform.rotation.eulerAngles.y);
+        
+        float turnAmount = 0f;
+        //turnAmount = s.playerAnimator.GetFloat("currentTurnDelta");
+        
+        float turnSpeed = 10f;
+
+        if (rotationDelta > 0.1) turnAmount = Mathf.Lerp(turnAmount, 1, turnSpeed * deltaTime);
+        else if (rotationDelta < -0.1) turnAmount = Mathf.Lerp(turnAmount, -1, turnSpeed * deltaTime);
+        else turnAmount = Mathf.Lerp(turnAmount, 0, turnSpeed * deltaTime);
+        
+        //s.playerAnimator.SetFloat("currentTurnDelta", turnAmount);
+        return turnAmount;
+    }
+
+    void LerpLookAtPointToMovementDirection(float turnAmount)
+    {
+        Vector3 newPostion = s.playerLookAtTransform.localPosition;
+        newPostion.x = Mathf.Lerp(newPostion.x, turnAmount*50, Time.deltaTime * 10);
+        s.playerLookAtTransform.localPosition = newPostion;
     }
 
     private void SetWalkAnimSpeed(float inputMagnitude, float slideSpeedCorrection)
@@ -158,6 +188,7 @@ public class PlayerMovementState : StateMachineState
             //s.speed = 4;
             s.GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
             s.GetComponent<CapsuleCollider>().height = 2;
+
         }
         else if(!s.isCrouchingToggled)// && !s.isSprintingButtonHeld)
         {
