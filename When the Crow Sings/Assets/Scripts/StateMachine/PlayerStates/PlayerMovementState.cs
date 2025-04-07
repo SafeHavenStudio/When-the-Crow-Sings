@@ -31,8 +31,6 @@ public class PlayerMovementState : StateMachineState
         InputManager.playerInputActions.Player.Sprint.performed += OnSprint;
         InputManager.playerInputActions.Player.Sprint.canceled += OnSprint;
         InputManager.playerInputActions.Player.Crouch.performed += OnCrouched;
-
-        s.playerAnimator.SetLookAtWeight(1.0f);
     }
 
     public override void StateExited()
@@ -56,7 +54,8 @@ public class PlayerMovementState : StateMachineState
         s.isSprintingButtonHeld = false;
         s.speed = 8;
 
-        s.playerAnimator.SetLookAtWeight(0.0f);
+        s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(1);
+
     }
     public override void Update(float deltaTime)
     {
@@ -77,6 +76,8 @@ public class PlayerMovementState : StateMachineState
             stateClamp = s.minSprintSpeed;
             stateSpeed = s.maxSprintSpeed;
             slideSpeedCorrection = s.sprintSlideSpeedCorrection;
+
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(0);
         }
         else if (s.isCrouchingToggled)
         {
@@ -84,10 +85,13 @@ public class PlayerMovementState : StateMachineState
             stateClamp = s.minCrouchSpeed;
             stateSpeed = s.maxCrouchSpeed;
             slideSpeedCorrection = s.crouchSlideSpeedCorrection;
+
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(1);
         }
         else
         {
             s.playerAnimator.SetBool("animIsSprinting", false);
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(0);
         }
 
 
@@ -118,14 +122,14 @@ public class PlayerMovementState : StateMachineState
 
 
             //s.playerLookAtTransformHolder.rotation = Quaternion.RotateTowards(s.transform.rotation, toRotation, 180);
-            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), 50 * deltaTime);
+            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), 70 * deltaTime);
 
 
             s.playerAnimator.SetBool("animIsMoving", true);
         }
         else
         {
-
+            s.playerLookAtTransformHolder.rotation = Quaternion.Lerp(s.playerLookAtTransformHolder.rotation, s.transform.rotation, 100 * deltaTime);
             s.playerAnimator.SetBool("animIsMoving", false);
         }
 
@@ -182,6 +186,7 @@ public class PlayerMovementState : StateMachineState
             //s.speed = 4;
             s.GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
             s.GetComponent<CapsuleCollider>().height = 2;
+
         }
         else if(!s.isCrouchingToggled)// && !s.isSprintingButtonHeld)
         {
