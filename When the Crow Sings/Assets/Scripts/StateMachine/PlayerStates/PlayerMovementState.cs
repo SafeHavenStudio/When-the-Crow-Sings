@@ -31,6 +31,8 @@ public class PlayerMovementState : StateMachineState
         InputManager.playerInputActions.Player.Sprint.performed += OnSprint;
         InputManager.playerInputActions.Player.Sprint.canceled += OnSprint;
         InputManager.playerInputActions.Player.Crouch.performed += OnCrouched;
+
+        s.playerLookAtTransformHolder.rotation = s.transform.rotation;
     }
 
     public override void StateExited()
