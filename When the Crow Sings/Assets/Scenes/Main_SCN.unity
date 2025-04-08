@@ -4514,18 +4514,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 277944770}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &282735518 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2408733927652459495, guid: d8cc295e0ed5115478b854dc7ada93c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1639482497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4054503ed97574abe4800b0942b079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &288098665
 GameObject:
   m_ObjectHideFlags: 0
@@ -30147,7 +30135,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 282735518}
+      objectReference: {fileID: 1639482501}
+    - target: {fileID: 453830083363382740, guid: d8cc295e0ed5115478b854dc7ada93c0,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSliderValueChanged
+      objectReference: {fileID: 0}
     - target: {fileID: 475939404864307982, guid: d8cc295e0ed5115478b854dc7ada93c0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -30322,7 +30315,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 282735518}
+      objectReference: {fileID: 1639482502}
+    - target: {fileID: 3708087553485698515, guid: d8cc295e0ed5115478b854dc7ada93c0,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSliderValueChanged
+      objectReference: {fileID: 0}
     - target: {fileID: 3829538706100122256, guid: d8cc295e0ed5115478b854dc7ada93c0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -30437,7 +30435,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 282735518}
+      objectReference: {fileID: 1639482503}
+    - target: {fileID: 6303447089412354306, guid: d8cc295e0ed5115478b854dc7ada93c0,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSliderValueChanged
+      objectReference: {fileID: 0}
     - target: {fileID: 6310059578488448776, guid: d8cc295e0ed5115478b854dc7ada93c0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -30582,7 +30585,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 282735518}
+      objectReference: {fileID: 1639482504}
+    - target: {fileID: 7524994997461607911, guid: d8cc295e0ed5115478b854dc7ada93c0,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSliderValueChanged
+      objectReference: {fileID: 0}
     - target: {fileID: 7765594252745717263, guid: d8cc295e0ed5115478b854dc7ada93c0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -30665,6 +30673,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89361650d08531a4fa3c7f4d9dc8b3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1639482501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1231234437950691909, guid: d8cc295e0ed5115478b854dc7ada93c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639482497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4054503ed97574abe4800b0942b079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1639482502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7813640274976043827, guid: d8cc295e0ed5115478b854dc7ada93c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639482497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4054503ed97574abe4800b0942b079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1639482503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6636704432155394886, guid: d8cc295e0ed5115478b854dc7ada93c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639482497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4054503ed97574abe4800b0942b079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1639482504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1886214886634387980, guid: d8cc295e0ed5115478b854dc7ada93c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1639482497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4054503ed97574abe4800b0942b079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1648808738
@@ -33446,6 +33502,13 @@ MonoBehaviour:
       Data3: 1518001326
       Data4: -1395126331
     Path: event:/SFX/FinalMonsterStunSound
+  <WaterSplash>k__BackingField:
+    Guid:
+      Data1: 1260255610
+      Data2: 1180727208
+      Data3: -162713955
+      Data4: 173726622
+    Path: event:/SFX/WaterSplashSFX
   <WoodenPlank>k__BackingField:
     Guid:
       Data1: 1308041998
