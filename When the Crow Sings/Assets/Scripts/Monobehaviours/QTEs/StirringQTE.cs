@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using FMOD.Studio;
+using FMODUnity;
 
 public class StirringQTE : QuickTimeEvent
 {
@@ -22,6 +23,7 @@ public class StirringQTE : QuickTimeEvent
     [HideInInspector] public bool failed = false;
     private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
     private Cutscene3DInteractable cutsceneInteractable;
+    private int lastShownStep = -1;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -88,7 +90,7 @@ public class StirringQTE : QuickTimeEvent
         }
         else
         {
-            FishingReelSound.stop(STOP_MODE.ALLOWFADEOUT);
+            FishingReelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 
@@ -296,6 +298,10 @@ public class StirringQTE : QuickTimeEvent
 
     public void showArrowDirection()
     {
+        if (RightCurrentStep == lastShownStep) return;
+
+        lastShownStep = RightCurrentStep;
+
         rightUpJoystick.enabled = false;
         rightRightJoystick.enabled = false;
         rightLeftJoystick.enabled = false;
@@ -311,11 +317,18 @@ public class StirringQTE : QuickTimeEvent
         if (RightCurrentStep >= 0 && RightCurrentStep < arrowDirections.Length)
         {
             arrowDirections[RightCurrentStep].enabled = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.WaterSplash);
+            Debug.Log("Playing splash");
+
         }
     }
 
     public void showRightJoystickDirection()
     {
+        if (RightCurrentStep == lastShownStep) return;
+
+        lastShownStep = RightCurrentStep;
+
         upArrow.enabled = false;
         rightArrow.enabled = false;
         leftArrow.enabled = false;
@@ -334,6 +347,8 @@ public class StirringQTE : QuickTimeEvent
         if (RightCurrentStep >= 0 && RightCurrentStep < joystickDirections.Length)
         {
             joystickDirections[RightCurrentStep].enabled = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.WaterSplash);
+            Debug.Log("Playing splash");
         }
     }
 
