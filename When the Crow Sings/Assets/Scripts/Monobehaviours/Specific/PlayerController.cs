@@ -183,6 +183,11 @@ public class PlayerController : StateMachineComponent, IService
             case Interactable.PlayerResponses.FEAR:
                 stateMachine.Enter("PlayerFearState");
                 break;
+            case Interactable.PlayerResponses.FREEZE_AND_TALK:
+                // TODO: Make Chane actually have a talk animation.
+                isInteracting = true;
+                stateMachine.Enter("PlayerFrozenState");
+                break;
         }
         
         if (mostRecentInteractable.playerSnapPoint != null)
