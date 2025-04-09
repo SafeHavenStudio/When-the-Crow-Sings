@@ -96,7 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000004, guid: 953458ca760cff6499529315d481c78d,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -229,7 +230,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -383,7 +384,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -501,7 +502,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -538,7 +539,27 @@ PrefabInstance:
     - target: {fileID: 1137721504396159707, guid: 9a8fc1e250134694db5c2cf299839c50,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137721504396159707, guid: 9a8fc1e250134694db5c2cf299839c50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -52.449997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137721504396159707, guid: 9a8fc1e250134694db5c2cf299839c50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: -41.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137721504396159707, guid: 9a8fc1e250134694db5c2cf299839c50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 60.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137721504396159707, guid: 9a8fc1e250134694db5c2cf299839c50,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 8.38
       objectReference: {fileID: 0}
     - target: {fileID: 3561910493830820900, guid: 9a8fc1e250134694db5c2cf299839c50,
         type: 3}
@@ -713,7 +734,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
