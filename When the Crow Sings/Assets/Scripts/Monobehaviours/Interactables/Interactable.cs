@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
+    public bool hidePlayerWhileInteracting = false;
     public SpriteRenderer pfInteractArrow;
 
     public bool autoInteract = false;
@@ -75,6 +76,11 @@ public class Interactable : MonoBehaviour
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
+
+        if (hidePlayerWhileInteracting)
+        {
+            ServiceLocator.Get<PlayerController>().HidePlayerVisuals();
+        }
 
         onInteractionEvent.Invoke();
     }
