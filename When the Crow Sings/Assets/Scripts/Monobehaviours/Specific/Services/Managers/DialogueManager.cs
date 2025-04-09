@@ -633,6 +633,8 @@ public class DialogueManager : MonoBehaviour, IService
         playerImageUi.sprite = dialoguePortraits.GetPortrait("Chance", Constants.EMOTIONS.DEFAULT);
     }
 
+
+    public GameObject ChanceRoomLoadZone;
     void DoMutationLogic(DialogueMutation mutation)
     {
         switch (mutation.actionType)
@@ -653,6 +655,10 @@ public class DialogueManager : MonoBehaviour, IService
                 {
                     int argument = Utilities.GetSingleIntFromString(mutation.stringData);
                     ReloadScene(argument);
+                }
+                else if (mutation.stringData.Contains("LoadChanceRoom()"))
+                {
+                    ChanceRoomLoadZone.GetComponent<LoadZone>().LoadLevel();
                 }
                 else if (mutation.stringData == "SaveGameToDisk()")
                 {
