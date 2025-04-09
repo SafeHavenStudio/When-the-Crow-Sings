@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PlayerController : StateMachineComponent, IService
@@ -131,6 +132,15 @@ public class PlayerController : StateMachineComponent, IService
         direction.y = 4;
         BirdseedController.Create(pfBirdseedProjectile, throwPosition, direction);
     }
+
+    public List<GameObject> playerVisuals;
+    public void HidePlayerVisuals(bool _hide = false)
+    {
+        foreach (GameObject i in playerVisuals)
+        {
+            i.SetActive(_hide);
+        }
+    }
     private void OnEnable()
     {
         InputManager.playerInputActions.Player.Pause.performed += OnPause;
@@ -205,6 +215,8 @@ public class PlayerController : StateMachineComponent, IService
     {
         isInteracting = false;
         playerInteractionArea.StartCooldown();
+
+        HidePlayerVisuals(true);
         stateMachine.Enter("PlayerMovementState");
     }
 
