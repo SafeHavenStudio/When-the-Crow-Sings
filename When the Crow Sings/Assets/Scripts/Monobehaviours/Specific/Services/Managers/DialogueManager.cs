@@ -120,7 +120,11 @@ public class DialogueManager : MonoBehaviour, IService
             DialogueResponse newLine2 = (DialogueResponse)newLine;
             //Debug.Log(newLine2.dialogue);
             nameText.text = newLine2.characterName;
-            if (nameText.text == "") nameBox.enabled = false;
+            if (nameText.text == "" || nameText.text == "Item")
+            { 
+                nameBox.enabled = false;
+                nameText.text = "";
+            }
             else nameBox.enabled = true;
 
             SetPortraits(newLine2);
