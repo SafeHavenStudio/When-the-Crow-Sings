@@ -51,6 +51,7 @@ public class GameSettings : MonoBehaviour
     {
         playerController = FindObjectOfType<PlayerController>();
         playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
+        Debug.Log("Game settings found player controller");
     }
 
     private void Start()
