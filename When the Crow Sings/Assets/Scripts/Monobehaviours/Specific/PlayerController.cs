@@ -106,6 +106,7 @@ public class PlayerController : StateMachineComponent, IService
 
         gameSettings = FindObjectOfType<GameSettings>(true);
         gameSettings.FindPlayerController();
+        gameSettings.isDecayingCheck();
     }
     private void Start()
     {

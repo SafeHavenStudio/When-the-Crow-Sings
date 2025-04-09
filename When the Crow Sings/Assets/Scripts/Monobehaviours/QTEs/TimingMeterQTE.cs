@@ -48,15 +48,11 @@ public class TimingMeterQTE : QuickTimeEvent
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (meterActive)
         {
             MoveMeter();
-            //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
-            //{
-            //    CheckSuccess();
-            //}
         }
     }
 
@@ -217,6 +213,4 @@ public class TimingMeterQTE : QuickTimeEvent
 
         Debug.Log("Markers reset");
     }
-
-
 }
