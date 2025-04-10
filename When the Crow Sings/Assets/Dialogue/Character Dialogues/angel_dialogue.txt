@@ -121,13 +121,22 @@ emit 1;
 if day == 1:
 	=> curfew_check
 else:
-	=> time_forward
-	
+	=> curfew_check_2
+
 ~ curfew_check
 if timeOfDay == 2:
 	set timeOfDay += 1;
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
 	emit 2;
+	=> ending_call
+else:
+	=> time_forward
+
+~ curfew_check_2
+if timeOfDay == 2:
+	set timeOfDay += 1;
+	Time to eat and head back..
+	call LoadChanceRoom();
 	=> ending_call
 else:
 	=> time_forward
