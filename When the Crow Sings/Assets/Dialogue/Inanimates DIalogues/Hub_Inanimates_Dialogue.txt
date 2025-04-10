@@ -47,7 +47,7 @@ if CalebTaskAccepted == true:
 	set CalebTaskCompleted = true;
 	set dirtoff = false;
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	Something shiny is in the dirt ... Better not steal from the crows.
 	=> END
@@ -60,7 +60,7 @@ if BeauTaskAccepted == true:
 	set MFBeauTC = true;
 	set HFBeauTC = true;
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	A basket of fresh vegetables. Why leave it out here? Are they not afraid of bugs eating their precious vegetables?
 	=> END
@@ -73,7 +73,7 @@ if QuinnTaskAccepted == true:
 	set QuinnTaskCompleted = true;
 	Better grab these quick.
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	Big burlap sacks filled with some kind of seed. The crows are definitely enjoying this careless placement.
 	=> END
