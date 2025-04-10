@@ -33,7 +33,7 @@ public class NpcInverseKinematicsHandler : MonoBehaviour
     }
     public void MyOnAnimatorIK(int layerIndex)
     {
-        Debug.Log("Animator is being IK'ed mate, lovely.");
+        //Debug.Log("Animator is being IK'ed mate, lovely.");
 
         if (playerHeadPosition == null) playerHeadPosition = GameObject.FindWithTag("PlayerHeadPosition");
 

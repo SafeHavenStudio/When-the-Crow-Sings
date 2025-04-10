@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PlayerController : StateMachineComponent, IService
@@ -65,6 +66,9 @@ public class PlayerController : StateMachineComponent, IService
 
     public LayerMask SlopeLayerMask;
 
+    public Transform playerLookAtTransform;
+    public Transform playerLookAtTransformHolder;
+
     public GameSignal pauseSignalTEMP;
     public GameSignal mapSignalTEMP;
     public GameSignal historySignalTEMP;
@@ -103,6 +107,7 @@ public class PlayerController : StateMachineComponent, IService
 
         gameSettings = FindObjectOfType<GameSettings>(true);
         gameSettings.FindPlayerController();
+        gameSettings.isDecayingCheck();
     }
     private void Start()
     {
@@ -126,6 +131,15 @@ public class PlayerController : StateMachineComponent, IService
         var direction = throwTarget.transform.position - throwPosition.transform.position;
         direction.y = 4;
         BirdseedController.Create(pfBirdseedProjectile, throwPosition, direction);
+    }
+
+    public List<GameObject> playerVisuals;
+    public void HidePlayerVisuals(bool _hide = false)
+    {
+        foreach (GameObject i in playerVisuals)
+        {
+            i.SetActive(_hide);
+        }
     }
     private void OnEnable()
     {
@@ -179,6 +193,11 @@ public class PlayerController : StateMachineComponent, IService
             case Interactable.PlayerResponses.FEAR:
                 stateMachine.Enter("PlayerFearState");
                 break;
+            case Interactable.PlayerResponses.FREEZE_AND_TALK:
+                // TODO: Make Chane actually have a talk animation.
+                isInteracting = true;
+                stateMachine.Enter("PlayerFrozenState");
+                break;
         }
         
         if (mostRecentInteractable.playerSnapPoint != null)
@@ -196,6 +215,8 @@ public class PlayerController : StateMachineComponent, IService
     {
         isInteracting = false;
         playerInteractionArea.StartCooldown();
+
+        HidePlayerVisuals(true);
         stateMachine.Enter("PlayerMovementState");
     }
 

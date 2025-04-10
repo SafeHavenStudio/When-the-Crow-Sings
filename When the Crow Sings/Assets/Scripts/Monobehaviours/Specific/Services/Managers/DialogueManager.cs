@@ -120,7 +120,11 @@ public class DialogueManager : MonoBehaviour, IService
             DialogueResponse newLine2 = (DialogueResponse)newLine;
             //Debug.Log(newLine2.dialogue);
             nameText.text = newLine2.characterName;
-            if (nameText.text == "") nameBox.enabled = false;
+            if (nameText.text == "" || nameText.text == "Item")
+            { 
+                nameBox.enabled = false;
+                nameText.text = "";
+            }
             else nameBox.enabled = true;
 
             SetPortraits(newLine2);
@@ -633,6 +637,8 @@ public class DialogueManager : MonoBehaviour, IService
         playerImageUi.sprite = dialoguePortraits.GetPortrait("Chance", Constants.EMOTIONS.DEFAULT);
     }
 
+
+    public GameObject ChanceRoomLoadZone;
     void DoMutationLogic(DialogueMutation mutation)
     {
         switch (mutation.actionType)
@@ -653,6 +659,10 @@ public class DialogueManager : MonoBehaviour, IService
                 {
                     int argument = Utilities.GetSingleIntFromString(mutation.stringData);
                     ReloadScene(argument);
+                }
+                else if (mutation.stringData.Contains("LoadChanceRoom()"))
+                {
+                    ChanceRoomLoadZone.GetComponent<LoadZone>().LoadLevel();
                 }
                 else if (mutation.stringData == "SaveGameToDisk()")
                 {

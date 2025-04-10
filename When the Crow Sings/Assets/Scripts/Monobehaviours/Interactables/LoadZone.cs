@@ -18,18 +18,24 @@ public class LoadZone : MonoBehaviour
     {
         if (other.GetComponent<PlayerInteractionArea>() != null)
         {
-            Debug.Log("Going to try to load!");
-
-            if (isDoor) AudioManager.instance.PlayOneShot(FMODEvents.instance.WoodenDoor);
-            else if (isFence) AudioManager.instance.PlayOneShot(FMODEvents.instance.FenceGate);
-
-            SignalArguments args = new SignalArguments();
-            args.intArgs.Add(targetSpawnPointIndex);
-            args.objectArgs.Add(levelDataResource);
-
-            this.gameObject.SetActive(false);
-
-            startLoadSignal.Emit(args);
+            LoadLevel();
         }
+        
+    }
+
+    public void LoadLevel()
+    {
+        Debug.Log("Going to try to load!");
+
+        if (isDoor) AudioManager.instance.PlayOneShot(FMODEvents.instance.WoodenDoor);
+        else if (isFence) AudioManager.instance.PlayOneShot(FMODEvents.instance.FenceGate);
+
+        SignalArguments args = new SignalArguments();
+        args.intArgs.Add(targetSpawnPointIndex);
+        args.objectArgs.Add(levelDataResource);
+
+        this.gameObject.SetActive(false);
+
+        startLoadSignal.Emit(args);
     }
 }
