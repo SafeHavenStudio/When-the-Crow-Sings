@@ -54,7 +54,6 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference HarshWind { get; private set; }
     [field: SerializeField] public EventReference LightWind { get; private set; }
-    [field: SerializeField] public EventReference PowerRoomAmbience { get; private set; }
 
     [field: Header("Music")]
     [field: SerializeField] public EventReference AreaMusic { get; private set; }
