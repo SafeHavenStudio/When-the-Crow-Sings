@@ -75,6 +75,9 @@ public class StirringQTE : QuickTimeEvent
             FishingReelSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.FishingReel);
             cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
             updateMusic();
+            cutsceneInteractable.splashEffect.Play();
+            cutsceneInteractable.ripple2.Play();
+            cutsceneInteractable.ripple3.Play();
         }
 
         StartQTEFr();
