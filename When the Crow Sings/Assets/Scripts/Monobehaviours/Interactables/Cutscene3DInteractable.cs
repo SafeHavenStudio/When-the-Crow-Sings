@@ -78,23 +78,15 @@ public class Cutscene3DInteractable : MonoBehaviour
 
         fishingRod = FindObjectOfType<FishingRod>();
         poleParts = fishingRod.GetComponentsInChildren<MeshRenderer>();
-        polePartsSkinned = fishingRod.GetComponentsInChildren<SkinnedMeshRenderer>();
         fishingRodOnTheGround = this.gameObject.GetComponentsInChildren<MeshRenderer>();
         lineRenderer = FindObjectOfType<LineRenderer>();
 
-        lineRenderer.enabled = true;
+        lineRenderer.enabled = fishingPoleParts;
 
         foreach (MeshRenderer part in poleParts)
         {
             part.enabled = fishingPoleParts;
             Debug.Log("Setting the fishing rod in hand active");
-        }
-
-        foreach (SkinnedMeshRenderer part in polePartsSkinned)
-        {
-            part.enabled = fishingPoleParts;
-            lineRenderer.enabled = fishingPoleParts;
-            Debug.Log("Setting the line and hook active");
         }
 
         foreach (MeshRenderer part in fishingRodOnTheGround)
