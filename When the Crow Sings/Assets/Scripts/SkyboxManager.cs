@@ -53,6 +53,6 @@ public class SkyboxManager : MonoBehaviour
 
         else preferredSkybox = blackSkybox;
         RenderSettings.skybox = preferredSkybox;
-        Debug.Log("you are inside there is no sky");
+        Debug.Log("you are inside there is no sky there is nothing life is meaningless");
     }
 }
