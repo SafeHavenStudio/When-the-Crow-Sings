@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: e6e18744d5061aa4fba75aa3d0add21e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -35530,7 +35530,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 711, y: 395}
+  m_AnchoredPosition: {x: 736, y: 402}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1897224492
@@ -39487,6 +39487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChanceRoomLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 7018123819021616508, guid: 563373b2797e31e48917c3aa9779f6bb,
+        type: 3}
+      propertyPath: pfInteractArrow
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4931641952728137522, guid: 563373b2797e31e48917c3aa9779f6bb, type: 3}
     - {fileID: 1186738049909941713, guid: 563373b2797e31e48917c3aa9779f6bb, type: 3}
@@ -39544,6 +39549,54 @@ RectTransform:
   m_AnchoredPosition: {x: 10.223473, y: -148.90002}
   m_SizeDelta: {x: 89.68625, y: 89.68623}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2119907532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119907533}
+  - component: {fileID: 2119907534}
+  m_Layer: 0
+  m_Name: SkyboxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119907533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119907532}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1381248603434131218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119907534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119907532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4e5dcde6010374bbef80b62927e96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  morningSkybox: {fileID: 2100000, guid: 96a1415f2dd68a149a9fa1c6f0f8e69e, type: 2}
+  afternoonSkybox: {fileID: 2100000, guid: 32a50d39c2f58664a8b069529e802019, type: 2}
+  nightSkybox: {fileID: 2100000, guid: 837d2b332fdece54092b7341676db40f, type: 2}
+  blackSkybox: {fileID: 2100000, guid: e6e18744d5061aa4fba75aa3d0add21e, type: 2}
 --- !u!1 &2125755875
 GameObject:
   m_ObjectHideFlags: 0
@@ -40977,6 +41030,7 @@ Transform:
   - {fileID: 824475831}
   - {fileID: 99644537}
   - {fileID: 1200959751}
+  - {fileID: 2119907533}
   m_Father: {fileID: 6160339982780498480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384221740933879877
