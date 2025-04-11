@@ -16,6 +16,7 @@ if theodoor == 2:
 	Theodore_Sigh: CAN YOU CATCH A CLUE? GO AWAY!!!
 else:
 	It seems I've pissed off the guy inside enough that he just lets out an exasperated sigh when I knock. Maybe there's another way in...
+	=> END
 set theodoor += 1;
 => ending_call
 
@@ -28,7 +29,7 @@ if TheodoreIntroduction == true:
 	I bet I can use this to get in somehow. Here I come, little piggie.
 else:
 	Wonder who left this here. Might be useful later..
-=> ending_call
+=> END
 
 ~ hole_lol
 if TheoPickaxe == true:
@@ -43,7 +44,7 @@ if TheodoreIntroduction == true:
 	set MFTheodoreTPC = true;
 else:
 	A boarded up hole. Why'd they patch it up if nobody lives out here anymore?
-=> ending_call
+=> END
 
 ~ telescope
 if timeOfDay == 1:
