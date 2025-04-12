@@ -129,7 +129,7 @@ public class SaveDataAccess
 
     public static void WriteDataToDisk()
     {
-        dataSavedSignal.Emit();
+        if (dataSavedSignal != null) dataSavedSignal.Emit();
 
         switch (saveData.saveDataVersion)
         {

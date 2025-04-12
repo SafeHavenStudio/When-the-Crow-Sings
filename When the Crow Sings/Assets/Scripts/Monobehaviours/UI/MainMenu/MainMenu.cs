@@ -89,8 +89,17 @@ public class MainMenu : MonoBehaviour
         updateMusic();
     }
 
+
+    public FadeToBlack fadeToBlack;
+
+    public GameObject newGameOverlay;
     IEnumerator NewGame()
     {
+        newGameButtons.SetActive(false);
+        foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
+
+        yield return StartCoroutine(fadeToBlack.FadeIn());
+
         yield return StartCoroutine(SaveDataAccess.EraseDataFromDisk());
         SaveDataAccess.ResetSaveData();
         //mainMenuDebugLoadHolder.resourceToLoad = allLevels.levelDataResources[1];
