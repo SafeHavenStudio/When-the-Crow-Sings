@@ -49,6 +49,8 @@ public class PlayerController : StateMachineComponent, IService
     [HideInInspector]
     public float gravityVelocity;
 
+    public float turnSpeed = 10f;
+
     public float maxWalkSpeed;
     public float minWalkSpeed;
     public float minSprintSpeed;
