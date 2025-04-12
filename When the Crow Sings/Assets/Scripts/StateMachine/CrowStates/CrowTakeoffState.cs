@@ -35,6 +35,8 @@ public class CrowTakeoffState : StateMachineState
             s.crowAnimator.SetBool("isIdle", false);
             s.crowAnimator.SetBool("isPecking", false);
 
+            s.crowAnimator.SetBool("isInTransitionState", true);
+
             s.StartCoroutine(WaitThenEnterTargetState());
         }        
     }
@@ -42,6 +44,9 @@ public class CrowTakeoffState : StateMachineState
     IEnumerator WaitThenEnterTargetState()
     {
         yield return new WaitForSeconds(.5f);
+
+
+        s.crowAnimator.SetBool("isInTransitionState", false);
         s.stateMachine.Enter("CrowTargetState");
     }
 }
