@@ -103,7 +103,7 @@ public class BirdBrain : StateMachineComponent
 
     public void ApplyGravityWhileStill()
     {
-        controller.Move(new Vector3(0, -1f, 0));
+        controller.Move(new Vector3(0, -10f * Time.deltaTime, 0));
     }
 
     public void StartFlyingTowardBirdseed(GameObject _target)
@@ -134,6 +134,8 @@ public class BirdBrain : StateMachineComponent
         else if (other.GetComponent<CrowTarget>() && target != restPoint.transform)
         {
             other.GetComponent<CrowTarget>().StartActingAsObstacle(secondsToPeck);
+
+            //transform.position = other.transform.position + new Vector3(0, 1, 0);
             stateMachine.Enter("CrowPeckState");
         }
     }
