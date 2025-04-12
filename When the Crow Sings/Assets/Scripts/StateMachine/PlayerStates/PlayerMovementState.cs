@@ -119,7 +119,7 @@ public class PlayerMovementState : StateMachineState
         if (movement.x != 0 || movement.z != 0)
         {
             Quaternion toRotation = Quaternion.LookRotation(new Vector3(movement.x, 0, movement.z));
-            float turnLerpSpeed = 10f;//75f;
+            float turnLerpSpeed = s.turnSpeed;
             s.transform.rotation = Quaternion.Lerp(s.transform.rotation, Quaternion.RotateTowards(s.transform.rotation, toRotation, 180), turnLerpSpeed * deltaTime);
 
 
