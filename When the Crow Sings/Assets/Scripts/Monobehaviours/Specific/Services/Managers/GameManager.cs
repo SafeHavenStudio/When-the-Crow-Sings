@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static Cinematic_SCN_Manager;
 
 public class GameManager : MonoBehaviour, IService
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour, IService
         ServiceLocator.Register(this);
     }
 
+    public GameStateManager gameStateManager;
     public GameObject imagePopupUi;
     public void PopupImage(SignalArguments args)
     {
@@ -25,26 +27,40 @@ public class GameManager : MonoBehaviour, IService
     }
     public void OnEnemyCaughtPlayer()
     {
-        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.GAME_OVER);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Death);
+        SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.GAME_OVER);
     }
     public void OnCutsceneSignal()
     {
-        Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_NIGHT1);
+        SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_NIGHT1);
     }
     public void OnCutsceneSignalEnd(int _whichEnding)
     {
         switch (_whichEnding)
         {
             case 0:
-                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_0);
+                SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_0);
                 break;
             case 1:
-                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_1);
+                SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_1);
                 break;
             case 2:
-                Cinematic_SCN_Manager.LoadCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_2);
+                SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior.CUTSCENE_ENDING_2);
                 break;
         }
         
+    }
+
+    public FadeToBlack fadeToBlack;
+
+    void SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior desiredBehavior)
+    {
+        StartCoroutine(_SwitchToCinematicScene(desiredBehavior));
+    }
+    IEnumerator _SwitchToCinematicScene(Cinematic_SCN_Manager.DesiredBehavior desiredBehavior)
+    {
+        gameStateManager.DestroyActors();
+        yield return StartCoroutine(fadeToBlack.FadeIn());
+        Cinematic_SCN_Manager.LoadCinematicScene(desiredBehavior);
     }
 }

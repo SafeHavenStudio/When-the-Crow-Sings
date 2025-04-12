@@ -14,7 +14,7 @@ public class FadeToBlack : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         while (image.color.a < 1.0f)
         {
@@ -25,7 +25,7 @@ public class FadeToBlack : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         while (image.color.a > 0)
         {
