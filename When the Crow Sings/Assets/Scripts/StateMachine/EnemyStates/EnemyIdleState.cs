@@ -18,6 +18,11 @@ public class EnemyIdleState : EnemyState
 
     private IEnumerator exitStateAfterTime()
     {
+        while (SaveDataAccess.saveData.boolFlags["NightIntroSeen"] == false)
+        {
+            yield return null;
+        }
+
         s.navMeshAgent.destination = s.transform.position;
         yield return new WaitForSeconds(s.timeToWaitBetweenWander);
         s.stateMachine.Enter("EnemyPatrolState");
