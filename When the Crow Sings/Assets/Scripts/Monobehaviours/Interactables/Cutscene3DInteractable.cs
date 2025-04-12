@@ -16,6 +16,9 @@ public class Cutscene3DInteractable : MonoBehaviour
     private MeshRenderer[] fishingRodOnTheGround;
     public SpriteRenderer arrow;
     public ParticleSystem rippleEffect;
+    public ParticleSystem ripple2;
+    public ParticleSystem ripple3;
+    public ParticleSystem splashEffect;
     public Animator animator;
     private LineRenderer lineRenderer;
 
@@ -30,9 +33,11 @@ public class Cutscene3DInteractable : MonoBehaviour
     {
         cutsceneFinder.fadeToBlack();
         StartCoroutine(fadeDelay(false));
-        lineRenderer.enabled = false;
+        splashEffect.Stop();
         rippleEffect.Stop();
-        Debug.Log("Ripple effect stopped");
+        ripple2.Stop();
+        ripple3.Stop();
+        lineRenderer.enabled = false;
     }
     
     public void SetPositionRotation(Vector3 targetCoordinates)
@@ -78,23 +83,15 @@ public class Cutscene3DInteractable : MonoBehaviour
 
         fishingRod = FindObjectOfType<FishingRod>();
         poleParts = fishingRod.GetComponentsInChildren<MeshRenderer>();
-        polePartsSkinned = fishingRod.GetComponentsInChildren<SkinnedMeshRenderer>();
         fishingRodOnTheGround = this.gameObject.GetComponentsInChildren<MeshRenderer>();
         lineRenderer = FindObjectOfType<LineRenderer>();
 
-        lineRenderer.enabled = true;
+        lineRenderer.enabled = fishingPoleParts;
 
         foreach (MeshRenderer part in poleParts)
         {
             part.enabled = fishingPoleParts;
             Debug.Log("Setting the fishing rod in hand active");
-        }
-
-        foreach (SkinnedMeshRenderer part in polePartsSkinned)
-        {
-            part.enabled = fishingPoleParts;
-            lineRenderer.enabled = fishingPoleParts;
-            Debug.Log("Setting the line and hook active");
         }
 
         foreach (MeshRenderer part in fishingRodOnTheGround)
