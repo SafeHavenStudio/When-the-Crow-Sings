@@ -18,6 +18,7 @@ public class TimingMeterQTE : QuickTimeEvent
     public RectTransform targetRangeHighlight;
     public Image spacebar;
     public Image bKey;
+    private ParticleSystem featherParticle;
 
     [HideInInspector]
     public int winCount;
@@ -39,6 +40,9 @@ public class TimingMeterQTE : QuickTimeEvent
             spacebar.enabled = true;
             bKey.enabled = false;
         }
+
+        if(featherParticle == null)
+        featherParticle = GetComponentInChildren<ParticleSystem>();
 
         gameSettings = FindObjectOfType<GameSettings>();
         SetTargetRangeMarkers();
@@ -112,7 +116,6 @@ public class TimingMeterQTE : QuickTimeEvent
 
                 isFinished = true;
                 speed = 0;
-                background.color = Color.green;
                 StartCoroutine(waitForSuccess());
                 //SucceedQTE();
             }
@@ -146,6 +149,7 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(true);
         globalFinishedQteSignal.Emit(args);
+        featherParticle.Stop();
     }
     public override void FailQTE()
     {
@@ -154,10 +158,12 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
+        featherParticle.Stop();
     }
 
     private IEnumerator waitForSuccess()
     {
+        featherParticle.Play();
         background.color = Color.green;
 
         yield return new WaitForSeconds(1f);
