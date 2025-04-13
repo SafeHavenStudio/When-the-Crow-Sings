@@ -24,6 +24,8 @@ public class StirringQTE : QuickTimeEvent
     private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
     private Cutscene3DInteractable cutsceneInteractable;
     private int lastShownStep = -1;
+    public ParticleSystem featherParticle;
+    public ParticleSystem featherParticle2;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -171,6 +173,8 @@ public class StirringQTE : QuickTimeEvent
     {
         AudioManager.instance.PlayOneShot(FMODEvents.instance.QteSucceeded, this.transform.position);
         firstTime = false;
+        featherParticle.Play();
+        featherParticle2.Play();
         yield return new WaitForSeconds(1f);
         SignalArguments args = new SignalArguments();
         args.boolArgs.Add(true);

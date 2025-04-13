@@ -18,7 +18,8 @@ public class TimingMeterQTE : QuickTimeEvent
     public RectTransform targetRangeHighlight;
     public Image spacebar;
     public Image bKey;
-    private ParticleSystem featherParticle;
+    public ParticleSystem featherParticle;
+    public ParticleSystem featherParticle2;
 
     [HideInInspector]
     public int winCount;
@@ -40,9 +41,6 @@ public class TimingMeterQTE : QuickTimeEvent
             spacebar.enabled = true;
             bKey.enabled = false;
         }
-
-        if(featherParticle == null)
-        featherParticle = GetComponentInChildren<ParticleSystem>();
 
         gameSettings = FindObjectOfType<GameSettings>();
         SetTargetRangeMarkers();
@@ -109,6 +107,9 @@ public class TimingMeterQTE : QuickTimeEvent
             Debug.Log(winCount + "/" + winCounter);
             if (winCount >= winCounter)
             {
+                featherParticle.Play();
+                featherParticle2.Play();
+
                 Debug.Log("Successful QTE");
                 //RandomizeMeter();
                 if(!isFinished)
@@ -149,7 +150,6 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(true);
         globalFinishedQteSignal.Emit(args);
-        featherParticle.Stop();
     }
     public override void FailQTE()
     {
@@ -158,20 +158,21 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
-        featherParticle.Stop();
     }
 
     private IEnumerator waitForSuccess()
     {
-        featherParticle.Play();
         background.color = Color.green;
 
         yield return new WaitForSeconds(1f);
 
         if (winCount >= winCounter)
-        SucceedQTE();
+        {
+            yield return new WaitForSeconds(1f);
+            SucceedQTE();
+        }
         else
-        background.color = Color.white;
+            background.color = Color.white;
     }
 
     private IEnumerator waitForFailure()
