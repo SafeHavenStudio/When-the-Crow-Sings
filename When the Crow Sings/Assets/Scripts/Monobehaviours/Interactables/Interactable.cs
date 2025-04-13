@@ -8,18 +8,23 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
+    public bool hidePlayerWhileInteracting = false;
     public SpriteRenderer pfInteractArrow;
 
     public bool autoInteract = false;
 
-    public enum PlayerResponses { NONE, FREEZE, FEAR}
+    public enum PlayerResponses { NONE, FREEZE, FEAR, FREEZE_AND_TALK }
     public PlayerResponses playerResponse = PlayerResponses.NONE;
+
+    public bool playerFacesInteractable = false;
 
     public GameSignal interactionStartedSignal;
 
     public UnityEvent onInteractionEvent;
 
     public Transform playerSnapPoint;
+
+    
 
 
     public void DoInteraction()
@@ -71,6 +76,11 @@ public class Interactable : MonoBehaviour
         SignalArguments args = new SignalArguments();
         args.objectArgs.Add(this);
         interactionStartedSignal.Emit(args);
+
+        if (hidePlayerWhileInteracting)
+        {
+            ServiceLocator.Get<PlayerController>().HidePlayerVisuals();
+        }
 
         onInteractionEvent.Invoke();
     }

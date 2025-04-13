@@ -33,8 +33,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     {
         desiredBehavior = _desiredBehavior;
         Debug.Log("Load() Desired behavior is " + desiredBehavior.ToString());
-        if (desiredBehavior == DesiredBehavior.GAME_OVER)
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.Death);
+        
 
         SceneManager.LoadScene("Cinematic_SCN"); // Not using a scenereference because it'll only ever be this one spot.
     }
@@ -95,7 +94,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
                 break;
             default: // This should include DesiredBehavior.NONE
                 throw new System.Exception("Cinematic_SCN WAS NOT CORRECTLY LOADED, PLEASE USE LoadCinematicScene() AND PASS A VALID DesiredBehavior.");
-                break;
+                //break;
         }
         desiredBehavior = DesiredBehavior.NONE;
     }

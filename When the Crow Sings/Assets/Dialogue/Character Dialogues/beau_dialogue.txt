@@ -152,12 +152,22 @@ emit 1;
 if day == 1:
 	=> curfew_check
 else:
-	=> time_forward
+	=> curfew_check_2
+
 ~ curfew_check
 if timeOfDay == 2:
 	set timeOfDay += 1;
 	It's almost time for dinner, then I've got to be back at the <color=#5b5b1f>lodging</color> before curfew. Better get going.
 	emit 2;
+	=> ending_call
+else:
+	=> time_forward
+
+~ curfew_check_2
+if timeOfDay == 2:
+	set timeOfDay += 1;
+	Time to eat and head back..
+	call LoadChanceRoom();
 	=> ending_call
 else:
 	=> time_forward
@@ -188,6 +198,8 @@ if BeauBB == 1:
 	=> B1
 if BeauBB == 2:
 	=> B2
+if BeauBB == 3:
+	=> B3
 else:
 	set BeauExhausted = true;
 	Beau_Awkward: Listen bud, I've liked talking to ya, but I can't slack and chat all day.
@@ -280,13 +292,13 @@ Beau_Smile: 'Sup bud?
 Beau: Hello again. You must be bored to be hanging around here, eh?
 Chance: You could say that, yeah.
 - Your parents
-	Chance: So, are your parents here?
+	Chance: Ae your parents here somewhere?
 	Beau: Nah, not anymore.
 	Chance_Thinking: Not anymore?
 	Beau_Awkward: Well, my mom passed a long while before I ever moved here. My dad came with me, but he was on his way out too. 
 	Beau: He's buried out in the forest area, by the river. I figured it was the closest we could get to the ocean.
 	Chance_Thinking: The ocean?
-	Beau_Smile: Yeah, it's tradition where he was from to put your dead out to see. I went for second best, buried him by the water and made him a little rock alter. It's the way my mom would've wanted.
+	Beau_Smile: Yeah, it's tradition where he was from to put your dead out to sea. I went for second best, buried him by the water and made him a little rock altar. It's the way my mom would've wanted.
 	Chance: They had different traditions?
 	Beau_Smile: You betcha. They both came from different groups up north as they migrated down here, and I guess it was real different up there.
 	Beau: What about where you're from? Any special rituals or traditions.
@@ -307,4 +319,46 @@ Chance: You could say that, yeah.
 	Chance: Spanish.
 	set FranciscoHasBeenHeardOf = true;
 	Beau_Smile: Ohh, so maybe you'll be able to understand some of the stuff <color=#813408>Francisco</color> mutters under his breath during my checkups!
+=> BBEnd
+
+~ B3
+Beau: Can't get enough of Beau, eh? What's up?
+- Farida
+	Chance_Thinking: So, you don't seem all too fond of <color=#813408>Farida</color>... Is there a reason?
+	Beau_Awkward: It's less that I don't like her and more that she's not a fan of me.
+	Chance: Did you do something to her?
+	Beau_Worried: Not as far as I know..
+	Beau_Awkward: She's never exactly been the nicest lady, but she's been a little more cold lately.
+	Beau_Teasing: Any colder, and I might think I was back home again!
+	Chance_Thinking: But she doesn't have a real reason to be upset with you?
+	Beau: Well, I think she sees someone like me and thinks that I'm lazy for not bending over backward for regulation.
+	Beau_Excited: 'Far as I'm concerned, as long as the food stays good, I've done my job.
+	Beau_Awkward: But she's from one of those fancy compounds where all they do is eat, sleep, and study.
+	Beau_Worried: She's been pretty tight about everything since I got here. Maybe <color=#813408>Farida</color> just wasn't too keen on having new residents for some reason.
+	Chance_Thinking: Even if something hapepned, she shouldn't be taking it out on you.. It seems like you do your job just fine to me.
+	Beau_Teasing: Aw shucks, thanks <color=#813408>Chance</color>.
+	Beau_Awkward: Maybe she'll come around! But as it is she just harps on and on about the power and is always staring at that whiteboard she's got.
+	Chance_Annoyed: Well... I like you, <color=#813408>Beau</color>.
+	Beau_Teasing: Ooo, gonna ask me out on a date, new kid?
+	Chance_Sigh: Not like that!!!
+	Chance_Annoyed: Nevermind.
+- Quinn
+	Chance: You recommended I go to <color=#813408>Quinn</color> earlier, are you two friends?
+	Beau_Smile: Oh yeah, the bestest.
+	Chance_Thinking: What do you guys do together? I mean, you're working most of the time, right?
+	Beau_Excited: Well sure, right now. We're going into a new season soon, so it's important we're both on our best behavior when it comes to food preservation.
+	Beau_Smile: But when the cold hits, it takes care of itself. Then, I usually hang around in <color=#813408>Quinn</color>'s if I'm not in the way. 
+	Chance: Do you guys have a lot in common?
+	Beau_Awkward: Nah.. well.. maybe!
+	Beau_Excited: We're both from far off, nowhere near here. Umm.. Both our parents are gone.. We both like music, I really like that little boombox they have in the greenhouse.
+	Beau_Smile: We both like to relax, sometimes we-
+	Beau_Teasing: Ah, nevermind.
+	Chance_Annoyed: Sometimes you what?
+	Beau_Teasing: Can't share, newbie. 
+	Chance_Sigh: Why bring it up then?
+	Beau_Teasing: Ah I don't know you well enough yet! Maybe if you helped me out some more, I might tell you.
+	Chance_Sigh: No way! I already did a pointless task for you!
+	Chance_Angry: I'd rather not know than do some more useless random bullshit.
+	Beau_Smile: Then I guess you'll never know, eh?
+	Chance_Annoyed: I guess so!
 => BBEnd

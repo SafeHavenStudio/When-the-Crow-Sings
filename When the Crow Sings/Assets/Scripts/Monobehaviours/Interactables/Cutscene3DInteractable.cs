@@ -11,11 +11,16 @@ public class Cutscene3DInteractable : MonoBehaviour
     public FishingRod fishingRod;
     public QTEInteractable qte;
     public MeshRenderer[] poleParts;
+    public SkinnedMeshRenderer[] polePartsSkinned;
     //private bool playerInTrigger;
     private MeshRenderer[] fishingRodOnTheGround;
     public SpriteRenderer arrow;
     public ParticleSystem rippleEffect;
+    public ParticleSystem ripple2;
+    public ParticleSystem ripple3;
+    public ParticleSystem splashEffect;
     public Animator animator;
+    private LineRenderer lineRenderer;
 
     public void startCutscene()
     {
@@ -28,8 +33,11 @@ public class Cutscene3DInteractable : MonoBehaviour
     {
         cutsceneFinder.fadeToBlack();
         StartCoroutine(fadeDelay(false));
+        splashEffect.Stop();
         rippleEffect.Stop();
-        Debug.Log("Ripple effect stopped");
+        ripple2.Stop();
+        ripple3.Stop();
+        lineRenderer.enabled = false;
     }
     
     public void SetPositionRotation(Vector3 targetCoordinates)
@@ -76,6 +84,9 @@ public class Cutscene3DInteractable : MonoBehaviour
         fishingRod = FindObjectOfType<FishingRod>();
         poleParts = fishingRod.GetComponentsInChildren<MeshRenderer>();
         fishingRodOnTheGround = this.gameObject.GetComponentsInChildren<MeshRenderer>();
+        lineRenderer = FindObjectOfType<LineRenderer>();
+
+        lineRenderer.enabled = fishingPoleParts;
 
         foreach (MeshRenderer part in poleParts)
         {
@@ -94,12 +105,11 @@ public class Cutscene3DInteractable : MonoBehaviour
         {
             SetPositionRotation(new Vector3(54.5f, -.5f, 342.5f));
             Debug.Log("Sending chance to fish");
-            rippleEffect = animator.GetComponentInChildren<ParticleSystem>();
             rippleEffect.Play();
         }
 
-        cutsceneFinder.fadeOutOfBlack();
         animator.SetBool("animIsFishing", false);
+        cutsceneFinder.fadeOutOfBlack();
     }
 
 }

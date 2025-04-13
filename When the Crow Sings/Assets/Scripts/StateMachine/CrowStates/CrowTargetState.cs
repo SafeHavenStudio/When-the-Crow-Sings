@@ -42,12 +42,5 @@ public class CrowTargetState : StateMachineState
             s.transform.position = Vector3.MoveTowards(s.transform.position, s.target.position, -distanceToTeleport);
             s.controller.enabled = true;
         }
-
-        
-
-        
-
     }
-
-    
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 
 public class PlayerController : StateMachineComponent, IService
@@ -13,6 +14,7 @@ public class PlayerController : StateMachineComponent, IService
     public Animator playerAnimator;
 
     public float timeToFear = 2f;
+    public GameSettings gameSettings;
 
 
     [SerializeField]
@@ -25,7 +27,12 @@ public class PlayerController : StateMachineComponent, IService
     //[HideInInspector]
 
     //private bool _isSprinting;
+    [HideInInspector]
     public bool isSprintingButtonHeld;
+
+    [HideInInspector]
+    public bool isAlwaysSprinting = false;
+
     //{
     //    set
     //    {
@@ -42,6 +49,8 @@ public class PlayerController : StateMachineComponent, IService
     [HideInInspector]
     public float gravityVelocity;
 
+    public float turnSpeed = 10f;
+
     public float maxWalkSpeed;
     public float minWalkSpeed;
     public float minSprintSpeed;
@@ -57,6 +66,11 @@ public class PlayerController : StateMachineComponent, IService
 
     public GameObject trajectoryLine;
 
+    public LayerMask SlopeLayerMask;
+
+    public Transform playerLookAtTransform;
+    public Transform playerLookAtTransformHolder;
+
     public GameSignal pauseSignalTEMP;
     public GameSignal mapSignalTEMP;
     public GameSignal historySignalTEMP;
@@ -64,12 +78,12 @@ public class PlayerController : StateMachineComponent, IService
 
     public void ApplyGravity(float deltaTime)
     {
-        // Apply gravity to velocity
+        //Apply gravity to velocity
         gravityVelocity += gravity * gravityMultiplier * deltaTime;
 
         if (characterController.isGrounded && gravityVelocity < 0)
         {
-            gravityVelocity = 0; // Reset vertical velocity
+            gravityVelocity = 0; //Reset vertical velocity
         }
     }
 
@@ -92,6 +106,10 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
         stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
+
+        gameSettings = FindObjectOfType<GameSettings>(true);
+        gameSettings.FindPlayerController();
+        gameSettings.isDecayingCheck();
     }
     private void Start()
     {
@@ -115,6 +133,15 @@ public class PlayerController : StateMachineComponent, IService
         var direction = throwTarget.transform.position - throwPosition.transform.position;
         direction.y = 4;
         BirdseedController.Create(pfBirdseedProjectile, throwPosition, direction);
+    }
+
+    public List<GameObject> playerVisuals;
+    public void HidePlayerVisuals(bool _hide = false)
+    {
+        foreach (GameObject i in playerVisuals)
+        {
+            i.SetActive(_hide);
+        }
     }
     private void OnEnable()
     {
@@ -168,11 +195,20 @@ public class PlayerController : StateMachineComponent, IService
             case Interactable.PlayerResponses.FEAR:
                 stateMachine.Enter("PlayerFearState");
                 break;
+            case Interactable.PlayerResponses.FREEZE_AND_TALK:
+                // TODO: Make Chane actually have a talk animation.
+                isInteracting = true;
+                stateMachine.Enter("PlayerFrozenState");
+                break;
         }
         
         if (mostRecentInteractable.playerSnapPoint != null)
         {
             SnapPlayerToTransform(mostRecentInteractable.playerSnapPoint);
+        }
+        else if (mostRecentInteractable.playerFacesInteractable)
+        {
+            SnapPlayerToTransform(mostRecentInteractable.transform, true);
         }
     }
 
@@ -181,13 +217,22 @@ public class PlayerController : StateMachineComponent, IService
     {
         isInteracting = false;
         playerInteractionArea.StartCooldown();
+
+        HidePlayerVisuals(true);
         stateMachine.Enter("PlayerMovementState");
     }
 
-    public void SnapPlayerToTransform(Transform _transform)
+    public void SnapPlayerToTransform(Transform _transform, bool onlyRotation = false)
     {
         characterController.enabled = false;
-        transform.SetPositionAndRotation(_transform.position, _transform.rotation);
+        if (onlyRotation)
+        {
+            Vector3 direction = _transform.position - transform.position;
+            direction.y = 0;
+            transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            //transform.SetPositionAndRotation(transform.position, _transform.rotation);
+        }
+        else transform.SetPositionAndRotation(_transform.position, _transform.rotation);
         characterController.enabled = true;
     }
 

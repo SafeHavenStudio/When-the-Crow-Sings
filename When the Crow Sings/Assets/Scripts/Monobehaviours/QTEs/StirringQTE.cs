@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using FMOD.Studio;
+using FMODUnity;
 
 public class StirringQTE : QuickTimeEvent
 {
@@ -22,6 +23,7 @@ public class StirringQTE : QuickTimeEvent
     [HideInInspector] public bool failed = false;
     private bool aboveZero = false; //checks if the qte was started and drops back to 0 if failed
     private Cutscene3DInteractable cutsceneInteractable;
+    private int lastShownStep = -1;
 
     public Image upJoystick;
     public Image rightJoystick;
@@ -73,6 +75,9 @@ public class StirringQTE : QuickTimeEvent
             FishingReelSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.FishingReel);
             cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
             updateMusic();
+            cutsceneInteractable.splashEffect.Play();
+            cutsceneInteractable.ripple2.Play();
+            cutsceneInteractable.ripple3.Play();
         }
 
         StartQTEFr();
@@ -88,7 +93,7 @@ public class StirringQTE : QuickTimeEvent
         }
         else
         {
-            FishingReelSound.stop(STOP_MODE.ALLOWFADEOUT);
+            FishingReelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
 
@@ -144,6 +149,8 @@ public class StirringQTE : QuickTimeEvent
         if (score > 0)
         {
             aboveZero = true;
+
+            if(isDecaying)
             StartCoroutine(decayDelay());
         }
         else if (score <= 0 && aboveZero == true)
@@ -157,7 +164,7 @@ public class StirringQTE : QuickTimeEvent
     private IEnumerator decayDelay()
     {
         yield return new WaitForSeconds(1.5f);
-        score -= 0.03f;
+        score -= 0.02f;
     }
 
     private IEnumerator waitBeforeCompletion()
@@ -173,6 +180,7 @@ public class StirringQTE : QuickTimeEvent
 
         if (type == QTETYPES.isFishing)
         {
+            cutsceneInteractable = FindObjectOfType<Cutscene3DInteractable>();
             cutsceneInteractable.FinishCutscene();
         }
     }
@@ -293,6 +301,10 @@ public class StirringQTE : QuickTimeEvent
 
     public void showArrowDirection()
     {
+        if (RightCurrentStep == lastShownStep) return;
+
+        lastShownStep = RightCurrentStep;
+
         rightUpJoystick.enabled = false;
         rightRightJoystick.enabled = false;
         rightLeftJoystick.enabled = false;
@@ -308,11 +320,18 @@ public class StirringQTE : QuickTimeEvent
         if (RightCurrentStep >= 0 && RightCurrentStep < arrowDirections.Length)
         {
             arrowDirections[RightCurrentStep].enabled = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.WaterSplash);
+            Debug.Log("Playing splash");
+
         }
     }
 
     public void showRightJoystickDirection()
     {
+        if (RightCurrentStep == lastShownStep) return;
+
+        lastShownStep = RightCurrentStep;
+
         upArrow.enabled = false;
         rightArrow.enabled = false;
         leftArrow.enabled = false;
@@ -331,6 +350,8 @@ public class StirringQTE : QuickTimeEvent
         if (RightCurrentStep >= 0 && RightCurrentStep < joystickDirections.Length)
         {
             joystickDirections[RightCurrentStep].enabled = true;
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.WaterSplash);
+            Debug.Log("Playing splash");
         }
     }
 

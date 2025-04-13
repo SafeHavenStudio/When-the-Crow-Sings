@@ -61,7 +61,7 @@ set RecCenterDoorUnlocked = true;
 set WoodPileMovable = true;
 set MFTheodoreTag = true;
 set TheodoreHasBeenHeardOf = true;
-Jazmyne_Annoyed: Ugh... it took forever to get them back down. The little EVOs have been so fussy lately. They barely sleep at night, and are so cranky during the day. What has gotten into them?
+Jazmyne_Annoyed: Ugh... The little EVOs have been so fussy lately. They barely sleep at night, and are so cranky during the day. What has gotten into them?
 Jazmyne_Exhausted: ...
 Jazmyne: Oh! You did what I asked you to!
 Chance_Smile: Yeah, it wasn't too bad. I am used to cleaning up after kids.
@@ -126,6 +126,8 @@ if JazmyneBB == 1:
 	=> J1
 if JazmyneBB == 2:
 	=> J2
+if JazmyneBB == 3:
+	=> J3
 else:
 set JazmyneExhausted = true;
 Jazmyne_Exhausted: I appreciate your interest, but I'm very.. very tired. I'm going to rest while the little ones are out of my fur.
@@ -264,3 +266,84 @@ Chance_Smile: Hey.
 	Jazmyne: Of course! Since you're the newest edition to the compound, you'd have first pick next movie night.
 	Chance_Smile: Oh, sick.
 => BBEnd
+
+~ J3
+Jazmyne: Hello again, <color=#813408>Chance</color>.
+Chance_Smile: Hey, <color=#813408>Jazmyne</color>.
+Jazmyne: What're we talking about today?
+if TheodoreBaseCompleted == true:
+	- Theodore
+		Chance: So.. <color=#813408>Theodore</color>.
+		Jazmyne_Exhausted: Yes?
+		Chance: But you call him Teddy?
+		Jazmyne_Stunned: Oh, um.. Yes.
+		Chance_Thinking: Why is that?
+		Jazmyne_Sigh: I.. I try to call him <color=#813408>Theodore</color> but it's difficult.
+		Jazmyne_Annoyed: His mother used to call him Teddy, I don't know why it bothers him so badly..
+		Jazmyne_Exhausted: It's not like I'm trying to... to replace her or anything.. You call someone a name for so long, and suddenly it's some big thing..
+		Chance_Sad: Oh, I see.. Yeah he seemed pretty upset about being called that.
+		Jazmyne_Worried: You called him that?
+		Chance_Thinking: Well yeah, you called him that..
+		Jazmyne_Sigh: I won't be hearing the end of it whenever he gets back..
+		Chance_Sad: Oh, sorry. 
+		Jazmyne_Exhausted: It's alright, you couldn't have known.. Did you find anything out?
+		Chance_Thinking: I mean... Kind of. Nothing concrete.. Some about that <color=#813408>scientist</color> that some people talk about.. He gave me some junk.
+		Jazmyne_Worried: And was he alright? He didn't look hurt, or anything?
+		Chance: Mm, no, he looked okay to me. 
+		Jazmyne_Sigh: Well.. That's good at least.
+		Chance_Thinking: Do you mind me asking what's up between you two?
+		Jazmyne_Exhausted: Well we.. He thinks I want to replace his mom. Of course, I don't. I knew her, I know I can't replace her.. I just want to do good by her..
+		Chance_Sad:.. Well you must be doing a good enough job, cause he's still around.
+		Jazmyne: Thank you. I try.
+	- Living arrangements
+		Chance: Is there a reason that you guys live in here and the singles live down in the lodging?
+		Jazmyne: Ah, I'm not exactly sure! I didn't really make the arrangements. 
+		Jazmyne_Exhausted: When <color=#813408>Farida</color> got here after the power got all funny and the people-
+		Jazmyne_Stunned: Ahem!
+		Jazmyne: She decided it was for the best that we move out of the residential area... Too much energy, not enough people, a very smart decision!
+		Jazmyne_Sigh: So we packed up our things and she designated that the families would live in the rec center, since it has a big second floor and there are only a few families.
+		Jazmyne: Singles live down by the lodging, I imagine because the rooms must be hard to fit little ones into!
+		Chance_Thinking: Are the rooms here big?
+		Jazmyne_Sigh: Well, no, but they're a deal bigger than those down in the lodging. <color=#813408>Angel</color> and his family stay in the larger room upstairs.
+		Jazmyne: <color=#813408>Caleb</color> and <color=#813408>Calliope</color> stay in the other room, where <color=#813408>Beau</color> and his father used to stay..
+		Jazmyne_Sigh: Though now he lives down at the lodging...
+		Jazmyne_Exhausted: Why don't you ask <color=#813408>Farida</color> about it? I um.. I'm a little tired and I'm not sure why administrative decisions get made.
+		Chance_Thinking: Where do you stay?
+		Jazmyne: Down here, in the room I ran off to. It's the largest room because... well.. so many little ones! The ones who aren't mine go upstairs for bed during the night.
+		Chance: Ah.. right. Interesting!
+		Jazmyne: I'm glad you think so!
+	=> BBEnd
+else:
+	- Teddy
+		Chance_Thinking: What's up with this <color=#813408>Teddy</color> kid you told me about?
+		Jazmyne_Exhausted: What isn't up with him?...
+		Jazmyne: He's one of my... wards? He's a juvenile, and I watch over him. 
+		Jazmyne_Sigh: We came here from the same compound. His mother and father.. his siblings.. Well, I'm all he's got.
+		Jazmyne_Exhausted: Though he seems to be pretty upset about that.
+		Chance_Sad: Ah.. He must be having a hard time.
+		Jazmyne_Worried: Of course he is! But we all are!
+		Jazmyne_Sigh: I just wish he could see that this didn't just affect him. His mother was my friend, she helped me when I had my litter..
+		Chance_Sad: I'm sure.. he'll come around. Eventually..
+		Jazmyne_Exhausted: I know he will.. He just needs to mature a little bit.. Once he molts and gets his adult feathers come in he will need to get over it.
+		Jazmyne_Worried: I can't imagine him taking this attitude to <color=#813408>Farida</color> when he needs to do work around here.. She won't put up for it!
+		Chance_Scared: I sure hope she can put up with me when I need to get placed into a job.
+		Jazmyne: Oh I'm sure you'll be fine.. You seem well adjusted!
+		Chance: I sure hope so.
+	- Living arrangements
+		Chance: Is there a reason that you guys live in here and the singles live down in the lodging?
+		Jazmyne: Ah, I'm not exactly sure! I didn't really make the arrangements. 
+		Jazmyne_Exhausted: When <color=#813408>Farida</color> got here after the power got all funny and the people-
+		Jazmyne_Stunned: Ahem!
+		Jazmyne: She decided it was for the best that we move out of the residential area... Too much energy, not enough people, a very smart decision!
+		Jazmyne_Sigh: So we packed up our things and she designated that the families would live in the rec center, since it has a big second floor and there are only a few families.
+		Jazmyne: Singles live down by the lodging, I imagine because the rooms must be hard to fit little ones into!
+		Chance_Thinking: Are the rooms here big?
+		Jazmyne_Sigh: Well, no, but they're a deal bigger than those down in the lodging. <color=#813408>Angel</color> and his family stay in the larger room upstairs.
+		Jazmyne: <color=#813408>Caleb</color> and <color=#813408>Calliope</color> stay in the other room, where <color=#813408>Beau</color> and his father used to stay..
+		Jazmyne_Sigh: Though now he lives down at the lodging...
+		Jazmyne_Exhausted: Why don't you ask <color=#813408>Farida</color> about it? I em.. I'm a little tired and I'm not sure why administrative decisions get made.
+		Chance_Thinking: Where do you stay?
+		Jazmyne: Down here, in the room I ran off to. It's the largest room because... well.. so many little ones! The ones who aren't mine go upstairs for bed during the night.
+		Chance: Ah.. right. Interesting!
+		Jazmyne: I'm glad you think so!
+	=> BBEnd

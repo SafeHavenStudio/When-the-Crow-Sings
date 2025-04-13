@@ -111,7 +111,7 @@ Chance_Excited: Ah ah ah, no way. You fulfill your part of the bargain first.
 Theodore_Sigh: Uuuuuuugh!
 Theodore_Excited: I don't know anything except that I see those <color=#a11bbe><i>things</i></color>, walking around in the compound center sometimes. I'm sure you've seen them, I don't know what to say except they look like people who used to live here.
 Chance: Huh?
-Theodore: There used to be more people here. Like, not a lot but, a good amount. Over time, some of them started to go through ERS and they ran off. Some of them. . .
+Theodore: There used to be more people here. Like, not a lot but a good amount. Over time, some of them started to go through ERS and they ran off. Some of them. . .
 Theodore_Excited: They look like they might be people who used to live here. I can't really remember who, I didn't really talk to anyone when I first got here and it's all messed up. Something about them is familiar.
 - This place?
 	Chance: What's up with this place? Why's it so far off?
@@ -168,6 +168,8 @@ if TheodoreBB == 1:
 	=> T1
 if TheodoreBB == 2:
 	=> T2
+if TheodoreBB == 3:
+	=> T3
 else:
 	set TheodoreExhausted = true;
 	Theodore_Annoyed: Look I've had just about enough of you in my feathers. Go bother someone else.
@@ -202,7 +204,7 @@ Theodore: That's cool of him... I guess..
 Chance_Thinking: Are you guys friends or..?
 Theodore_Excited: I wouldn't say we're friends, but he probably would.
 Chance_Sigh: Yeah I'm sure you've got plenty already.
-Theodore_Annoyed: It's not like that it's just weird. He's older than me and I don't want to him to give me his big brother crap.
+Theodore_Annoyed: It's not like that, it's just weird. He's older than me and I don't want him to give me his big brother crap.
 Theodore_Angry: The last thing I need is another person thinking they need to take care of me because they feel bad for me.
 Chance_Thinking: Why would he do that?
 Theodore_Excited: The same reason <color=#813408>Jazmyne</color> does, because he knew my parents and thinks now I'm some loser who needs to talk about my feelings all the time.
@@ -235,7 +237,7 @@ He must really be having a rough time. Wonder if he was like this before...
 ~ T1
 Theodore: You again.
 - Your jacket
-	Chance: So where did you get a nice jacket like that.
+	Chance: So where did you get a nice jacket like that?
 	Theodore: The people who moved us here gave it to me when we were coming over.
 	Chance_Annoyed: Really? The clothes they gave me are not as nice as that.
 	Theodore_Excited: I can see that.
@@ -300,4 +302,47 @@ Chance_Excited: And miss out on the yelling? No way.
 		Theodore_Excited: I mean no not something specifically, but she just wanders around and talks to herself and goes through trash.
 		Chance_Smile: Kinda sounds like what you do.
 		Theodore_Stunned: !?!
+=> BBEnd
+
+~ T3
+Theodore_Annoyed: Jeez dude, don't you have anything better to do?
+Chance_Smile: Guess not.
+- The puzzle cube
+	Chance_Thinking: So what's with the puzzle box thing you wanted from me?
+	Theodore: What do you mean?
+	Chance: The cube thingie you took from me.. Like, the whole stupid scavenger hunt you made me do?
+	Theodore_Excited: Why do you care?
+	Chance_Annoyed: Can you just answer the fricken question dude? Not every interaction needs to be a game of tug of war.
+	Theodore_Stunned: ...
+	Theodore_Sigh: I just like really like puzzles.
+	Chance_Smile: Was that so hard?
+	Theodore_Angry: Wipe that smile off your face! Puzzles are important for a growing mind!
+	Chance_Smile: A growing mind?
+	Theodore_Sigh: YOU KNOW WHAT I MEAN!
+	Theodore_Angry: I just like doing puzzles, okay?! There's like, nothing to do in this spooky cesspit!!
+	Chance_Excited: I can't believe you just admitted that you need to grow and learn! That's crazy for you!
+	Theodore_Sigh: Oh my gosh, can you get out?!
+	Chance_Smile: <color=#813408>Jazmyne</color> is going to be so proud of you.
+	Theodore_Angry: GET OUT!!!
+- Your scar
+	Chance_Thinking: So where did you get your scar?
+	Theodore: That's not any of your business.
+	Chance: Aw come on, just tell me. It can't be that bad right?
+	Theodore_Excited: You really are an annoying jerk, dude.
+	Theodore_Sigh: When the compound I was from dissolved, someone attacked me.
+	Theodore: One of my friends. He was older than me, and was a caracal. He lashed out and..
+	Theodore_Excited: I'm lucky to even have my eye.
+	Chance_Sad:... Oh. I'm sorry.
+	Theodore_Stunned:...
+	Theodore: Don't be.
+	Chance_Sad: Is that also how <color=#813408>Jazmyne</color>..?
+	Theodore: I don't think so. She was already missing part of her ear when I found her. So I doubt it was..
+	Theodore_Excited: Anyway. Are you happy now?
+	Chance_Sad: I mean, no I'm not happy about it. I thought maybe it was just.. some cool scar.
+	Theodore: Well, that's what happens when you are incredibly nosy and rude, huh?
+	Chance_Thinking: I mean stuff happened to me too.
+	Theodore_Stunned: Well.. At least it isn't on your face.
+	Chance_Sad: Yeah, I guess so. 
+	Theodore: Whatever..
+	Theodore_Thinking: Maybe I should make up some cool story to tell people instead. Save me this awkward sad look on your face.
 => BBEnd

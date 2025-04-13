@@ -23,7 +23,7 @@ else:
 ~ pot_of_soup
 if AngelTaskCompleted == true:
 	Soup, professionally stirred by yours truly.
-	=> ending_call
+	=> END
 else:
 	It's soup.
 	Good soup.
@@ -47,7 +47,7 @@ if CalebTaskAccepted == true:
 	set CalebTaskCompleted = true;
 	set dirtoff = false;
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	Something shiny is in the dirt ... Better not steal from the crows.
 	=> END
@@ -60,7 +60,7 @@ if BeauTaskAccepted == true:
 	set MFBeauTC = true;
 	set HFBeauTC = true;
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	A basket of fresh vegetables. Why leave it out here? Are they not afraid of bugs eating their precious vegetables?
 	=> END
@@ -73,7 +73,7 @@ if QuinnTaskAccepted == true:
 	set QuinnTaskCompleted = true;
 	Better grab these quick.
 	emit 1;
-	=> ending_call
+	=> END
 else:
 	Big burlap sacks filled with some kind of seed. The crows are definitely enjoying this careless placement.
 	=> END
@@ -130,11 +130,13 @@ It's kinda cute.
 
 ~intro
 I should ask around about <color=#a11bbe>what happened last night</color>.
-Maybe that guy who greeted me last night knows something about it... I think he said he works at the <color=#5b5b1f>dining tent</color>.
+Maybe that guy I saw on my way in yesterday knows something about it... It looked like he worked in the <color=#5b5b1f>dining tent</color>.
+I should make sure to take notes in my journal so I don't forget anything.
 set IntroContextSeen = true;
 => ending_call
 
 ~night_intro
+Oh jeez... What's all this? The bushes look crazy and there's fog and light everywhere..
 I need to try and steer clear of the <color=#a11bbe>big guy</color>..
 if HasThrownBirdseed == false:
 	There are a ton of crows outside right now.. maybe if I use some of bird seed stash I can get them to flock down, get in his way or something.

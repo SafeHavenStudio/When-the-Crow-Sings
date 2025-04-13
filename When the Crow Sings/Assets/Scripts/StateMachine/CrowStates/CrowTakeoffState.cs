@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class CrowTakeoffState : StateMachineState
@@ -25,6 +26,8 @@ public class CrowTakeoffState : StateMachineState
         //float range = 20f;
         //s.destination = new Vector3(Random.Range(-range,range), Random.Range(range, range), Random.Range(-range, range));
 
+        // TODO: Perhaps check if the birdseed is close enough to instantly enter the 'peck' state even if it's already touching it and can't 'touch' it again?
+
         if (s.stateMachine.previousState == s.stateMachine.states["CrowTargetState"])
         {
             s.stateMachine.Enter("CrowTargetState");
@@ -35,6 +38,8 @@ public class CrowTakeoffState : StateMachineState
             s.crowAnimator.SetBool("isIdle", false);
             s.crowAnimator.SetBool("isPecking", false);
 
+            s.crowAnimator.SetBool("isInTransitionState", true);
+
             s.StartCoroutine(WaitThenEnterTargetState());
         }        
     }
@@ -42,6 +47,9 @@ public class CrowTakeoffState : StateMachineState
     IEnumerator WaitThenEnterTargetState()
     {
         yield return new WaitForSeconds(.5f);
+
+
+        s.crowAnimator.SetBool("isInTransitionState", false);
         s.stateMachine.Enter("CrowTargetState");
     }
 }

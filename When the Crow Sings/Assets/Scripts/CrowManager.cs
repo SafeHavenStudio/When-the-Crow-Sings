@@ -33,10 +33,17 @@ public class CrowManager : MonoBehaviour, IService
 
     public void InformCrowsOfTarget(CrowTarget crowTarget)
     {
+        crowTarget.ResetRandomness();
+
+        List<GameObject> randomSubtargets = new List<GameObject>();
+        //string targets = "";
         for (int i = 0; i < crowHolder.crows.Count; i++)
         {
-            crowHolder.crows[i].StartFlyingTowardBirdseed(crowTarget.GetRandomSubtarget());
+            randomSubtargets.Add(crowTarget.GetRandomSubtarget());
+            //targets = targets + crowTarget.subTargets.IndexOf(randomSubtargets[i]).ToString() + ", ";
+            crowHolder.crows[i].StartFlyingTowardBirdseed(randomSubtargets[i]);
         }
+        //Debug.Log("Random Subtargets: " + targets);
     }
 
 }

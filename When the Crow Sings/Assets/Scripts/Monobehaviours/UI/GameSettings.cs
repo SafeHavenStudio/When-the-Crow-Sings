@@ -11,6 +11,11 @@ public class GameSettings : MonoBehaviour
     public Slider textSpeedSlider;
     public ReverseSlider reverseSlider;
     public TimingMeterQTE[] qtes;
+    public Toggle qteDecayToggle;
+    public StirringQTE[] stirringQte;
+    public Toggle sprintingToggle;
+
+    public PlayerController playerController;
 
     public MenuDropdown textSizeDropdown;
     public TextMeshProUGUI[] dialogueText;
@@ -37,6 +42,17 @@ public class GameSettings : MonoBehaviour
         new TextStyleSetting(44, -22)
     };
 
+    private void Awake()
+    {
+        FindPlayerController();
+    }
+
+    public void FindPlayerController()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+        playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
+        Debug.Log("Game settings found player controller");
+    }
 
     private void Start()
     {
@@ -58,6 +74,21 @@ public class GameSettings : MonoBehaviour
 
         //textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
         reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+
+        foreach(var stirQte in stirringQte)
+        stirQte.isDecaying = PlayerPrefs.GetInt("qteDecay", 1) != 0;
+
+        if (qteDecayToggle != null)
+        {
+            qteDecayToggle.isOn = qteDecayToggle;
+            qteDecayToggle.onValueChanged.AddListener(delegate { isDecayingCheck(); });
+        }
+
+        if (sprintingToggle != null)
+        {
+            sprintingToggle.isOn = sprintingToggle;
+            sprintingToggle.onValueChanged.AddListener(delegate { isAlwaysSprintingCheck(); });
+        }
     }
 
     public void TimingMeterSpeed()
@@ -71,6 +102,28 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("QTE Speed set to " + newSpeed);
+    }
+
+    public void isDecayingCheck()
+    {
+        if (qteDecayToggle == null) return;
+
+        foreach (var stirQte in stirringQte)
+        {
+            stirQte.isDecaying = qteDecayToggle.isOn;
+            PlayerPrefs.SetInt("qteDecay", stirQte.isDecaying ? 1 : 0);
+        }
+            
+        PlayerPrefs.Save();
+    }
+
+    public void isAlwaysSprintingCheck()
+    {
+        if (sprintingToggle == null) return;
+
+        playerController.isAlwaysSprinting = sprintingToggle.isOn;
+        PlayerPrefs.SetInt("sprinting", playerController.isAlwaysSprinting ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
     private void PopulateDropdown()

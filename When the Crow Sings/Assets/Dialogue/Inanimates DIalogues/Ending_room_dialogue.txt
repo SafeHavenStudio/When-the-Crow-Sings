@@ -1,9 +1,9 @@
 ~ power_station_control
-<i> It's a big control panel, all of the screens are throwing up errors. </i>
+It's a big control panel, all of the screens are throwing up errors.
 Chance_Scared: What is going on in here?!?
 ISOTOPE GENERATOR UNSTABLE<br>COMPLETE DEGRADATION IMMINENT<br>GENERATOR SHUTDOWN ADVISED
 Chance_Scared: Shutdown! Okay! Uhh...
-<i>Let's click on that shutdown button!</i>
+Let's click on that shutdown button!
 ADMINISTRATOR ACCESS REQUIRED<br>PLEASE PROVIDE LOGIN DETAILS
 Chance_Angry: Ugh, what?! How am I supposed to know what they are?!?!
 - ADMIN NAME
@@ -225,7 +225,6 @@ else:
 	=> bad_ending
 
 ~ good_ending
-call SaveGameToDisk();
 ADMINISTRATOR ACCESS GRANTED
 Chance_Excited: Yes! Let's shut this shit down!
 : ISOTOPE GENERATOR SHUTDOWN INITIATED<br>STABILITY WILL BE REACHED IN : 4 HOURS
@@ -235,7 +234,6 @@ emit 3;
 => END
 
 ~ neutral_ending
-call SaveGameToDisk();
 ADMINISTRATOR ACCESS CANNOT BE GRANTED
 Chance_Angry: Of course. We're screwed!
 TEMPORARY OVERRIDE ACCESS AVAILABLE
@@ -249,7 +247,6 @@ emit 4;
 => END
 
 ~ bad_ending
-call SaveGameToDisk();
 ADMINISTRATOR ACCESS CANNOT BE GRANTED
 Chance_Angry: What am I supposed to do now!?
 : COMPLETE DEGRADATION WILL BE REACHED IN : 2 HOURS

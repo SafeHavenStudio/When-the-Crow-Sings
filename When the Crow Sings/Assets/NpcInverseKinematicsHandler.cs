@@ -6,8 +6,10 @@ using static UnityEngine.Rendering.DebugUI;
 [RequireComponent(typeof(Animator))]
 public class NpcInverseKinematicsHandler : MonoBehaviour
 {
+    [HideInInspector]
     public bool playerInSightCone = false;
 
+    [HideInInspector]
     public Animator animator;
 
     GameObject playerHeadPosition;
@@ -31,7 +33,7 @@ public class NpcInverseKinematicsHandler : MonoBehaviour
     }
     public void MyOnAnimatorIK(int layerIndex)
     {
-        Debug.Log("Animator is being IK'ed mate, lovely.");
+        //Debug.Log("Animator is being IK'ed mate, lovely.");
 
         if (playerHeadPosition == null) playerHeadPosition = GameObject.FindWithTag("PlayerHeadPosition");
 

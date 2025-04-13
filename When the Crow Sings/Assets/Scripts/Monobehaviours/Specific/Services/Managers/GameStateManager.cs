@@ -241,7 +241,7 @@ public class GameStateManager : MonoBehaviour, IService
         return normalizedProgress;
     }
 
-    private void DestroyActors()
+    public void DestroyActors()
     {
         Destroy(playerHolder);
         taskManager.AbortQTE();

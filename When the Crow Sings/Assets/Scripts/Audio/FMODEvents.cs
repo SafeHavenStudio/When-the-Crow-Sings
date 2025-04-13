@@ -28,6 +28,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference PageFlip { get; private set; }
     [field: SerializeField] public EventReference Death { get; private set; }
     [field: SerializeField] public EventReference EnemyStun { get; private set; }
+    [field: SerializeField] public EventReference WaterSplash { get; private set; }
     [field: SerializeField] public EventReference WoodenPlank { get; private set; }
     [field: Header("Dialogue Sounds")]
     [field: SerializeField] public EventReference Blip { get; private set; }
@@ -53,7 +54,6 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference HarshWind { get; private set; }
     [field: SerializeField] public EventReference LightWind { get; private set; }
-    [field: SerializeField] public EventReference PowerRoomAmbience { get; private set; }
 
     [field: Header("Music")]
     [field: SerializeField] public EventReference AreaMusic { get; private set; }

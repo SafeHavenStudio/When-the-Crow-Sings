@@ -53,8 +53,14 @@ MonoBehaviour:
   pfInteractArrow: {fileID: 8949982218517640275, guid: a477ca45d233b724db2f5d680740acb7,
     type: 3}
   autoInteract: 1
+  playerResponse: 0
+  playerFacesInteractable: 0
   interactionStartedSignal: {fileID: 11400000, guid: 73c38f67ba692154ea131dbb5318e435,
     type: 2}
+  onInteractionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  playerSnapPoint: {fileID: 0}
 --- !u!114 &6787458002468338055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +96,7 @@ MonoBehaviour:
   intValue: 0
   stringValue: 
   playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!65 &3246865704057378893
 BoxCollider:
   m_ObjectHideFlags: 0
