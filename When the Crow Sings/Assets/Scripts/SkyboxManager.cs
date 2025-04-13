@@ -11,12 +11,7 @@ public class SkyboxManager : MonoBehaviour
     public Material nightSkybox;
     public Material blackSkybox;
 
-    private GameStateManager state;
-
-    private void Awake()
-    {
-        state = FindObjectOfType<GameStateManager>();
-    }
+    [SerializeField] private GameStateManager state;
 
     private void OnEnable()
     {
@@ -48,6 +43,11 @@ public class SkyboxManager : MonoBehaviour
                 preferredSkybox = nightSkybox;
                 Debug.Log("it is night");
             }
+            else
+            {
+                preferredSkybox = blackSkybox;
+            }
+
             RenderSettings.skybox = preferredSkybox;
         }
 
