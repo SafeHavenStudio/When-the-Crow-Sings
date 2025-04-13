@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuDropdown : MonoBehaviour
 {
     public MenuButtonSelectionHandler previousMenusMBSH;
+
+    public GameObject dropdownPopupButtonTemplate;
+
+    public Transform buttonsParent;
+
+    List<Button> dropdownPopupButtons = new List<Button>();
 
     public void ClosePopup()
     {
@@ -16,5 +23,39 @@ public class MenuDropdown : MonoBehaviour
     {
         gameObject.SetActive(true);
         previousMenusMBSH.enabled = false;
+    }
+
+    public void AddDropdownButton(string buttonText)
+    {
+        Button _newButton = Instantiate(dropdownPopupButtonTemplate).GetComponent<Button>();
+        dropdownPopupButtons.Add(_newButton);
+        _newButton.transform.SetParent(buttonsParent, false);
+        _newButton.GetComponent<MenuDropdownButton>().SetButtonText(buttonText);
+        _newButton.gameObject.SetActive(true);
+
+        if (dropdownPopupButtons.Count > 1)
+        {
+            Button _previousButton = dropdownPopupButtons[dropdownPopupButtons.Count - 2];
+
+            Navigation _newButtonNavigation = new Navigation();
+            _newButtonNavigation.mode = Navigation.Mode.Explicit;
+            _newButtonNavigation.selectOnUp = _previousButton;
+            _newButtonNavigation.selectOnDown = dropdownPopupButtons[0];
+            _newButton.GetComponent<Button>().navigation = _newButtonNavigation;
+
+            Navigation _previousButtonUpdatedNavigation = new Navigation();
+            _previousButtonUpdatedNavigation.mode = Navigation.Mode.Explicit;
+            _previousButtonUpdatedNavigation.selectOnUp = _previousButton.navigation.selectOnUp;
+            _previousButtonUpdatedNavigation.selectOnDown = _newButton;
+            _previousButton.navigation = _previousButtonUpdatedNavigation;
+
+            Navigation _firstButtonUpdatedNavigation = new Navigation();
+            _firstButtonUpdatedNavigation.mode = Navigation.Mode.Explicit;
+            _firstButtonUpdatedNavigation.selectOnDown = dropdownPopupButtons[0].navigation.selectOnDown;
+            _firstButtonUpdatedNavigation.selectOnUp = _newButton;
+            dropdownPopupButtons[0].navigation = _firstButtonUpdatedNavigation;
+        }
+
+        GetComponent<MenuButtonSelectionHandler>().selectableButtons.Add(_newButton.GetComponent<MenuButton>());
     }
 }
