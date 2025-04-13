@@ -57,7 +57,7 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         PopulateDropdown();
-        textSizeDropdown.onValueChanged.AddListener(OnTextStyleChanged);
+        ////////////textSizeDropdown.onValueChanged.AddListener(OnTextStyleChanged);
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
@@ -128,7 +128,7 @@ public class GameSettings : MonoBehaviour
 
     private void PopulateDropdown()
     {
-        textSizeDropdown.ClearOptions();
+        //////////textSizeDropdown.ClearOptions();
 
         List<string> options = new List<string>()
         {
@@ -136,7 +136,7 @@ public class GameSettings : MonoBehaviour
             "Large"
         };
 
-        textSizeDropdown.AddOptions(options);
+        //////////textSizeDropdown.AddOptions(options);
     }
 
     public void ChangeTextSpeed()
@@ -178,7 +178,7 @@ public class GameSettings : MonoBehaviour
     {
         int index = PlayerPrefs.GetInt("TextStyleIndex", 0);
 
-        textSizeDropdown.value = index;
+        //////////textSizeDropdown.value = index; 
 
         //Apply on load
         OnTextStyleChanged(index);

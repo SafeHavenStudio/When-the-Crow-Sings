@@ -5,10 +5,16 @@ using UnityEngine.Events;
 
 public class MonobehaviorLifecycleEvents : MonoBehaviour
 {
+    public UnityEvent onStartEvent;
     public UnityEvent onEnableEvent;
     public UnityEvent onDisableEvent;
     public UnityEvent<Collider> OnTriggerEnterEvent;
     public UnityEvent<Collider> OnTriggerExitEvent;
+
+    private void Start()
+    {
+        onStartEvent.Invoke();
+    }
     private void OnEnable()
     {
         onEnableEvent.Invoke();
