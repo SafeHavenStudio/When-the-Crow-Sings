@@ -492,6 +492,18 @@ MonoBehaviour:
           m_StringArgument: Hey there, you're an all star
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 592946310309523387}
+        m_TargetAssemblyTypeName: MenuDropdown, Assembly-CSharp
+        m_MethodName: AddDropdownButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hey there, you're an all star, yeah, heeeey
+          m_BoolArgument: 0
+        m_CallState: 2
   onDisableEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -7964,7 +7976,7 @@ MonoBehaviour:
   - {fileID: 4342714687233992452, guid: 794fa0d45659fbf4d92a6ad1c6ea5105, type: 3}
   sprintingToggle: {fileID: 1459703634723177636}
   playerController: {fileID: 0}
-  textSizeDropdown: {fileID: 0}
+  textSizeDropdownMenu: {fileID: 0}
   dialogueText:
   - {fileID: 0}
   textSpeed: 0
@@ -9208,6 +9220,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
         type: 3}
+      propertyPath: VisibleText
+      value: 
+      objectReference: {fileID: 2375926546593016765}
+    - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
+        type: 3}
       propertyPath: previousMenusMBSH
       value: 
       objectReference: {fileID: 3652525033940952821}
@@ -9563,6 +9580,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98a663401f1c51449f9b1e9919ffc53, type: 3}
+--- !u!114 &2375926546593016765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3156050560775116062, guid: b98a663401f1c51449f9b1e9919ffc53,
+    type: 3}
+  m_PrefabInstance: {fileID: 807402004517535395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2701998832159869514 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3335788842725438697, guid: b98a663401f1c51449f9b1e9919ffc53,
@@ -9756,6 +9785,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b98a663401f1c51449f9b1e9919ffc53, type: 3}
+--- !u!114 &90814792269002897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3156050560775116062, guid: b98a663401f1c51449f9b1e9919ffc53,
+    type: 3}
+  m_PrefabInstance: {fileID: 3066433278453427599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &343736569242016102 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3335788842725438697, guid: b98a663401f1c51449f9b1e9919ffc53,
@@ -9794,6 +9835,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8701278479953280945}
     m_Modifications:
+    - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
+        type: 3}
+      propertyPath: VisibleText
+      value: 
+      objectReference: {fileID: 7168250087481066302}
     - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
         type: 3}
       propertyPath: previousMenusMBSH
@@ -10145,6 +10191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7924d2f0245e01478f1f9d0a641d247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7168250087481066302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3156050560775116062, guid: b98a663401f1c51449f9b1e9919ffc53,
+    type: 3}
+  m_PrefabInstance: {fileID: 5239434842538808864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7421136678993584841 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3335788842725438697, guid: b98a663401f1c51449f9b1e9919ffc53,
@@ -10159,6 +10217,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8701278479953280945}
     m_Modifications:
+    - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
+        type: 3}
+      propertyPath: VisibleText
+      value: 
+      objectReference: {fileID: 90814792269002897}
     - target: {fileID: 975359938037552676, guid: 0e33299cb79ff3c4290bc3b6e1c853ab,
         type: 3}
       propertyPath: previousMenusMBSH

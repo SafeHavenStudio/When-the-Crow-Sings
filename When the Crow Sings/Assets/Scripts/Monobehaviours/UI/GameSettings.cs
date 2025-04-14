@@ -17,7 +17,8 @@ public class GameSettings : MonoBehaviour
 
     public PlayerController playerController;
 
-    public MenuDropdown textSizeDropdown;
+    public MenuDropdown textSizeDropdownMenu;
+
     public TextMeshProUGUI[] dialogueText;
 
     [HideInInspector]
@@ -62,7 +63,7 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         PopulateDropdown();
-        ////////////textSizeDropdown.onValueChanged.AddListener(OnTextStyleChanged);
+        ////////////textSizeDropdownMenu.onValueChanged.AddListener(OnTextStyleChanged);
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
@@ -133,7 +134,7 @@ public class GameSettings : MonoBehaviour
 
     private void PopulateDropdown()
     {
-        //////////textSizeDropdown.ClearOptions();
+        //////////textSizeDropdownMenu.ClearOptions();
 
         List<string> options = new List<string>()
         {
@@ -141,7 +142,7 @@ public class GameSettings : MonoBehaviour
             "Large"
         };
 
-        //////////textSizeDropdown.AddOptions(options);
+        //////////textSizeDropdownMenu.AddOptions(options);
     }
 
     public void ChangeTextSpeed()
@@ -183,7 +184,7 @@ public class GameSettings : MonoBehaviour
     {
         int index = PlayerPrefs.GetInt("TextStyleIndex", 0);
 
-        //////////textSizeDropdown.value = index; 
+        //////////textSizeDropdownMenu.value = index; 
 
         //Apply on load
         OnTextStyleChanged(index);

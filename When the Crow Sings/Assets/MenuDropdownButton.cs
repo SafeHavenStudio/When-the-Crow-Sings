@@ -8,9 +8,12 @@ public class MenuDropdownButton : MenuButton
 {
     [SerializeField] TextMeshProUGUI buttonText;
     [SerializeField] Image checkImage;
+
+    public string textName;
     public void SetButtonText(string _text)
     {
-        buttonText.text = _text;
+        textName = _text;
+        buttonText.text = textName;
     }
 
     public void SetCheckImage(bool _enabled)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -8,11 +9,15 @@ public class MenuDropdown : MonoBehaviour
 {
     public MenuButtonSelectionHandler previousMenusMBSH;
 
+    public TextMeshProUGUI VisibleText;
+
     public GameObject dropdownPopupButtonTemplate;
 
     public Transform buttonsParent;
 
     List<Button> dropdownPopupButtons = new List<Button>();
+
+    MenuDropdownButton _currentlySelectedButton;
 
     public void ClosePopup()
     {
@@ -56,6 +61,10 @@ public class MenuDropdown : MonoBehaviour
             _firstButtonUpdatedNavigation.selectOnUp = _newButton;
             dropdownPopupButtons[0].navigation = _firstButtonUpdatedNavigation;
         }
+        else
+        {
+            SetCurrentlySelectedButton(_newButton.GetComponent<MenuDropdownButton>());
+        }
 
         GetComponent<MenuButtonSelectionHandler>().selectableButtons.Add(_newButton.GetComponent<MenuButton>());
     }
@@ -64,8 +73,22 @@ public class MenuDropdown : MonoBehaviour
     public void OnDropdownButtonPressed(Button _pressedButton)
     {
         int _pressedButtonIndex = dropdownPopupButtons.IndexOf(_pressedButton);
-        
+
+        SetCurrentlySelectedButton(_pressedButton.GetComponent<MenuDropdownButton>());
+
         DropdownMenuButtonPressed.Invoke(_pressedButtonIndex);
         ClosePopup();
+    }
+
+
+    public void SetCurrentlySelectedButton(MenuDropdownButton _newSelection)
+    {
+        _currentlySelectedButton = _newSelection;
+        VisibleText.text = _currentlySelectedButton.textName;
+    }
+    public void SetCurrentlySelectedButton(int _newSelectionIndex)
+    {
+        _currentlySelectedButton = dropdownPopupButtons[_newSelectionIndex].GetComponent<MenuDropdownButton>();
+        VisibleText.text = _currentlySelectedButton.textName;
     }
 }
