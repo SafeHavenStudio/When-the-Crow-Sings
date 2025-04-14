@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -20,6 +20,8 @@ public class GameSettings : MonoBehaviour
     public MenuDropdown textSizeDropdownMenu;
 
     public TextMeshProUGUI[] dialogueText;
+
+    private bool settingsApplied = false;
 
     private bool suppressToggleCallback = true; //makes sure isdecayingcheck doesnt load before start
 
@@ -49,6 +51,15 @@ public class GameSettings : MonoBehaviour
     {
         //FindPlayerController();
         // TODO: load the rest of the settings probably
+
+        if (playerController != null)
+        {
+            ApplySavedSettings();
+        }
+        else
+        {
+            Debug.LogWarning("PlayerController is null in gameSettings Awake settings will apply later.");
+        }
     }
 
     public void FindPlayerController()
@@ -60,7 +71,7 @@ public class GameSettings : MonoBehaviour
 
             playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
         }
-        else Debug.Log("Game settings did not find player controller");
+        else Debug.LogWarning("Game settings did not find player controller");
 
     }
 
@@ -70,53 +81,107 @@ public class GameSettings : MonoBehaviour
         LoadTextSize(true);
         textSizeDropdownMenu.DropdownMenuButtonPressed.AddListener(SetTextSize);
 
+        LoadSavedPreferences();
+
+        StartCoroutine(WaitForPlayerController());
+    }
+
+
+    public void LoadSavedPreferences()
+    {
+        qteSpeedSlider.value = PlayerPrefs.GetInt("qteSpeed", 4);
+        qteSpeedSlider.onValueChanged.AddListener(delegate { TimingMeterSpeed(); });
+
+        float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
+        reverseSlider.invertedValue = savedTextSpeed;
+        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+
+        if (qteDecayToggle != null)
+        {
+            suppressToggleCallback = true;
+            bool decayEnabled = PlayerPrefs.GetInt("qteDecay", 1) != 0;
+            qteDecayToggle.isOn = decayEnabled;
+            qteDecayToggle.onValueChanged.AddListener(delegate { isDecayingCheck(); });
+            suppressToggleCallback = false;
+        }
+
+        if (sprintingToggle != null)
+        {
+            bool sprintingEnabled = PlayerPrefs.GetInt("sprinting", 1) != 0;
+            sprintingToggle.isOn = sprintingEnabled;
+
+            if (playerController != null)
+            {
+                playerController.isAlwaysSprinting = sprintingEnabled;
+            }
+
+            //This is really freaky I didn't know u could do this apparently it's a lambda expression which u can use to define a function or deleagate without passing local variables around
+            sprintingToggle.onValueChanged.AddListener(isOn =>
+            {
+                if (playerController != null)
+                    playerController.isAlwaysSprinting = isOn;
+
+                PlayerPrefs.SetInt("sprinting", isOn ? 1 : 0);
+                PlayerPrefs.Save();
+                Debug.Log("Sprint toggle changed to: " + isOn);
+            });
+
+            Debug.Log("Sprint toggle loaded with value: " + sprintingEnabled);
+        }
+    }
+
+    public IEnumerator WaitForPlayerController()
+    {
+        //I didn't know u could do this either
+        yield return new WaitUntil(() => playerController != null);
+
+        playerController = ServiceLocator.Get<PlayerController>();
+        Debug.Log("Player controller found! Applying settings");
+
+        //  sprint setting directly to the player
+        bool sprintingEnabled = PlayerPrefs.GetInt("sprinting", 1) != 0;
+        playerController.isAlwaysSprinting = sprintingEnabled;
+        Debug.Log("Applied sprint toggle: " + sprintingEnabled);
+
+        ApplySavedSettings();
+    }
+
+    public void ApplySavedSettings()
+    {
+        if (settingsApplied) return; //Prevent reapplying the settings multiple times
+
+        if (playerController == null)
+        {
+            Debug.LogWarning("PlayerController is null when applying saved settings!");
+            return;
+        }
+
+        Debug.Log("Applying saved settings");
+
+        //Apply saved QTE decay, speed, etc.
+        bool decayEnabled = PlayerPrefs.GetInt("qteDecay", 1) != 0;
+        foreach (var stirQte in stirringQte)
+            stirQte.isDecaying = decayEnabled;
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
-        qteSpeedSlider.value = savedSpeed;
-
         foreach (var qte in qtes)
             qte.speed = savedSpeed;
-
-        //Handle slider changes
-        qteSpeedSlider.onValueChanged.AddListener(delegate { TimingMeterSpeed(); });
 
         float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
         reverseSlider.invertedValue = savedTextSpeed;
         textSpeed = savedTextSpeed;
 
-        //textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
-        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
-
-        Debug.Log("qteDecayToggle loaded with value: " + qteDecayToggle.isOn);
-
-        if (qteDecayToggle != null)
-        {
-            qteDecayToggle.onValueChanged.RemoveAllListeners();
-
-            // suppress callback before setting value
-            suppressToggleCallback = true;
-
-            bool decayEnabled = PlayerPrefs.GetInt("qteDecay", 1) != 0;
-            qteDecayToggle.isOn = decayEnabled;
-
-            Debug.Log("qteDecayToggle set to " + decayEnabled);
-
-            qteDecayToggle.onValueChanged.AddListener(delegate { isDecayingCheck(); });
-
-            suppressToggleCallback = false;
-
-            //Manually update the QTEs after setting without triggering PlayerPrefs again
-            foreach (var stirQte in stirringQte)
-                stirQte.isDecaying = decayEnabled;
-        }
-
+        bool sprintingEnabled = PlayerPrefs.GetInt("sprinting", 1) != 0;
+        playerController.isAlwaysSprinting = sprintingEnabled;
 
         if (sprintingToggle != null)
-        {
-            sprintingToggle.isOn = PlayerPrefs.GetInt("sprinting", 1) != 0;
-            sprintingToggle.onValueChanged.AddListener(delegate { isAlwaysSprintingCheck(); });
-        }
+            sprintingToggle.isOn = sprintingEnabled;
+
+        Debug.Log("Set playerController.isAlwaysSprinting to: " + sprintingEnabled);
+
+        settingsApplied = true;
     }
+
 
     public void TimingMeterSpeed()
     {
@@ -149,11 +214,16 @@ public class GameSettings : MonoBehaviour
 
     public void isAlwaysSprintingCheck()
     {
-        if (sprintingToggle == null) return;
+        if (sprintingToggle == null || suppressToggleCallback) return;
 
-        playerController.isAlwaysSprinting = sprintingToggle.isOn;
+        // Set player sprinting state directly
+        if (playerController != null)
+            playerController.isAlwaysSprinting = sprintingToggle.isOn;
+
         PlayerPrefs.SetInt("sprinting", sprintingToggle.isOn ? 1 : 0);
         PlayerPrefs.Save();
+
+        Debug.Log("Sprinting toggle changed to: " + sprintingToggle.isOn);
     }
 
     private void PopulateDropdown()
