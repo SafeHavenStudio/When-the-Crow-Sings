@@ -201,7 +201,7 @@ public class GameSettings : MonoBehaviour
             textSizeDropdownMenu.SetCurrentlySelectedButton(index);
         }
         
-
+        
         //Apply on load
         SetTextSize(index);
     }

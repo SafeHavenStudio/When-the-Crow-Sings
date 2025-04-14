@@ -9,8 +9,11 @@ using UnityEngine.UI;
 public class ScreenSettings : MonoBehaviour
 {
     private List<Resolution> resolutions = new List<Resolution>();
-    public TMP_Dropdown qualityDropdown;
-    public TMP_Dropdown resolutionDropdown;
+
+    public MenuDropdown qualityDropdownMenu;
+    public MenuDropdown resolutionDropdownMenu;
+
+
     public Slider brightnessSlider;
     [HideInInspector]
     public Volume volume;
@@ -22,6 +25,11 @@ public class ScreenSettings : MonoBehaviour
     {
         CheckForNullVariables();
         PopulateResolutions();
+        
+        qualityDropdownMenu.AddDropdownButton("Low");
+        qualityDropdownMenu.AddDropdownButton("Medium");
+        qualityDropdownMenu.AddDropdownButton("High");
+
         GetAndSetSavedSettings();
 
         arb = FindObjectOfType<AspectRatioBorders>();
@@ -31,11 +39,13 @@ public class ScreenSettings : MonoBehaviour
     {
         int savedQuality = PlayerPrefs.GetInt("quality", 0);
         QualitySettings.SetQualityLevel(savedQuality);
-        qualityDropdown.value = savedQuality;
+        //////////qualityDropdown.value = savedQuality;
+        qualityDropdownMenu.SetCurrentlySelectedButton(savedQuality);
 
         int savedResolution = PlayerPrefs.GetInt("resolution", 1);
         SetResolution(savedResolution);
-        resolutionDropdown.value = savedResolution;
+        //////////resolutionDropdown.value = savedResolution;
+        resolutionDropdownMenu.SetCurrentlySelectedButton(savedResolution);
 
         brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0.4f);
     }
@@ -70,7 +80,7 @@ public class ScreenSettings : MonoBehaviour
 
     public void PopulateResolutions()
     {
-        resolutionDropdown.ClearOptions();
+        //////////resolutionDropdown.ClearOptions();
         resolutions.Clear();
 
         Resolution[] allResolutions = Screen.resolutions;
@@ -95,20 +105,26 @@ public class ScreenSettings : MonoBehaviour
         options.Reverse();
 
         //Add all collected options at once (outside the loop)
-        resolutionDropdown.AddOptions(options);
+        //////////resolutionDropdown.AddOptions(options);
+        foreach (string i in options)
+        {
+            resolutionDropdownMenu.AddDropdownButton(i);
+        }
 
         //Ensure the dropdown updates correctly
-        resolutionDropdown.RefreshShownValue();
+        //////////resolutionDropdown.RefreshShownValue(); // i don't think this needs to happen in the rework - Paul
 
         //Attach listener only once
-        resolutionDropdown.onValueChanged.RemoveAllListeners();
-        resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        //////////resolutionDropdown.onValueChanged.RemoveAllListeners();
+        resolutionDropdownMenu.DropdownMenuButtonPressed.RemoveAllListeners();
+        //////////resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        resolutionDropdownMenu.DropdownMenuButtonPressed.AddListener(SetResolution);
 
-        arb.AdjustAspectRatio(); //might be redundant but eh
+        //arb.AdjustAspectRatio(); //might be redundant but eh
 
         if (options.Count <= 0)
         {
-            resolutionDropdown.enabled = false;
+            //////////resolutionDropdown.enabled = false; // does this still need to happen in the rework? Maybe... - Paul
         }
     }
 
@@ -137,7 +153,7 @@ public class ScreenSettings : MonoBehaviour
         Resolution _resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
 
-        arb.AdjustAspectRatio();
+        //arb.AdjustAspectRatio();
     }
 
     public void SetQuality(int _qualityIndex)
@@ -146,7 +162,8 @@ public class ScreenSettings : MonoBehaviour
         PlayerPrefs.Save();
 
         QualitySettings.SetQualityLevel(_qualityIndex);
-        qualityDropdown.value = _qualityIndex;
+        //////////qualityDropdown.value = _qualityIndex;
+        qualityDropdownMenu.SetCurrentlySelectedButton(_qualityIndex);
     }
 
     public void SetFullscreen(bool _isFullscreen)
