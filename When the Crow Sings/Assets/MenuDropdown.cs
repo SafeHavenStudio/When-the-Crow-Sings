@@ -31,6 +31,7 @@ public class MenuDropdown : MonoBehaviour
         gameObject.SetActive(true);
         previousMenusMBSH.SetButtonsInteractability(false);
         previousMenusMBSH.enabled = false;
+        GetComponent<MenuButtonSelectionHandler>().SetSelectedGameObject(dropdownPopupButtons.IndexOf(_currentlySelectedButton.GetComponent<Button>()));
     }
 
     public void AddDropdownButton(string buttonText)
@@ -92,5 +93,10 @@ public class MenuDropdown : MonoBehaviour
     {
         _currentlySelectedButton = dropdownPopupButtons[_newSelectionIndex].GetComponent<MenuDropdownButton>();
         VisibleText.text = _currentlySelectedButton.textName;
+    }
+
+    public void SetDefaultSelectedButton(int _defaultSelectedIndex)
+    {
+        SetCurrentlySelectedButton(_defaultSelectedIndex);
     }
 }

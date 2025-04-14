@@ -13,6 +13,10 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
 
     private MenuButton lastSelected = null; // Only includes the lastSelected if it's part of the possibleSelectors, unlike the built-in one.
 
+    public void SetSelectedGameObject(int _newSelectedIndex)
+    {
+        SetSelectedGameObject(selectableButtons[_newSelectedIndex].gameObject);
+    }
     private void SetSelectedGameObject(GameObject newSelected)
     {
         EventSystem.current.SetSelectedGameObject(newSelected);
