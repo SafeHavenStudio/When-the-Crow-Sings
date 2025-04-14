@@ -102,7 +102,7 @@ public class ScreenSettings : MonoBehaviour
             }
         }
 
-        options.Reverse();
+        /////options.Reverse();
 
         //Add all collected options at once (outside the loop)
         //////////resolutionDropdown.AddOptions(options);

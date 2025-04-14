@@ -216,7 +216,7 @@ public class GameSettings : MonoBehaviour
     {
         if (sprintingToggle == null || suppressToggleCallback) return;
 
-        // Set player sprinting state directly
+        //Set player sprinting toggle directly
         if (playerController != null)
             playerController.isAlwaysSprinting = sprintingToggle.isOn;
 
