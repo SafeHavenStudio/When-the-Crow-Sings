@@ -46,15 +46,17 @@ public class GameSettings : MonoBehaviour
     private void Awake()
     {
         FindPlayerController();
+        // TODO: load the rest of the settings probably
     }
 
     public void FindPlayerController()
     {
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = ServiceLocator.Get<PlayerController>();
         if (playerController != null )
         {
-            playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
             Debug.Log("Game settings found player controller");
+
+            playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
         }
         else Debug.Log("Game settings did not find player controller");
 
@@ -63,8 +65,9 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         PopulateDropdown();
-        LoadTextStyle();
-        textSizeDropdownMenu.DropdownMenuButtonPressed.AddListener(OnTextStyleChanged);
+        LoadTextSize(true);
+        textSizeDropdownMenu.DropdownMenuButtonPressed.AddListener(SetTextSize);
+
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
@@ -161,7 +164,7 @@ public class GameSettings : MonoBehaviour
         textSpeed = newTextSpeed;
     }
 
-    private void OnTextStyleChanged(int index)
+    private void SetTextSize(int index)
     {
         /* ///// TODO: EVERYTHING in this commented section needs to be reworked.
         if (index < 0 || index >= textStyles.Count)
@@ -189,14 +192,17 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void LoadTextStyle()
+    private void LoadTextSize(bool _setMenuGameobjects = false)
     {
         int index = PlayerPrefs.GetInt("TextStyleIndex", 0);
 
-        //////////textSizeDropdownMenu.value = index; 
-        textSizeDropdownMenu.SetCurrentlySelectedButton(index);
+        if (_setMenuGameobjects )
+        {
+            textSizeDropdownMenu.SetCurrentlySelectedButton(index);
+        }
+        
 
         //Apply on load
-        OnTextStyleChanged(index);
+        SetTextSize(index);
     }
 }
