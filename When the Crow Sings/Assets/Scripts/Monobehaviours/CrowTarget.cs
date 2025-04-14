@@ -31,7 +31,7 @@ public class CrowTarget : MonoBehaviour
             ResetRandomness();
         }
 
-        int _index = UnityEngine.Random.Range(0, subTargets.Count - 1);
+        int _index = UnityEngine.Random.Range(0, _remainingSubTargets.Count - 1);
         GameObject randomSubtarget = _remainingSubTargets[_index];
         _remainingSubTargets.Remove(randomSubtarget);
 
