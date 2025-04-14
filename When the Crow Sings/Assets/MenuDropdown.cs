@@ -22,12 +22,14 @@ public class MenuDropdown : MonoBehaviour
     public void ClosePopup()
     {
         previousMenusMBSH.enabled = true;
+        previousMenusMBSH.SetButtonsInteractability(true);
         gameObject.SetActive(false);
     }
 
     public void OpenPopup()
     {
         gameObject.SetActive(true);
+        previousMenusMBSH.SetButtonsInteractability(false);
         previousMenusMBSH.enabled = false;
     }
 

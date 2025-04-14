@@ -68,4 +68,13 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
         if (lastSelected != null) SetSelectedGameObject(lastSelected.gameObject);
         else SetSelectedGameObject(selectableButtons[0].gameObject);
     }
+
+    public void SetButtonsInteractability(bool _active)
+    {
+        foreach (MenuButton i in selectableButtons)
+        {
+            if (i.GetComponent<Button>() != null)
+                i.GetComponent<Button>().interactable = _active;
+        }
+    }
 }

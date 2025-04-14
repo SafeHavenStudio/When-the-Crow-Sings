@@ -16,7 +16,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler
 
     public void PressButton()
     {
-        Debug.Log("MenuButton.PressButton() called for " + gameObject.name + "!");
-        ExecuteEvents.Execute(gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
+        if (GetComponent<Button>().interactable)
+        {
+            Debug.Log("MenuButton.PressButton() called for " + gameObject.name + "!");
+            ExecuteEvents.Execute(gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
+        }
     }
 }
