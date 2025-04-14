@@ -7,7 +7,7 @@ abstract public class QuickTimeEvent : MonoBehaviour
 {
     public GameSettings gameSettings;
     public int speed = 4;
-    public bool isDecaying = true;
+    public bool isDecaying;
 
     abstract public void StartQTE();
     abstract public void SucceedQTE();

@@ -14,7 +14,7 @@ public class StirringQTE : QuickTimeEvent
     private int RightCurrentStep = 0;
     private bool correctKey;
     private bool countingDown;
-    public float switchCount = 3;
+    public float switchCount = 5;
     private int soundIndex = 13;
     [HideInInspector] public bool complete = false;
     public float score = 0;

@@ -26,9 +26,9 @@ public class ScreenSettings : MonoBehaviour
         CheckForNullVariables();
         PopulateResolutions();
         
-        qualityDropdownMenu.AddDropdownButton("Low");
-        qualityDropdownMenu.AddDropdownButton("Medium");
         qualityDropdownMenu.AddDropdownButton("High");
+        qualityDropdownMenu.AddDropdownButton("Medium");
+        qualityDropdownMenu.AddDropdownButton("Low");
 
         GetAndSetSavedSettings();
 

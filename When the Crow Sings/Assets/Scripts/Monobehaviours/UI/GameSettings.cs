@@ -21,6 +21,8 @@ public class GameSettings : MonoBehaviour
 
     public TextMeshProUGUI[] dialogueText;
 
+    private bool suppressToggleCallback = true; //makes sure isdecayingcheck doesnt load before start
+
     [HideInInspector]
     public float textSpeed = 0.3f;
 
@@ -85,18 +87,33 @@ public class GameSettings : MonoBehaviour
         //textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
         reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
 
-        foreach(var stirQte in stirringQte)
-        stirQte.isDecaying = PlayerPrefs.GetInt("qteDecay", 1) != 0;
+        Debug.Log("qteDecayToggle loaded with value: " + qteDecayToggle.isOn);
 
         if (qteDecayToggle != null)
         {
-            qteDecayToggle.isOn = qteDecayToggle;
+            qteDecayToggle.onValueChanged.RemoveAllListeners();
+
+            // suppress callback before setting value
+            suppressToggleCallback = true;
+
+            bool decayEnabled = PlayerPrefs.GetInt("qteDecay", 1) != 0;
+            qteDecayToggle.isOn = decayEnabled;
+
+            Debug.Log("qteDecayToggle set to " + decayEnabled);
+
             qteDecayToggle.onValueChanged.AddListener(delegate { isDecayingCheck(); });
+
+            suppressToggleCallback = false;
+
+            //Manually update the QTEs after setting without triggering PlayerPrefs again
+            foreach (var stirQte in stirringQte)
+                stirQte.isDecaying = decayEnabled;
         }
+
 
         if (sprintingToggle != null)
         {
-            sprintingToggle.isOn = sprintingToggle;
+            sprintingToggle.isOn = PlayerPrefs.GetInt("sprinting", 1) != 0;
             sprintingToggle.onValueChanged.AddListener(delegate { isAlwaysSprintingCheck(); });
         }
     }
@@ -116,15 +133,18 @@ public class GameSettings : MonoBehaviour
 
     public void isDecayingCheck()
     {
-        if (qteDecayToggle == null) return;
+        if (qteDecayToggle == null || suppressToggleCallback) return;
+
+        bool decayEnabled = qteDecayToggle.isOn;
 
         foreach (var stirQte in stirringQte)
         {
-            stirQte.isDecaying = qteDecayToggle.isOn;
-            PlayerPrefs.SetInt("qteDecay", stirQte.isDecaying ? 1 : 0);
+            stirQte.isDecaying = decayEnabled;
         }
-            
+
+        PlayerPrefs.SetInt("qteDecay", decayEnabled ? 1 : 0);
         PlayerPrefs.Save();
+        Debug.Log("isdecayingcheck qteDecayToggle loaded with value: " + qteDecayToggle.isOn);
     }
 
     public void isAlwaysSprintingCheck()
@@ -132,7 +152,7 @@ public class GameSettings : MonoBehaviour
         if (sprintingToggle == null) return;
 
         playerController.isAlwaysSprinting = sprintingToggle.isOn;
-        PlayerPrefs.SetInt("sprinting", playerController.isAlwaysSprinting ? 1 : 0);
+        PlayerPrefs.SetInt("sprinting", sprintingToggle.isOn ? 1 : 0);
         PlayerPrefs.Save();
     }
 
