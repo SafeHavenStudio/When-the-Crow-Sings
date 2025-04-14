@@ -63,7 +63,7 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         PopulateDropdown();
-        ////////////textSizeDropdownMenu.onValueChanged.AddListener(OnTextStyleChanged);
+        textSizeDropdownMenu.DropdownMenuButtonPressed.AddListener(OnTextStyleChanged);
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
         qteSpeedSlider.value = savedSpeed;
@@ -142,7 +142,10 @@ public class GameSettings : MonoBehaviour
             "Large"
         };
 
-        //////////textSizeDropdownMenu.AddOptions(options);
+        foreach (string i in options)
+        {
+            textSizeDropdownMenu.AddDropdownButton(i);
+        }
     }
 
     public void ChangeTextSpeed()
@@ -159,6 +162,7 @@ public class GameSettings : MonoBehaviour
 
     private void OnTextStyleChanged(int index)
     {
+        /* ///// TODO: EVERYTHING in this commented section needs to be reworked.
         if (index < 0 || index >= textStyles.Count)
         {
             Debug.LogWarning("Invalid style index!");
@@ -175,6 +179,10 @@ public class GameSettings : MonoBehaviour
         }
 
         Debug.Log($"Text style applied: Size {selectedStyle.fontSize}, Spacing {selectedStyle.lineSpacing}");
+
+        */ ///// TODO: EVERYTHING in this commented section needs to be reworked.
+
+        Debug.Log("Text size is now set to INDEX " + index.ToString());
 
         PlayerPrefs.SetInt("TextStyleIndex", index);
         PlayerPrefs.Save();
