@@ -45,7 +45,7 @@ public class GameSettings : MonoBehaviour
 
     private void Awake()
     {
-        FindPlayerController();
+        //FindPlayerController();
         // TODO: load the rest of the settings probably
     }
 
