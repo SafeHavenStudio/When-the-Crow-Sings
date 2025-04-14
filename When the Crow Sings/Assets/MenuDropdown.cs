@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MenuDropdown : MonoBehaviour
@@ -57,5 +58,14 @@ public class MenuDropdown : MonoBehaviour
         }
 
         GetComponent<MenuButtonSelectionHandler>().selectableButtons.Add(_newButton.GetComponent<MenuButton>());
+    }
+
+    public UnityEvent<int> DropdownMenuButtonPressed;
+    public void OnDropdownButtonPressed(Button _pressedButton)
+    {
+        int _pressedButtonIndex = dropdownPopupButtons.IndexOf(_pressedButton);
+        
+        DropdownMenuButtonPressed.Invoke(_pressedButtonIndex);
+        ClosePopup();
     }
 }
