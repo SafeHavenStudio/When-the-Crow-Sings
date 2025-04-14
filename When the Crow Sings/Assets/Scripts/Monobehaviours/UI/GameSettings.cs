@@ -63,6 +63,7 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         PopulateDropdown();
+        LoadTextStyle();
         textSizeDropdownMenu.DropdownMenuButtonPressed.AddListener(OnTextStyleChanged);
 
         int savedSpeed = PlayerPrefs.GetInt("qteSpeed", 4);
@@ -193,6 +194,7 @@ public class GameSettings : MonoBehaviour
         int index = PlayerPrefs.GetInt("TextStyleIndex", 0);
 
         //////////textSizeDropdownMenu.value = index; 
+        textSizeDropdownMenu.SetCurrentlySelectedButton(index);
 
         //Apply on load
         OnTextStyleChanged(index);
