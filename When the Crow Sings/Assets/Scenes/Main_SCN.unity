@@ -737,6 +737,16 @@ PrefabInstance:
         Friendly
         with <color=#813408>Jazmyne</color> and <color=#813408>Francisco</color>'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -3754,6 +3764,81 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 220961763}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &247226125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247226126}
+  - component: {fileID: 247226128}
+  - component: {fileID: 247226127}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &247226126
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247226125}
+  m_LocalRotation: {x: -0, y: -0, z: -0.24838446, w: 0.96866155}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6640469, y: 0.6640469, z: 0.6640469}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319942488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.764}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -247.55278, y: -79.684135}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &247226127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247226125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: dd00cd15df7f4fd4985cf8a121786fff, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &247226128
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247226125}
+  m_CullTransparentMesh: 1
 --- !u!1001 &249399154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5236,6 +5321,141 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 315078843}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &319942487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319942488}
+  m_Layer: 0
+  m_Name: Doodles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &319942488
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319942487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1311107185}
+  - {fileID: 1583876032}
+  - {fileID: 799086281}
+  - {fileID: 247226126}
+  - {fileID: 324035004}
+  m_Father: {fileID: 1318209851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -222.34724, y: -80.51587}
+  m_SizeDelta: {x: 561.51013, y: 309.46875}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &324035003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324035004}
+  - component: {fileID: 324035007}
+  - component: {fileID: 324035006}
+  - component: {fileID: 324035005}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &324035004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324035003}
+  m_LocalRotation: {x: -0, y: -0, z: -0.4909469, w: 0.87118953}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.64844406, y: 0.54037, z: 0.54037}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319942488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.806}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 214.24724, y: 127.715866}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &324035005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324035003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: QuarryEntered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
+--- !u!114 &324035006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324035003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a90c42b5ff0471f4ebfbdbd291e77520, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &324035007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324035003}
+  m_CullTransparentMesh: 1
 --- !u!1 &358614585
 GameObject:
   m_ObjectHideFlags: 0
@@ -7092,6 +7312,16 @@ PrefabInstance:
         Looking
         for something?'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -7457,6 +7687,16 @@ PrefabInstance:
         type: 3}
       propertyPath: additionalDescription
       value: Seems to be traumatized by something, not a whole lot to talk about
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
@@ -8113,7 +8353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499951640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10033,6 +10273,16 @@ PrefabInstance:
         Worried about <color=#813408>Theodore</color>,
         a kid she takes care of'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -10759,6 +11009,7 @@ GameObject:
   - component: {fileID: 687286482}
   - component: {fileID: 687286484}
   - component: {fileID: 687286483}
+  - component: {fileID: 687286485}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -10823,6 +11074,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687286481}
   m_CullTransparentMesh: 1
+--- !u!114 &687286485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687286481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: AngelTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!224 &691073532 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6121444250104651216, guid: 00d9eee7cd1d6f64384d5b0a4fe93177,
@@ -11552,6 +11822,7 @@ GameObject:
   - component: {fileID: 760880656}
   - component: {fileID: 760880658}
   - component: {fileID: 760880657}
+  - component: {fileID: 760880659}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -11616,6 +11887,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760880655}
   m_CullTransparentMesh: 1
+--- !u!114 &760880659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760880655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: CalebTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1001 &762576442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12171,6 +12461,16 @@ PrefabInstance:
         Buddies
         with <color=#813408>Quinn</color>'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -12434,6 +12734,101 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 797716670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &799086280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799086281}
+  - component: {fileID: 799086284}
+  - component: {fileID: 799086283}
+  - component: {fileID: 799086282}
+  m_Layer: 0
+  m_Name: Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &799086281
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799086280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.57816666, y: 0.57816666, z: 0.57816666}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319942488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -239.95277, y: 94.01586}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &799086282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799086280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: day
+  valueType: 1
+  boolValue: 0
+  intValue: 3
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
+--- !u!114 &799086283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799086280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d1807373e4a6dc74989ad1363276a13e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &799086284
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799086280}
+  m_CullTransparentMesh: 1
 --- !u!1001 &805065173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13699,6 +14094,7 @@ GameObject:
   - component: {fileID: 820333794}
   - component: {fileID: 820333796}
   - component: {fileID: 820333795}
+  - component: {fileID: 820333797}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -13763,6 +14159,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820333793}
   m_CullTransparentMesh: 1
+--- !u!114 &820333797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820333793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: TheodoreIntroduction
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1 &821823491
 GameObject:
   m_ObjectHideFlags: 0
@@ -14732,6 +15147,7 @@ GameObject:
   - component: {fileID: 885421465}
   - component: {fileID: 885421467}
   - component: {fileID: 885421466}
+  - component: {fileID: 885421468}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -14796,6 +15212,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885421464}
   m_CullTransparentMesh: 1
+--- !u!114 &885421468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885421464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: FaridaTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1 &889661472
 GameObject:
   m_ObjectHideFlags: 0
@@ -14857,6 +15292,7 @@ GameObject:
   - component: {fileID: 899551330}
   - component: {fileID: 899551332}
   - component: {fileID: 899551331}
+  - component: {fileID: 899551333}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -14921,6 +15357,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899551329}
   m_CullTransparentMesh: 1
+--- !u!114 &899551333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899551329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: QuinnTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!224 &904822306 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6121444250104651216, guid: 00d9eee7cd1d6f64384d5b0a4fe93177,
@@ -15124,6 +15579,7 @@ GameObject:
   - component: {fileID: 921817246}
   - component: {fileID: 921817248}
   - component: {fileID: 921817247}
+  - component: {fileID: 921817249}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -15188,6 +15644,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921817245}
   m_CullTransparentMesh: 1
+--- !u!114 &921817249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921817245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: YuleTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!224 &934441147 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6121444250104651216, guid: 00d9eee7cd1d6f64384d5b0a4fe93177,
@@ -17980,6 +18455,16 @@ PrefabInstance:
 
         Seems
         totally exhausted with all her responsibilities around here'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
@@ -20784,6 +21269,16 @@ PrefabInstance:
         Seems
         to just want to live a quiet life fishing'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -21412,6 +21907,16 @@ PrefabInstance:
         and standoffish
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
@@ -23378,6 +23883,7 @@ GameObject:
   - component: {fileID: 1238579790}
   - component: {fileID: 1238579792}
   - component: {fileID: 1238579791}
+  - component: {fileID: 1238579793}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -23442,6 +23948,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238579789}
   m_CullTransparentMesh: 1
+--- !u!114 &1238579793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238579789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: JazmyneTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1001 &1249886525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24278,6 +24803,101 @@ MonoBehaviour:
   pauseMenuSwapper: {fileID: 2035421515}
   pauseMenuUI: {fileID: 1194295905}
   settingsMenuUI: {fileID: 1639482499}
+--- !u!1 &1311107184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311107185}
+  - component: {fileID: 1311107188}
+  - component: {fileID: 1311107187}
+  - component: {fileID: 1311107186}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1311107185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311107184}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7149798, y: 0.7149798, z: 0.7149798}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319942488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 245.0061, y: -118.98539}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1311107186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311107184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: PhilomenaTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
+--- !u!114 &1311107187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311107184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7d61754e3d69bad4681061115a04d1f3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1311107188
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311107184}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1311114292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24646,6 +25266,7 @@ RectTransform:
   - {fileID: 1962650248}
   - {fileID: 1043258063}
   - {fileID: 1348805851}
+  - {fileID: 319942488}
   m_Father: {fileID: 1521757638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -26124,6 +26745,16 @@ PrefabInstance:
         <color=#813408>Caleb</color>
         is his uncle(?)'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -26793,6 +27424,16 @@ PrefabInstance:
 
         Grows
         all the compound food'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
@@ -29961,6 +30602,7 @@ GameObject:
   - component: {fileID: 1574399111}
   - component: {fileID: 1574399113}
   - component: {fileID: 1574399112}
+  - component: {fileID: 1574399114}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -30024,6 +30666,120 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574399110}
+  m_CullTransparentMesh: 1
+--- !u!114 &1574399114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574399110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: PhilomenaTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
+--- !u!1 &1583876031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583876032}
+  - component: {fileID: 1583876035}
+  - component: {fileID: 1583876034}
+  - component: {fileID: 1583876033}
+  m_Layer: 0
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1583876032
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583876031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.57816666, y: 0.57816666, z: 0.57816666}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319942488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -239.95277, y: 94.01586}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1583876033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583876031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: day
+  valueType: 1
+  boolValue: 0
+  intValue: 2
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
+--- !u!114 &1583876034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583876031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d1807373e4a6dc74989ad1363276a13e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1583876035
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583876031}
   m_CullTransparentMesh: 1
 --- !u!1 &1586209757
 GameObject:
@@ -34852,6 +35608,16 @@ PrefabInstance:
 
         Extremely good looking'
       objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
       propertyPath: m_fontSize
@@ -35955,6 +36721,7 @@ GameObject:
   - component: {fileID: 1906208467}
   - component: {fileID: 1906208469}
   - component: {fileID: 1906208468}
+  - component: {fileID: 1906208470}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -36019,6 +36786,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906208466}
   m_CullTransparentMesh: 1
+--- !u!114 &1906208470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906208466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: FranciscoTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1 &1921563285
 GameObject:
   m_ObjectHideFlags: 0
@@ -39306,6 +40092,7 @@ GameObject:
   - component: {fileID: 2097891516}
   - component: {fileID: 2097891518}
   - component: {fileID: 2097891517}
+  - component: {fileID: 2097891519}
   m_Layer: 0
   m_Name: Tab Chibi
   m_TagString: Untagged
@@ -39370,6 +40157,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097891515}
   m_CullTransparentMesh: 1
+--- !u!114 &2097891519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097891515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f2b3ba8abca241b0518e36d7be825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedDataKey: BeauTaskOffered
+  valueType: 0
+  boolValue: 1
+  intValue: 0
+  stringValue: 
+  playPickupSoundOnDisable: 0
+  playWoodSoundOnDisable: 0
 --- !u!1001 &2101699223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41086,6 +41892,16 @@ PrefabInstance:
         siblings
 
         Doesn''t seem to know what''s going on, not super useful'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredDescription
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784521446286344136, guid: ce439d3156fa60a48aad961013e76a6c,
+        type: 3}
+      propertyPath: undiscoveredAdditionalDescription
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8873452420421125287, guid: ce439d3156fa60a48aad961013e76a6c,
         type: 3}
