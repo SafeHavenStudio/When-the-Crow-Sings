@@ -120,7 +120,7 @@ public class GameStateManager : MonoBehaviour, IService
         playerHolder.GetComponent<PlayerHolder>().playerVirtualCameraFollowPoint.transform.position = spawnPoint.transform.position;
         playerContent.GetComponent<CharacterController>().enabled = true;
 
-        cameraSpaceCanvas.worldCamera = playerHolder.GetComponent<PlayerHolder>().mainCamera;
+        cameraSpaceCanvas.worldCamera = playerHolder.GetComponent<PlayerHolder>().overlayCamera;
         
     }
 

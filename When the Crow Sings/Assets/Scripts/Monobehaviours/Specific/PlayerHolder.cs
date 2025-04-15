@@ -6,5 +6,5 @@ public class PlayerHolder : MonoBehaviour
 {
     public GameObject playerContent;
     public GameObject playerVirtualCameraFollowPoint;
-    public Camera mainCamera;
+    public Camera overlayCamera;
 }
