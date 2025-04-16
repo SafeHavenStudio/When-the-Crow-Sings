@@ -29,6 +29,7 @@ public class ScreenSettings : MonoBehaviour
         qualityDropdownMenu.AddDropdownButton("High");
         qualityDropdownMenu.AddDropdownButton("Medium");
         qualityDropdownMenu.AddDropdownButton("Low");
+        qualityDropdownMenu.DropdownMenuButtonPressed.AddListener(SetQuality);
 
         GetAndSetSavedSettings();
 
@@ -38,7 +39,8 @@ public class ScreenSettings : MonoBehaviour
     private void GetAndSetSavedSettings()
     {
         int savedQuality = PlayerPrefs.GetInt("quality", 2);
-        QualitySettings.SetQualityLevel(savedQuality);
+        //QualitySettings.SetQualityLevel(savedQuality);
+        SetQuality(savedQuality);
         //////////qualityDropdown.value = savedQuality;
         qualityDropdownMenu.SetCurrentlySelectedButton(savedQuality);
 
