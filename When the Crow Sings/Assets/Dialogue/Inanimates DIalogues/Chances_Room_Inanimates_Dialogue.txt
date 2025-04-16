@@ -1,6 +1,5 @@
 ~ comic
-A comic book I brought with me. It's one of my favorites.
-set ComicFlipFlop = false;
+Some comic books I brought with me. They're my favorites, glad I managed to save them.
 => END
 
 ~ softlock_check_spawn
@@ -15,6 +14,27 @@ Since I don't have anything else to do, I might as well get some sleep.
 	=> ending_call
 - Stay up
 	=> END
+
+~ nightstand
+Nothing to put in here.. Didn't bring much with me.
+Didn't have much in the first place.
+=> END
+
+~ bathroom
+if BathroomSeen == true:
+	I said I'm good, dude.
+else:
+	Uh, I don't have to use the bathroom.
+	set BathroomSeen = true;
+=> END
+
+~ desk
+My only picture of home.. At least this made it out in one piece.
+=> END
+
+~ wardrobe
+A big wardrobe, my stuff barely took up any space. The only clothes I have are these ratty hand-me-downs from C.A.N.
+=> END
 
 ~ ending_call
 call SaveGameToDisk();
