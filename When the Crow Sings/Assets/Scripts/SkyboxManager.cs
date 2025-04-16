@@ -11,12 +11,8 @@ public class SkyboxManager : MonoBehaviour
     public Material nightSkybox;
     public Material blackSkybox;
 
+    [SerializeField]
     private GameStateManager state;
-
-    private void Awake()
-    {
-        state = FindObjectOfType<GameStateManager>();
-    }
 
     private void OnEnable()
     {
@@ -48,11 +44,16 @@ public class SkyboxManager : MonoBehaviour
                 preferredSkybox = nightSkybox;
                 Debug.Log("it is night");
             }
+            else
+            {
+                preferredSkybox = blackSkybox;
+                Debug.Log("additive scene does not contain morning afternoon or night names");
+            }
             RenderSettings.skybox = preferredSkybox;
         }
-
         else preferredSkybox = blackSkybox;
+
         RenderSettings.skybox = preferredSkybox;
-        Debug.Log("you are inside there is no sky there is nothing life is meaningless");
+        Debug.Log("you are inside there is no sky there is nothing life is meaningless part 2");
     }
 }
