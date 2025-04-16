@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     public AreaMusic areaMusic { get; private set; }
 
     [Range(0, 1)]
-    public float masterVolume = 0.5f;
+    public float masterVolume = 1f;
 
     [Range(0, 1)]
     public float musicVolume = 0.5f;

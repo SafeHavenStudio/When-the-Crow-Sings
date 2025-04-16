@@ -108,9 +108,11 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
 
         gameSettings = FindObjectOfType<GameSettings>(true);
+
         if (gameSettings != null)
         {
             gameSettings.playerController = this;
+            gameSettings.LoadSavedPreferences();
         }
 
         Debug.Log("Player controller awaken");

@@ -29,7 +29,7 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
     }
     private void OnEnable()
     {
-        foreach (var selectableButton in selectableButtons)
+        foreach (MenuButton selectableButton in selectableButtons)
         {
             selectableButton.menuButtonHighlightSelector = this;
         }
