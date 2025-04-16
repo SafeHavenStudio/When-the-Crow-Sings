@@ -19,6 +19,14 @@ public class MenuDropdown : MonoBehaviour
 
     MenuDropdownButton _currentlySelectedButton;
 
+    [SerializeField]
+    MenuButton backButton;
+
+    private void OnEnable()
+    {
+        backButton.menuButtonHighlightSelector = GetComponent<MenuButtonSelectionHandler>();
+    }
+
     public void ClosePopup()
     {
         previousMenusMBSH.enabled = true;
@@ -69,7 +77,7 @@ public class MenuDropdown : MonoBehaviour
             SetCurrentlySelectedButton(_newButton.GetComponent<MenuDropdownButton>());
         }
 
-        GetComponent<MenuButtonSelectionHandler>().selectableButtons.Add(_newButton.GetComponent<MenuButton>());
+        GetComponent<MenuButtonSelectionHandler>().selectableButtons.Add(_newButton.GetComponent<MenuDropdownButton>());
     }
 
     public UnityEvent<int> DropdownMenuButtonPressed;
