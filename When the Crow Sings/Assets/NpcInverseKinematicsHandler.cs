@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using static UnityEngine.Rendering.DebugUI;
 
-[RequireComponent(typeof(Animator))]
 public class NpcInverseKinematicsHandler : MonoBehaviour
 {
     [HideInInspector]
     public bool playerInSightCone = false;
 
-    [HideInInspector]
-    public Animator animator;
-
     GameObject playerHeadPosition;
+
+    public RigBuilder npcRigBuilder;
+    public Transform npcLookAtPointTransform;
 
     private float lookAtWeight = 0f;
 
@@ -29,15 +29,15 @@ public class NpcInverseKinematicsHandler : MonoBehaviour
     float lerpSpeed = 2f;
     private void Update()
     {
+        if (npcRigBuilder == null) return;
+
         lookAtWeight = Mathf.Lerp(lookAtWeight, playerInSightCone ? 1.0f : 0.0f, Time.deltaTime * lerpSpeed);
-    }
-    public void MyOnAnimatorIK(int layerIndex)
-    {
-        //Debug.Log("Animator is being IK'ed mate, lovely.");
 
         if (playerHeadPosition == null) playerHeadPosition = GameObject.FindWithTag("PlayerHeadPosition");
 
-        animator.SetLookAtWeight(lookAtWeight);
-        animator.SetLookAtPosition(playerHeadPosition.transform.position);
+        npcRigBuilder.layers[0].rig.weight = lookAtWeight;
+        npcLookAtPointTransform.position = playerHeadPosition.transform.position;
+        //animator.SetLookAtWeight(lookAtWeight);
+        //animator.SetLookAtPosition(playerHeadPosition.transform.position);
     }
 }
