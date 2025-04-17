@@ -38,13 +38,13 @@ public class ScreenSettings : MonoBehaviour
 
     private void GetAndSetSavedSettings()
     {
-        int savedQuality = PlayerPrefs.GetInt("quality", 2);
+        int savedQuality = PlayerPrefs.GetInt("quality", 1);
         //QualitySettings.SetQualityLevel(savedQuality);
         SetQuality(savedQuality);
         //////////qualityDropdown.value = savedQuality;
         qualityDropdownMenu.SetCurrentlySelectedButton(savedQuality);
 
-        int savedResolution = PlayerPrefs.GetInt("resolution", 1);
+        int savedResolution = PlayerPrefs.GetInt("resolution", 0);
         SetResolution(savedResolution);
         //////////resolutionDropdown.value = savedResolution;
         resolutionDropdownMenu.SetCurrentlySelectedButton(savedResolution);
@@ -104,7 +104,7 @@ public class ScreenSettings : MonoBehaviour
             }
         }
 
-        options.Reverse();
+        //options.Reverse();
 
         //Add all collected options at once (outside the loop)
         //////////resolutionDropdown.AddOptions(options);
