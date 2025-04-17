@@ -24,10 +24,10 @@ public class VolumeChangeTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        areaMusic = FindObjectOfType<AreaMusic>();
         if (areaMusic == null)
         {
-            Debug.Log("Could not find area music. Check additive scenes");
+            areaMusic = FindObjectOfType<AreaMusic>();
+            Debug.Log("Volume change trigger Grabbed area music");
         }
     }
 
@@ -36,7 +36,7 @@ public class VolumeChangeTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             areaMusic.SetParameter(parameterName, parametervalue);
-            Debug.Log("Changing volume");
+            Debug.Log("Changing volume" + parameterName + " to volume " + parametervalue);
         }
     }
 }

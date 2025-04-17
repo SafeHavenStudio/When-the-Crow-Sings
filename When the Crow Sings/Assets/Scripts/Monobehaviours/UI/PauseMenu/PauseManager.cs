@@ -53,6 +53,7 @@ public class PauseManager : MonoBehaviour
     {
         // TODO: Close ALL pause menus, or something like that.
         //pauseMenuUI.SetActive(false);
+        pauseMenuSwapper.OpenMenu(0);
         pauseMenusHolder.SetActive(false);
         UnpauseGame();
     }

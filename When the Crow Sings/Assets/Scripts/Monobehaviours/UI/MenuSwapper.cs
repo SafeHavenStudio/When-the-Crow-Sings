@@ -42,9 +42,4 @@ public class MenuSwapper : MonoBehaviour
         if (_newIndex < 0) _newIndex = 0;
         OpenMenu(_newIndex);
     }
-
-    public void OpenMenu(GameObject whichMenu)
-    {
-
-    }
 }
