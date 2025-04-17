@@ -31,7 +31,7 @@ public class JournalHistoryHandler : MonoBehaviour
 
     private void CheckEntriesAgainstFlags()
     {
-        for(int i = 0; i < historyEntries.Count - 1; i++)
+        for(int i = 0; i < historyEntries.Count; i++)
         {
             if (SaveDataAccess.saveData.historyEntriesOrder.Contains(i) == false &&
                 SaveDataAccess.saveData.boolFlags[historyEntries[i].associatedDataKey_EnableEntry] == true)
