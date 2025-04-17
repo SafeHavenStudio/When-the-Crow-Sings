@@ -32,8 +32,7 @@ public class NpcController : NpcControllerBase
     // Start is called before the first frame update
     void Start()
     {
-        if (animator == null) animator = GetComponent<Animator>();
-        if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>(); // Null check is probably not necessary but hey, doesn't meaningfully hurt anything.
         navMeshAgent.radius = GetComponent<CapsuleCollider>().radius;
         navMeshAgent.height = GetComponent<CapsuleCollider>().height;
         navMeshAgent.speed = walkSpeed;
