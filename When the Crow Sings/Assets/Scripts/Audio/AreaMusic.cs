@@ -20,6 +20,9 @@ public class AreaMusic : MonoBehaviour
     [HideInInspector] public EventInstance areaMusicInstance;
     [HideInInspector] public EventInstance ambienceInstance;
 
+    public bool parameterUsingAmbience;
+    public bool parameterUsingMusic;
+
     private void Start()
     {
         if (FMODEvents.instance == null)
@@ -42,7 +45,11 @@ public class AreaMusic : MonoBehaviour
 
     public void SetParameter(string parameterName, float parameterValue)
     {
-        ambienceInstance.setParameterByName(parameterName, parameterValue);
+        if(parameterUsingAmbience)
+            ambienceInstance.setParameterByName(parameterName, parameterValue);
+
+        if (parameterUsingMusic)
+            areaMusicInstance.setParameterByName(parameterName, parameterValue);
     }
 
     public void PlayMusic()
