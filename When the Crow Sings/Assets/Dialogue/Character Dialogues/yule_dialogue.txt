@@ -355,68 +355,69 @@ Yule_Smile: Hello!
 Chance_Smile: Hey! You seem to be in a good mood.
 Yule_Smile: I might've forgotten how nice some idle conversation is.
 if AngelBaseCompleted == true:
-- Angel
-	Chance: Do you ever talk to <color=#813408>Angel</color>?
-	Yule_Thinking: That's the uh... little.. rabbit boy, yes?
-	Chance_Smile: That's the one.
-	Yule: No.. Not much, at least. Sometimes he is standing around when <color=#813408>Quinn</color> or <color=#813408>Beau</color> come to collect, but he usually just stands and watches.
-	Yule_Stare: He seems like a bit of the twitchy sort.
-	Chance_Thinking: I guess he does kind of.. He's got those big eyes. He's a little suspicious.
-	Yule_Stare: He does look the suspicious sort.. I don't think he can help it though. I've never seen him do anything odd. I think he just.. looks like that.
-	Yule: Some people think I'm intimidating just because of the.. Well, being a bear.
-	Chance: Mm yeah.. Well, maybe you should talk to him sometime. You guys have something in common!
-	Chance_Thinking: And you eat the food he makes, right?
-	Yule: Yes, sometimes. I eat the fish I dry out, but they do bring me a container of soup now and then.
-	Chance_Smile: That's something to talk about!
-	Chance_Sad: I just don't want you to be lonely out here.
-	Yule_Smile: Well, I've got you to talk to!
-	Chance_Excited: Haha! Sure, buddy, but one person can get pretty boring.
-	Yule: Maybe.. but I don't mind it.
-- Quinn
-	Chance_Thinking: Don't you get to talk to <color=#813408>Quinn</color>? 
-	Yule_Stare: Oh well, we speak sometimes. Though they have a lot of work to do, in there.
-	Chance: I sort of figured you guys were buddies, since they recommended me to come see you.
-	Yule: I think we are buddies. Even if we don't talk that much.
-	Chance_Thinking: Have you known them for long?
-	Yule_Thinking: As long as they've been here. Not.. The longest. Not the shortest.
-	Yule: Long enough.
-	Chance_Sad: Don't you get lonely out here?
-	Yule_Sad: Maybe a little...
-	Yule_Smile: Now I've got you to talk to, though.
-	Yule_Stare: And the fish always listen. 
-	Chance_Thinking: Yeah but you only talk to them out of.. respect, right?
-	Yule_Thinking: Well.. I mean sometimes I might.. talk about my day, or.. the weather.
-	Chance_Smile: I'm sure they appreciate it.. Can't be much conversation down there, beyond the bubbles.
-	Yule: I like to think so.
+	- Angel
+		Chance: Do you ever talk to <color=#813408>Angel</color>?
+		Yule_Thinking: That's the uh... little.. rabbit boy, yes?
+		Chance_Smile: That's the one.
+		Yule: No.. Not much, at least. Sometimes he is standing around when <color=#813408>Quinn</color> or <color=#813408>Beau</color> come to collect, but he usually just stands and watches.
+		Yule_Stare: He seems like a bit of the twitchy sort.
+		Chance_Thinking: I guess he does kind of.. He's got those big eyes. He's a little suspicious.
+		Yule_Stare: He does look the suspicious sort.. I don't think he can help it though. I've never seen him do anything odd. I think he just.. looks like that.
+		Yule: Some people think I'm intimidating just because of the.. Well, being a bear.
+		Chance: Mm yeah.. Well, maybe you should talk to him sometime. You guys have something in common!
+		Chance_Thinking: And you eat the food he makes, right?
+		Yule: Yes, sometimes. I eat the fish I dry out, but they do bring me a container of soup now and then.
+		Chance_Smile: That's something to talk about!
+		Chance_Sad: I just don't want you to be lonely out here.
+		Yule_Smile: Well, I've got you to talk to!
+		Chance_Excited: Haha! Sure, buddy, but one person can get pretty boring.
+		Yule: Maybe.. but I don't mind it.
+	- Quinn
+		Chance_Thinking: Don't you get to talk to <color=#813408>Quinn</color>? 
+		Yule_Stare: Oh well, we speak sometimes. Though they have a lot of work to do, in there.
+		Chance: I sort of figured you guys were buddies, since they recommended me to come see you.
+		Yule: I think we are buddies. Even if we don't talk that much.
+		Chance_Thinking: Have you known them for long?
+		Yule_Thinking: As long as they've been here. Not.. The longest. Not the shortest.
+		Yule: Long enough.
+		Chance_Sad: Don't you get lonely out here?
+		Yule_Sad: Maybe a little...
+		Yule_Smile: Now I've got you to talk to, though.
+		Yule_Stare: And the fish always listen. 
+		Chance_Thinking: Yeah but you only talk to them out of.. respect, right?
+		Yule_Thinking: Well.. I mean sometimes I might.. talk about my day, or.. the weather.
+		Chance_Smile: I'm sure they appreciate it.. Can't be much conversation down there, beyond the bubbles.
+		Yule: I like to think so.
+	=>BBEnd
 else:
-- Beau
-	Chance: Do you ever talk to <color=#813408>Beau</color>?
-	Yule: That's the big moose fella?
-	Chance_Smile: Yeah, that's him.
-	Yule_Stare: I've spoken to him once or twice.. When <color=#813408>Quinn</color> needed someone else to come give me produce or for me to bring in grain or fish.
-	Chance: And do you guys get along?
-	Yule_Thinking: It's not that we didn't get along, but.. as you might imagine, the conversation is a little slow.. literally.
-	Chance_Smile: That makes sense. What do you guys speak about?
-	Yule: The weather, his antlers, the food.. Nothing special.
-	Chance: That makes sense.. So not much to talk about?
-	Yule_Stare: Well he is busy, watching that <color=#5b5b1f>cold storage</color> all of the time..
-	Yule_Thinking: Sometimes he asks about what I used to do when I worked there. It was a little different, before the new lady came.. more lax.
-	Chance_Smile: Well you've got something in common, besides being the two biggest dudes around probably.
-	Yule_Smile: Oh I guess we are, aren't we? Maybe we'll talk about that next time.
-- Quinn
-	Chance_Thinking: Don't you get to talk to <color=#813408>Quinn</color>? 
-	Yule_Stare: Oh well, we speak sometimes. Though they have a lot of work to do, in there.
-	Chance: I sort of figured you guys were buddies, since they recommended me to come see you.
-	Yule: I think we are buddies. Even if we don't talk that much.
-	Chance_Thinking: Have you known them for long?
-	Yule_Thinking: As long as they've been here. Not.. The longest. Not the shortest.
-	Yule: Long enough.
-	Chance_Sad: Don't you get lonely out here?
-	Yule_Sad: Maybe a little...
-	Yule_Smile: Now I've got you to talk to, though.
-	Yule_Stare: And the fish always listen. 
-	Chance_Thinking: Yeah but you only talk to them out of.. respect, right?
-	Yule_Thinking: Well.. I mean sometimes I might.. talk about my day, or.. the weather.
-	Chance_Smile: I'm sure they appreciate it.. Can't be much conversation down there, beyond the bubbles.
-	Yule: I like to think so.
-=> BBEnd
+	- Beau
+		Chance: Do you ever talk to <color=#813408>Beau</color>?
+		Yule: That's the big moose fella?
+		Chance_Smile: Yeah, that's him.
+		Yule_Stare: I've spoken to him once or twice.. When <color=#813408>Quinn</color> needed someone else to come give me produce or for me to bring in grain or fish.
+		Chance: And do you guys get along?
+		Yule_Thinking: It's not that we didn't get along, but.. as you might imagine, the conversation is a little slow.. literally.
+		Chance_Smile: That makes sense. What do you guys speak about?
+		Yule: The weather, his antlers, the food.. Nothing special.
+		Chance: That makes sense.. So not much to talk about?
+		Yule_Stare: Well he is busy, watching that <color=#5b5b1f>cold storage</color> all of the time..
+		Yule_Thinking: Sometimes he asks about what I used to do when I worked there. It was a little different, before the new lady came.. more lax.
+		Chance_Smile: Well you've got something in common, besides being the two biggest dudes around probably.
+		Yule_Smile: Oh I guess we are, aren't we? Maybe we'll talk about that next time.
+	- Quinn
+		Chance_Thinking: Don't you get to talk to <color=#813408>Quinn</color>? 
+		Yule_Stare: Oh well, we speak sometimes. Though they have a lot of work to do, in there.
+		Chance: I sort of figured you guys were buddies, since they recommended me to come see you.
+		Yule: I think we are buddies. Even if we don't talk that much.
+		Chance_Thinking: Have you known them for long?
+		Yule_Thinking: As long as they've been here. Not.. The longest. Not the shortest.
+		Yule: Long enough.
+		Chance_Sad: Don't you get lonely out here?
+		Yule_Sad: Maybe a little...
+		Yule_Smile: Now I've got you to talk to, though.
+		Yule_Stare: And the fish always listen. 
+		Chance_Thinking: Yeah but you only talk to them out of.. respect, right?
+		Yule_Thinking: Well.. I mean sometimes I might.. talk about my day, or.. the weather.
+		Chance_Smile: I'm sure they appreciate it.. Can't be much conversation down there, beyond the bubbles.
+		Yule: I like to think so.
+	=> BBEnd
