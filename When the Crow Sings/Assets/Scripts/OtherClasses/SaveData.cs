@@ -306,7 +306,8 @@ public class SaveData
         { "HFPhilomenaTC",false },
         { "HFPhilomenaBC",false },
 
-        { "SoftlockCheckFlag1", false }
+        { "SoftlockCheckFlag1", false },
+        { "EnemyCanMove", false }
 
     };
 

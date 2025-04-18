@@ -18,7 +18,7 @@ public class EnemyIdleState : EnemyState
 
     private IEnumerator exitStateAfterTime()
     {
-        while (SaveDataAccess.saveData.boolFlags["NightIntroSeen"] == false)
+        while (SaveDataAccess.saveData.boolFlags["EnemyCanMove"] == false)
         {
             yield return null;
         }
