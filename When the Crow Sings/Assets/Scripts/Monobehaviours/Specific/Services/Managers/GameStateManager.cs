@@ -25,7 +25,8 @@ public class GameStateManager : MonoBehaviour, IService
     public GameSignal levelLoadFinishSignal;
 
     public GameSignal fullyFinishedLoadSignal;
-    
+
+    public Canvas cameraSpaceCanvas;
 
 
     public GameObject loadScreen;
@@ -118,6 +119,8 @@ public class GameStateManager : MonoBehaviour, IService
         playerContent.GetComponent<PlayerController>().Initialize(spawnPoint.transform);
         playerHolder.GetComponent<PlayerHolder>().playerVirtualCameraFollowPoint.transform.position = spawnPoint.transform.position;
         playerContent.GetComponent<CharacterController>().enabled = true;
+
+        cameraSpaceCanvas.worldCamera = playerHolder.GetComponent<PlayerHolder>().overlayCamera;
         
     }
 
@@ -243,6 +246,7 @@ public class GameStateManager : MonoBehaviour, IService
 
     public void DestroyActors()
     {
+        cameraSpaceCanvas.worldCamera = null;
         Destroy(playerHolder);
         taskManager.AbortQTE();
         ServiceLocator.Get<CrowManager>().crowHolder.GetComponent<CrowHolder>().DestroyCrows();

@@ -59,13 +59,11 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
         isHovering = false;
         Debug.Log("!gniP");
         image.sprite = deactivatedSprite;
-        //SetActivateTab(false);
     }
 
     private void OnEnable()
     {
         image.sprite = deactivatedSprite;
-        //StartCoroutine(wait());
     }
 
     IEnumerator wait()
@@ -83,12 +81,5 @@ public abstract class JournalTab : MonoBehaviour, IPointerEnterHandler, IPointer
     public virtual void OnPointerExit(PointerEventData eventData)
     {
         DeactivateTab();
-    }
-    public void OnButtonPressed()
-    {
-        foreach (JournalTabSide i in journalTabSides)
-        {
-
-        }
     }
 }

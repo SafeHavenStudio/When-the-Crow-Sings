@@ -108,9 +108,16 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
 
         gameSettings = FindObjectOfType<GameSettings>(true);
-        gameSettings.FindPlayerController();
-        gameSettings.isDecayingCheck();
+
+        if (gameSettings != null)
+        {
+            gameSettings.playerController = this;
+            gameSettings.LoadSavedPreferences();
+        }
+
+        Debug.Log("Player controller awaken");
     }
+
     private void Start()
     {
         InputManager.playerInputActions.Player.Enable();

@@ -74,7 +74,7 @@ Quinn: The feral ones, I mean. Not the EVOs. Obviously.
 	Quinn: Cool. Cool cool cool... There should be a few bags down by the <color=#5b5b1f>dining tent</color>, get them and bring them in to me and I'll see what I can do for ya.
 	if HasThrownBirdseed == false:
 		Chance_Thinking: How would I get past the birds?
-		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they from <color=#813408>Caleb</color> like shiny things too. Do you have anything like that?
+		Quinn_Thinking: Hmm.. Well they like seeds, obviously... I've heard they from <color=#813408>Caleb</color> like shiny things too. Do you have anything like that?
 		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
 		Quinn: You have a personal stash of bird seed?
 		Chance: Uh, yeah. I like bird watching, it helps bring them out.
@@ -96,7 +96,7 @@ Chance_Angry: I know that! Why are you acting like nothing is going on outside? 
 Quinn: Uh, yeah. It's worked out so far.
 Chance_Angry: Are you insane?!
 Quinn_Thinking: I mean it doesn't really bother me.. If you respect the curfew and stay out of the stray's way, they kind of just leave you alone.
-Chance_Sigh: Do you people just play pretend like everything is okay?
+Chance_Sigh: Do you people just play pretend like everything's okay?
 set FaridaHasBeenHeardOf = true;
 Quinn: Kinda, yeah. <color=#813408>Farida</color> set up a curfew, we all stay inside, it doesn't bother anyone. Win win.
 Chance_Annoyed: And it never sees you in this giant GLASS HOUSE?
@@ -157,7 +157,7 @@ Quinn_Thinking: Turnott?.. I'm workshopping it.
 	Quinn: Sure sure. Just go get those seeds for me, the bags are down by the <color=#5b5b1f>dining tent</color>. I'll page <color=#813408>Farida</color> about a delivery for <color=#813408>Yule</color> and give him a heads-up.
 	if HasThrownBirdseed == false:
 		Chance_Thinking: How would I get past the birds?
-		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Quinn_Thinking: Hmm.. Well they like seeds, obviously... I've heard they like shiny things too. Do you have anything like that?
 		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
 		Quinn: You have a personal stash of bird seed?
 		Chance: Uh, yeah. I like bird watching, it helps bring them out.
@@ -186,7 +186,7 @@ Quinn: Change your mind about helping me?
 	Chance_Annoyed: Right, yeah. Thanks, jerk.
 	if HasThrownBirdseed == false:
 		Chance_Thinking: How would I get past the birds?
-		Quinn_Thinking: Hmm.. Well they like seed, obviously... I've heard they like shiny things too. Do you have anything like that?
+		Quinn_Thinking: Hmm.. Well they like seeds, obviously... I've heard they like shiny things too. Do you have anything like that?
 		Chance_Annoyed: I mean I have some bird seed, but it's my personal stash.
 		Quinn: You have a personal stash of bird seed?
 		Chance: Uh, yeah. I like bird watching, it helps bring them out.
@@ -270,6 +270,10 @@ if QuinnBB == 0:
 	=> Q0
 if QuinnBB == 1:
 	=> Q1
+if QuinnBB == 2:
+	=> Q2
+if QuinnBB == 3:
+	=> Q3
 else:
 	set QuinnExhausted = true;
 	Quinn_Smile: I've loved our chats, dude.
@@ -314,7 +318,7 @@ Quinn: Sure!
 	Chance_Annoyed: Then don't bring it up.
 => BBEnd
 
-~Q1
+~ Q1
 Quinn_Smile: Hello again my dude. Here for more knowledge drops?
 Chance: Is that what you call these conversations?
 Quinn: Uh, yeah. Duh. 
@@ -366,7 +370,7 @@ Chance_Annoyed: Right...
 	Quinn_Smile: It sure is.
 => BBEnd
 
-~Q2
+~ Q2
 Quinn: 'Sup, dude?
 - Your hair
 	Chance_Thinking: So your hair probably has to get done pretty often since it's short on the sides, right?
@@ -391,7 +395,7 @@ Quinn: 'Sup, dude?
 	Chance_Thinking: So what do you need your glasses for? They're pretty big.
 	Quinn: The bigness doesn't do anything. I'm near sighted.
 	Chance_Thinking: Uh, what does that mean?
-	Quinn: It means I can only see stuff without my glasses if it's real close. Not like.. super close, but close.
+	Quinn: It means I can only see stuff without my glasses if it's really close. Not like.. super close, but close.
 	Chance_Thinking:... Oh. You can't just like, squint?
 	Quinn: I mean, I can, but it's not super effective.
 	Chance: I just squint.
@@ -407,4 +411,48 @@ Quinn: 'Sup, dude?
 	Quinn_Thinking: Have you tried moving that hair out of your face? Maybe that would help.
 	Chance_Angry: Maybe you need new glasses, since you can't see that I definitely don't.
 	Quinn: Totally.
+=> BBEnd
+
+~ Q3 
+Quinn_Smile: Yo, bro.
+Quinn: What's good?
+- Pots
+	Chance: Do you ever get the urge to break the pots?
+	Quinn: Uh, no?
+	Chance_Thinking: Then why do they like.. move everyday?
+	Quinn: They move because I'm doing stuff with them, obviously.
+	Chance_Annoyed: Yeah.
+	Chance_Annoyed: Doing what?
+	Quinn_Thinking: Well right now, mostly just examine the plants to make sure they're growing well during the day. If it's all good, I harvest them and organize them during the evening.
+	Chance_Thinking: How come there's always more when I come in?
+	Quinn: What do you mean?
+	Chance: Like.. You harvested them yesterday, right? How are there more today if you harvested those?
+	Quinn_Smile: You think the plants I have in here are the only ones I've got?
+	Chance_Annoyed: Uh, yeah? It's a greenhouse?
+	Quinn: Good point. I've got a few in my room, sometimes I swap them out.
+	Chance_Thinking: Why would you bring them to your room?
+	Quinn_Smile: It helps plants grow if you talk to them. I take them to my room, and I read this book to them every night.
+	Chance: What book?
+	Quinn: Some book I found out in the <color=#5b5b1f>residential area</color>, Portrait of Markov.
+	Chance_Thinking: What's it about? It sounds weird.
+	Quinn_Thinking: Yeah it is kind of weird. It's about this girl who is obsessed with this guy and she keeps a portrait of him and fawns over it.. sacrifices stuff to it.
+	Chance_Scared: That can't be good for the plants to grow!
+	Quinn_Smile: Hey, the science never said anything about what you're saying to the plants.
+	Chance_Scared: Urgh.. I'm eating evil depressed vegetables?
+	Quinn: I mean they taste good, who cares?
+	Chance_Sad: I gotta get outta this place man...
+- Plaque
+	Chance_Thinking: What's with the wooden plaque in the corner? Did you make it or something?
+	Quinn: Nah. On my way to this compound, at some point we had to take a break for them to do maintenance on the bus. 
+	Quinn_Thinking: I got bored and wandered off into the forest nearby.
+	Quinn: There was this little old village, it was kind of like a compound but not really? 
+	Quinn_Thinking: Was kind of weird, now that I think about it..
+	Quinn: Anyway, I chatted up some kind of merchant for a while and he offered me that little wooden plaque. 
+	Quinn: He said it was meant to help plants grow, so I put it up in here.
+	Chance_Thinking: Not a compound?
+	Quinn_Thinking: Yeah. Like everything was all made of wood, and looked super old timey... Maybe it's some place that survived from before?
+	Quinn_Thinking: The bus driver said we weren't near any compounds so it definitely was not a C.A.N. controlled place.
+	Chance: I didn't think places like that existed anymore. I mean they were a little hands off on my compound, but I didn't think there were still independent towns or anything.
+	Quinn: I didn't either, but I guess we don't know all that's out there. 
+	Chance_Thinking: Yeah, I guess so..
 => BBEnd

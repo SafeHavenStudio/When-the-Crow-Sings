@@ -139,9 +139,10 @@ public class SaveData
         { "SeenBrokenGauges",false },
         { "SeenDoor",false },
         { "EnergyKnown",false },
-        { "TreeKnown", false},
-        { "FlowerKnown", false},
-        { "GrillKnown", false},
+        { "TreeKnown",false },
+        { "FlowerKnown",false },
+        { "GrillKnown",false },
+        { "BathroomSeen",false },
 
 
         //Door/loadzone relevant flags
@@ -305,7 +306,8 @@ public class SaveData
         { "HFPhilomenaTC",false },
         { "HFPhilomenaBC",false },
 
-        { "SoftlockCheckFlag1", false }
+        { "SoftlockCheckFlag1", false },
+        { "EnemyCanMove", false }
 
     };
 

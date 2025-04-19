@@ -13,6 +13,10 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
 
     private MenuButton lastSelected = null; // Only includes the lastSelected if it's part of the possibleSelectors, unlike the built-in one.
 
+    public void SetSelectedGameObject(int _newSelectedIndex)
+    {
+        SetSelectedGameObject(selectableButtons[_newSelectedIndex].gameObject);
+    }
     private void SetSelectedGameObject(GameObject newSelected)
     {
         EventSystem.current.SetSelectedGameObject(newSelected);
@@ -25,7 +29,7 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
     }
     private void OnEnable()
     {
-        foreach (var selectableButton in selectableButtons)
+        foreach (MenuButton selectableButton in selectableButtons)
         {
             selectableButton.menuButtonHighlightSelector = this;
         }
@@ -67,5 +71,14 @@ public class MenuButtonSelectionHandler : MonoBehaviour//, IPointerEnterHandler
     {
         if (lastSelected != null) SetSelectedGameObject(lastSelected.gameObject);
         else SetSelectedGameObject(selectableButtons[0].gameObject);
+    }
+
+    public void SetButtonsInteractability(bool _active)
+    {
+        foreach (MenuButton i in selectableButtons)
+        {
+            if (i.GetComponent<Button>() != null)
+                i.GetComponent<Button>().interactable = _active;
+        }
     }
 }

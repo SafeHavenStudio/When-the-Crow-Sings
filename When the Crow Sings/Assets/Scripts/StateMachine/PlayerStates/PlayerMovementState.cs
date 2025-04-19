@@ -79,7 +79,7 @@ public class PlayerMovementState : StateMachineState
             stateSpeed = s.maxSprintSpeed;
             slideSpeedCorrection = s.sprintSlideSpeedCorrection;
 
-            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(0);
+            s.GetComponent<PlayerProceduralAnimation>().SetOnlyOneRigToActiveWeight(1);
         }
         else if (s.isCrouchingToggled)
         {
