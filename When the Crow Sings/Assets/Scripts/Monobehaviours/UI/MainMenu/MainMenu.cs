@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public AllLevels allLevels;
 
     public GameObject newGameButtons;
+    public MenuButtonSelectionHandler mainMenuHomeMBSH;
     public GameObject mainMenuPage;
 
 
@@ -78,6 +79,13 @@ public class MainMenu : MonoBehaviour
 
     public void OnContinueButtonPressed()
     {
+        StartCoroutine(ContinueGame());
+    }
+    IEnumerator ContinueGame()
+    {
+        mainMenuHomeMBSH.SetButtonsInteractability(false);
+
+        yield return StartCoroutine(fadeToBlack.FadeIn());
         if (SaveDataAccess.SavedDataExistsOnDisk())
         {
             SaveDataAccess.ReadDataFromDisk();
@@ -96,7 +104,8 @@ public class MainMenu : MonoBehaviour
     IEnumerator NewGame()
     {
         newGameButtons.SetActive(false);
-        foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
+        //foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
+        newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().SetButtonsInteractability(false);
 
         yield return StartCoroutine(fadeToBlack.FadeIn());
 
