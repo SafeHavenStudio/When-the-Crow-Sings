@@ -10,6 +10,10 @@ public class EnemyChaseState : EnemyState
 
     public override void FixedUpdate()
     {
+        if (SaveDataAccess.saveData.boolFlags["EnemyCanMove"] == false)
+        {
+            s.stateMachine.Enter("EnemyIdleState");
+        }
         if (ServiceLocator.Get<PlayerController>() != null)
             s.navMeshAgent.destination = ServiceLocator.Get<PlayerController>().transform.position;
     }
