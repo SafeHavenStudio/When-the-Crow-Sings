@@ -84,6 +84,7 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuHomeMBSH.SetButtonsInteractability(false);
 
+        fadeToBlack.StopAllCoroutines();
         yield return StartCoroutine(fadeToBlack.FadeIn());
         if (SaveDataAccess.SavedDataExistsOnDisk())
         {
