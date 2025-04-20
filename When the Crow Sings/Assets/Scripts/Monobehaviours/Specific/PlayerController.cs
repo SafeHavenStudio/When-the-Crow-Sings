@@ -240,6 +240,9 @@ public class PlayerController : StateMachineComponent, IService
             //transform.SetPositionAndRotation(transform.position, _transform.rotation);
         }
         else transform.SetPositionAndRotation(_transform.position, _transform.rotation);
+
+        playerLookAtTransformHolder.rotation = _transform.rotation;
+
         characterController.enabled = true;
     }
 

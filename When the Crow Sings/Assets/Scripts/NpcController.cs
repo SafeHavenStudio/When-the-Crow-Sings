@@ -8,6 +8,8 @@ public class NpcController : NpcControllerBase
 {
     public Animator animator;
 
+    public DialoguePortraits.WhoIsTalking npcIdentity = DialoguePortraits.WhoIsTalking.None;
+
     public enum NpcState { IDLE, TALKING }
     [HideInInspector]
     public NpcState talkingState = NpcState.IDLE;
@@ -50,13 +52,20 @@ public class NpcController : NpcControllerBase
         originalRotation = transform.rotation;
     }
 
+    private void Update()
+    {
+        stateMachine.Update(Time.deltaTime);
+
+        if (animator != null) animator.SetBool("isTalking", DialogueManager.whoIsTalking == npcIdentity && talkingState == NpcState.TALKING);
+    }
+
     // Being super explicit with the API for designers' sakes, especially since UnityEvents don't seem to support enums.
     public void NpcAnimIdleStart()
     {
         if(stateMachine.currentState != stateMachine.states["NpcBespokeDestinationState"])
         {
             Debug.Log("No i don't want to talk to you go away");
-            if (animator != null) animator.SetBool("isTalking", false);
+            //if (animator != null) animator.SetBool("isTalking", false);
             talkingState = NpcState.IDLE;
 
             transform.rotation = originalRotation;
@@ -71,7 +80,7 @@ public class NpcController : NpcControllerBase
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
         Debug.Log("I am playing a talking animation now!");
-        if (animator != null)  animator.SetBool("isTalking", true);
+        //if (animator != null)  animator.SetBool("isTalking", true);
 
         talkingState = NpcState.TALKING;
 
