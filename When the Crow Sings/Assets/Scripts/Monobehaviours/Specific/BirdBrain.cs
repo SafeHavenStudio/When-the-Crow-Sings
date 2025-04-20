@@ -147,4 +147,15 @@ public class BirdBrain : StateMachineComponent
 
         return timeItWouldTakeToReachSeed;
     }
+
+
+    public void CrowScreamsAtYou()
+    {
+        Vector3 directionToPlayer = (transform.position - ServiceLocator.Get<PlayerController>().transform.position);
+        directionToPlayer.y = 0f;
+        directionToPlayer = directionToPlayer.normalized * 3;
+        transform.rotation = Quaternion.LookRotation(-directionToPlayer);
+
+        crowAnimator.SetTrigger("SquawkTrigger");
+    }
 }
