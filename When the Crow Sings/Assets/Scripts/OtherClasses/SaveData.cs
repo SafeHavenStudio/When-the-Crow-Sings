@@ -143,6 +143,7 @@ public class SaveData
         { "FlowerKnown",false },
         { "GrillKnown",false },
         { "BathroomSeen",false },
+        { "Night3Autosave",false },
 
 
         //Door/loadzone relevant flags

@@ -15,13 +15,13 @@ public class FlagFlipperTrigger : MonoBehaviour
         switch (flagType)
         {
             case Constants.FLAG_TYPES.BOOL:
-                SaveDataAccess.saveData.boolFlags[flagToFlip] = new_bool_value;
+                SaveDataAccess.SetFlag(flagToFlip, new_bool_value);
                 break;
             case Constants.FLAG_TYPES.INT:
-                SaveDataAccess.saveData.intFlags[flagToFlip] = new_int_value;
+                SaveDataAccess.SetFlag(flagToFlip, new_int_value);
                 break;
             case Constants.FLAG_TYPES.STRING:
-                SaveDataAccess.saveData.stringFlags[flagToFlip] = new_string_value;
+                SaveDataAccess.SetFlag(flagToFlip, new_string_value);
                 break;
         }
     }
