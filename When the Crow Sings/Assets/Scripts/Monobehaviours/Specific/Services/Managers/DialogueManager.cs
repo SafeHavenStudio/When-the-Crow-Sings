@@ -40,6 +40,8 @@ public class DialogueManager : MonoBehaviour, IService
 
     public GameSettings gameSettings;
 
+    public static DialoguePortraits.WhoIsTalking whoIsTalking = DialoguePortraits.WhoIsTalking.None;
+
     #region StartMethods()
     private void Awake()
     {
@@ -85,6 +87,7 @@ public class DialogueManager : MonoBehaviour, IService
         choiceButtonsMBHS.enabled = false;
         nextButtonMBHS.enabled = false;
         dialogueUI.SetActive(false);
+        whoIsTalking = DialoguePortraits.WhoIsTalking.None;
         ServiceLocator.Get<InteractablesManager>().FinishInteraction();
     }
 
@@ -320,6 +323,7 @@ public class DialogueManager : MonoBehaviour, IService
 
                 if (canPlayAudio && textMesh.maxVisibleCharacters < textMesh.text.Length-1)
                 {
+                    whoIsTalking = dialoguePortraits.whoIsTalking;
                     switch (dialoguePortraits.whoIsTalking)
                     {
                         case DialoguePortraits.WhoIsTalking.Chance:
