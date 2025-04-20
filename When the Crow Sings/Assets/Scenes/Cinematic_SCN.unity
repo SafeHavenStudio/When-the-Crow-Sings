@@ -1460,12 +1460,12 @@ GameObject:
   - component: {fileID: 381369560}
   - component: {fileID: 381369559}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: BlackFaderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &381369559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5186,6 +5186,7 @@ MonoBehaviour:
   mainScene:
     asset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  fadeToBlack: {fileID: 1050549490}
 --- !u!4 &872071889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3664409167306137121, guid: 64c3b0e5951cc3043bef692db9b19d2b,
@@ -5819,6 +5820,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1050549490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5755118988644345272, guid: 97046cd5840eb9847a352e9016dced60,
+    type: 3}
+  m_PrefabInstance: {fileID: 5891461123238712599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f940056afff6848874dc095fd01c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144636045
 GameObject:
   m_ObjectHideFlags: 0
