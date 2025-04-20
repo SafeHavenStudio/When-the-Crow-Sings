@@ -106,6 +106,7 @@ public class MainMenu : MonoBehaviour
         //foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
         newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().SetButtonsInteractability(false);
 
+        fadeToBlack.StopAllCoroutines();
         yield return StartCoroutine(fadeToBlack.FadeIn());
 
         yield return StartCoroutine(SaveDataAccess.EraseDataFromDisk());
