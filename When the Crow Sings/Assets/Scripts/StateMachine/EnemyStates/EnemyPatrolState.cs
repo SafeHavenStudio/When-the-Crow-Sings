@@ -32,6 +32,10 @@ public class EnemyPatrolState : EnemyState
 
     public override void FixedUpdate()
     {
+        if (SaveDataAccess.saveData.boolFlags["EnemyCanMove"] == false)
+        {
+            s.stateMachine.Enter("EnemyIdleState");
+        }
         if (s.doesSeePlayer)
         {
             s.EnterChaseStateSafe();

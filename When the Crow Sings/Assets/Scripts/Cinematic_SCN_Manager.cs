@@ -1,6 +1,7 @@
 using Eflatun.SceneReference;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -121,6 +122,18 @@ public class Cinematic_SCN_Manager : MonoBehaviour
 
     public void LoadMain_SCN()
     {
+        List<MenuButtonSelectionHandler> allMBSH = FindObjectsByType<MenuButtonSelectionHandler>(FindObjectsSortMode.None).ToList();
+        foreach (MenuButtonSelectionHandler i in allMBSH)
+        {
+            i.SetButtonsInteractability(false);
+        }
+        StartCoroutine(LoadMain_SCN_Coroutine());
+    }
+
+    public FadeToBlack fadeToBlack;
+    IEnumerator LoadMain_SCN_Coroutine()
+    {
+        yield return fadeToBlack.FadeIn();
         SceneManager.LoadScene(mainScene.Name);
     }
 

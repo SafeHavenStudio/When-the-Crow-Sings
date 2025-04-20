@@ -60,14 +60,14 @@ public class EnemyController : NpcControllerBase,IService
 
     public void OnSpotPlayerRegardlessTriggerEntered(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && SaveDataAccess.saveData.boolFlags["EnemyCanMove"])
             stateMachine.Enter("EnemyChaseState");
     }
 
     public void EnterChaseStateSafe()
     {
         Debug.Log("EnterChaseStateSafe() called!");
-        if (!isWaitingToCheckCanSeePlayer) StartCoroutine(checkIfStillDoesSeePlayer());
+        if (!isWaitingToCheckCanSeePlayer && SaveDataAccess.saveData.boolFlags["EnemyCanMove"]) StartCoroutine(checkIfStillDoesSeePlayer());
     }
     IEnumerator checkIfStillDoesSeePlayer()
     {

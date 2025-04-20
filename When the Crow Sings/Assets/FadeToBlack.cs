@@ -14,8 +14,15 @@ public class FadeToBlack : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    public IEnumerator FadeIn()
+    public IEnumerator FadeIn(bool setDefaultAlpha = true)
     {
+        if (setDefaultAlpha)
+        {
+            Color initialColor = new Color();
+            initialColor.a = 0.0f;
+            image.color = initialColor;
+        }
+
         while (image.color.a < 1.0f)
         {
             Color color = image.color;
@@ -25,8 +32,15 @@ public class FadeToBlack : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeOut()
+    public IEnumerator FadeOut(bool setDefaultAlpha = true)
     {
+        if (setDefaultAlpha)
+        {
+            Color initialColor = new Color();
+            initialColor.a = 1.0f;
+            image.color = initialColor;
+        }
+        
         while (image.color.a > 0)
         {
             Color color = image.color;

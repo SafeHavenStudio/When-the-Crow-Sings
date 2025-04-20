@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     //public List<LevelDataResource> levelDataResources;
     public AllLevels allLevels;
 
-    public GameObject newGameButtons;
+    public MenuButtonSelectionHandler mainMenuHomeMBSH;
     public GameObject mainMenuPage;
 
 
@@ -78,6 +78,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnContinueButtonPressed()
     {
+        StartCoroutine(ContinueGame());
+    }
+    IEnumerator ContinueGame()
+    {
+        mainMenuHomeMBSH.SetButtonsInteractability(false);
+
+        fadeToBlack.StopAllCoroutines();
+        yield return StartCoroutine(fadeToBlack.FadeIn());
         if (SaveDataAccess.SavedDataExistsOnDisk())
         {
             SaveDataAccess.ReadDataFromDisk();
@@ -95,9 +103,11 @@ public class MainMenu : MonoBehaviour
     public GameObject newGameOverlay;
     IEnumerator NewGame()
     {
-        newGameButtons.SetActive(false);
-        foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
+        mainMenuHomeMBSH.SetButtonsInteractability(false);
+        //foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
+        newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().SetButtonsInteractability(false);
 
+        fadeToBlack.StopAllCoroutines();
         yield return StartCoroutine(fadeToBlack.FadeIn());
 
         yield return StartCoroutine(SaveDataAccess.EraseDataFromDisk());
