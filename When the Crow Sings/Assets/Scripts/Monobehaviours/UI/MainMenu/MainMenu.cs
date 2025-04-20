@@ -20,7 +20,6 @@ public class MainMenu : MonoBehaviour
     //public List<LevelDataResource> levelDataResources;
     public AllLevels allLevels;
 
-    public GameObject newGameButtons;
     public MenuButtonSelectionHandler mainMenuHomeMBSH;
     public GameObject mainMenuPage;
 
@@ -103,7 +102,7 @@ public class MainMenu : MonoBehaviour
     public GameObject newGameOverlay;
     IEnumerator NewGame()
     {
-        newGameButtons.SetActive(false);
+        mainMenuHomeMBSH.SetButtonsInteractability(false);
         //foreach (MenuButton i in newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().selectableButtons) i.GetComponent<Button>().interactable = false;
         newGameOverlay.GetComponentInChildren<MenuButtonSelectionHandler>().SetButtonsInteractability(false);
 
