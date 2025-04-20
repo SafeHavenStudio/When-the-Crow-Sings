@@ -156,6 +156,8 @@ public class BirdBrain : StateMachineComponent
         directionToPlayer = directionToPlayer.normalized * 3;
         transform.rotation = Quaternion.LookRotation(-directionToPlayer);
 
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.CrowCocophony, transform.position);
+
         crowAnimator.SetTrigger("SquawkTrigger");
     }
 }
