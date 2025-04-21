@@ -37,7 +37,7 @@ public class StirringQTE : QuickTimeEvent
 
     public Image wKey;
     public Image aKey;
-    //public Image sKey;
+    public Image sKey;
     public Image dKey;
 
     public Image upArrow;
@@ -45,7 +45,7 @@ public class StirringQTE : QuickTimeEvent
     public Image downArrow;
     public Image rightArrow;
 
-    private KeyCode[] keySequence = { KeyCode.W, KeyCode.D, KeyCode.A };
+    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.A };
     private KeyCode[] RightKeySequence = { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
     private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
     private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.left, Vector2.down, Vector2.right };
@@ -164,7 +164,7 @@ public class StirringQTE : QuickTimeEvent
     private IEnumerator decayDelay()
     {
         yield return new WaitForSeconds(1.5f);
-        score -= 0.02f;
+        score -= 0.01f;
     }
 
     private IEnumerator waitBeforeCompletion()
@@ -215,7 +215,7 @@ public class StirringQTE : QuickTimeEvent
         downJoystick.enabled = false;
         leftJoystick.enabled = false;
 
-        Image[] keyColor = { wKey, dKey, aKey};
+        Image[] keyColor = { wKey, aKey, sKey, dKey};
 
         foreach (var key in keyColor)
         {
@@ -233,7 +233,7 @@ public class StirringQTE : QuickTimeEvent
     {
         wKey.enabled = false;
         aKey.enabled = false;
-        //sKey.enabled = false;
+        sKey.enabled = false;
         dKey.enabled = false;
 
         Image[] keyDirection = { upJoystick, rightJoystick, downJoystick, leftJoystick };
