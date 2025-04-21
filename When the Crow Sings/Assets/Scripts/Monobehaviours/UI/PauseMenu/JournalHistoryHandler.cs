@@ -15,8 +15,9 @@ public class JournalHistoryHandler : MonoBehaviour
 
     Dictionary<string,bool> _associatedData = new Dictionary<string,bool>();
 
-    private void Awake() // Using awake because this needs to happen regardless of being Enabled.
+    public void AwakeFunctionality() // Connecting a UnityEvent to this because it doesn't work with just Awake() regardless of being enabled
     {
+        Debug.Log("Journal History Handler is awake.");
         GetHistoryEntriesFromTemplate();
 
         foreach (int i in SaveDataAccess.saveData.historyEntriesOrder)
@@ -24,7 +25,7 @@ public class JournalHistoryHandler : MonoBehaviour
             AddNextHistoryEntry(i, false);
         }
     }
-    private void Update()
+    public void UpdateFunctionality()
     {
         CheckEntriesAgainstFlags();
     }
