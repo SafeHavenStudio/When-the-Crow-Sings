@@ -62,7 +62,7 @@ public class QTEInteractable : MonoBehaviour
         signalArgs.objectArgs.Add(successAndFailValues);
         signalArgs.objectArgs.Add(successSignal);
         signalArgs.objectArgs.Add(failureSignal);
-        Debug.Log("Objectargs is now " + signalArgs.objectArgs.Count.ToString());
+        //Debug.Log("Objectargs is now " + signalArgs.objectArgs.Count.ToString());
 
         signalArgs.objectArgs.Add(this);
     }
