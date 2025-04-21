@@ -45,7 +45,7 @@ public class StirringQTE : QuickTimeEvent
     public Image downArrow;
     public Image rightArrow;
 
-    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.A };
+    private KeyCode[] keySequence = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
     private KeyCode[] RightKeySequence = { KeyCode.UpArrow, KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow };
     private Vector2[] joystickSequence = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
     private Vector2[] RightJoystickSequence = { Vector2.up, Vector2.left, Vector2.down, Vector2.right };
