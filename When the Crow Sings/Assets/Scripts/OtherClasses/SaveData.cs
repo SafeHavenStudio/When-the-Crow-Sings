@@ -144,7 +144,8 @@ public class SaveData
         { "GrillKnown",false },
         { "BathroomSeen",false },
         { "Night3Autosave",false },
-
+        { "Night2Autosave",false },
+    
 
         //Door/loadzone relevant flags
         { "RecCenterDoorUnlocked",false },
