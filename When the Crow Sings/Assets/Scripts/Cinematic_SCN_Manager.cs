@@ -133,6 +133,7 @@ public class Cinematic_SCN_Manager : MonoBehaviour
     public FadeToBlack fadeToBlack;
     IEnumerator LoadMain_SCN_Coroutine()
     {
+        fadeToBlack.StopAllCoroutines();
         yield return fadeToBlack.FadeIn();
         SceneManager.LoadScene(mainScene.Name);
     }
