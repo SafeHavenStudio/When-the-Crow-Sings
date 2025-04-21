@@ -54,7 +54,7 @@ public class SaveDataAccess
         if (saveData.boolFlags["KeyInformation1"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding2"] = true;
         if (saveData.boolFlags["KeyInformation2"] && saveData.boolFlags["KeyInformation3"]) saveData.boolFlags["NeutralEnding3"] = true;
 
-        if (saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
+        //if (saveData.boolFlags["FinalSequence"] == true) saveData.boolFlags["Zone1DoorUnlocked"] = true;
         CheckSoftlocks();
     }
 
