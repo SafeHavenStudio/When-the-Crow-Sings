@@ -17,11 +17,11 @@ public class JournalNotification : MonoBehaviour
 
     IEnumerator disappearAfterDelay()
     {
-        yield return new WaitForSeconds(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSecondsRealtime(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
         AudioManager.instance.PlayOneShot(FMODEvents.instance.JournalNotif);
-        yield return new WaitForSeconds(timeToStay);
+        yield return new WaitForSecondsRealtime(timeToStay);
         GetComponent<Animator>().SetTrigger("GoOut");
-        yield return new WaitForSeconds(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSecondsRealtime(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);
     }
 }
