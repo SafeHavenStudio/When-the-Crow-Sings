@@ -29,7 +29,7 @@ public class SkyboxManager : MonoBehaviour
     {
         if (state != null && state.currentLevelDataLVL.isExterior)
         {
-            if (scene.name.Contains("Morning"))
+            if (scene.name.Contains("Morning") || scene.name.Contains("Day"))
             {
                 preferredSkybox = morningSkybox;
                 Debug.Log("it is Morning");
@@ -51,9 +51,5 @@ public class SkyboxManager : MonoBehaviour
             }
             RenderSettings.skybox = preferredSkybox;
         }
-        else preferredSkybox = blackSkybox;
-
-        RenderSettings.skybox = preferredSkybox;
-        Debug.Log("you are inside there is no sky there is nothing life is meaningless part 2");
     }
 }
