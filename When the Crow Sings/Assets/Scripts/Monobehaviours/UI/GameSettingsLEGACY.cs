@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameSettings : MonoBehaviour
+public class GameSettingsLEGACY : MonoBehaviour
 {
     //Keep between 1 and 3
     public Slider qteSpeedSlider;

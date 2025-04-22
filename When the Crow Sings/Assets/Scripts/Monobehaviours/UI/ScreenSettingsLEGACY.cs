@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using System.Linq;
 
-public class ScreenSettings : MonoBehaviour
+public class ScreenSettingsLEGACY : MonoBehaviour
 {
     private List<Resolution> resolutions = new List<Resolution>();
 

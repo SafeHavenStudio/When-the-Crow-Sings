@@ -44,7 +44,7 @@ public class TimingMeterQTE : QuickTimeEvent
         if(featherParticle == null)
         featherParticle = GetComponentInChildren<ParticleSystem>();
 
-        gameSettings = FindObjectOfType<GameSettings>();
+        gameSettings = FindObjectOfType<GameSettingsLEGACY>();
         SetTargetRangeMarkers();
         RandomizeMeter();
         //leave out when implementation added

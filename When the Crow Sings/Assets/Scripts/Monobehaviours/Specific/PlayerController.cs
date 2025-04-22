@@ -14,7 +14,7 @@ public class PlayerController : StateMachineComponent, IService
     public Animator playerAnimator;
 
     public float timeToFear = 2f;
-    public GameSettings gameSettings;
+    public GameSettingsLEGACY gameSettings;
 
 
     [SerializeField]
@@ -107,7 +107,7 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
 
-        gameSettings = FindObjectOfType<GameSettings>(true);
+        gameSettings = FindObjectOfType<GameSettingsLEGACY>(true);
 
         if (gameSettings != null)
         {

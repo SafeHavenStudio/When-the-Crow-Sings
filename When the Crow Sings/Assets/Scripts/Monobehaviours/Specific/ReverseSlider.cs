@@ -10,7 +10,7 @@ public class ReverseSlider : MonoBehaviour
     public float minValue = .01f;
     public float maxValue = .1f;
     public float invertedValue;
-    public GameSettings gameSettings;
+    public GameSettingsLEGACY gameSettings;
 
     void Start()
     {

@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour, IService
     DialogueChoiceBlock activeChoiceBlock = null;
     DialogueConditionBlock activeConditionBlock = null;
 
-    public GameSettings gameSettings;
+    public GameSettingsLEGACY gameSettings;
 
     public static DialoguePortraits.WhoIsTalking whoIsTalking = DialoguePortraits.WhoIsTalking.None;
 
