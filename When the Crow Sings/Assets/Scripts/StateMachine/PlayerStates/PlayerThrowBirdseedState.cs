@@ -8,7 +8,7 @@ public class PlayerThrowBirdseedState : StateMachineState
 {
     PlayerController s;
     bool canThrow = false;
-
+    bool hasThrownAlready = false;
 
     public PlayerThrowBirdseedState(PlayerController component)
     {
@@ -17,6 +17,7 @@ public class PlayerThrowBirdseedState : StateMachineState
 
     public override void StateEntered()
     {
+        hasThrownAlready = false;
         s.StartCoroutine(WaitBeforeThrowing());
         InputManager.playerInputActions.Player.Fire.canceled += OnFire;
 
@@ -29,6 +30,12 @@ public class PlayerThrowBirdseedState : StateMachineState
     }
     public override void StateExited()
     {
+        if (!hasThrownAlready) // This is to prevent things from breaking if the player leaves the state prematurely.
+        {
+            InputManager.playerInputActions.Player.Fire.canceled -= OnFire;
+            ThrowBirdseed();
+        }
+
         s.playerAnimator.SetLayerWeight(1, 0f);
 
         InputManager.playerInputActions.Player.Move.performed -= OnMoveButBirdseedNow;
@@ -71,8 +78,12 @@ public class PlayerThrowBirdseedState : StateMachineState
         InputManager.playerInputActions.Player.Fire.canceled -= OnFire;
 
         while (!canThrow) yield return null;
-        
-        
+
+        ThrowBirdseed();
+       
+    }
+    private void ThrowBirdseed()
+    {
         s.ThrowBirdseed();
 
         SaveDataAccess.SetFlag("HasThrownBirdseed", true);
@@ -81,6 +92,7 @@ public class PlayerThrowBirdseedState : StateMachineState
 
         s.throwTarget.SetActive(false);
         s.trajectoryLine.SetActive(false);
+        hasThrownAlready = true;
     }
 
     private void OnMoveButBirdseedNow(InputAction.CallbackContext context)

@@ -112,6 +112,7 @@ public class PlayerController : StateMachineComponent, IService
         if (gameSettings != null)
         {
             gameSettings.playerController = this;
+            gameSettings.ApplySavedSettings();
             gameSettings.LoadSavedPreferences();
         }
 
@@ -248,7 +249,7 @@ public class PlayerController : StateMachineComponent, IService
 
     public void OnFullyLoadFinished(SignalArguments args)
     {
-        if (!ServiceLocator.Get<DialogueManager>().isInDialogue)
+        if (!ServiceLocator.Get<DialogueManager>().isInDialogue && !isInteracting)
         {
             stateMachine.Enter("PlayerMovementState");
         }

@@ -12,7 +12,7 @@ public class BirdseedController : MonoBehaviour
 
     private bool _isLanded = false;
 
-    public float birdseedLifeAfterGround = 1.5f;
+    //public float birdseedLifeAfterGround = 1.5f;
 
     public float groundDampeningMultiplier = .01f;
 
@@ -83,10 +83,9 @@ public class BirdseedController : MonoBehaviour
         }
     }
 
-
     IEnumerator DeleteAfterSecondsIfGroundNotTouched()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

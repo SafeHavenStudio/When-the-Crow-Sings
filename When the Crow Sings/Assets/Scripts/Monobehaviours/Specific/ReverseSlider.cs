@@ -20,6 +20,11 @@ public class ReverseSlider : MonoBehaviour
         reversedSlider.onValueChanged.AddListener(OnSliderChanged);
     }
 
+    public float GetVisualValue(float inverted)
+    {
+        return reversedSlider.maxValue - inverted + reversedSlider.minValue;
+    }
+
     void OnSliderChanged(float value)
     {
         //Invert the value: max + min - current slider value
