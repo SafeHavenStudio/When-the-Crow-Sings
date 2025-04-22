@@ -249,7 +249,7 @@ public class PlayerController : StateMachineComponent, IService
 
     public void OnFullyLoadFinished(SignalArguments args)
     {
-        if (!ServiceLocator.Get<DialogueManager>().isInDialogue)
+        if (!ServiceLocator.Get<DialogueManager>().isInDialogue && !isInteracting)
         {
             stateMachine.Enter("PlayerMovementState");
         }
