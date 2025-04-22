@@ -34,6 +34,8 @@ public class ScreenSettings : MonoBehaviour
 
         GetAndSetSavedSettings();
 
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
+
         arb = FindObjectOfType<AspectRatioBorders>();
     }
 
@@ -50,7 +52,9 @@ public class ScreenSettings : MonoBehaviour
         //////////resolutionDropdown.value = savedResolution;
         resolutionDropdownMenu.SetCurrentlySelectedButton(savedResolution);
 
-        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0.4f);
+        float savedBrightness = PlayerPrefs.GetFloat("brightness", 0.4f);
+        SetBrightness(savedBrightness);
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
     }
 
     private void CheckForNullVariables()
@@ -137,10 +141,11 @@ public class ScreenSettings : MonoBehaviour
         if (liftGammaGain != null)
         {
             liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
-            volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
-            brightnessSlider.value = _brightnessIndex;
+            //volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
+            //brightnessSlider.value = _brightnessIndex;
             PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
             PlayerPrefs.Save();
+            Debug.Log("Brightness set to " + brightnessSlider.value);
         }
         else
         {

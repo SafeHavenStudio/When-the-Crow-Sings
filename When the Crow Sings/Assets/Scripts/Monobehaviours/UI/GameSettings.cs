@@ -84,6 +84,23 @@ public class GameSettings : MonoBehaviour
         LoadSavedPreferences();
 
         StartCoroutine(WaitForPlayerController());
+
+        LoadTextSettings();
+    }
+
+    public void LoadTextSettings()
+    {
+        textSpeedSlider.onValueChanged.RemoveAllListeners();
+
+        float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
+        textSpeedSlider.value = savedTextSpeed;
+        reverseSlider.invertedValue = savedTextSpeed;
+        textSpeed = savedTextSpeed;
+
+        textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+
+        reverseSlider.reversedSlider.onValueChanged.RemoveAllListeners();
+        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
     }
 
 
@@ -95,6 +112,7 @@ public class GameSettings : MonoBehaviour
         float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
         reverseSlider.invertedValue = savedTextSpeed;
         reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+        textSpeedSlider.value = savedTextSpeed;
 
         if (qteDecayToggle != null)
         {
