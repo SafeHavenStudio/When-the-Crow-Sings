@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RenderObjects
+  m_Name: SeeThruFloor
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: RenderObjects
+    passTag: SeeThruFloor
     Event: 250
     filterSettings:
       RenderQueueType: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     stencilSettings:
       overrideStencilState: 1
       stencilReference: 1
-      stencilCompareFunction: 1
+      stencilCompareFunction: 6
       passOperation: 0
       failOperation: 0
       zFailOperation: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 65527
   m_TransparentLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
