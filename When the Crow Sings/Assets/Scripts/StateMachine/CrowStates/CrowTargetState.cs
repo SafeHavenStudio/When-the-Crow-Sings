@@ -32,9 +32,9 @@ public class CrowTargetState : StateMachineState
     {
         s.CalculateTimeToTarget();
 
-        Debug.Log(s.name + " is too far away! Teleporting!");
+        //Debug.Log(s.name + " is too far away! Teleporting!");
         float distanceToTeleport = s.flyingSpeed * s.CalculateTimeToTarget() * 60;
-        Debug.Log("Distance to Teleport: " + distanceToTeleport.ToString());
+        //Debug.Log("Distance to Teleport: " + distanceToTeleport.ToString());
 
         if (Mathf.Sign(s.CalculateTimeToTarget()) == -1)
         {
