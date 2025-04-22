@@ -23321,6 +23321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8647929250419214706, guid: ba9d4aae592064b46878b709ec121f23,
         type: 3}
+      propertyPath: clearLastSelectedOnDisable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647929250419214706, guid: ba9d4aae592064b46878b709ec121f23,
+        type: 3}
       propertyPath: selectableButtons.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -23411,6 +23416,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7924d2f0245e01478f1f9d0a641d247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1194295910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8647929250419214706, guid: ba9d4aae592064b46878b709ec121f23,
+    type: 3}
+  m_PrefabInstance: {fileID: 1194295903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194295905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e163927f0dbcad349bcdd70f749fb1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1198066395 stripped
@@ -29890,6 +29907,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: OnPaused
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194295910}
+        m_TargetAssemblyTypeName: MenuButtonSelectionHandler, Assembly-CSharp
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
