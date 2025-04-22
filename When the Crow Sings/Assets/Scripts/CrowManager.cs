@@ -19,6 +19,18 @@ public class CrowManager : MonoBehaviour, IService
 
     public void InitializeCrows()
     {
+        StartCoroutine(_InitializeCrows());
+    }
+    IEnumerator _InitializeCrows()
+    {
+        yield return null;
+        foreach (CrowRestPoint i in crowRestPoints)
+        {
+            if (!i.gameObject.activeInHierarchy)
+            {
+                crowRestPoints.Remove(i);
+            }
+        }
         crowHolder.SpawnCrows(crowRestPoints);
     }
 
