@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ScreenSettings : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class ScreenSettings : MonoBehaviour
 
     private void GetAndSetSavedSettings()
     {
-        int savedQuality = PlayerPrefs.GetInt("quality", 1);
+        int savedQuality = PlayerPrefs.GetInt("quality", 0);
         //QualitySettings.SetQualityLevel(savedQuality);
         SetQuality(savedQuality);
         //////////qualityDropdown.value = savedQuality;
@@ -85,7 +86,7 @@ public class ScreenSettings : MonoBehaviour
         //////////resolutionDropdown.ClearOptions();
         resolutions.Clear();
 
-        Resolution[] allResolutions = Screen.resolutions;
+        Resolution[] allResolutions = Screen.resolutions.Reverse().ToArray(); //This should reverse the order of which they populate
         List<string> options = new List<string>();
 
         HashSet<string> uniqueResolutions = new HashSet<string>(); //ensures no duplicates are allowed
