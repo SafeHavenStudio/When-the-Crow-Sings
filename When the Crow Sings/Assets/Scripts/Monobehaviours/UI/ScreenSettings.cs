@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ScreenSettings : MonoBehaviour
 {
@@ -24,6 +25,19 @@ public class ScreenSettings : MonoBehaviour
     private void Start()
     {
         CheckForNullVariables();
+
+        if (liftGammaGain == null)
+        {
+            Debug.LogError("LiftGammaGain is still null after setup. Skipping brightness load.");
+            return;
+        }
+
+        float savedBrightness = PlayerPrefs.GetFloat("brightness", 0.4f);
+        brightnessSlider.value = savedBrightness;
+        SetBrightness(savedBrightness);
+
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
+
         PopulateResolutions();
         
         qualityDropdownMenu.AddDropdownButton("High");
@@ -33,12 +47,14 @@ public class ScreenSettings : MonoBehaviour
 
         GetAndSetSavedSettings();
 
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
+
         arb = FindObjectOfType<AspectRatioBorders>();
     }
 
     private void GetAndSetSavedSettings()
     {
-        int savedQuality = PlayerPrefs.GetInt("quality", 1);
+        int savedQuality = PlayerPrefs.GetInt("quality", 0);
         //QualitySettings.SetQualityLevel(savedQuality);
         SetQuality(savedQuality);
         //////////qualityDropdown.value = savedQuality;
@@ -49,7 +65,9 @@ public class ScreenSettings : MonoBehaviour
         //////////resolutionDropdown.value = savedResolution;
         resolutionDropdownMenu.SetCurrentlySelectedButton(savedResolution);
 
-        brightnessSlider.value = PlayerPrefs.GetFloat("brightness", 0.4f);
+        float savedBrightness = PlayerPrefs.GetFloat("brightness", 0.4f);
+        SetBrightness(savedBrightness);
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
     }
 
     private void CheckForNullVariables()
@@ -85,7 +103,7 @@ public class ScreenSettings : MonoBehaviour
         //////////resolutionDropdown.ClearOptions();
         resolutions.Clear();
 
-        Resolution[] allResolutions = Screen.resolutions;
+        Resolution[] allResolutions = Screen.resolutions.Reverse().ToArray(); //This should reverse the order of which they populate
         List<string> options = new List<string>();
 
         HashSet<string> uniqueResolutions = new HashSet<string>(); //ensures no duplicates are allowed
@@ -133,19 +151,19 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetBrightness(float _brightnessIndex)
     {
-        if (liftGammaGain != null)
+        if (liftGammaGain == null)
         {
-            liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
-            volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
-            brightnessSlider.value = _brightnessIndex;
-            PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
-            PlayerPrefs.Save();
+            Debug.LogWarning("LiftGammaGain is null. Skipping brightness update.");
+            return;
         }
-        else
-        {
-            throw new Exception("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
-        }
+
+        liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
+        PlayerPrefs.SetFloat("brightness", _brightnessIndex); 
+        PlayerPrefs.Save();
+        Debug.Log("Brightness set to " + _brightnessIndex);
+        Debug.Log($"Saved brightness: {PlayerPrefs.GetFloat("brightness", -1f)}"); //if it prints -1 the save isnt happening
     }
+
 
     public void SetResolution(int _resolutionIndex)
     {

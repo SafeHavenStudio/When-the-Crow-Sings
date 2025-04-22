@@ -84,6 +84,23 @@ public class GameSettings : MonoBehaviour
         LoadSavedPreferences();
 
         StartCoroutine(WaitForPlayerController());
+
+        LoadTextSettings();
+    }
+
+    public void LoadTextSettings()
+    {
+        textSpeedSlider.onValueChanged.RemoveAllListeners();
+
+        float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
+        textSpeedSlider.value = reverseSlider.GetVisualValue(savedTextSpeed); //this is the ticket right here dont touch
+        reverseSlider.invertedValue = savedTextSpeed;
+        textSpeed = savedTextSpeed;
+
+        textSpeedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+
+        reverseSlider.reversedSlider.onValueChanged.RemoveAllListeners();
+        reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
     }
 
 
@@ -95,6 +112,7 @@ public class GameSettings : MonoBehaviour
         float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
         reverseSlider.invertedValue = savedTextSpeed;
         reverseSlider.reversedSlider.onValueChanged.AddListener(delegate { ChangeTextSpeed(); });
+        textSpeedSlider.value = savedTextSpeed;
 
         if (qteDecayToggle != null)
         {
@@ -246,7 +264,7 @@ public class GameSettings : MonoBehaviour
     {
         float newTextSpeed = reverseSlider.invertedValue;
 
-        PlayerPrefs.SetFloat("textSpeed", + newTextSpeed);
+        PlayerPrefs.SetFloat("textSpeed", newTextSpeed);
         PlayerPrefs.Save();
 
         Debug.Log("Text Speed set to " + newTextSpeed);

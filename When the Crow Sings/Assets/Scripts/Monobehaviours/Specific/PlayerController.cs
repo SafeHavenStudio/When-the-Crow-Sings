@@ -112,6 +112,7 @@ public class PlayerController : StateMachineComponent, IService
         if (gameSettings != null)
         {
             gameSettings.playerController = this;
+            gameSettings.ApplySavedSettings();
             gameSettings.LoadSavedPreferences();
         }
 
