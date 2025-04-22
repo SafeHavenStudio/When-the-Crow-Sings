@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class ReverseSlider : MonoBehaviour
 {
@@ -30,4 +29,5 @@ public class ReverseSlider : MonoBehaviour
 
         gameSettings.textSpeed = invertedValue;
     }
+
 }
