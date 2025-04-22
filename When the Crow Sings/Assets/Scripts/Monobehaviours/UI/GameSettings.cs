@@ -93,7 +93,7 @@ public class GameSettings : MonoBehaviour
         textSpeedSlider.onValueChanged.RemoveAllListeners();
 
         float savedTextSpeed = PlayerPrefs.GetFloat("textSpeed", 1);
-        textSpeedSlider.value = savedTextSpeed;
+        textSpeedSlider.value = reverseSlider.GetVisualValue(savedTextSpeed); //this is the ticket right here dont touch
         reverseSlider.invertedValue = savedTextSpeed;
         textSpeed = savedTextSpeed;
 
@@ -264,7 +264,7 @@ public class GameSettings : MonoBehaviour
     {
         float newTextSpeed = reverseSlider.invertedValue;
 
-        PlayerPrefs.SetFloat("textSpeed", + newTextSpeed);
+        PlayerPrefs.SetFloat("textSpeed", newTextSpeed);
         PlayerPrefs.Save();
 
         Debug.Log("Text Speed set to " + newTextSpeed);

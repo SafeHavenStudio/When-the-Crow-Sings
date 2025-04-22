@@ -25,6 +25,19 @@ public class ScreenSettings : MonoBehaviour
     private void Start()
     {
         CheckForNullVariables();
+
+        if (liftGammaGain == null)
+        {
+            Debug.LogError("LiftGammaGain is still null after setup. Skipping brightness load.");
+            return;
+        }
+
+        float savedBrightness = PlayerPrefs.GetFloat("brightness", 0.4f);
+        brightnessSlider.value = savedBrightness;
+        SetBrightness(savedBrightness);
+
+        brightnessSlider.onValueChanged.AddListener(SetBrightness);
+
         PopulateResolutions();
         
         qualityDropdownMenu.AddDropdownButton("High");
@@ -138,20 +151,19 @@ public class ScreenSettings : MonoBehaviour
 
     public void SetBrightness(float _brightnessIndex)
     {
-        if (liftGammaGain != null)
+        if (liftGammaGain == null)
         {
-            liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
-            //volume.profile.TryGet(out LiftGammaGain liftGammaGainOverride);
-            //brightnessSlider.value = _brightnessIndex;
-            PlayerPrefs.SetFloat("brightness", brightnessSlider.value);
-            PlayerPrefs.Save();
-            Debug.Log("Brightness set to " + brightnessSlider.value);
+            Debug.LogWarning("LiftGammaGain is null. Skipping brightness update.");
+            return;
         }
-        else
-        {
-            throw new Exception("LiftGammaGain is null! Ensure the effect is enabled in the Volume Profile.");
-        }
+
+        liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
+        PlayerPrefs.SetFloat("brightness", _brightnessIndex); 
+        PlayerPrefs.Save();
+        Debug.Log("Brightness set to " + _brightnessIndex);
+        Debug.Log($"Saved brightness: {PlayerPrefs.GetFloat("brightness", -1f)}"); //if it prints -1 the save isnt happening
     }
+
 
     public void SetResolution(int _resolutionIndex)
     {
