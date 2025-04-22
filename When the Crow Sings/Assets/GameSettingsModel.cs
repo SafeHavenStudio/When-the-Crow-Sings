@@ -4,36 +4,26 @@ using UnityEngine;
 
 public class GameSettingsModel : MonoBehaviour
 {
-    public static float masterVolume = 1.0f;
-    public static float musicVolume = 1.0f;
-    public static float ambienceVolume = 1.0f;
-    public static float soundFxVolume = 1.0f;
-    public static float voicesVolume = 1.0f;
+    public float masterVolume = 1.0f;
+    public float musicVolume = 1.0f;
+    public float ambienceVolume = 1.0f;
+    public float soundFxVolume = 1.0f;
+    public float voicesVolume = 1.0f;
 
-    public static int autoRun = 0;
-    public static int qteSpeed = 4;
-    public static int qteDecay = 1;
-    public static float textSpeed = 1.0f;
+    public int autoRun = 0;
+    public int qteSpeed = 4;
+    public int qteDecay = 1;
+    public float textSpeed = 1.0f;
 
-    public static int graphicsQualityIndex = 1;
-    public static int screenResolutionIndex = 0;
-    public static float screenBrightness = 0.4f;
+    public int graphicsQualityIndex = 1;
+    public int screenResolutionIndex = 0;
+    public float screenBrightness = 0.4f;
 
-    private void Start()
-    {
-        
-    }
-
-    //public static void ResetPlayerPrefs()
-    //{
-
-    //}
-
-    public static void ErasePlayerPrefs()
+    public void ErasePlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
     }
-    public static void SavePlayerPrefs()
+    public void SavePlayerPrefs()
     {
         PlayerPrefs.Save();
     }

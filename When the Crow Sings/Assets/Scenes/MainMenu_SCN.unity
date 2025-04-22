@@ -277,6 +277,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763d9476a20c7b94f95539ed49221c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  soundFxVolume: 1
+  voicesVolume: 1
+  autoRun: 0
+  qteSpeed: 4
+  qteDecay: 1
+  textSpeed: 1
+  graphicsQualityIndex: 1
+  screenResolutionIndex: 0
+  screenBrightness: 0.4
 --- !u!114 &927248667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6498470175321446524, guid: a567f9e56bb9fac4cbee5ea7ada2e8a0,
@@ -697,6 +709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2febf0a2b7245eb4eb14e084acfb3c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 465943908}
+  controller: {fileID: 1053767244}
 --- !u!1 &1783508401
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +722,7 @@ GameObject:
   - component: {fileID: 1783508402}
   - component: {fileID: 1783508403}
   m_Layer: 0
-  m_Name: EternalSingletons
+  m_Name: Singletons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
