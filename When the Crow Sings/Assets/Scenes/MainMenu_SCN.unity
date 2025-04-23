@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 618325869}
   - component: {fileID: 618325868}
   m_Layer: 0
-  m_Name: DeletePlayerPrefsButton (1)
+  m_Name: DeletePlayerPrefsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,8 +409,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 618325868}
-        m_TargetAssemblyTypeName: DeleteSettings, Assembly-CSharp
-        m_MethodName: OnPressed
+        m_TargetAssemblyTypeName: DebugMenuPlayerPrefs, Assembly-CSharp
+        m_MethodName: Erase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 679102961}
   - component: {fileID: 679102960}
   m_Layer: 0
-  m_Name: DeletePlayerPrefsButton (2)
+  m_Name: LoadPlayerPrefsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 1064899581}
   - component: {fileID: 1064899584}
   m_Layer: 0
-  m_Name: DeletePlayerPrefsButton
+  m_Name: SavePlayerPrefsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,7 +1281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   penClickSound: 0
-  penClickToggle: {fileID: 1576546892216650186}
 --- !u!4 &1468893337
 Transform:
   m_ObjectHideFlags: 0
@@ -2471,18 +2470,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1576546892216650191}
   m_SourcePrefab: {fileID: 100100000, guid: a567f9e56bb9fac4cbee5ea7ada2e8a0, type: 3}
---- !u!114 &1576546892216650186 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 122934467252050251, guid: a567f9e56bb9fac4cbee5ea7ada2e8a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1576546892216650185}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1576546892216650187 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3938942870415789035, guid: a567f9e56bb9fac4cbee5ea7ada2e8a0,

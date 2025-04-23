@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteSettings : MonoBehaviour
+public class DebugMenuPlayerPrefs : MonoBehaviour
 {
-    public void OnPressed()
+    public void Erase()
     {
         GameSettings.GetController().ErasePlayerPrefs();
     }
