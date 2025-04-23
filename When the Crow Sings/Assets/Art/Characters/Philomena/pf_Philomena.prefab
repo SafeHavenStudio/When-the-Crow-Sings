@@ -405,7 +405,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 367964257897667173}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6163397890752162378, guid: b5f8242a87cb047419b4cf20ef6758c3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3268491966809004868}
   m_SourcePrefab: {fileID: 100100000, guid: b5f8242a87cb047419b4cf20ef6758c3, type: 3}
 --- !u!4 &750069685517361191 stripped
 Transform:
@@ -419,6 +423,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1144796902427253319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6515559732802514957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6163397890752162378, guid: b5f8242a87cb047419b4cf20ef6758c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1144796902427253319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3268491966809004868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515559732802514957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7ba3e3dbfaa294e8231a0d73416bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6051546383318122527}
+  stringsToAnimations:
+  - PhilomenaTaskOn
+  - PhilomenaTaskCompleted
 --- !u!1001 &2235380508218113458
 PrefabInstance:
   m_ObjectHideFlags: 0
