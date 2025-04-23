@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     public AreaMusic areaMusic { get; private set; }
 
     public bool penClickSound = true;
-    public Toggle penClickToggle;
 
     private Bus masterBus;
     private Bus musicBus;
@@ -39,14 +38,6 @@ public class AudioManager : MonoBehaviour
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         soundFXBus = RuntimeManager.GetBus("bus:/SoundFX");
         talkingSoundBus = RuntimeManager.GetBus("bus:/TalkingSound");
-
-        penClickSound = PlayerPrefs.GetInt("PenClick", 1) != 0;
-
-        if (penClickToggle != null)
-        {
-            penClickToggle.isOn = penClickSound;
-            penClickToggle.onValueChanged.AddListener(delegate { toggleSwitch(); });
-        }
     }
 
 
@@ -58,6 +49,8 @@ public class AudioManager : MonoBehaviour
         ambienceBus.setVolume(GameSettings.GetModel().ambienceVolume);
         soundFXBus.setVolume(GameSettings.GetModel().soundFxVolume);
         talkingSoundBus.setVolume(GameSettings.GetModel().voicesVolume);
+
+        penClickSound = GameSettings.GetModel().penClick;
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
@@ -73,15 +66,6 @@ public class AudioManager : MonoBehaviour
     public bool IsSoundPlaying(EventReference sound)
     {
         return false;
-    }
-
-    public void toggleSwitch()
-    {
-        if (penClickToggle == null) return;
-
-        penClickSound = penClickToggle.isOn;
-        PlayerPrefs.SetInt("PenClick", penClickSound ? 1 : 0);
-        PlayerPrefs.Save();
     }
 
     public EventInstance CreateEventInstance(EventReference eventReference)
