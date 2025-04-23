@@ -5,7 +5,6 @@ using UnityEngine;
 
 abstract public class QuickTimeEvent : MonoBehaviour
 {
-    public GameSettingsLEGACY gameSettings;
     public int speed = 4;
     public bool isDecaying;
 

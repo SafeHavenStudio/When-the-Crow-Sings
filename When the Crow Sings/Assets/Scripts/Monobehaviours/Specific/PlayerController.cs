@@ -14,7 +14,6 @@ public class PlayerController : StateMachineComponent, IService
     public Animator playerAnimator;
 
     public float timeToFear = 2f;
-    public GameSettingsLEGACY gameSettings;
 
 
     [SerializeField]
