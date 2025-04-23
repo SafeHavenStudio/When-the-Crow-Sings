@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
 
-public static class SteamAchievements
-{ 
-    public static void UnlockAchievement(string id)
+public class SteamAchievements : MonoBehaviour
+{
+    public string achievementID;
+
+    private void OnEnable()
+    {
+        UnlockAchievement(achievementID);
+    }
+
+    public void UnlockAchievement(string id)
     {
         //Unlocks the achievement locally
         SteamUserStats.SetAchievement(id);
