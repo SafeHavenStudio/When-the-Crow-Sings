@@ -26,7 +26,7 @@ public class GameSettingsView : MonoBehaviour
     public Slider voicesVolumeSlider;
     public Toggle penClickSoundToggle;
 
-    // TODO: whatever's going on with the text style struct
+    // TODO: whatever's going on with the text style struct in the original script.
 
     // The following are only here for completion's sake while refactoring. Will not be used.
     //public List<TimingMeterQTE> timingMeterQtePrefabs;
