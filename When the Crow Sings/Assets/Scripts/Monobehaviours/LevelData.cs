@@ -14,6 +14,7 @@ public class LevelData : MonoBehaviour
     public SceneType sceneType = SceneType.UNASSIGNED;
 
     public bool isExterior = false;
+    public bool canThrowBirdseed = false;
     //public Vector2 mapCenterCoordinates = Vector2.zero;
     //public Vector2 playerMapCoordinates = Vector2.zero;
     public float relativeMapScale = 1.0f;
