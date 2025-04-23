@@ -8,6 +8,7 @@ public class GameSettingsView : MonoBehaviour
 {
     public Slider qteSpeedSlider;
     public Slider textSpeedSlider;
+
     public Toggle qteDecayToggle;
     public Toggle autoRunToggle;
 
@@ -23,6 +24,9 @@ public class GameSettingsView : MonoBehaviour
     public void UpdateViewToModel()
     {
         GameSettingsModel model = GameSettings.GetModel();
+
+        qteSpeedSlider.value = model.qteSpeed;
+        textSpeedSlider.value = model.textSpeed;
 
         autoRunToggle.isOn = model.autoRun;
         qteDecayToggle.isOn = model.qteDecay;
@@ -51,6 +55,18 @@ public class GameSettingsView : MonoBehaviour
 
     void ConnectCallbacksToView()
     {
+        qteSpeedSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().qteSpeed = (int)newValue;
+            ViewPrint("QTE Speed set to " + GameSettings.GetModel().qteSpeed.ToString());
+        });
+
+        textSpeedSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().textSpeed = newValue;
+            ViewPrint("Text Speed set to " + GameSettings.GetModel().textSpeed.ToString());
+        });
+
+
+
         autoRunToggle.onValueChanged.AddListener((newValue) => {
             GameSettings.GetModel().autoRun = newValue;
             ViewPrint("Auto-Run toggled to " + GameSettings.GetModel().autoRun.ToString());

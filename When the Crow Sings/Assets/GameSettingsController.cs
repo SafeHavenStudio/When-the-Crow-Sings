@@ -24,7 +24,7 @@ public class GameSettingsController : MonoBehaviour
         model.autoRun = PlayerPrefs.GetInt("AutoRun", 1) == 1;
         model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", 4);
         model.qteDecay = PlayerPrefs.GetInt("QteDecay", 1) == 1;
-        model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", 1.0f);
+        model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", 0.1f);
 
         model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", 2);
         model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", 0);
