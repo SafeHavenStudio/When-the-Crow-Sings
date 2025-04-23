@@ -56,7 +56,7 @@ public class GameSettingsController : MonoBehaviour
         PlayerPrefs.SetInt("QteSpeed", model.qteSpeed);
         PlayerPrefs.SetInt("QteDecay", model.qteDecay ? 1 : 0);
         PlayerPrefs.SetFloat("TextSpeed", model.textSpeed);
-        PlayerPrefs.SetFloat("TextSize", model.textSize);
+        PlayerPrefs.SetInt("TextSize", model.textSize);
 
         PlayerPrefs.SetInt("GraphicsQualityIndex", model.graphicsQualityIndex);
         PlayerPrefs.SetInt("ScreenResolutionIndex", model.screenResolutionIndex);
