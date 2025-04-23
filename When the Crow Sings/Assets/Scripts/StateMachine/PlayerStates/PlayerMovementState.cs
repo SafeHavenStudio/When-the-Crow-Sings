@@ -206,7 +206,7 @@ public class PlayerMovementState : StateMachineState
 
     private void OnFired(InputAction.CallbackContext context)
     {
-        if (ServiceLocator.Get<GameStateManager>().currentLevelDataLVL.isExterior)
+        if (ServiceLocator.Get<GameStateManager>().currentLevelDataLVL.canThrowBirdseed)
             s.stateMachine.Enter("PlayerThrowBirdseedState");
     }
 
