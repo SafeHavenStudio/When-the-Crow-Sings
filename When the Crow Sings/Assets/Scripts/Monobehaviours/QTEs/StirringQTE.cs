@@ -70,6 +70,11 @@ public class StirringQTE : QuickTimeEvent
 
     //private bool isControllerConnected;
 
+    private void Awake()
+    {
+        isDecaying = GameSettings.GetModel().qteDecay;
+    }
+
     private void Start()
     {
         if (type == QTETYPES.isFishing)

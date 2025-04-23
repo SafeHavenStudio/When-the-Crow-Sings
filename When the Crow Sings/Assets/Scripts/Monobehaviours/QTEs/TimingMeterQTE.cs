@@ -18,8 +18,7 @@ public class TimingMeterQTE : QuickTimeEvent
     public RectTransform targetRangeHighlight;
     public Image spacebar;
     public Image bKey;
-    public ParticleSystem featherParticle;
-    public ParticleSystem featherParticle2;
+    private ParticleSystem featherParticle;
 
     [HideInInspector]
     public int winCount;
@@ -28,6 +27,11 @@ public class TimingMeterQTE : QuickTimeEvent
     private bool movingRight = true; //Meter movement direction
     public bool meterActive = false;
     private bool isFinished = false;
+
+    private void Awake()
+    {
+        speed = GameSettings.GetModel().qteSpeed;
+    }
 
     private void Start()
     {
@@ -42,7 +46,9 @@ public class TimingMeterQTE : QuickTimeEvent
             bKey.enabled = false;
         }
 
-        gameSettings = FindObjectOfType<GameSettings>();
+        if(featherParticle == null)
+        featherParticle = GetComponentInChildren<ParticleSystem>();
+
         SetTargetRangeMarkers();
         RandomizeMeter();
         //leave out when implementation added
@@ -107,9 +113,6 @@ public class TimingMeterQTE : QuickTimeEvent
             Debug.Log(winCount + "/" + winCounter);
             if (winCount >= winCounter)
             {
-                featherParticle.Play();
-                featherParticle2.Play();
-
                 Debug.Log("Successful QTE");
                 //RandomizeMeter();
                 if(!isFinished)
@@ -150,6 +153,7 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(true);
         globalFinishedQteSignal.Emit(args);
+        featherParticle.Stop();
     }
     public override void FailQTE()
     {
@@ -158,21 +162,20 @@ public class TimingMeterQTE : QuickTimeEvent
 
         args.boolArgs.Add(false);
         globalFinishedQteSignal.Emit(args);
+        featherParticle.Stop();
     }
 
     private IEnumerator waitForSuccess()
     {
+        featherParticle.Play();
         background.color = Color.green;
 
         yield return new WaitForSeconds(1f);
 
         if (winCount >= winCounter)
-        {
-            yield return new WaitForSeconds(1f);
-            SucceedQTE();
-        }
+        SucceedQTE();
         else
-            background.color = Color.white;
+        background.color = Color.white;
     }
 
     private IEnumerator waitForFailure()

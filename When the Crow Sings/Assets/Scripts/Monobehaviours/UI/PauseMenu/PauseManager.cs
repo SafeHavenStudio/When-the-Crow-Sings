@@ -12,6 +12,7 @@ public class PauseManager : MonoBehaviour
     public MenuSwapper pauseMenuSwapper;
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
+    public GameObject journalHolder;
     public static bool isPaused
     {
         get
@@ -41,6 +42,7 @@ public class PauseManager : MonoBehaviour
 
     public void UnpauseGame()
     {
+        journalHolder.SetActive(false);
 
         InputManager.playerInputActions.UI.Unpause.performed -= OnPauseButtonPressed;
         InputManager.playerInputActions.UI.Disable();
@@ -55,6 +57,7 @@ public class PauseManager : MonoBehaviour
         //pauseMenuUI.SetActive(false);
         pauseMenuSwapper.OpenMenu(0);
         pauseMenusHolder.SetActive(false);
+        
         UnpauseGame();
     }
 
