@@ -23,7 +23,9 @@ public class GameSettingsView : MonoBehaviour
     public void UpdateViewToModel()
     {
         GameSettingsModel model = GameSettings.GetModel();
+
         autoRunToggle.isOn = model.autoRun;
+        qteDecayToggle.isOn = model.qteDecay;
     }
 
 
@@ -51,7 +53,17 @@ public class GameSettingsView : MonoBehaviour
     {
         autoRunToggle.onValueChanged.AddListener((newValue) => {
             GameSettings.GetModel().autoRun = newValue;
-            Debug.Log("Auto-Run toggled to " + GameSettings.GetModel().autoRun.ToString());
+            ViewPrint("Auto-Run toggled to " + GameSettings.GetModel().autoRun.ToString());
         });
+
+        qteDecayToggle.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().qteDecay = newValue;
+            ViewPrint("QTE Decay toggled to " + GameSettings.GetModel().qteDecay.ToString());
+        });
+    }
+
+    void ViewPrint(string message)
+    {
+        Debug.Log(message);
     }
 }

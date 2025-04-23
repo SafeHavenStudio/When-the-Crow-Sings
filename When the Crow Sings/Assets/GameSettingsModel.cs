@@ -12,7 +12,7 @@ public class GameSettingsModel : MonoBehaviour
 
     public bool autoRun;
     public int qteSpeed;
-    public int qteDecay;
+    public bool qteDecay;
     public float textSpeed;
 
     public int graphicsQualityIndex;
