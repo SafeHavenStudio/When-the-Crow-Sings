@@ -27,7 +27,7 @@ public class JournalScroll : MonoBehaviour
         if (!InputManager.playerInputActions.UI.Journal_Scroll.IsPressed()) currentDirection = 0f;
 
         scrollbar.value = Mathf.Clamp01(scrollbar.value + (currentDirection * speedMult * scrollbar.size * Time.unscaledDeltaTime));
-        Debug.Log("Current scroll direction is " + currentDirection.ToString() + " Scrolling to " + scrollbar.value.ToString());
+        //Debug.Log("Current scroll direction is " + currentDirection.ToString() + " Scrolling to " + scrollbar.value.ToString());
     }
 
     IEnumerator ResetScrollbarAfterOneFrameBecauseUnityIsDumb()
