@@ -28,6 +28,11 @@ public class TimingMeterQTE : QuickTimeEvent
     public bool meterActive = false;
     private bool isFinished = false;
 
+    private void Awake()
+    {
+        speed = GameSettings.GetModel().qteSpeed;
+    }
+
     private void Start()
     {
         if (InputManager.IsControllerConnected)
