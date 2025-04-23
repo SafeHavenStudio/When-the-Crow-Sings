@@ -64,6 +64,11 @@ public class GameSettingsView : MonoBehaviour
         UpdateViewToModel();
     }
 
+    private void OnDisable()
+    {
+        GameSettings.GetController().SavePlayerPrefs();
+    }
+
     void PopulateDropdowns_Legacy()
     {
         // Set text size buttons (legacy code)
