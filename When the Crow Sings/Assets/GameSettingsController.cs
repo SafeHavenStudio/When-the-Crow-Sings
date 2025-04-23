@@ -15,8 +15,6 @@ public class GameSettingsController : MonoBehaviour
         Debug.Log("Loading preferences.");
         GameSettingsModel model = GameSettings.GetModel();
 
-        Debug.Log("Auto-run is " + model.autoRun);
-
         model.masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
         model.musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         model.ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", 1.0f);
@@ -32,7 +30,9 @@ public class GameSettingsController : MonoBehaviour
         model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", 0);
         model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", 0.4f);
 
-        Debug.Log("Auto-run is " + model.autoRun);
+        // This bit should be unnecessary since GameSettingsView is doing it itself in OnEnable().
+        //if (FindFirstObjectByType<GameSettingsView>() != null)
+        //    FindFirstObjectByType<GameSettingsView>().UpdateViewToModel();
     }
 
     public void ErasePlayerPrefs()

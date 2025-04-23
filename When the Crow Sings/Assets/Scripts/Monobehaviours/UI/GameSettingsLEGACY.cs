@@ -62,19 +62,6 @@ public class GameSettingsLEGACY : MonoBehaviour
         }
     }
 
-    public void FindPlayerController()
-    {
-        playerController = ServiceLocator.Get<PlayerController>();
-        if (playerController != null )
-        {
-            Debug.Log("Game settings found player controller");
-
-            //playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
-        }
-        else Debug.LogWarning("Game settings did not find player controller");
-
-    }
-
     private void Start()
     {
         PopulateDropdown();
@@ -83,7 +70,7 @@ public class GameSettingsLEGACY : MonoBehaviour
 
         LoadSavedPreferences();
 
-        StartCoroutine(WaitForPlayerController());
+        //StartCoroutine(WaitForPlayerController());
 
         LoadTextSettings();
     }
