@@ -19,12 +19,5 @@ public class GameSettingsModel : MonoBehaviour
     public int screenResolutionIndex = 0;
     public float screenBrightness = 0.4f;
 
-    public void ErasePlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-    public void SavePlayerPrefs()
-    {
-        PlayerPrefs.Save();
-    }
+    
 }
