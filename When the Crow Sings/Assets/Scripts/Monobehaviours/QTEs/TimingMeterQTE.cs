@@ -28,6 +28,11 @@ public class TimingMeterQTE : QuickTimeEvent
     public bool meterActive = false;
     private bool isFinished = false;
 
+    private void Awake()
+    {
+        speed = GameSettings.GetModel().qteSpeed;
+    }
+
     private void Start()
     {
         if (InputManager.IsControllerConnected)
@@ -44,7 +49,6 @@ public class TimingMeterQTE : QuickTimeEvent
         if(featherParticle == null)
         featherParticle = GetComponentInChildren<ParticleSystem>();
 
-        gameSettings = FindObjectOfType<GameSettings>();
         SetTargetRangeMarkers();
         RandomizeMeter();
         //leave out when implementation added

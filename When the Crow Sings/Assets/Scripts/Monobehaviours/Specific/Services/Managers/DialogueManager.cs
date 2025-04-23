@@ -38,8 +38,6 @@ public class DialogueManager : MonoBehaviour, IService
     DialogueChoiceBlock activeChoiceBlock = null;
     DialogueConditionBlock activeConditionBlock = null;
 
-    public GameSettings gameSettings;
-
     public static DialoguePortraits.WhoIsTalking whoIsTalking = DialoguePortraits.WhoIsTalking.None;
 
     #region StartMethods()
@@ -52,11 +50,6 @@ public class DialogueManager : MonoBehaviour, IService
     public void RegisterSelfAsService()
     {
         ServiceLocator.Register<DialogueManager>(this);
-    }
-
-    void Start()
-    {
-        if (PlayerPrefs.HasKey("textSpeed")) gameSettings.textSpeed = PlayerPrefs.GetFloat("textSpeed");
     }
     #endregion
 
@@ -303,7 +296,8 @@ public class DialogueManager : MonoBehaviour, IService
             }
             else
             {
-                float pauseBetweenChars = gameSettings.textSpeed;
+                float pauseBetweenChars = 0.13f - GameSettings.GetModel().textSpeed; // Text speed range is a little hardcoded here and independent of the actual slider but it's fine.
+                Debug.Log("Pause between characters is " + pauseBetweenChars.ToString());
                 int characterIndex = Mathf.Clamp(textMesh.maxVisibleCharacters - 1, 0, textMesh.text.Length);
                 char character = textMesh.text[characterIndex];
                 //char previousCharacter = 'x';
