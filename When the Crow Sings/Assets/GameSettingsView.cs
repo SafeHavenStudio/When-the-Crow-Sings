@@ -43,8 +43,8 @@ public class GameSettingsView : MonoBehaviour
         autoRunToggle.isOn = model.autoRun;
         qteDecayToggle.isOn = model.qteDecay;
 
-        resolutionDropdownMenuPopup.SetCurrentlySelectedButton(model.textSize);
-        graphicsQualityDropdownMenuPopup.SetCurrentlySelectedButton(model.textSize);
+        resolutionDropdownMenuPopup.SetCurrentlySelectedButton(model.screenResolutionIndex);
+        graphicsQualityDropdownMenuPopup.SetCurrentlySelectedButton(model.graphicsQualityIndex);
         brightnessSlider.value = model.screenBrightness;
         fullScreenToggle.isOn = model.fullScreenEnabled;
 

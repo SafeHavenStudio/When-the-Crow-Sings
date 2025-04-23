@@ -43,13 +43,13 @@ public class ScreenSettingsHandler : MonoBehaviour
         else SetBrightness(GameSettings.GetModel().screenBrightness);
 
         Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
-
         SetResolution(GameSettings.GetModel().screenResolutionIndex);
+        SetQuality(GameSettings.GetModel().graphicsQualityIndex);
     }
 
     void SetBrightness(float _brightnessIndex)
     {
-        Debug.Log("Setting brightness to " + _brightnessIndex.ToString());
+        //Debug.Log("Setting brightness to " + _brightnessIndex.ToString());
         liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
     }
 
@@ -57,6 +57,11 @@ public class ScreenSettingsHandler : MonoBehaviour
     {
         Resolution _resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int _qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(_qualityIndex);
     }
 
     void TryGetLiftGammaGain()

@@ -42,6 +42,27 @@ public class GameSettingsController : MonoBehaviour
     public void SavePlayerPrefs()
     {
         Debug.Log("Saving preferences.");
+
+        GameSettingsModel model = GameSettings.GetModel();
+
+        PlayerPrefs.SetFloat("MasterVolume", model.masterVolume);
+        PlayerPrefs.SetFloat("MusicVolume", model.musicVolume);
+        PlayerPrefs.SetFloat("AmbienceVolume", model.ambienceVolume);
+        PlayerPrefs.SetFloat("SoundFxVolume", model.soundFxVolume);
+        PlayerPrefs.SetFloat("VoicesVolume", model.voicesVolume);
+        PlayerPrefs.SetInt("PenClick", model.penClick ? 1 : 0);
+
+        PlayerPrefs.SetInt("AutoRun", model.autoRun ? 1 : 0);
+        PlayerPrefs.SetInt("QteSpeed", model.qteSpeed);
+        PlayerPrefs.SetInt("QteDecay", model.qteDecay ? 1 : 0);
+        PlayerPrefs.SetFloat("TextSpeed", model.textSpeed);
+        PlayerPrefs.SetFloat("TextSize", model.textSize);
+
+        PlayerPrefs.SetInt("GraphicsQualityIndex", model.graphicsQualityIndex);
+        PlayerPrefs.SetInt("ScreenResolutionIndex", model.screenResolutionIndex);
+        PlayerPrefs.SetFloat("ScreenBrightness", model.screenBrightness);
+        PlayerPrefs.SetInt("FullScreenEnabled", model.fullScreenEnabled ? 1 : 0);
+
         PlayerPrefs.Save();
     }
 }
