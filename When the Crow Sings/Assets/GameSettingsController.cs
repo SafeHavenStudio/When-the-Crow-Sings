@@ -21,7 +21,7 @@ public class GameSettingsController : MonoBehaviour
         model.soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", 1.0f);
         model.voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", 1.0f);
 
-        model.autoRun = PlayerPrefs.GetInt("AutoRun", 1);
+        model.autoRun = PlayerPrefs.GetInt("AutoRun", 1) == 1;
         model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", 4);
         model.qteDecay = PlayerPrefs.GetInt("QteDecay", 1);
         model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", 1.0f);

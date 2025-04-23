@@ -10,7 +10,7 @@ public class GameSettingsModel : MonoBehaviour
     public float soundFxVolume;
     public float voicesVolume;
 
-    public int autoRun;
+    public bool autoRun;
     public int qteSpeed;
     public int qteDecay;
     public float textSpeed;

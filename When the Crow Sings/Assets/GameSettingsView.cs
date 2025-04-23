@@ -22,13 +22,15 @@ public class GameSettingsView : MonoBehaviour
 
     public void UpdateViewToModel()
     {
-
+        GameSettingsModel model = GameSettings.GetModel();
+        autoRunToggle.isOn = model.autoRun;
     }
 
 
     private void Start()
     {
         PopulateTextSizeDropdown();
+        ConnectCallbacksToView();
     }
 
     private void OnEnable()
@@ -43,5 +45,13 @@ public class GameSettingsView : MonoBehaviour
         {
             textSizeDropdownMenuPopup.AddDropdownButton(i);
         }
+    }
+
+    void ConnectCallbacksToView()
+    {
+        autoRunToggle.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().autoRun = newValue;
+            Debug.Log("Auto-Run toggled to " + GameSettings.GetModel().autoRun.ToString());
+        });
     }
 }
