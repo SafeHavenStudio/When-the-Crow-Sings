@@ -31,10 +31,10 @@ public class StirSlider : MonoBehaviour
 
         slider.value = fillValue;
 
-        /*if (stirringQTE.complete)
+        if (stirringQTE.complete)
         {
-            fillImage.color = Color.green;
-        }*/
+            slider.value = float.MaxValue;
+        }
 
         if (stirringQTE.failed)
         {
