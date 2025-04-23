@@ -24,13 +24,20 @@ public class Interactable : MonoBehaviour
 
     public Transform playerSnapPoint;
 
-    
 
 
+    private void OnEnable()
+    {
+        if (virtualCamera != null)
+        {
+            virtualCamera.gameObject.SetActive(false);
+        }
+    }
     public void DoInteraction()
     {
         if (virtualCamera != null)
         {
+            virtualCamera.gameObject.SetActive(true);
             virtualCamera.Priority = 100;
         }
         // Would have been better to just use some polymorphism, ah well at least it's clear enough.
@@ -95,6 +102,7 @@ public class Interactable : MonoBehaviour
         if (virtualCamera != null)
         {
             virtualCamera.Priority = 10;
+            virtualCamera.gameObject.SetActive(false);
         }
     }
 

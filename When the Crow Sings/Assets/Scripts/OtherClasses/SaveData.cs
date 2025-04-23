@@ -19,6 +19,7 @@ public class SaveData
 
         { "IntroContextSeen",false },
         { "NightIntroSeen",false },
+        { "NightIntro3Seen",false },
         { "NightCutsceneSeen",false },
         { "CutsceneTime",false },
         { "SeenControls",false },
