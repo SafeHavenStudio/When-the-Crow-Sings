@@ -7,38 +7,27 @@ public class GameSettingsController : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.SetFloat("ExamplePref", 1.5f);
-        SavePlayerPrefs();
-        //Debug.Log("ExamplePref exists == " + PlayerPrefs.HasKey("ExamplePref"));
-        Debug.Log("ExamplePref == " + PlayerPrefs.GetFloat("ExamplePrefferentnythhsgjk").ToString());
+        LoadPlayerPrefs();
     }
 
     void LoadPlayerPrefs()
     {
-        //        public float masterVolume = 1.0f;
-        //public float musicVolume = 1.0f;
-        //public float ambienceVolume = 1.0f;
-        //public float soundFxVolume = 1.0f;
-        //public float voicesVolume = 1.0f;
+        Debug.Log("Loading preferences.");
+        GameSettingsModel model = GameSettings.GetModel();
+        model.masterVolume = PlayerPrefs.GetFloat("MasterVolume", model.masterVolume);
+        model.musicVolume = PlayerPrefs.GetFloat("MusicVolume", model.musicVolume);
+        model.ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", model.ambienceVolume);
+        model.soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", model.soundFxVolume);
+        model.voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", model.voicesVolume);
 
-        //public int autoRun = 0;
-        //public int qteSpeed = 4;
-        //public int qteDecay = 1;
-        //public float textSpeed = 1.0f;
+        model.autoRun = PlayerPrefs.GetInt("AutoRun", model.autoRun);
+        model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", model.qteSpeed);
+        model.qteDecay = PlayerPrefs.GetInt("QteDecay", model.qteDecay);
+        model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", model.textSpeed);
 
-        //public int graphicsQualityIndex = 1;
-        //public int screenResolutionIndex = 0;
-        //public float screenBrightness = 0.4f;
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        GameSettings.GetModel().musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-        GameSettings.GetModel().ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", 1.0f);
-        GameSettings.GetModel().soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", 1.0f);
-        GameSettings.GetModel().voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", 1.0f);
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
-        GameSettings.GetModel().masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
+        model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", model.graphicsQualityIndex);
+        model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", model.screenResolutionIndex);
+        model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", model.screenBrightness);
 
     }
 
@@ -46,10 +35,10 @@ public class GameSettingsController : MonoBehaviour
     {
         Debug.Log("Erasing preferences.");
         PlayerPrefs.DeleteAll();
-        Debug.Log("ExamplePref exists == " + PlayerPrefs.HasKey("ExamplePref"));
     }
     public void SavePlayerPrefs()
     {
+        Debug.Log("Saving preferences.");
         PlayerPrefs.Save();
     }
 }
