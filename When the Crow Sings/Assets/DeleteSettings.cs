@@ -8,4 +8,14 @@ public class DeleteSettings : MonoBehaviour
     {
         GameSettings.GetController().ErasePlayerPrefs();
     }
+
+    public void Save()
+    {
+        GameSettings.GetController().SavePlayerPrefs();
+    }
+
+    public void Load()
+    {
+        GameSettings.GetController().LoadPlayerPrefs();
+    }
 }

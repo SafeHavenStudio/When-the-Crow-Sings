@@ -69,7 +69,7 @@ public class GameSettingsLEGACY : MonoBehaviour
         {
             Debug.Log("Game settings found player controller");
 
-            playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
+            //playerController.isAlwaysSprinting = PlayerPrefs.GetInt("sprinting", 1) != 0;
         }
         else Debug.LogWarning("Game settings did not find player controller");
 
@@ -130,14 +130,14 @@ public class GameSettingsLEGACY : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.isAlwaysSprinting = sprintingEnabled;
+                //playerController.isAlwaysSprinting = sprintingEnabled;
             }
 
             //This is really freaky I didn't know u could do this apparently it's a lambda expression which u can use to define a function or deleagate without passing local variables around
             sprintingToggle.onValueChanged.AddListener(isOn =>
             {
-                if (playerController != null)
-                    playerController.isAlwaysSprinting = isOn;
+                //if (playerController != null)
+                //    playerController.isAlwaysSprinting = isOn;
 
                 PlayerPrefs.SetInt("sprinting", isOn ? 1 : 0);
                 PlayerPrefs.Save();
@@ -158,7 +158,7 @@ public class GameSettingsLEGACY : MonoBehaviour
 
         //  sprint setting directly to the player
         bool sprintingEnabled = PlayerPrefs.GetInt("sprinting", 1) != 0;
-        playerController.isAlwaysSprinting = sprintingEnabled;
+        //playerController.isAlwaysSprinting = sprintingEnabled;
         Debug.Log("Applied sprint toggle: " + sprintingEnabled);
 
         ApplySavedSettings();
@@ -190,7 +190,7 @@ public class GameSettingsLEGACY : MonoBehaviour
         textSpeed = savedTextSpeed;
 
         bool sprintingEnabled = PlayerPrefs.GetInt("sprinting", 1) != 0;
-        playerController.isAlwaysSprinting = sprintingEnabled;
+        //playerController.isAlwaysSprinting = sprintingEnabled;
 
         if (sprintingToggle != null)
             sprintingToggle.isOn = sprintingEnabled;
@@ -235,8 +235,8 @@ public class GameSettingsLEGACY : MonoBehaviour
         if (sprintingToggle == null || suppressToggleCallback) return;
 
         // Set player sprinting state directly
-        if (playerController != null)
-            playerController.isAlwaysSprinting = sprintingToggle.isOn;
+        //if (playerController != null)
+        //    playerController.isAlwaysSprinting = sprintingToggle.isOn;
 
         PlayerPrefs.SetInt("sprinting", sprintingToggle.isOn ? 1 : 0);
         PlayerPrefs.Save();

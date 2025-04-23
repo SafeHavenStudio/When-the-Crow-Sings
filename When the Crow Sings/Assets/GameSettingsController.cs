@@ -10,25 +10,29 @@ public class GameSettingsController : MonoBehaviour
         LoadPlayerPrefs();
     }
 
-    void LoadPlayerPrefs()
-    {
+    public void LoadPlayerPrefs()
+    {   
         Debug.Log("Loading preferences.");
         GameSettingsModel model = GameSettings.GetModel();
-        model.masterVolume = PlayerPrefs.GetFloat("MasterVolume", model.masterVolume);
-        model.musicVolume = PlayerPrefs.GetFloat("MusicVolume", model.musicVolume);
-        model.ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", model.ambienceVolume);
-        model.soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", model.soundFxVolume);
-        model.voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", model.voicesVolume);
 
-        model.autoRun = PlayerPrefs.GetInt("AutoRun", model.autoRun);
-        model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", model.qteSpeed);
-        model.qteDecay = PlayerPrefs.GetInt("QteDecay", model.qteDecay);
-        model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", model.textSpeed);
+        Debug.Log("Auto-run is " + model.autoRun);
 
-        model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", model.graphicsQualityIndex);
-        model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", model.screenResolutionIndex);
-        model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", model.screenBrightness);
+        model.masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
+        model.musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        model.ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", 1.0f);
+        model.soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", 1.0f);
+        model.voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", 1.0f);
 
+        model.autoRun = PlayerPrefs.GetInt("AutoRun", 1);
+        model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", 4);
+        model.qteDecay = PlayerPrefs.GetInt("QteDecay", 1);
+        model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", 1.0f);
+
+        model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", 2);
+        model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", 0);
+        model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", 0.4f);
+
+        Debug.Log("Auto-run is " + model.autoRun);
     }
 
     public void ErasePlayerPrefs()

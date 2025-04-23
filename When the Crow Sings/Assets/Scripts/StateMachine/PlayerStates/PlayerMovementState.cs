@@ -67,7 +67,7 @@ public class PlayerMovementState : StateMachineState
         float stateClamp = s.minWalkSpeed;
         float stateSpeed = s.maxWalkSpeed;
         float slideSpeedCorrection = s.walkSlideSpeedCorrection;
-        if (s.isSprintingButtonHeld && inputMagnitude > 0f || s.isAlwaysSprinting && inputMagnitude > 0f && !s.isCrouchingToggled)
+        if (s.isSprintingButtonHeld && inputMagnitude > 0f || GameSettings.GetModel().autoRun == 1 && inputMagnitude > 0f && !s.isCrouchingToggled)
         {
             s.playerAnimator.SetBool("animIsSprinting", true);
 

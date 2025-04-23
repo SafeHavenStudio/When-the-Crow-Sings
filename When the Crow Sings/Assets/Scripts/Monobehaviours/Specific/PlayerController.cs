@@ -30,8 +30,8 @@ public class PlayerController : StateMachineComponent, IService
     [HideInInspector]
     public bool isSprintingButtonHeld;
 
-    [HideInInspector]
-    public bool isAlwaysSprinting = false;
+    //[HideInInspector]
+    //public bool isAlwaysSprinting = false;
 
     //{
     //    set
@@ -106,15 +106,6 @@ public class PlayerController : StateMachineComponent, IService
         stateMachine.RegisterState(new PlayerThrowBirdseedState(this), "PlayerThrowBirdseedState");
         stateMachine.RegisterState(new PlayerFearState(this), "PlayerFearState");
         stateMachine.RegisterState(new PlayerDestroyState(this), "DestroyState");
-
-        gameSettings = FindObjectOfType<GameSettingsLEGACY>(true);
-
-        if (gameSettings != null)
-        {
-            gameSettings.playerController = this;
-            gameSettings.ApplySavedSettings();
-            gameSettings.LoadSavedPreferences();
-        }
 
         Debug.Log("Player controller awaken");
     }
