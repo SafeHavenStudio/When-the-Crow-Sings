@@ -20,6 +20,7 @@ public class GameSettingsController : MonoBehaviour
         model.ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolume", 1.0f);
         model.soundFxVolume = PlayerPrefs.GetFloat("SoundFxVolume", 1.0f);
         model.voicesVolume = PlayerPrefs.GetFloat("VoicesVolume", 1.0f);
+        model.penClick = PlayerPrefs.GetInt("PenClick", 1) == 1;
 
         model.autoRun = PlayerPrefs.GetInt("AutoRun", 1) == 1;
         model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", 4);
@@ -31,10 +32,6 @@ public class GameSettingsController : MonoBehaviour
         model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", 0);
         model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", 0.4f);
         model.fullScreenEnabled = PlayerPrefs.GetInt("FullScreenEnabled", 1) == 1;
-
-        // This bit should be unnecessary since GameSettingsView is doing it itself in OnEnable().
-        //if (FindFirstObjectByType<GameSettingsView>() != null)
-        //    FindFirstObjectByType<GameSettingsView>().UpdateViewToModel();
     }
 
     public void ErasePlayerPrefs()

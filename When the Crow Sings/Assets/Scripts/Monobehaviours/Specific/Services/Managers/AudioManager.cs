@@ -13,21 +13,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance { get; private set; }
     public AreaMusic areaMusic { get; private set; }
 
-    [Range(0, 1)]
-    public float masterVolume = 1f;
-
-    [Range(0, 1)]
-    public float musicVolume = 0.5f;
-
-    [Range(0, 1)]
-    public float ambienceVolume = 0.5f;
-
-    [Range(0, 1)]
-    public float soundFXVolume = 0.5f;
-
-    [Range(0, 1)]
-    public float talkingSoundVolume = 0.5f;
-
     public bool penClickSound = true;
     public Toggle penClickToggle;
 
@@ -55,12 +40,6 @@ public class AudioManager : MonoBehaviour
         soundFXBus = RuntimeManager.GetBus("bus:/SoundFX");
         talkingSoundBus = RuntimeManager.GetBus("bus:/TalkingSound");
 
-        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.5f);
-        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
-        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.5f);
-        soundFXVolume = PlayerPrefs.GetFloat("soundFXVolume", 0.5f);
-        talkingSoundVolume = PlayerPrefs.GetFloat("talkingSoundVolume", 0.5f);
-
         penClickSound = PlayerPrefs.GetInt("PenClick", 1) != 0;
 
         if (penClickToggle != null)
@@ -74,11 +53,11 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        masterBus.setVolume(masterVolume);
-        musicBus.setVolume(musicVolume);
-        ambienceBus.setVolume(ambienceVolume);
-        soundFXBus.setVolume(soundFXVolume);
-        talkingSoundBus.setVolume(talkingSoundVolume);
+        masterBus.setVolume(GameSettings.GetModel().masterVolume);
+        musicBus.setVolume(GameSettings.GetModel().musicVolume);
+        ambienceBus.setVolume(GameSettings.GetModel().ambienceVolume);
+        soundFXBus.setVolume(GameSettings.GetModel().soundFxVolume);
+        talkingSoundBus.setVolume(GameSettings.GetModel().voicesVolume);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)

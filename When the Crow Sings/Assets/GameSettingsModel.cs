@@ -9,6 +9,7 @@ public class GameSettingsModel : MonoBehaviour
     public float ambienceVolume;
     public float soundFxVolume;
     public float voicesVolume;
+    public bool penClick;
 
     public bool autoRun;
     public int qteSpeed;

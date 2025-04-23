@@ -19,6 +19,13 @@ public class GameSettingsView : MonoBehaviour
     public Slider brightnessSlider;
     public Toggle fullScreenToggle;
 
+    public Slider masterVolumeSlider;
+    public Slider musicVolumeSlider;
+    public Slider ambienceVolumeSlider;
+    public Slider soundFxVolumeSlider;
+    public Slider voicesVolumeSlider;
+    public Toggle penClickSoundToggle;
+
     // TODO: whatever's going on with the text style struct
 
     // The following are only here for completion's sake while refactoring. Will not be used.
@@ -40,22 +47,24 @@ public class GameSettingsView : MonoBehaviour
         graphicsQualityDropdownMenuPopup.SetCurrentlySelectedButton(model.textSize);
         brightnessSlider.value = model.screenBrightness;
         fullScreenToggle.isOn = model.fullScreenEnabled;
+
+        masterVolumeSlider.value = model.masterVolume;
+        musicVolumeSlider.value = model.musicVolume;
+        ambienceVolumeSlider.value = model.ambienceVolume;
+        soundFxVolumeSlider.value = model.soundFxVolume;
+        voicesVolumeSlider.value = model.voicesVolume;
+        penClickSoundToggle.isOn = model.penClick;
     }
 
 
     private void Start()
     {
-        PopulateDropdowns();
-        ConnectCallbacksToView();
+        PopulateDropdowns_Legacy();
+        ConnectViewCallbacksToModel();
         UpdateViewToModel();
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-    void PopulateDropdowns()
+    void PopulateDropdowns_Legacy()
     {
         // Set text size buttons (legacy code)
 
@@ -101,7 +110,7 @@ public class GameSettingsView : MonoBehaviour
         }
     }
 
-    void ConnectCallbacksToView()
+    void ConnectViewCallbacksToModel()
     {
         qteSpeedSlider.onValueChanged.AddListener((newValue) => {
             GameSettings.GetModel().qteSpeed = (int)newValue;
@@ -146,6 +155,31 @@ public class GameSettingsView : MonoBehaviour
         fullScreenToggle.onValueChanged.AddListener((newValue) => {
             GameSettings.GetModel().fullScreenEnabled = newValue;
             ViewPrint("Fullscreen toggled to " + GameSettings.GetModel().fullScreenEnabled.ToString());
+        });
+
+        masterVolumeSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().masterVolume = newValue;
+            ViewPrint("Master Volume set to " + GameSettings.GetModel().masterVolume.ToString());
+        });
+        musicVolumeSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().musicVolume = newValue;
+            ViewPrint("Music Volume set to " + GameSettings.GetModel().musicVolume.ToString());
+        });
+        ambienceVolumeSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().ambienceVolume = newValue;
+            ViewPrint("Ambiene Volume set to " + GameSettings.GetModel().ambienceVolume.ToString());
+        });
+        soundFxVolumeSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().soundFxVolume = newValue;
+            ViewPrint("SoundFX Volume set to " + GameSettings.GetModel().soundFxVolume.ToString());
+        });
+        voicesVolumeSlider.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().voicesVolume = newValue;
+            ViewPrint("Voices Volume set to " + GameSettings.GetModel().voicesVolume.ToString());
+        });
+        penClickSoundToggle.onValueChanged.AddListener((newValue) => {
+            GameSettings.GetModel().penClick = newValue;
+            ViewPrint("PenClick toggled to " + GameSettings.GetModel().penClick.ToString());
         });
     }
 
