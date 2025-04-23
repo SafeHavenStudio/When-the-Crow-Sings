@@ -3030,6 +3030,7 @@ MonoBehaviour:
   onEnableEvent:
     m_PersistentCalls:
       m_Calls: []
+  emitDisableEvenIfAlreadyDisabled: 0
   onDisableEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -29943,6 +29944,7 @@ MonoBehaviour:
   pauseMenuSwapper: {fileID: 2035421515}
   pauseMenuUI: {fileID: 1194295905}
   settingsMenuUI: {fileID: 1639482499}
+  journalHolder: {fileID: 1671600131}
 --- !u!1 &1311107184
 GameObject:
   m_ObjectHideFlags: 0
@@ -38670,9 +38672,10 @@ GameObject:
   - component: {fileID: 1671600134}
   - component: {fileID: 1671600135}
   - component: {fileID: 1671600136}
-  - component: {fileID: 1671600137}
+  - component: {fileID: 1671600139}
+  - component: {fileID: 1671600138}
   m_Layer: 0
-  m_Name: Journal
+  m_Name: JournalHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38791,7 +38794,7 @@ MonoBehaviour:
       Data4: -1704564476
     Path: event:/SFX/Book Flip
   playOnAwake: 0
---- !u!114 &1671600137
+--- !u!114 &1671600138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38800,16 +38803,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671600131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f72c20c00cd2fd48af42d239a0e3c02, type: 3}
+  m_Script: {fileID: 11500000, guid: 89361650d08531a4fa3c7f4d9dc8b3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound:
+  <Sound>k__BackingField:
     Guid:
       Data1: -2015180639
       Data2: 1150708937
       Data3: -647442811
       Data4: -1773830552
     Path: event:/SFX/Book Close 3
+  playOnAwake: 0
+--- !u!114 &1671600139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671600131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49b5c1db6960704993343587551142d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAwakeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  emitDisableEvenIfAlreadyDisabled: 0
+  onDisableEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1671600138}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1673547321
 PrefabInstance:
   m_ObjectHideFlags: 0
