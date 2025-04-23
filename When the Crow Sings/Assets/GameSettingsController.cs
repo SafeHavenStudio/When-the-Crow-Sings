@@ -25,10 +25,12 @@ public class GameSettingsController : MonoBehaviour
         model.qteSpeed = PlayerPrefs.GetInt("QteSpeed", 4);
         model.qteDecay = PlayerPrefs.GetInt("QteDecay", 1) == 1;
         model.textSpeed = PlayerPrefs.GetFloat("TextSpeed", 0.1f);
+        model.textSize = PlayerPrefs.GetInt("TextSize", 1);
 
-        model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", 2);
+        model.graphicsQualityIndex = PlayerPrefs.GetInt("GraphicsQualityIndex", 0);
         model.screenResolutionIndex = PlayerPrefs.GetInt("ScreenResolutionIndex", 0);
         model.screenBrightness = PlayerPrefs.GetFloat("ScreenBrightness", 0.4f);
+        model.fullScreenEnabled = PlayerPrefs.GetInt("FullScreenEnabled", 1) == 1;
 
         // This bit should be unnecessary since GameSettingsView is doing it itself in OnEnable().
         //if (FindFirstObjectByType<GameSettingsView>() != null)

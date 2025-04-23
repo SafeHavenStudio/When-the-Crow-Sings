@@ -14,8 +14,10 @@ public class GameSettingsModel : MonoBehaviour
     public int qteSpeed;
     public bool qteDecay;
     public float textSpeed;
+    public int textSize;
 
     public int graphicsQualityIndex;
     public int screenResolutionIndex;
     public float screenBrightness;
+    public bool fullScreenEnabled;
 }
