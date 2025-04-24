@@ -21,25 +21,7 @@ public class ScreenSettingsHandler : MonoBehaviour, IService
     {
         TryGetLiftGammaGain();
 
-        // Set resolutions (legacy code) Duplicated :(
-        resolutions.Clear();
-        Resolution[] allResolutions = Screen.resolutions.Reverse().ToArray(); //This should reverse the order of which they populate
-        List<string> options = new List<string>();
-        HashSet<string> uniqueResolutions = new HashSet<string>(); //ensures no duplicates are allowed
-
-        foreach (Resolution res in allResolutions)
-        {
-            float aspectRatio = (float)res.width / res.height;
-            string resString = res.width + " x " + res.height;
-
-            //Only include 16:9 resolutions and skip duplicates
-            if (Mathf.Approximately(aspectRatio, 16f / 9f) && !uniqueResolutions.Contains(resString))
-            {
-                uniqueResolutions.Add(resString);
-                resolutions.Add(res);
-                options.Add(resString);
-            }
-        }
+        
     }
 
     void Update()
@@ -61,6 +43,26 @@ public class ScreenSettingsHandler : MonoBehaviour, IService
 
     public void SetResolution(int _resolutionIndex)
     {
+        // Set resolutions (legacy code) Duplicated :(
+        resolutions.Clear();
+        Resolution[] allResolutions = Screen.resolutions.Reverse().ToArray(); //This should reverse the order of which they populate
+        List<string> options = new List<string>();
+        HashSet<string> uniqueResolutions = new HashSet<string>(); //ensures no duplicates are allowed
+
+        foreach (Resolution res in allResolutions)
+        {
+            float aspectRatio = (float)res.width / res.height;
+            string resString = res.width + " x " + res.height;
+
+            //Only include 16:9 resolutions and skip duplicates
+            if (Mathf.Approximately(aspectRatio, 16f / 9f) && !uniqueResolutions.Contains(resString))
+            {
+                uniqueResolutions.Add(resString);
+                resolutions.Add(res);
+                options.Add(resString);
+            }
+        }
+
         Resolution _resolution = resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, GameSettings.GetModel().fullScreenEnabled);
     }
