@@ -5,12 +5,17 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class ScreenSettingsHandler : MonoBehaviour
+public class ScreenSettingsHandler : MonoBehaviour, IService
 {
     [SerializeField] Volume volume;
     LiftGammaGain liftGammaGain;
 
     List<Resolution> resolutions = new List<Resolution>();
+
+    private void Awake()
+    {
+        RegisterSelfAsService();
+    }
 
     private void Start()
     {
@@ -42,10 +47,10 @@ public class ScreenSettingsHandler : MonoBehaviour
         if (liftGammaGain == null) TryGetLiftGammaGain();
         else SetBrightness(GameSettings.GetModel().screenBrightness);
 
-        SetResolution(GameSettings.GetModel().screenResolutionIndex);
+        //SetResolution(GameSettings.GetModel().screenResolutionIndex);
         SetQuality(GameSettings.GetModel().graphicsQualityIndex);
 
-        Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
+        //Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
     }
 
     void SetBrightness(float _brightnessIndex)
@@ -75,5 +80,10 @@ public class ScreenSettingsHandler : MonoBehaviour
         {
             Debug.LogError("Failed to find LiftGammaGain. Ensure the effect is added to your Volume Profile.");
         }
+    }
+
+    public void RegisterSelfAsService()
+    {
+        ServiceLocator.Register(this);
     }
 }

@@ -144,6 +144,7 @@ public class GameSettingsView : MonoBehaviour
 
         resolutionDropdownMenuPopup.DropdownMenuButtonPressed.AddListener((newValue) => {
             GameSettings.GetModel().screenResolutionIndex = newValue;
+            ServiceLocator.Get<ScreenSettingsHandler>().SetResolution(GameSettings.GetModel().screenResolutionIndex);
             ViewPrint("ScreenResolutionIndex set to " + GameSettings.GetModel().screenResolutionIndex.ToString());
         });
 
@@ -159,6 +160,7 @@ public class GameSettingsView : MonoBehaviour
 
         fullScreenToggle.onValueChanged.AddListener((newValue) => {
             GameSettings.GetModel().fullScreenEnabled = newValue;
+            Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
             ViewPrint("Fullscreen toggled to " + GameSettings.GetModel().fullScreenEnabled.ToString());
         });
 
