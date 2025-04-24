@@ -60,7 +60,6 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Ambience { get; private set; }
     [field: SerializeField] public EventReference MainMenuTheme { get; private set; }
     [field: SerializeField] public EventReference PhilomenasTheme { get; private set; }
-    [field: SerializeField] public EventReference Zone3 { get; private set; }
 
 
     private void Awake()
