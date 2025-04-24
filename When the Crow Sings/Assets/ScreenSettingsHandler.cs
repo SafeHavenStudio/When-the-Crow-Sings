@@ -5,17 +5,44 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class ScreenSettingsHandler : MonoBehaviour
+public class ScreenSettingsHandler : MonoBehaviour, IService
 {
     [SerializeField] Volume volume;
     LiftGammaGain liftGammaGain;
 
     List<Resolution> resolutions = new List<Resolution>();
 
+    private void Awake()
+    {
+        RegisterSelfAsService();
+    }
+
     private void Start()
     {
         TryGetLiftGammaGain();
 
+        
+    }
+
+    void Update()
+    {
+        if (liftGammaGain == null) TryGetLiftGammaGain();
+        else SetBrightness(GameSettings.GetModel().screenBrightness);
+
+        //SetResolution(GameSettings.GetModel().screenResolutionIndex);
+        SetQuality(GameSettings.GetModel().graphicsQualityIndex);
+
+        //Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
+    }
+
+    void SetBrightness(float _brightnessIndex)
+    {
+        //Debug.Log("Setting brightness to " + _brightnessIndex.ToString());
+        liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
+    }
+
+    public void SetResolution(int _resolutionIndex)
+    {
         // Set resolutions (legacy code) Duplicated :(
         resolutions.Clear();
         Resolution[] allResolutions = Screen.resolutions.Reverse().ToArray(); //This should reverse the order of which they populate
@@ -35,28 +62,9 @@ public class ScreenSettingsHandler : MonoBehaviour
                 options.Add(resString);
             }
         }
-    }
 
-    void Update()
-    {
-        if (liftGammaGain == null) TryGetLiftGammaGain();
-        else SetBrightness(GameSettings.GetModel().screenBrightness);
-
-        Screen.fullScreen = GameSettings.GetModel().fullScreenEnabled;
-        SetResolution(GameSettings.GetModel().screenResolutionIndex);
-        SetQuality(GameSettings.GetModel().graphicsQualityIndex);
-    }
-
-    void SetBrightness(float _brightnessIndex)
-    {
-        //Debug.Log("Setting brightness to " + _brightnessIndex.ToString());
-        liftGammaGain.gain.value = new Vector4(_brightnessIndex, _brightnessIndex, _brightnessIndex, _brightnessIndex);
-    }
-
-    public void SetResolution(int _resolutionIndex)
-    {
         Resolution _resolution = resolutions[_resolutionIndex];
-        Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
+        Screen.SetResolution(_resolution.width, _resolution.height, GameSettings.GetModel().fullScreenEnabled);
     }
 
     public void SetQuality(int _qualityIndex)
@@ -74,5 +82,10 @@ public class ScreenSettingsHandler : MonoBehaviour
         {
             Debug.LogError("Failed to find LiftGammaGain. Ensure the effect is added to your Volume Profile.");
         }
+    }
+
+    public void RegisterSelfAsService()
+    {
+        ServiceLocator.Register(this);
     }
 }
