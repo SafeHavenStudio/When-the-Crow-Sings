@@ -18,7 +18,8 @@ public class TimingMeterQTE : QuickTimeEvent
     public RectTransform targetRangeHighlight;
     public Image spacebar;
     public Image bKey;
-    private ParticleSystem featherParticle;
+    public ParticleSystem featherParticle;
+    public ParticleSystem featherParticle2;
 
     [HideInInspector]
     public int winCount;
@@ -168,7 +169,7 @@ public class TimingMeterQTE : QuickTimeEvent
     private IEnumerator waitForSuccess()
     {
         featherParticle.Play();
-        background.color = Color.green;
+        featherParticle2.Play();
 
         yield return new WaitForSeconds(1f);
 
